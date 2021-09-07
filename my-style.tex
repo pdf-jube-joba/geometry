@@ -1,0 +1,75 @@
+% パッケージ
+\usepackage{amsthm}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+\usepackage{tikz}
+
+% 定理環境
+%% 本体
+\theoremstyle{definition}
+\newtheorem*{tDefinition}{定義}
+\newtheorem*{tTheorem}{定理}
+\newtheorem*{tProof}{証明}
+\newtheorem*{tNotation}{記法}
+\newtheorem*{tRemark}{注意}
+\newtheorem*{tWhen}{設定}
+
+\newenvironment{Mini}{
+  \begin{minipage}[t]{0.9\hsize}
+  \setlength{\parindent}{12pt}
+  \begin{itemize}
+  \setlength{\labelsep}{10pt}
+}{
+  \end{itemize}
+  \vspace{5pt}
+  \end{minipage}
+}
+
+\newenvironment{Definition}{
+  \begin{tDefinition}
+  \begin{Mini}
+}{
+  \end{Mini}
+  \end{tDefinition}
+}
+
+\newenvironment{Theorem}{
+  \begin{tTheorem}
+  \begin{Mini}
+}{
+  \end{Mini}
+  \end{tTheorem}
+}
+
+\newenvironment{Proof}{
+  \begin{tProof}
+  \begin{Mini}
+      }{
+  \end{Mini}
+  \end{tProof}
+}
+
+\newenvironment{When}{
+  \begin{tWhen}
+  \begin{Mini}
+}{
+  \end{Mini}
+  \end{tWhen}
+}
+
+%% マーク
+\newcommand{\itemwhen}{\item[\(\bigcirc\)]}
+
+\newcommand{\itemdefi}{\item[\(\square\)]}
+\newcommand{\itemprop}{\item[\(\vartriangleright\)]}
+\newcommand{\itemand}{\item[\(-\)]}
+
+\newcommand{\itemprof}{\item[\(\because\)]}
+\newcommand{\itemthen}{\item[\(\rightsquigarrow\)]}
+
+\newcommand{\itemenum}{\item[\(\bullet\)]}
+
+%コマンド関連
+
+\newcommand{\WIP}{\textcolor{red}{わかりませんでした}}
+\newcommand{\ADMIT}{\textcolor{blue}{認めます}}
