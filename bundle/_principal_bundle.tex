@@ -1,0 +1,181 @@
+\begin{Definition}
+\itemnote
+  主束と表現から束を作る。
+\itemwhen \((M , P , \pi)\) : principal \(G\) bundle
+\itemdefi
+  for (\((F , \rho)\) : \(G\) space) ,\\
+  \(P \times_{\rho} F\) : fiber bundle with fiber \(F\) :=
+  \begin{itemize}
+    \itemenum base space := \(B\)
+    \itemenum total space := \(\{(p , f) \in P \times F\} / G\) where \\
+      \(g \cdot (p , f) := (p \cdot g^{-1} , \rho(g) f)\)
+  \end{itemize}
+\itemdefi
+  for (\(V , \rho\) : representation of \(G\)) ,\\
+  \(P \times_{\rho} V\) : vector bundle :=
+  \begin{itemize}
+    \itemenum bundle := \(P \times_{\rho} V\)
+    \itemenum vector structure := \AIMAI{induced by vector structure on \(V\)}
+  \end{itemize}
+\itemdefi
+  for (\(H , \rho\) : homomorphism of Lie group) ,\\
+  \(P \times_{\rho} H\) : principal \(H\) bundle :=
+  \begin{itemize}
+    \itemenum bundle := \(P \times_{\rho} H\)
+    \itemenum right action of \(H\) := \\
+    for (\(e\) : \(P \times_{\rho} H\)) (\(h\) : H) ,\\
+    take (\(p\) : \(P\)) (\(h_1\) : H) such that \(e = [p , h_1]\) ,
+    return \([p , h_1 \cdot h]\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  主束をベクトル束から構成する。
+\itemdefi
+  for (\((\pi : E \to B)\) : \(n\) dim vector bundle) ,\\
+  \(P_{GL}(E)\) : principal \(\text{GL}(n , \mathbb{R})\) bundle over \(B\) :=
+  \begin{itemize}
+    \itemenum total := \(\coprod_{x : B} \{f : \mathbb{R}^n \to E_x \mid f \text{ is invertible }\}\)
+    \itemenum right \(G\) action := by formula ... \((\phi \cdot g)(x) = \phi(g \cdot x)\)
+  \end{itemize}
+\itemdefi
+  for (\((\pi : E \to B)\) : oriented vector bundle) ,\\
+  \(P_{GL+}(E)\) : principal \(\text{GL+}(n , \mathbb{R}^n)\) bundle over \(B\) :=
+  \begin{itemize}
+    \itemenum total := \(\coprod_{x : B} \{f : \mathbb{R}^n \to E_x \mid f \text{ is invertible and preserve orientation }\}\)
+    \itemenum right \(G\) action := \AIMAI{define like the way as before}
+  \end{itemize}
+\itemdefi
+  for (\((\pi : E \to B)\) : metrized vector bundle) ,\\
+  \(P_{O}(E)\) : principal \(\text{O}(n)\) bundle over \(B\) :=
+  \begin{itemize}
+    \itemenum total := \(\coprod_{x : B} \{f : \mathbb{R}^n \to E_x \mid f \text{ is invertible and preserve metric }\}\)
+    \itemenum right \(G\) action := \AIMAI{define like the way as before}
+  \end{itemize}
+\itemdefi
+  for (\((\pi : E \to B)\) : oriented metrized vector bundle) ,\\
+  \(P_{SO}(E)\) : principal \(\text{SO}(n)\) bundle over \(B\) :=
+  \begin{itemize}
+    \itemenum total := \(\coprod_{x : B} \{f : \mathbb{R}^n \to E_x \mid f \text{ is invertible and preserve orientation and metric }\}\)
+    \itemenum right \(G\) action := \AIMAI{define like the way as before}
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  主束の構成の二つ目
+\itemdefi
+  for (\((\pi : E \to B)\) : \(n\) dim vector bundle) ,\\
+  \(P_{GL}(E)\) : principal \(G\) bundle := 
+  \begin{itemize}
+    \itemenum total := \(\coprod_{x : B} \{(v_1 , \ldots , v_n) \in E_x \times \cdots \times E_x \mid \{v_i \mid i\} \text{ is basis }\}\)
+    \itemenum right \(G\) action := by formula ... \((v_1 , \ldots , v_n) \cdot (a_{ij})_{ij} = (\sum_j a_{1j} e_j , \ldots , \sum_j a_{nj} e_j)\)
+  \end{itemize}
+\itemdefi
+  \AIMAI{似た感じで oriented , metric , oriented and metric の場合それぞれできる}
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  当然二つの構成は自然に同型
+\itemprop
+  for (\((\pi : E \to M)\) : \(n\) dim vector budnel) ,\\
+  there exists natural isomorphism on two definition
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  フレーム束からベクトル束を復元する。
+\itemprop
+  for (\((\pi : E \to M)\) : \(n\) dim vector bundle) ,\\
+  let \(\rho\) : representation of \(\text{GL}(n , \mathbb{R}^n)\) to \(\mathbb{R}^n\) := standard definition
+  then there exists natural isomorphism \(E \cong P_{GL}(E) \times_{\rho} \mathbb{R}^n\)
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  主束の接ベクトルについて、水平を定義する
+\itemwhen \((P , M , \pi)\) : principal \(G\) bundle
+\itemwhen \(\mathfrak{g}\) := Lie algebra of \(G\)
+\itemdefi
+  (\(v\) : \(T_{x}P\)) is vertical \(\iff\) \(\forall\) (\(f\) : \(C(P)\)) , \(v(\pi^*f) = 0\)
+\itemdefi
+  \(\mathcal{V}P\) : vector bundle := induced by \(\{v \in TP \mid v \text{ is vertical }\}\)
+\itemprop
+  let \(P \times \mathfrak{g} \to TP\) := \((p , V) \mapsto \frac{d}{dt} \left|_{t = 0} p \cdots (exp t V) \right.\) \\
+  then this is vector bundle hom and isomophism on \(\mathcal{V}P\)
+\itemdefi
+  for (\(V\) : \(\mathfrak{g}\)) ,\\
+  \(\tilde{V}\) : \(\mathcal{X}(M)\) :=
+  \begin{indentblock}
+    for (\(p\) : \(P\)) ,\\
+    let s : \(V_p P\) := corresponding to (\((p , V)\)) on \(P \times \mathfrak{g} \cong VP\) 
+  \end{indentblock} 
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  リー微分を定義する
+\itemwhen \(M\) : manifold
+\itemdefi
+  tensor bundle := vector bundle such that constructed from \(P_{GL}(TM) \times_{\rho} V\)
+\itemdefi
+  for (\(X\) : \(\mathcal{X}(M)\)) (\(s\) : \(\Gamma(P_{GL}(TM) \times_{\rho} V)\)) ,\\
+  let \(\phi_t\) := one parameter group of \(X\) \\
+  \(L(X)s\) : \(\Gamma(P_{GL}(TM) \times_{\rho} V)\) := \(\frac{d}{dt} \left|_{t=0} \phi_t \cdot s \right.\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  リー微分、微分、縮約に関する性質
+\itemprop
+  \(L(X)d = dL(X)\)
+\itemprop
+  \(L(X) = d \iota(X) + \iota(X) d\)
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  切断の対応を与える
+\itemwhen \((P , M , \pi)\) : principal \(G\) bundle
+\itemwhen \((\rho , E)\) : representation of \(G\)
+\itemdefi
+  \(C(P , E)^G\) : \(C(M)\) module := \(\{f : P \to E \mid s(p \cdot g) = \rho(g^{-1}) s(p)\}\)
+\itemprop
+  let \(C(P , E)^G \to \Gamma(M , P \times_G E)\) :=
+  for \(f\) (\(x\) : \(M\)) ,\\
+  take \(p\) : \(P_x\) ,\\
+  return \([p , f(p)]\)
+  then this is isomorphism
+\itemprop
+  \((\tilde{V} \cdot f)(x) + \rho(V)s(x) = 0\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  微分形式の対応を与える。
+\itemdefi
+  define \(G\) action on \(\Omega(P , E)\) := by formula \(g \cdot (\alpha \otimes e) = g \cdot \alpha \otimes g \cdot e\)
+\itemdefi
+  \(\Omega(P , E)^G\) := \(\{\alpha : \Omega(P , E) \mid g \cdot \alpha = \alpha\}\)
+\itemdefi
+  for (\(\alpha\) : \(\Omega(P , E)^G\)) ,\\
+  \(L(X)\alpha + \rho(X)\alpha = 0\)
+\itemdefi
+  for (\(\alpha\) : \(\Omega(P , E)\)) ,\\
+  \(\alpha\) is horizontal \(\iff\) \(\forall\) (\(X\) : vertical vector field on \(P\)) , \(\iota(X)\alpha = 0\)
+\itemdefi
+  for (\(\alpha\) : \(\Omega(P , E)\)) ,\\
+  \(\alpha\) is basic differential form \(\iff\) \(\alpha\) is \(G\) invariant and horizontal
+\itemdefi
+  for (\(\alpha\) : \(\Omega^i(P , E)_{bas}\) ,\\
+  define \(\alpha_M\) : \(\Omega^i(M , P \times_G E)\) :=
+  \begin{indentblock}
+    for (\(x\) : \(M\)) (\(X_1 , \ldots , X_k\) : \(T_x M\)) ,\\
+    take (\(p\) : \(P_x\)) (\(\tilde{X_i}\) : \(T_p P\)) such that \(\pi_* \tilde{X_i} = X_i\) ,\\
+    return \([p , \alpha_p(X_1 , \ldots X_q)]\)
+  \end{indentblock}
+\itemprop
+  (\(\alpha \mapsto \alpha_M\) : \(\Omega^i(P , E)_{bas} \to \Omega^i(M , P \times_G E)\)) is isomorphism
+\end{Definition}

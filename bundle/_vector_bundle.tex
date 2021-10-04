@@ -1,0 +1,177 @@
+\begin{Definition}
+\itemnote
+  \(G\) 同変束、代数束や加群束の切断全体に構造を入れる
+\itemdefi
+  for (\((\pi : E \to B)\) : \(G\) equivariant bundle) ,\\
+  \(- \cdot -\) : \(G\) action on \(\Gamma(E)\) := by formula ...(\((g \cdot s)(x) = g \cdot s(g^{-1} \cdot x)\))
+\itemdefi
+  for (\((\pi : E \to B)\) : \(G\) equivariant bundle) (\(X\) : Lie algebra of \(G\)) (\(s\) : \(\Gamma(B , E)\)) ,\\
+  \(L(X)s\) : \(\Gamma(B , E)\) := \(\frac{d}{dt}\left|_{t=0} \text{exp}(t X) \cdot s \right.\)
+\itemdefi
+  for (\((\pi : E \to B)\) : algebra bundle) ,\\
+  \(C(M)\) algebra structure on \(\Gamma(B , E)\) := by formula ...\((s_1 \cdot s_2)(x) = s_1(x) \cdot s_2(X)\)
+\itemdefi
+  for (\((\pi_1 : E_1 \to B)\) : algebra bundle) (\((\pi_2 : E_2 \to B)\) : module bundle of \((B , E_1 , \pi_1)\)) ,\\
+  \(\Gamma(B , E_1)\) module structure on \(\Gamma(B , E_2)\) := by formula ...\((s_1 \cdot s_2)(x) = s_1(x) \cdot s_2(x)\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  ベクトル束をベクトル空間の関手から構成する
+\itemdefi
+  Vec : category := \AIMAI{category of vector space}
+\itemdefi
+  for (\(B\) : space) ,\\
+  \(\mathcal{VB}(B)\) : category := \AIMAI{category of vector bundle over \(B\)}
+\itemdefi
+  for (\(T\) : \(\text{Vec}^{p,q} \to \text{Vec}\)) ,\\
+  is \((p,q)\)-continuous functor \(\iff\) \(T(- , \ldots , -)\) : \(V_1 \times \cdots V_p \times W_1 \times \cdots , W_q \to T(V_1 , \ldots , W_q)\) is continuous 
+\itemdefi
+  for (\(T\) : \((p,q)\)-continuous functor) (\(E^1 , \ldots , E^{p + q}\) : vector bundle over \(B\)) ,\\
+  \(T(E^1 , \ldots , E^{p + q})\) : vector bundle over \(B\) :=
+  \begin{itemize}
+    \itemenum total space := \(\coprod_{b : B} T(E^1_b , \ldots , E^{p + q}_b)\) with \AIMAI{nice topology}
+    \itemenum projection := \AIMAI{by natural definition}
+  \end{itemize}
+\itemdefi
+  for (\(T\) : \((p,q)\)-cotinuous functor) (\(E^1 , \ldots , E^{p + q} , F^1 , \ldots , F^{p + q}\) :vector bundle over \(B\)) (\(i = 1 \ldots p\) , \(f^i\) : \(E^i \to F^i\)) (\(i = p + 1 \ldots , p + q\) , \(f^i\) : \(F^i \to E^i\)) ,\\
+  \(T(f^1 , \ldots , f^{p + q})\) : \(T(E^1 , \ldots , E^{p + q}) \to T(F^1 , \ldots , F^{p + q})\) := for (\(x\) : \(T(E^1_b , \ldots , E^{p + q}_b)\)) , return \(T(f^1_b , \ldots , f^{p + q}_b)(x)\)
+\itemdefi
+  for (\(T\) : \((p,q)\)-continuous functor) ,\\
+  \(\tilde{T}\) : \(\mathcal{VB}(B)^{p,q} \to \mathcal{VB}(B)\) := defined above
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  for (\(\eta\) : natural transformation between (\(T_1 , T_2\) : \((p,q)\)-continuous functor)) ,\\
+  \(\tilde{\eta}\) : natural transformation between (\(\tilde{T_1} , \tilde{T_2}\)) :=
+  \AIMAI{by natural definition}
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  ベクトル束の切断全体に加群構造を定義する
+\itemdefi
+  for (\((\pi : E \to M)\) : vector bundle) , \(\Gamma(M , E)\) : \(C(M)\) module :=
+  \begin{itemize}
+    \itemenum base := \(\{f : M \to E \mid \pi \circ f = \text{id}\}\)
+    \itemenum module structure := \AIMAI{by pointwise}
+  \end{itemize}
+\itemprop
+  for (\((\pi : E \to M)\) : vector bundle) (\(U\) : open subset of \(M\)) (\(s\) : \(\Gamma(E)\)) , \(s \mid_{U} \in \Gamma(E \mid_{U})\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  切断に関する自然な性質をいくつか示す（一般化はできなかった）
+\itemprop
+  for (\((E^1) (E^2)\) : vector bundle over \(B\)) ,\\
+  there exists natural isomorphism \(\Gamma(E^1 \oplus E^2) \cong \Gamma(E^1) \oplus \Gamma(E^2)\)
+\itemprop
+  for (\((E^1) (E^2)\) : vector bundle over \(B\)) ,\\
+  there exists natural isomorphism \(\Gamma(E^1 \otimes E^2) \cong \Gamma(E^1) \otimes_{C(B)} \Gamma(E^2)\)
+\itemprop
+  for (\(V\) : vector space) ,\\
+  there exists natural isomorphism \(\Gamma(B \times V) \cong C(B , V)\)
+\itemdefi
+  we identify the two in this way
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  ベクトル束の間の写像についての性質を示す。
+\itemdefi
+  for (\(E , F\) : vector bundle over \(B\)) ,\\
+  let \((E \to F) \to \Gamma(\text{Hom}(E , F))\) := \(f \mapsto (x \mapsto f \mid_{x})\) \\
+  then this is isomorphism
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  切断の間の写像に関する性質を示す
+\itemwhen \(E , F\) : vector bundle over \(B\)
+\itemwhen \(f\) : \(\mathbb{R}-linear \Gamma(E) \to \Gamma(F)\)
+\itemprop
+  following property is equivalent
+  \begin{itemize}
+    \itemenum \(f\) is \(C(B)\) linear
+    \itemenum forall (\(s\) : \(\Gamma(E)\)) (\(x\) : \(B\)) , \(s(x) = 0 \Rightarrow f(s)(x) = 0\)
+    \itemenum forall (\(s_1 , s_2\) : \(\Gamma(E)\)) (\(x\) : \(B\))  , \(s_1(x) = s_2(x) \Rightarrow (f(s_1))(x) = (f(s_2))(x)\) 
+  \end{itemize}
+\itemprop
+  folowing property is equivalent 
+  \begin{itemize}
+    \itemenum forall (\(s\) : \(\Gamma(E)\)) (\(U\) : open subset of \(B\)) , \(s \mid_{U} = 0 \Rightarrow (f(s)) \mid_{U} = 0\)
+    \itemenum forall (\(s_1 , s_2\) : \(\Gamma(E)\)) (\(U\) : open subset of \(B\)) , \(s_1 \mid_{U} = s_2 \mid_{U} \Rightarrow (f(s_1)) \mid_{U} = (f(s_1)) \mid_{U}\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemnote 向き付きベクトル束、計量付きベクトル束を定義する
+\itemdefi
+  for (\((M , E , \pi)\) : vector bundle) ,\\
+  orientation := connected component of \(\Lambda^{\dim(E)}(E) \backslash 0\)
+\itemdefi
+  for (\((M , E , \pi)\) : vector bundle) ,\\
+  metric := \(g : \Gamma(E^* \otimes E^*)\) such that \AIMAI{pointwisely inner product} 
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  微分形式を定義する
+\itemwhen \(M\) : manifold
+\itemdefi
+  define \(\Omega^i(M)\) : \(C(M)\) module := \(\Gamma(M , \Lambda^i(T^*M))\)
+\itemdefi
+  define \(\Omega^*(M)\) : graded \(C(M)\) algebra := \(\Gamma(M , \Lambda^*(T^*M))\)
+\itemdefi
+  for (\(E\) : vector bundle over \(M\)) ,\\
+  define \(\Omega^*(M , E)\) := \(\Gamma(M , \Lambda^*(T^*M) \otimes E)\)
+\itemdefi
+  for (\(V\) : vector bundle over \(M\)) ,\\
+  define \(\Omega^*(M , V)\) := \(\Gamma(M , \Lambda^*(T^*M) \otimes (M \times V))\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  ベクトル場や微分形式の定義の仕方について
+\itemprop
+  let \(\Phi\) : \(\mathcal{X}(M) \to \text{Der}(C(M))\) := \AIMAI{by natural definition} \\
+  \(\Phi\) is isomorphism as \(C(M)\) module
+\itemprop
+  let \(\Phi\) : \(\Omega^i(M) \to \{f : \bigotimes_k \mathcal{X}(M) \to C(M) \mid f \text{ is alternative}\}\) := \AIMAI{by natural definition} \\
+  \(\Phi\) is isomorphism as \(C(M)\) module
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \WIP
+\itemprof
+  \WIP
+\end{Proof}
+
+\begin{Definition}
+\itemnote
+  微分形式と微分を定義し性質について述べる
+\itemdefi
+  \(d\) : \(\Omega^{k}(M) \to \Omega^{k + 1}(M)\) :=
+  for (\(\omega\)) (\(X_0\) , \ldots , \(X_k\) : \(\mathcal{X}(M)\)) ,\\
+  return \(\sum_i (-1)^i X_i[\omega(X_0 , \ldots , \hat{X_i} , \ldots , X_k)] + \sum_{i \lneqq j} (-1)^{i + j} \omega([X_i , X_j] , \ldots X_0 , \ldots , \hat{X_i}) , \ldots , \hat{X_j} , \ldots , X_k\)
+\itemprop
+  \(d \circ d = 0\)
+\itemprop
+  \(df (X) = X(f)\)
+\itemprop
+  \(d (\alpha \wedge \beta) = d \alpha \wedge \beta + (-1)^{|a|} \wedge \beta\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  縮約（contraction）について定義する
+\itemdefi
+  for (\(X\) : \(\mathcal{X}(M)\)) ,\\
+  define \(\iota(X)\) : \(\Omega^i(M , E) \to \Omega^{i - 1}(M ,E)\) := \AIMAI{by natural definition}
+\itemdefi
+  for (\(X\) : \(\mathcal{X}(M)\)) (\(E\) : vector bundle over \(M\)) ,\\
+  define \(\iota(X)\) := \AIMAI{define in the same way as above}
+\end{Definition}
