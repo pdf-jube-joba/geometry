@@ -1,0 +1,158 @@
+\begin{Definition}
+\itemnote
+  接続と接続形式を定義する。
+\itemdefi
+  connection (\(\tau\)) := \(G\) invariant \(\dim (M)\) field of \(TP\) such that \(\pi_* : \tau_p \to T_{\pi(p)}X\) is isomorphism
+\itemdefi
+  for (\(\tau\) : connection) ,\\
+  connection \(1\) form (\(\omega\)) : \(\Omega^1(P ; \mathfrak{g})\) :=
+  \begin{indentblock}
+    for (\(p\) : \(P\)) ,\\
+    let \(f\) : \(T_p P \to \mathcal{V}_p P\) := projection induced by \(\tau_p\) \\
+    let \(g\) : \(\mathcal{V}_p P \to \mathfrak{g}\) := induced by isomorphism of \(P \times \mathfrak{g} \to \mathcal{V}P\) \\
+    return \(g \circ f\)
+  \end{indentblock}
+\itemdefi
+  for (\(\tau\) : connection) ,\\
+  let \(\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := by projection induced by \(\tau\)
+\end{Definition}
+
+\begin{Definition}
+\itemprop
+  for (\(X\) : \(\mathcal{X}(M)\)) ,\\
+  define \(X_{P}\) : \(\Gamma(HP)\) := unique by \(\pi_* X_P = X\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  接続・接続形式・分裂が対応することを示す。
+\itemprop
+  for (\(\omega\) := connection \(1\) form of \(\tau\)) ,\\
+  \(\forall\) (\(V\) : \(\mathfrak{g}\)) , \(\omega(\tilde{V}) \equiv V\) and \\
+  \(\forall\) (\(g\) : \(G\)) , \(R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\)
+\itemprop
+  let \(\text{connection } \to \{\omega : \Omega^1(P ; \mathfrak{g}) \mid \omega(\tilde{V}) \equiv V , R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\}\) := defined above \\
+  this is isomorphism
+\itemprop
+  let \(\text{connection } \to \text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := defined above \\
+  this is isomorphism
+\itemdefi
+  We identifying all of this
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  接続の曲率を定義する
+\itemdefi
+  for (\(\omega\) : connection \(1\) form) ,\\
+  curvature : \(\Omega^2(P ; \mathfrak{g})\) := \(d \omega + [\omega , \omega]\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  曲率の性質を示す
+\itemdefi
+  \(\Omega(X , Y) = [X , Y]_P - [X_P , Y_P]\)
+\itemdefi
+  \(\Omega(\tilde{V} , 0) = 0\)
+\itemdefi
+  \(g^* \Omega = \text{Ad}_{g^{-1}}(\Omega)\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  曲率の局所的な表示について
+\itemwhen fix \(G \subset \text{GL}(k , \mathbb{R})\)
+\itemdefi
+  \(\omega_{ij}\) , \(\Omega_{ij}\) : \(\Omega^i(P)\) := \((i,j)\) component of \(\omega\) \(\Omega\)
+\itemprop
+  \(\Omega_{i,j} = d \omega_{ij} + \sum_k \omega_{ik} \wedge \omega_{kj}\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemdefi
+  for (\(e_i , e_j\) : \(\mathbb{R}^n\)) ,\\
+  \(e_i \wedge e_j\) : \(\mathbb{R}^n \to \mathbb{R}^n\) := \(v \mapsto \langle e_i , v \rangle e_j - \langle e_j , e \rangle e_i\)
+\itemdefi
+  \(\omega = - \sum_{i \lneqq j} \omega_{ij} e_i \wedge e_j\)
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  共変微分を定義する
+\itemdefi
+  for (\((\pi : E \to M)\) : vector bundle) ,\\
+  covariant derivative := \(\nabla\) : \(\mathbb{R}\text{-linear } \Gamma(E) \to \Gamma(T^*M \otimes E)\) such that \(\forall (f : C(M)) (e : \Gamma(E))\) , \(\nabla(f e) = d f \otimes e + f \nabla e\)
+\itemdefi
+  for (\(\nabla\) : connection) (\(X\) : vector field) ,\\
+  \(\nabla_X\) : \(\Gamma(E) \to \Gamma(E)\) := \(\iota (X) \circ \nabla\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  共変微分の性質を示す。
+\itemprop
+  forall (\(\nabla_1\) , \(\nabla_2\) : connection) ,\\
+  \(\nabla_1 - \nabla_2\) is \(C(M)\) linear
+\itemprop
+  forall (\(\nabla\) : connection) (\(\alpha\) : \(\Omega^1(M)\)) ,\\
+  \(\nabla + \alpha\) is connection
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  for (\(\omega\) : connection on \((P , M , \pi)\) : principal \(G\) bundle) (\(U\) : trivialization) (\(s\) : local section of \(U\)) (\(A\) : \(U \to G\)) ,\\
+  let \(\phi_A\) : \(P \mid_{U} \to P \mid_{U}\) := \(x \mapsto x \cdot A(x)\) \\
+  then \(s^* \phi_A^* (\omega \mid_{U}) = \text{Ad}_{A^{-1}} (s^* (\omega \mid_{U})) + A^{-1}dA\)
+\end{Theorem}
+
+\begin{Definition}
+\itemnote
+  共変微分をフレーム束の接続から構成する
+\itemwhen \((\pi : E \to M)\) : vector bundle
+\itemwhen \(\omega\) : connection form on \(P_{GL}(E)\)
+\itemdefi
+  for (\(U\) : trivialization) ,\\
+  define \(\nabla_U\) : covariant derivative on \(U\) :=
+  \begin{indentblock}
+    take (\(\mathcal{E} = (e_1 , \ldots , e_n)\) : local frame on \(U\)) ,\\
+    let \(\tilde{\omega}\) : \(A^1(U ; \mathfrak{g})\) := \(\mathcal{E}^*\omega\) ,\\
+    let \(\tilde{\omega}_{ij}\) : \(A^1(U)\) := \((i,j)\) component of \(\tilde{\omega}\) ,\\
+    define induced by \(e_j \mapsto \sum_j \tilde{\omega}_{ji} \otimes e_j\)
+  \end{indentblock}
+\itemdefi
+  define \(\nabla\) : covariant detivative on \(E\) := unique by forall (\(U\) : trivialization) (\(s\) : \(\Gamma(E)\)) , \((\nabla s) \mid_{U} = \nabla_U (s \mid_U)\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \AIMAI{this construction can be in the same way when \(E\) is metric , oriented}
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  この構成が向き付けられた計量付きベクトル束の場合にはよい性質を持つことを示す。
+\itemprop
+  for (\((\pi : E \to M)\) : ori.met.vector bundle) (\(\omega\) : connection on \(P_{SO}(E)\)) ,\\
+  let \(\nabla\) : covariant derivative on \(E\) := defined above ,\\
+  then forall (\(V\) : \(\mathcal{X}(M)\)) (\(s_1\) , \(s_2\) : \(\Gamma(E)\)) , \(V \langle s_1 , s_2 , \rangle = \langle \nabla_V s_1 , s_2 \rangle + \langle s_1 , \nabla_V s_2 \rangle\)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  for (\(\nabla\) : covariant derivative on \((E \to M)\)) ,\\
+  define \(\tilde{\nabla}\) : \(\Omega^i(M , E) \to \Omega^{i + 1}(M , E)\) := induced by \(\alpha \otimes e \mapsto d \alpha \otimes e + (-1)^i \alpha \wedge \nabla e\) \\
+  define \(R\) := \(\tilde{\nabla} \circ \nabla\) \\
+  define \(R_{V , W}\) : \(\Gamma(E) \to \Gamma(E)\) := \(\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \(R e_i = \sum_j \tilde{\Omega}_{ij} \otimes e_j\)
+\itemprop
+  \(R\) is tensor
+\itemprop
+  forall (\(U\) : open subset of \(M\)) (\(V , W\) : \(\mathcal{X}(M) \mid_{U}\)) (\(e\) : \(\Gamma(E \mid_{U})\)) , \(R_{V , W}e = (\nabla_V \nabla_W - \nabla_W \nabla_V - \nabla_{[V , W]}) e\)
+\itemprop
+  forall (\(U\) : open subset of \(M\)) (\(V , W\) : \(\mathcal{X}(M) \mid_{U}\)) (\(s_1 , s_2\) : \(\Gamma(E \mid_{U})\)) , \(\langle R_{V, W} s_1 , s_2 + \langle s_1 , R_{V, W} s_2 \rangle = 0\)
+\end{Theorem}
