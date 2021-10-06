@@ -1,0 +1,44 @@
+\begin{Definition}
+\itemnote
+  クリフォード代数束を考察する
+\itemdefi
+  define \(cl(\rho_n)\) : \(\text{SO}(n) \to \text{Aut}(\text{Cl}(\mathbb{R}^n))\) := standard representation \\
+  define \(cl(\rho_n)_*\) : \(\mathfrak{so}(n) \to \text{Der}(\text{Cl}(\mathbb{R}^n))\) := derivative of \(cl(\rho_n)\)
+\itemprop
+  forall (\(A\) : \(\mathfrak{so}(n)\)) (\(\phi_1 , \phi_2\) : \(\text{Cl}(\mathbb{R}^n)\)) , \({cl(\rho_n)_* A}(\phi_1 \cdot \phi_2) = {cl(\rho_n)_* A}(\phi_1) \cdot \phi_2 + \phi_1 \cdot {cl(\rho_n)_* A}(\phi_2)\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  クリフォード代数束の上に共変微分を定義する
+\itemdefi
+  for (\((\pi : E \to B)\) : riemannian vector bundle) (\(\tau\) : connection on \(P_{O}(E)\)) ,\\
+  \(\nabla\) : covariant derivative on \(\text{Cl}(E)\) := 
+  \begin{indentblock}
+    let \(P\) : principal \(\text{O}(n)\) bundle := orthonormal frame bundle of \(E\) \\
+    let \(\text{Cl}(E) \cong P_{O}(E) \times_{\rho} \text{Cl}(\mathbb{R}^n)\) := \AIMAI{natural definition}
+    then naturaly induced
+  \end{indentblock}
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  covariant derivative (\(\nabla\)) on \(\text{Cl}(E)\) defined above satisfies forall (\(\phi_1 , \phi_2\) : \(\Gamma(\text{Cl}(E))\)) \(\nabla(\phi_1 \cdot \phi_2) = \nabla(\phi_1) \cdot \phi_2 + \phi_1 \cdot \nabla(\phi_2)\)
+\itemprop
+  \(\nabla\) preserves \(\text{Cl}^0(E)\) , \(\text{Cl}^1(E)\)
+\itemprop
+  for (volume form (\(\omega\)) : \(\Gamma(\text{Cl}(E))\)) ,\\
+  \(\nabla \omega = 0\)
+\itemprop
+  if \(n \equiv 3 , 4(mod 4)\) ,\\
+  \(\nabla\) preserves \(\text{Cl}^{\pm}(E)\)
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen \((\pi : E \to M)\) : vector bundle with spin structure
+\itemdefi
+  for (\(\tau\) : connection on \(P_{SO}(E)\)) (\(M\) : left \(\text{Cl}(\mathbb{R}^n)\) module) ,\\
+  let \(\tilde{\tau}\) : connection on \(P_{Spin}(E)\) := indeced by covering \\
+  let \(\nabla\) : covariant derivative on \(S(M)\) \\
+  then forall (\(\phi_1\) : \(\Gamma(\text{Cl}(E))\)) (\(\phi_2\) : \(\Gamma(S(M))\)) \(\nabla(\phi_1 \cdot \phi_2) = \nabla(\phi_1) \cdot \phi_2 + \phi_1 \cdot \nabla(\phi_2)\)
+\end{Definition}

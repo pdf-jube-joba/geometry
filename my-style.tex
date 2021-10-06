@@ -59,6 +59,7 @@
 
 %% マーク
 \newcommand{\itemwhen}{\item[\(\bigcirc\)]}
+\newcommand{\itemnote}{\item[!]}
 
 \newcommand{\itemdefi}{\item[\(\square\)]}
 \newcommand{\itemprop}{\item[\(\vartriangleright\)]}
@@ -68,8 +69,21 @@
 \newcommand{\itemthen}{\item[\(\rightsquigarrow\)]}
 
 \newcommand{\itemenum}{\item[\(\bullet\)]}
+\newcommand{\itemwith}{\item[\(-\)]}
+
+% 記述関係
+\newenvironment{indentblock}{
+  \\
+  \hspace*{5mm}
+  \begin{minipage}{\textwidth}
+}{
+  \end{minipage}
+  \\
+}
 
 %コマンド関連
 
-\newcommand{\WIP}{\textcolor{red}{わかりませんでした}}
+\newcommand{\WIP}{\textcolor{red}{工事中}}
+\newcommand{\SORRY}{\textcolor{red}{わかりませんでした}}
 \newcommand{\ADMIT}{\textcolor{blue}{認めます}}
+\newcommand{\AIMAI}[1]{\textit{#1}}
