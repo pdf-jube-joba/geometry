@@ -1,6 +1,40 @@
 \begin{Definition}
 \itemnote
-  接続と接続形式を定義する。
+  一般のファイバー束の場合に接続(connection)まわりを定める。
+\itemwhen \((\pi , E , B)\) : fiber bundle
+\itemdefi
+  connection := splitting of \(0 \to \mathcal{V}E \to TE \to \pi^*TM\) : vector bundle exact sequence on \(E\)
+\itemdefi
+  connection \(1\) form := \(\omega\) : \(\Omega^(E , \mathcal{V}E)\) such that
+  forall (\(X\) : vertical vector fields) , \(\iota(X)\omega = X\)
+\itemwhen \(\omega\) : connection \(1\) form
+\itemdefi
+  define horizontal vector field := \(X\) : \(\Gamma(TE)\) such that \(\omega(X) = 0\) \\
+  define \(\mathcal{H}E\) := kernel of  \(\omega\) as \(TE \to \mathcal{V}E\) \\
+\itemprop
+  let \(\mathcal{H}E \to \pi^* TB\) := restriction of \(TE \to \pi^*TB\) \\
+  then this is isomorphism
+\itemdefi
+  for (\(X\) : \(\mathcal{X}(B)\)) ,\\
+  horizontal lift of \(X\) (\(X_E\)) : \(\Gamma(\mathcal{H}E)\) := unique by \(\pi_* X_E = X\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  この接続に対して曲率を定義する。
+\itemwhen \((\pi , E , B)\) : fiber bundle
+\itemwhen \(\omega\) : connection \(1\) form
+\itemdefi
+  curvature (\(\Omega\)) : \(\Gamma(\pi^*T^*B \otimes \mathcal{V}E)\) := by formula...
+  \(\forall\) (\((X , Y)\) : \(\mathcal{X}(M)\)) , \(\Omega(\pi^*X , \pi^*Y) = [X , Y]_E - [X_E , Y_E]\)
+\itemprop
+  let \(\Omega\) := curvature of \(\omega\) \\
+  then \(\Omega(\pi^*(f X) , Y) = (\pi^* f) \Omega(X , Y)\)
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  主束の場合の接続と接続形式を定義する。
 \itemdefi
   connection (\(\tau\)) := \(G\) invariant \(\dim (M)\) field of \(TP\) such that \(\pi_* : \tau_p \to T_{\pi(p)}X\) is isomorphism
 \itemdefi
@@ -12,13 +46,25 @@
     let \(g\) : \(\mathcal{V}_p P \to \mathfrak{g}\) := induced by isomorphism of \(P \times \mathfrak{g} \to \mathcal{V}P\) \\
     return \(g \circ f\)
   \end{indentblock}
+\itemprop
+  for (\(\tau\) : connection) ,\\
+  then \(T_p P = \mathcal{V}_p P \oplus \tau_p\)
 \itemdefi
   for (\(\tau\) : connection) ,\\
-  let \(\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := by projection induced by \(\tau\)
+  define \(\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := \\
+  from projection : \(TP \to \mathcal{V}P\) := induced by \(\tau\)
 \end{Definition}
+
+\begin{Theorem}
+\itemnote
+  ファイバー束での定義と主束での定義が一致することを見る
+\itemprop
+  \WIP
+\end{Theorem}
 
 \begin{Definition}
 \itemprop
+  for (\(\tau\) : connection) ,\\
   for (\(X\) : \(\mathcal{X}(M)\)) ,\\
   define \(X_{P}\) : \(\Gamma(HP)\) := unique by \(\pi_* X_P = X\)
 \end{Definition}

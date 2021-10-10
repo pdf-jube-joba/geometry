@@ -2,3 +2,6 @@
 まるで形式化されているかのように書いているがされていない。
 目的はあくまでも、 well-defined 性や写像が合成可能であるかを（ある程度）簡単に整理しやすいようにするため。
 自明なもの等はごまかす。
+
+- heat kernels and dirac operators
+- Spin geometry
