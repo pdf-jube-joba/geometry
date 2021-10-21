@@ -1,7 +1,7 @@
 \begin{Definition}
 \itemnote
   主束と表現から束を作る。
-\itemwhen \((M , P , \pi)\) : principal \(G\) bundle
+\itemwhen \((\pi : P \to M)\) : principal \(G\) bundle
 \itemdefi
   for (\((F , \rho)\) : \(G\) space) ,\\
   \(P \times_{\rho} F\) : fiber bundle with fiber \(F\) :=
@@ -27,6 +27,17 @@
     take (\(p\) : \(P\)) (\(h_1\) : H) such that \(e = [p , h_1]\) ,
     return \([p , h_1 \cdot h]\)
   \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  部分束を定義する。
+\itemdefi
+  for (\((\pi : P \to M)\) : principal \(G\) bundle) (\(H\) : subgroup of \(G\))\\
+  define \(P^{\prime}\) : subspace of \(P\) is principal \(H\) bundle \(\iff\)
+  \(\pi : P^{\prime} \to M\) is principal \(H\) bundle under \AIMAI{restriction action}
+\itemprop
+  \(P\) has principal \(H\) subbundle \(\iff\) \AIMAI{座標が reduction できるとき}
 \end{Definition}
 
 \begin{Definition}

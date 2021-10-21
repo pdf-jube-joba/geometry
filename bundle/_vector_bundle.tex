@@ -186,3 +186,38 @@
   for (\(E^{\prime}\) : sub bundle) ,\\
   natural structure of vector bundle := \AIMAI{natural definition}
 \end{Definition}
+
+\begin{Definition}
+\itemnote
+  多様体の場合は接ベクトルに沿った微分が普通に定義できたが、それを拡張する。記述が悪いけど、座標と考えるとよい感じになっていると良い。
+\itemwhen
+  \Fix \(X\) : manifold \\
+\itemdefi
+  \Fix \(V\) : vector space
+  \For (\(v\) : \(T_x X\)) (\(a\) : \(U \to V\)) \\
+  \Define \(\frac{\partial}{\partial v} a\) : \(U \to V\) :=
+  \begin{indentblock}
+    \Take \(\phi\) : isomorphism of \(V\) and \(\mathbb{R}^n\) \\
+    \Take \(\gamma(t)\) : tangent curve of \(v\) \\
+    \Return \(\phi^{-1} \frac{d}{dt} \phi (a (\gamma (t)))\)
+  \end{indentblock}
+\itemdefi
+  \Fix \(S\) : bundle on \(X\) \\
+  \For (\(v\) : \(T_x X\)) (\(s\) : \(\Gamma(S)\)) \\
+  \Define \(\frac{\partial}{\partial v} s\) : \(\Gamma(S)\) :=
+  \begin{indentblock}
+    \Take \((U , \phi)\) : trizialization of \(S\) \\
+    \Take \(\gamma(t)\) : tangent curve of \(v\) \\
+    \Return \(\phi^{-1} (\text{id} , \frac{d}{dt} [\text{projection} \circ \phi \circ s \mid_{U}](\gamma(t)))\)
+  \end{indentblock}
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  ホッジスター作用素を定義する
+\itemwhen
+  \Fix \(X\) : \(n\) dim riemannian manifold
+\itemdefi
+  \Define volume form (\(*1\)) : \(\Omega^n(X)\) := \AIMAI{take wedge product of orthonormal frame  locally}
+  \Define for (\(s\) : \(\Omega^r(X)\)) , 
+\end{Definition}
