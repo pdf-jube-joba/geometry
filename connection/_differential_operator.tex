@@ -1,71 +1,71 @@
 \begin{When}
-\itemwhen \(M\) : manifold
-\itemwhen \((\pi : E \to M)\) : vector bundle
+\itemwhen
+  \Fix \(M\) : manifold
+  \Fix \((\pi : E \to M)\) : vector bundle
 \end{When}
 
 \begin{Definition}
 \itemdefi
-  define \(\Gamma(End(E)) \subset End_{C(M)}(\Gamma(E))\) := \(s \mapsto (t \mapsto (x \mapsto s(x)(t(x))))\)
+  \Define \(\Gamma(End(E)) \subset End_{C(M)}(\Gamma(E))\) := \(s \mapsto (t \mapsto (x \mapsto s(x)(t(x))))\)
 \end{Definition}
 
 \begin{Definition}
 \itemdefi
-  for (\(\nabla\) : covariant derivative on \(E\)) ,\\
-  define \(D(E)\) : sub algebra of \(End_{\mathbb{R}}(\Gamma(E))\) :=
-  spaned by \(\Gamma(End(E))\) and \(\{\nabla_X \mid X : \Gamma(TM)\}\) \\
-  define \(D_i(E)\) : sub algebra of \(End_{\mathbb{R}}(\Gamma(E))\) :=
-  spaned by \(\{f \nabla_{X_1} \cdots \nabla_{X_i} \mid f : \Gamma(End(E)) , X_i : \mathcal{X}(M)\}\) \\
+  \For (\(\nabla\) : covariant derivative on \(E\)) \\
+  \Define \(D(E)\) : sub algebra of \(End_{\mathbb{R}}(\Gamma(E))\) :=
+    spaned by \(\Gamma(End(E))\) and \(\{\nabla_X \mid X : \Gamma(TM)\}\) \\
+  \Define \(D_i(E)\) : sub algebra of \(End_{\mathbb{R}}(\Gamma(E))\) :=
+    spaned by \(\{f \nabla_{X_1} \cdots \nabla_{X_i} \mid f : \Gamma(End(E)) , X_i : \mathcal{X}(M)\}\) \\
 \end{Definition}
 
 \begin{Theorem}
 \itemnote
   \(i\) th operator の必要十分条件についてやる
-\itemdefi
-  \(D\) : \(D(E)\) is \(i\) th \(iff\) \(\forall\) (\(f\) : \(C(M)\)) , \(\text{ad}(f) ^i D\) is \(0\) th
+\itemprop
+  \For (\(D\) : \(D(E)\)) \\
+  \(D\) is \(i\) th \(iff\) \(\forall\) (\(f\) : \(C(M)\)) , \(\text{ad}(f) ^i D\) is \(0\) th
 \end{Theorem}
 
 \begin{Theorem}
 \itemnote
-  covariant derivative の取り方によらないこと、局所的な座標での表示の話
+  この定義がcovariant derivative の取り方によらないこと、局所的な座標での表示の話
 \itemprop
   \(D_i(E)\) is independent from \(\nabla\)
 \itemprop
   element of \(D_i(E)\) is local operator
 \itemprop
-  for (\(D\) : \(D_i(E)\)) ,\\
-  locally \(D = \sum_{\left| \alpha \right| \leqq i} f_{\alpha} \frac{\partial}{\partial_{\alpha}}\)
+  \For (\(D\) : \(D_i(E)\)) \\
+  \Then locally \(D = \sum_{\left| \alpha \right| \leqq i} f_{\alpha} \frac{\partial}{\partial_{\alpha}}\)
 \end{Theorem}
 
 \begin{Definition}
 \itemnote
   微分作用素の associated graded algebra を定義し、 principal symbol を定義する
 \itemdefi
-  for (\(D\) : \(D_k(E)\)) (\(\xi\) : \(T^*_x M\)) ,\\
-  define \(\sigma_k(D)(x , \xi)\) : \(\text{End}(E_x)\) :=
-  \(\lim_{t \to \infty} (t^{-k}(e^{-itf} D e^{itf}))(x)\) \\
-  take \(f\) : \(C(M)\) such that \(df_x = \xi\)
+  \For (\(D\) : \(D_k(E)\)) (\(\xi\) : \(T^*_x M\)) \\
+  \Define \(\sigma_k(D)(x , \xi)\) : \(\text{End}(E_x)\) :=
+  \begin{indentblock}
+    \Take \(f\) : \(C(M)\) such that \(df_x = \xi\)
+    \Return \(\lim_{t \to \infty} (t^{-k}(e^{-itf} D e^{itf}))(x)\) \\
+  \end{indentblock}
 \itemdefi
-  for (\(\tilde{D}\) : \(D_k(E) / D_{k - 1}(E)\)) ,\\
-  define \(\sigma_k(\tilde{D})\) : \(\Gamma(S^k(TM) \otimes \text{End}(E))\) := \\
-  take \(D\) : \(D_k(E)\) such that \([D] = \tilde{D}\) \\
-  return \(x \mapsto \sigma_k(D)(x , \xi)\)
+  \For (\(\tilde{D}\) : \(D_k(E) / D_{k - 1}(E)\)) \\
+  \Define \(\sigma_k(\tilde{D})\) : \(\Gamma(S^k(TM) \otimes \text{End}(E))\) := \\
+  \begin{indentblock}
+    \Take \(D\) : \(D_k(E)\) such that \([D] = \tilde{D}\) \\
+    \Return \(x \mapsto \sigma_k(D)(x , \xi)\)
+  \end{indentblock}
 \end{Definition}
 
 \begin{Theorem}
 \itemprop
   \(\sigma_k(x , \xi) = \frac{(-1)^k}{k !} (\text{ad} f)^k D\) where \(df_x = \xi\)
 \itemprop
-  in local ,
-  if \(D = \sum_{\left| \alpha \right| \leqq m} A_{\alpha} \frac{\partial ^{\left| \alpha \right|}}{\partial x^{\alpha}}\) ,\\
-  if \(\xi = \sum_k \xi_k dx_k\) ,\\
-  \(\sigma_m(D)(x , \xi) = i^m \sum_{\left| \alpha \right| = m} A_{\alpha}(x)\xi^{\alpha}\)
+  if \(D = \sum_{\left| \alpha \right| \leqq m} A_{\alpha} \frac{\partial ^{\left| \alpha \right|}}{\partial x^{\alpha}}\) in local and if \(\xi = \sum_k \xi_k dx_k\) in local \\
+  \Then \(\sigma_m(D)(x , \xi) = i^m \sum_{\left| \alpha \right| = m} A_{\alpha}(x)\xi^{\alpha}\)
 \end{Theorem}
 
 \begin{Definition}
 \itemdefi
-  \(D\) is elliptic \(\iff\) \WIP
-\end{Definition}
-
-\begin{Definition}
-\itemdefi
+  \(D\) is elliptic \(\iff\) \(\sigma(D)(x , \xi)\) is isomorphism of \(E_x \to E_x\)
 \end{Definition}

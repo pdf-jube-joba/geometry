@@ -1,0 +1,194 @@
+\begin{When}
+\itemwhen
+  \Fix \(X\) : riemannian manifold \\
+  \Let \(\text{Cl}(X)\) : algebra bundle := clifford bundle of \(X\) \\
+  \Fix \(S\) : riemannian \(\text{Cl}(X)\) module bundle \\
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \Let \(\nabla\) : covariant derivative on \(S\) := defined above \\
+  \Define Dirac operator (\(D\)) : \(1\) order differential operator on \(S\) :=
+  \begin{indentblock}
+    \For (\(\sigma\) : \(\Gamma(S)\)) (\(x\) : \(X\)) \\
+    \Take \((e_i)\) : orthonormal basis of \(T_x X\) \\
+    \Define \((D \sigma)(x) = (\sum_j e_j \cdot \nabla_{e_j} \sigma)(x)\)
+  \end{indentblock}
+\itemprof
+  \((e^{\prime}_i)\) を異なる basis とすれば \(A\) なる直交行列をとって \((e^{\prime}_i)_i = (e_i)_i A\) と書ける。
+  \begin{align*}
+    & \sum_j e^{\prime}_i \nabla_{e^{\prime}_j} \sigma = \sum_j (\sum_i e_i A_{ij}) \cdot \nabla_{\sum_k e_k A_{kj}} \sigma \\
+    &= \sum_{i,j,k} A_{ij} A^t_{kj} e_i \cdot \nabla_{e_k} \sigma = \sum_{i} e_i \cdot \nabla_{e_i} \sigma 
+  \end{align*}
+\itemdefi
+  dirac laplacian := \(D^2\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \(\sigma(D)(x ; \xi) = i \xi\)
+\itemprop
+  \(\sigma(D^2)(x ; \xi) = \left| \xi \right| ^2\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  局所的には \((e_i)\) を orthonormal basis of \(T_x X\) とすると、 \(D = \sum_j e_j \frac{\partial}{\partial x_j} + \text{zero order}\) のように書けるから、 \(\sigma(D)(x , \xi) = i \sum_j e_j \xi_j = i \xi\) よりよい。
+\itemprof
+  \(\sigma(D^2)(x ; \xi) = \sigma(D)(x ; \xi)^2\) より。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  Dirac bundle := riemannian \(\text{Cl}(X)\) module bundle (\(S\)) such that
+  \begin{itemize}
+    \itemenum forall (\(e\) : \(T_x X\)) (\(s_1 , s_2\) : \(S_x\)) , \(\langle e s_1 , e s_2 , \rangle = \langle s_1 , s_2 \rangle\)
+    \itemenum forall (\(e\) : \(\Gamma(\text{Cl}(X))\)) (\(s\) : \(\Gamma(S)\)) , \(\nabla(e \cdot s) = \nabla(e) \cdot s + e \cdot \nabla(s)\)
+  \end{itemize}
+\itemdefi
+  \For (\(s_1 , s_2\) : \(\Gamma(S)\)) \\
+  \Define \((s_1 , s_2)\) : \(\mathbb{R}\) := \(\int_X \langle s_1 , s_2 \rangle\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \((- , -)\) is inner product on \(\Gamma(S)\)
+\itemprop
+  \((D s_1 , s_2) = (s_1 , D s_2)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  明らか
+\itemprof
+  局所的な frame \((e_i)\) であって \((\nabla_{e_i} e_j) (x) = 0\) をみたすものをとる。
+  ベクトル場 \(V\) を \(\langle V , W \rangle = - \langle s_1 , W \cdot s_2 \rangle\) を満たすものとしてとる。
+  \begin{align*}
+    & \langle D s_1 , s_2 \rangle _x = \sum_j \langle e_j \nabla_{e_j} s_1 , s_2 \rangle _x = - \sum_j \langle \nabla_{e_j} s_1 , e_j s_1 \rangle _x \\
+    &= - \sum_j {e_j \langle s_1 , e_j s_2 \rangle - \langle s_1 , (\nabla_{e_j}(e_j)) s_2 \rangle - \langle  s_1 , e_j \nabla_{e_j} s_2 \rangle}_x \\
+    &= - \sum_j (e_j \langle s_1 , e_j s_2 \rangle)_x + \langle s_1 , D s_2 \rangle_x \\
+    &= \text{div}(V)_x + \langle s_1 , D s_2 \rangle
+  \end{align*}
+  この等式は frame の取り方によらないため、積分により得られる。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen \(X\) はコンパクトとする。
+\itemprop
+  \(\text{ker}(D) = \text{ker}(D^2)\)
+\itemprop
+  \(\text{ker}(D)\) is finite dimensional
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(D^2 s = 0\) なら \((D s , D s) = 0\) より \(D s = 0\) とわかる
+\itemprof
+  楕円型微分作用素の議論から
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  forall (\(f\) : \(C(X)\)) (\(s\) : \(\Gamma(S)\)) , \(D(f s) = \text{grad}(f) \cdot s + f D s\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(D(f s) = \sum e_j \nabla_{e_j}(f s) = \sum e_j (e_j(f) s + f \nabla_{e_j} s) = (\sum (e_j f) e_j) s + f D s = \text{grad}(f) s + f D s\)
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  Dirac operator の closure は \(L^2(S)\) の中で自己随伴作用素であり、 \(\text{ker}(D) = \text{ker}(D^2)\) を満たす。
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  楕円型微分作用素の議論から
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  when \(X\) is \(\mathbb{R}^n\) , \(S\) is \(\mathbb{R}^n \times V\) for \(V\) : finite dimensional \(\text{Cl}_n\) module
+\itemprop
+  there exists \(\gamma_k\) : \(V \to V\) such that \(\gamma_i \gamma_j + \gamma_j \gamma_i = -2 \delta_{ij}\) and \(D = \sum \gamma_i \frac{\partial}{\partial x_i}\)
+\itemprop
+  \(D^2 = \Delta \cdot \text{Id}_V\)
+  where \(\Delta\) is laplacian in \(\mathbb{R}^n\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\Gamma(S)\) と \(C(\mathbb{R}^n , V)\) の対応を考えればよい。
+\itemprof
+  計算によりわかる。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \For (\(S\) : dirac bundle) (\(E\) : riemannian bundle) \\
+  \Define \(S \otimes E\) : dirac bundle :=
+  \begin{itemize}
+    \itemenum module structure := induced by for \(s \cdot (a \otimes b)\) := \((s \cdot a) \otimes b\)
+    \itemenum covariant derivative := tensor product connection
+  \end{itemize}
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Fix \(X\) : spin manifold of dimension \(8k\) \\
+  \Let \(S\) : module bundle := canonical one \\
+  \Then \(\text{Cl}(X) \cong S \otimes S\) as module bundle
+\itemprop
+  \Fix \(X\) : spin manifold of even dimension \\
+  \Let \(S\) : module bundle := canonical one \\
+  \Then \(\text{Cl}(X) \otimes \mathbb{C} \cong S_{\mathbb{C}} \otimes S^*_{\mathbb{C}}\) as module bundle
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  スピン表現の議論からわかる
+\itemprof
+  スピン表現の議論からわかる
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\hat{D}\) : \(\text{End}(\Gamma(\text{Cl}(X)))\) := \(\phi \mapsto \sum_j (\nabla_{e_j} \phi) \cdot e_j\)
+\itemprop
+  this operator is also elliptic and formally self-adjoint
+\itemprof
+  同様の議論によりわかる
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  When \(X\) is riemannian manifold
+\itemprop
+  There exists \(d^*\) : \(\Omega^*(X) \to \Omega^*(X)\) such that \(d^*\) is formal adjoint of \(d\)
+\itemprop
+  \Let \(*1\) : \(\Omega^n(X)\) := volume form \\
+  \Let \(*\) : \(\Omega^p(X) \to \Omega^{n-p}(X)\) := by formula \(\phi \wedge * \varphi = \langle \phi , \varphi \rangle *1\) \\
+  \Then \(d^*\) = \((-1)^{np + n + 1} * d *\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  下の定義のように定義すればよい。
+\itemprof
+  \(* * = (-1)^{p(n - p)} \text{id}\) as \(\Omega^p \to \Omega^p\) を用いる。
+  (\(\alpha\) : \(\Omega^p\)) と (\(\beta\) : \(\Omega^{p + 1}\)) に対して、 \((d \alpha , \beta) = (\alpha , d^* \beta)\) を示せばよい。
+  これには \((\langle d \alpha , \beta \rangle - \langle \alpha , d^* \beta \rangle) *1\) が完全形式であることを示せばよい。
+  \begin{align*}
+    & \langle d \alpha , \beta \rangle *1 - \langle \alpha , d^* \beta \rangle *1 \\
+    &= d \alpha \wedge * \beta - (-1)^{np + n + 1} \alpha \wedge * * d * \beta \\
+    &= d \alpha \wedge * \beta - (-1)^{np + n + 1 + p(n - p)} \alpha \wedge d * \beta \\
+    &= \WIP
+  \end{align*}
+\end{Proof}
+
+\begin{Theorem}
+\itemprop 
+  \For (\((e_i)_i\) : local orthonormal frame on \(U\)) \\
+  in locally , \(d = \sum_j e_j \wedge \nabla_{e_j}\) and \(d^* = - \sum_j \iota(e_j)\nabla_{e_j}\)
+\end{Theorem}

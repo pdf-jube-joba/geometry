@@ -1,0 +1,28 @@
+\begin{Definition}
+\itemnote
+  ホッジスターなどを定義する。
+\itemwhen \Fix \(X\) : riemannian manifold
+\itemdefi
+  \Define volume form (\(*1\)) : \(\Omega^n(X)\) :=
+  \begin{indentblock}
+    \For (\(x\) : \(X\)) \\
+    \Take \((e_1 , \ldots , e_n)\) : orthonormal basis of \(T_x^* X\) \\
+    \Return \(e_1 \wedge \cdots \wedge e_n\)
+  \end{indentblock}
+\itemdefi
+  \For (\(s_1 , s_1\) : \(\Omega^r(X)\)) \\
+  \Define \(\langle s_1 , s_1 \rangle\) : \(C(X)\) := \AIMAI{by natural definition} \\
+  \Define \((s_1 , s_2)\) : \(\mathbb{R}\) := \(\int_X \langle s_1 , s_2 \rangle\)
+\itemdefi
+  \Define hodge star operator(\(*\)) : \(\Omega^r(X) \to \Omega^{n-r}(X)\) := unique by \(s_1 \wedge * s_2 = \langle s_1 , s_2 \rangle *1\)
+  \Define \(d^*\) : \(\Omega^{r+1}(X) \to \Omega^r(X)\) := \((-1)^{np + n + 1} * d *\)
+\end{Definition}
+
+\begin{Theorem}
+\itemnote
+  \(** = (-1)^{r(n-r)} \text{Id}\)
+\itemnote
+  \((- , -)\) is inner product on \(\Omega^r(X)\)
+\itemnote
+  \(d^*\) is formal adjoint of \(d\)
+\end{Theorem}

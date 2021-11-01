@@ -1,0 +1,438 @@
+\begin{When}
+\itemwhen
+  \Fix \(X\) : riemannian manifold \\
+  \Let \(\text{Cl}(X)\) : algebra bundle := clifford bundle of \(X\) \\
+  \Fix \(S\) : dirac bundle
+\end{When}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(\text{Cl}(X) \cong \Lambda^*(X)\) := by natural definition
+\itemprop
+  \(D \cong d + d^*\)
+\itemprop
+  \(\hat{D} \cong (-1)^{-p}(d - d^*)\)
+\itemprop
+  \(D^2 = \hat{D}^2\)
+\itemprof
+  \(D \hat{D} = \hat{D} D\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(d = \sum_i e_j \wedge \nabla_{e_j} , d^* = -\sum_j \iota(e_j) \nabla_{e_j}\) とかけた。
+  また、 \(e \cdot \phi \cong e \wedge \phi - \iota(e) \phi\) が成り立った。
+  したがって、
+  \[D(\phi) = \sum_i e_i \cdot \nabla_{e_i} \phi \cong
+  \sum_i e_i \wedge \nabla_{e_i} \phi - \sum_i \iota(e_i) \nabla_{e_i} \phi = (d + d^*) \phi\]
+  よりよい。
+\itemprof
+  \(\phi \cdot e \cong (-1)^{-p}(e \wedge \phi + \iota(e)(\phi))\) が成り立つことから上と同様にしてわかる。
+\itemprof
+  \(d^2 = {d^*}^2 = 0\) より。
+\itemprof
+  \(D \hat{D} = (-1)^{-p} (d + d^*)(d - d^*) = (-1)^{-p}(d - d^*)(d + d^*) = \hat{D} D\)
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  Hodge laplacian (\(\Delta\)) := \(D^2\)
+\itemdefi
+  space of harmonic \(p\) form (\(\mathbf{H}^p\)):= \(\text{ker}(\Delta \text{ as } \Omega^p(X) \to \Omega^*(X))\)
+  spave of harmonic form \(\mathbf{H}\) := \(\bigoplus \mathbf{H}^p\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  when \(X\) is compact and without boundary
+\itemprop
+  \(\text{ker}(D) = \text{ker}(\hat{D}) = \text{ker}(\Delta) \cong H\)
+\itemprof
+  non-compact complete の場合、 \(L^2\) の微分形式が harmonic \(\iff\) close かつ co-close のとき。
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\text{ker}(D) = \text{ker}(\Delta = D^2)\) は以前示した。
+  \(\text{ker}(D) = \text{ker}(\hat{D})\) を示すために、
+  \(D \phi = 0 \iff d \phi = 0 \wedge d^* \phi = 0 \iff \hat{D}\phi = 0\) を示す。
+  \(X\) の compact 性から内積をとることができる。
+  \begin{align*}
+  0
+    &= (D \phi , D \phi) \\ 
+    &= ((d + d^*) \phi , (d + d^*) \phi) \\
+    &= (d \phi , d \phi) + (d^* \phi , d^* \phi) + (d \phi , d^* \phi) + (d^* \phi , d \phi) \\
+    &= (d \phi , d \phi) + (d^* \phi , d^* \phi)
+  \end{align*}
+  より \(d \phi = d^* \phi = 0\) である。
+  同様にして \(\hat{(D)}\) の場合もできるからよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  (\(\mathbf{H}^p\) , \(\text{Im}(d)\) , \(\text{Im}(d^*)\)) is orthogonal decomposition of \(\Gamma(\Lambda^*(X))\)
+\itemprof
+  \(\mathbf{H}^p \cong H^p(X ; \mathbb{R})\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  Hodge decomposition Theorem は 3 章でやるのでここでは略する。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(X\) : riemannian manifold \\
+  \Let \(R\) : := Riemannian curvature tensor on \(\text{Cl}(X)\) \\
+  \Fix \(\text{Cl}(X) \cong \Lambda^*(X)\)
+\itemprop
+  \For (\((e_i)\) : orthonormal tangent frame at \(x\)) \\
+  \Then \(\sum_{i \lneq j} e_i e_j R_{e_i , e_j}(\phi) - R_{e_i , e_j}(\phi) e_j e_i\)
+\itemprop
+  \For (\((e_i)\) : orthonormal tangent frame at \(x\)) \\
+  \Then \(\sum_{i,j} e_i R_{e_i , e_j} e_j = 0\)
+\itemprop
+  \(\sum_{i \lneq j} e_i e_j R_{e_i , e_j} (\phi) = \frac{1}{2} \sum_{i \lneq j} \text{ad}_{e_i e_j}(R_{e_i , e_i} (\phi))\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(x\) まわりの tangent frame を拡張して \((e_i)\) : local frame at \(x\) であって、 \(\nabla_{e_i} e_j = 0\) を満たすものをとる。
+  \(R_{V ,W} = \nabla_V \nabla_W - \nabla_W \nabla_V - \nabla_{[V , W]}\) であり、 \(\nabla_{[e_i , e_j]} = 0\) である。
+  \begin{align*}
+    D^2(\phi)
+    &=\sum_{i,j} e_i \nabla_{e_i}(e_j \nabla_{e_j}(\phi)) \\
+    &\text{by } \nabla(s_1 s_2) = \nabla s_1 \cdot s_2 + s_1 \nabla s_2 , \nabla e_i \\
+    &=\sum_{i,j} e_i e_j \nabla_{e_i} \nabla_{e_j} \phi \\
+    &= -\sum_i \nabla_{e_i} \nabla_{e_i} \phi + \sum_{i \lneq j} e_i e_j (\nabla_{e_i} \nabla_{e_j} - \nabla_{e_j} \nabla_{e_i}) \phi \\
+    &\text{by } R_{V ,W} = \nabla_V \nabla_W - \nabla_W \nabla_V - \nabla_{[V , W]} , \nabla_{[e_i , e_j]} = 0 \\
+    &= - \sum_i \nabla_{e_i} \nabla_{e_i} + \sum_{i \lneq j} e_i e_j R_{e_i , e_j} \phi
+  \end{align*}
+  \begin{align*}
+    \hat{D}^2(\phi)
+    &= - \sum_i \nabla_{e_i} \nabla_{e_i} + \sum_{i \lneq j} R_{e_i , e_j} (\phi) e_i e_j
+  \end{align*}
+  \(D^2 = \hat{D}^2\) よりよい。
+\itemprof
+  \begin{align*}
+    D \hat{D} \phi
+    &= \sum_j e_j \nabla_{e_j} (\sum_i \nabla_{e_i} \phi e_i) \\
+    &= \sum_{i,j} e_i \nabla_{e_i} (\nabla_{e_j} \phi \cdot e_j) \\
+    &\text{by } \nabla \text{ is derivative and } \nabla_{e_i} (e_j) = 0 \\
+    &= \sum_{i,j} e_i (\nabla_{e_i} \nabla_{e_j} \phi) e_j
+  \end{align*}
+  \(\hat{D}D\) も同様に計算して、 \(\sum_{i,j} e_i R_{e_i , e_j} e_j = (D \hat{D} - \hat{D} D )\phi\) とわかるからよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(\alpha\) : algebra automorphism of \(\text{Cl}(X) \to \text{Cl}(X)\) := extending \(-1\) on \(TX\) \\
+  \Define \(\text{Cl}^i(X)\) : sub bundle of \(\text{Cl}(X)\) := \(\pm 1\) eigen bundle of \(\alpha\)
+\itemprop 
+  \(\text{Cl}(X) = \text{Cl}^0(X) \oplus \text{Cl}^1(X)\)
+\itemprop
+  under \(\text{Cl}(X) \cong \Lambda^*(TX)\) , \(\text{Cl}^0(X) \cong \Lambda^{\text{even}}(TX)\) and \(\text{Cl}^1(X) \cong \Lambda^{\text{odd}}(TX)\)
+\itemprop
+  if there exists a nowhere vanish section, \(\text{Cl}^0(X) \cong \text{Cl}^1(X)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  クリフォード代数の場合に行った議論と同様にしてわかる。
+\itemprof
+  クリフォード代数の場合に行った議論と同様にしてわかる。
+\itemprof
+  nowhere vanish な section \(e\) があるので、これを左から書けると \(\text{Cl}^0(X) \to \text{Cl}^1(X)\) なる同型が得られることがクリフォード代数の議論からわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(L\) : bundle map of \(\text{Cl}(X) \to \text{Cl}(X)\) := by formula \(L(s) = -\sum_j e_j s e_j\) for orthonormal basis of \(T_x X\)
+\itemprop
+  under \(\text{Cl}(X) \cong \oplus_p \Lambda^p(X)\) ,
+  \(L = (-1)^p(n - 2p)\) on \(\Lambda^p(X)\)
+\itemprof
+  \(\alpha L = L \alpha = (n - 2p)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  クリフォード代数の議論からわかる。
+\itemprof
+  \(\alpha L (\phi) = \alpha (- \sum_j e_j \phi e_j) = - \sum_j e_j \alpha(\phi) e_j = L \alpha (\phi)\) より。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(\omega\) : \(\Gamma(\Lambda^n(X))\) := by formula \(\omega = e_1 \cdots e_n\) for orthonormal basis of \(T_x X\) \\
+  \Define \(\lambda_{\omega}\) : bundle map of \(\text{Cl}(X) \to \text{Cl}(X)\) := \(\phi \mapsto \omega \cdot \phi\)
+\itemprop
+  \(\nabla \omega = 0\)
+\itemprop
+  \(\omega^2 = (-1)^{\frac{n(n+1)}{2}}\) and \(\omega e = (-1)^{n-1} e \omega\)
+\itemprop
+  if \(n \equiv 0 , 3 (\text{mod }4)\) \\
+  \Let \(\text{Cl}^{\pm}(X)\) : sub bundle of \(\text{Cl}(X)\) := \(\pm 1\) eigen bundle of \(\lambda_{\omega}\)
+  \Then \(\text{Cl}(X) = \text{Cl}^{+}(X) \oplus \text{Cl}^{-}(X)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \((e_i)_i\) : \(x \in U\) の local fields で \(\nabla {e_i} \mid_x = 0\) をみたすものをとれば、
+  \[(\nabla \omega)_x = ((\nabla e_1) e_2 \cdots e_n + e_1 (\nabla e_2) \cdots )_x = 0\]
+\itemprof
+  共にクリフォード代数の議論からわかる。
+\itemprof
+  クリフォード代数の議論からわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(S\) : dirac bundle over \(X\)
+\itemdefi
+  \Define \(\lambda_{\omega}\) : bundle map \(S \to S\) := \(\phi \mapsto \omega \cdot \phi\) \\
+  if \(n \equiv 0 , 3(\text{mod }4)\) \Define \(S^\pm\) : sub bundle of \(S\) := \((1 \pm \omega) S\)
+\itemprop
+  \(S = S^{+} \oplus S^{-}\)
+\itemprop
+  if \(n \equiv 1 , 2(\text{mod }4)\) , 
+  \(i \lambda_{\omega}\) defines a splitting \((S \otimes \mathbb{C})^{+} \oplus (S \otimes \mathbb{C})^{-}\) of \(S \otimes \mathbb{C}\)
+\itemprop
+  if \(n \equiv 1 , 2(\text{mod }4)\) , \(\lambda_{\omega}\) defines a complex structure in \(S\) and \(S^{\pm}\) is usual \((1,0) , (0,1)\) decomposition
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  subbundle になることは、各ファイバーごとに次元が一定なのでよい。
+  クリフォード代数の加群の議論から同様にしてわかる。
+\itemprof
+  \((i \lambda_{\omega})^2 = x \mapsto - (\omega)^2 \cdot x = 1\) より eigenvalue に分解すればよい。
+\itemprof
+  クリフォード代数の加群の議論から同様にしてわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \(\alpha L - L \alpha = 0\)
+\itemprop
+  \(\alpha \lambda_{\omega} + (-1)^{n-1}\lambda_{\omega} \alpha = 0\)
+\itemprop
+  \(L \lambda_{\omega} + (-1)^n \lambda_{\omega} L = 0\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは以前 \(\alpha L = L \alpha = (n -2p)\) を示したので良い。
+\itemprof
+  \((\alpha \lambda_{\omega})(\phi) = \alpha (\omega \cdot \phi) = (-1)^n \omega \alpha(\phi)\) より。
+\itemprof
+  \((L \lambda_{\omega})(\phi) = - \sum_i e_i \omega \phi e_i = - (-1)^{n-1}\sum_i \omega e_i \phi e_i = (-1)^{n-1} \omega \sum_i e_i \phi e_i\)
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(\phi\) : \(\Omega^p(TX)\)
+\itemprop
+  \(\omega \phi = (-1)^{p(n-p) * \frac{1}{2}p(p+1)} *\phi\)
+\itemprop
+  \(\phi \omega = (-1)^{\frac{1}{2}p(p+1)}*\phi\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  局所的に示せばよいが、
+  \(x\) : \(X\) に対して \((e_i)_i\) : orthonormal basis of \(T_xX\) をとったとき、 \(\phi = e_1 \ldots e_p\) に対して与式を示せば正しい。
+  \(* e_1 \ldots e_p = e_{p+1} \ldots e_n\) であるから、
+  \[\omega \phi = e_1 \ldots e_n e_1 \ldots e_p =(-1)^{p(n-p)} e_1 \ldots e_p e_1 \ldots e_p e_{p+1} \ldots e_n = (-1)^{p(n-p) * \frac{1}{2}p(p+1)} * \phi\]
+\itemprop
+  上と同様にして計算によりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \([\nabla , \alpha] = 0\)
+\itemprop
+  \([\nabla , L] = 0\)
+\itemprop
+  \([\nabla , \lambda_{\omega}] = 0\)
+\itemprop
+  \(\Lambda^p(X)\) and \(\text{Cl}^{\pm}(X)\) are preserved by covariant differentiation
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(s\) : \(\Gamma(TX)\) に対しては、
+  \[\nabla \alpha s = \nabla - s = -\nabla s = \alpha \nabla s\]
+  よりよい。
+  \(s_1 , s_2\) : \(\Gamma(\text{Cl}(X))\) に対して与式が成り立てば、
+  \[\nabla \alpha (s_1 s_2) = \nabla \alpha s_1 \cdot \alpha s_2 + \alpha s_1 \cdot \nabla \alpha s_2 = \alpha (\nabla (s_1 s_2))\]
+  より成り立つ。
+  ゆえによい。
+\itemprof
+  \(x\) : \(X\) に対して \(\nabla e_i \mid_x = 0\) となるものをとれば、
+  \begin{align*}
+    \nabla L \phi \mid_x
+    &= \nabla (- \sum e_i \phi e_i) \mid_x \\
+    &= - (\sum_i \nabla e_i \phi e_i + e_i \nabla \phi e_i + e_i \phi \nabla e_i) mid_x \\
+    &= - (\sum_i e_i \nabla \phi e_i) \mid_x \\
+    &= L \nabla \phi \mid_x
+  \end{align*}
+  ゆえによい。
+\itemprof
+  \(\nabla \omega = 0\) より、
+  \[\nabla \lambda_{\omega} \phi = \nabla (\omega \phi) = \omega \nabla \phi\]
+  ゆえによい。
+\itemprof
+  上の議論より可換であるから。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \(D \alpha + \alpha D = \hat{D} \alpha + \alpha \hat{D} = 0\)
+\itemprop
+  \(D \lambda_{\omega} + (-1)^n \lambda_{\omega} D = \hat{D} \lambda_{\omega} - \lambda_{\omega} \hat{D} = 0\)
+\itemprop
+  \(D L + L D = 2 \hat{D} , \hat{D} L + L \hat{D} = 2 D\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \[
+    D \alpha \phi
+    = \sum_j e_j \nabla_{e_j} (\alpha \phi) 
+    = \sum_j e_j \alpha (\nabla_{e_j} \phi) 
+    = - \alpha (\sum_j e_j \nabla_{e_j} \phi) 
+    = - \alpha D \phi
+  \]
+  \(\hat{D}\) も同様。
+\itemprof
+  \[
+    D \lambda_{\omega} \phi
+    = \sum_j e_j \nabla_{e_j} (\omega \phi)
+    = \sum_j e_j \omega \nabla_{e_j} \phi
+    = (-1)^{n-1} \omega \sum_j \nabla_{e_j} \phi
+    = (-1)^{n-1} \omega D \phi
+  \]
+  \(\hat{D}\) も同様
+\itemprof
+  \begin{align*}
+    D L \phi \\
+    &= \sum_j e_j L \nabla_{e_j} \phi
+    = - \sum_{j,k} e_j e_k \nabla_{e_j} \phi e_k \\
+    &= - \sum_{j,k} (- e_k e_j - 2 \delta_{j,k}) \nabla_{e_j} \phi e_k
+    = \sum_k e_k (\sum_j e_j \nabla_{e_j} \phi) e_k + \sum_j \nabla_{e_j} \phi e_j \\
+    &= - L D \phi + 2 \hat{D} \phi
+  \end{align*}
+  \(\hat{D}\) も同様
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \([\alpha , \Delta] = 0\)
+\itemprop
+  \([\lambda_{\omega} , \Delta] = 0\)
+\itemprop
+  \([L , \Delta] = 0\)
+\itemprop
+  \(\lambda_{\omega} : \mathbf{H}^p \to \mathbf{H}^{n-p}\) is isomorphism
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  上の式から代入すればわかる。
+\itemprof
+  上の式から代入すればわかる。
+\itemprof
+  上の式から代入すればわかる。
+\itemprof
+  \(\lambda_{\omega}\) : \(\Omega^p(X) \to \Omega^{n-p}(X)\) なので上の式から \(\mathbf{H}^p \to \mathbf{H}^{n-p}\) とわかる。
+  どの \(p\) でも定義されていて、 同型なのでよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemnote
+  spinor bundle は riemannian metric の取り方によることをみる。
+  これは、 \(P_{\tilde{GL}^+}(X)\) から spinor bundle が構成できないことからわかる。
+  （ metric の取り方ごとに spinor bundle の自然な全単射は構成できない？）
+\itemprop
+  \(\tilde{GL}^+(n , \mathbb{R})\) は \(GL(n , \mathbb{R})\) に reduction される以外の有限次元表現を持たない。
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  再掲
+\itemprop
+  \For \(X\) : riemannian manifold \\
+  there exists unique connection on \(TX\) (\(\nabla\)) such that
+  \begin{itemize}
+    \itemenum \(X \langle Y , Z \rangle = \langle \nabla_X Y , Z \rangle + \langle Y , \nabla_X Z \rangle\)
+    \itemenum \(\nabla_X Y - \nabla_Y X = [X , Y]\)
+  \end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(X\) : manifold \\
+  \Fix \(X^1 = ((X , g) , P_{Spin}(X^1))\) : spin structure on \(X\) \\
+  \Fix \(u\) : smooth function \\
+  \Fix \(\mu\) : spinor representation of \(\text{Spin}(n) \to \text{SO}(M)\)
+\itemwhen
+  \Let \(X^2\) : spin structure on \(X\) :=
+  \begin{itemize}
+    \itemenum riemannian metric := \(e^{2u}g\)
+    \itemenum spin structure := topologically equivalent to the \(P_{Spin}(X^1)\)
+  \end{itemize}
+  \Let \(\nabla^i\) := canonical riemannian connection on \(X^i\) \\
+  \Let \(\Phi\) : \(P_{Spin}(X_1) \to P_{Spin}(X_2)\) := \AIMAI{by natural definition} \\
+  \Let \(S_i\) : spinor bundle := \(P_{Spin}(X_i) \times_{\mu} M\) \\
+  \Let \(\phi_{\mu}\) : isometric map of \(S_1 \to S_2\) := \AIMAI{by natural definition} \\
+  \Let \(\varPhi\) := \(e^{- \frac{n-1}{2} u} \phi_{\mu}\) \\
+  \Let \(\nabla^{S_i}\) : riemannian connections on \(S_i\) := canonical one, \(D_i\) := dirac operator of \(S_i\) \\
+\itemprop
+  \(\nabla^2_V W = \nabla^1_V W + (V u) W + (W u) V - \langle V , W \rangle^1 \text{grad}(u)\)
+\itemprop
+  \(\nabla^{S_2}_V = \phi_{\mu} \circ (\nabla^{S_1}_V - \frac{1}{2} V \cdot \text{grad}^1 u - \frac{1}{2} (V u)) \circ \phi_{\mu}^{-1}\)
+\itemprop
+  \(D_2 = \varPhi \circ D_1 \circ \varPhi\)
+\itemprop
+  \(\text{dim}(\text{ker}(D_1)) = \text{dim}(\text{ker}(D_2))\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  右辺が covariant derivative として canonical な性質を満たすことを言えばよい。
+  \(D = D(V ,W)\) : \(\Gamma(TX) times \Gamma(TX) \to \Gamma(TX)\) := \(\nabla^1_V W + (V u) W + (W u) V - \langle V , W \rangle^1 \text{grad}^1 u\) とする。
+  これが covariant derivative on \(TX\) を定めることが計算によりわかる。
+  これに対して、
+  \begin{align*}
+    & \langle D(X,Y) , Z \rangle^2 + \langle Y , D(X,Z) \rangle^2 \\
+    &= e^{2u} (\langle \nabla^1_X Y , Z \rangle^1 + \langle Y , \nabla^1_X Z \rangle) \\
+    &+ e^{2u}((X u) \langle Y , Z \rangle^1 + (Y u) \langle X , Z \rangle^1
+     + (X u) \langle Y , Z \rangle^1 + (Z u) \langle Y , X \rangle^1) \\
+    &- \langle X , Y \rangle^1 \langle \text{grad}^1 u , Z \rangle^1 - \langle X , Z \rangle^1 \langle Y , \text{grad}^1 u \rangle^1 \\
+    &= e^{2u}(X \langle Y , Z \rangle^1) + 2 e^{2u} (X u) \langle Y , Z \rangle^1) \\
+    &= X (e^{2u} \langle Y , Z \rangle^1) = X \langle Y , Z \rangle^2 \\
+  \end{align*}
+  ただし、 \(X e^{2u} = 2 e^{2u} X u\) を用いた。
+\itemprof
+  local に議論する。
+  \((e^1_i)\) : local orthonormal frame on \(X^1 \mid_U\) をとる。
+  このとき、 \((e^2_i := e^{-u} e^1_i)\) : local orthonormal frame on \(X^2 \mid_U\) となる。
+  \(\omega^t_{ij}\) を \((e^t_i)\) の connection matrix としてとれば、
+  \[\omega^2_{ji}(V) = \omega^1_{ji}(V) + (e_i u) \langle V , e_j \rangle^1 - (e_j u) \langle V , e_i \rangle^1\]
+  と計算によりわかる。
+  \((e^t_i)\) から定義される \(S_1\) 上の local frame \((\sigma^t_\alpha)\) は定義より \(\phi_{\mu}(\sigma^1_j) = \sigma^2_j\) を満たすから、
+  \begin{align*}
+    \nabla^{S_2}_V \sigma^2_l
+    &= \frac{1}{4}
+    (\sum_{i,j} \omega^2_{ji}(V) e^2_i e^2_j \sigma^2_l)
+    = \frac{1}{4} \phi_{\mu} (\sum_{i,j} \omega^2_{ji}(V) e^1_i e^1_j \sigma^1_l) \\
+    &= \frac{1}{4} \phi_{\mu}
+    (\sum_{i,j}(\omega^1_{ji}(V) + (e_i u) \langle V , e_j \rangle^1 - (e_j u) \langle V , e_j \rangle^1) e_j e_i \sigma^1_l) \\
+    &= \phi_{\mu} (\nabla^{S_1}_V \sigma^1_l + \frac{1}{4}(\text{grad}(u) \cdot V - V \cdot \text{grad}(u)) \sigma^1_l) \\
+    &= \phi_{\mu} (\nabla^{S_2}_V - \frac{1}{2}(V \cdot \text{grad}^1 (u) - \frac{1}{2}(V \cdot u)))
+  \end{align*}
+  よりよい。
+\itemprof
+  \WIP
+\end{Proof}

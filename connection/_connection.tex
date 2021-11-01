@@ -3,56 +3,56 @@
   一般のファイバー束の場合に接続(connection)まわりを定める。
 \itemwhen \((\pi , E , B)\) : fiber bundle
 \itemdefi
-  connection := splitting of \(0 \to \mathcal{V}E \to TE \to \pi^*TM\) : vector bundle exact sequence on \(E\)
+  \Define connection := splitting of (\(0 \to \mathcal{V}E \to TE \to \pi^*TM\) : vector bundle exact sequence on \(E\))
 \itemdefi
-  connection \(1\) form := \(\omega\) : \(\Omega^(E , \mathcal{V}E)\) such that
+  \Define connection \(1\) form := \(\omega\) : \(\Omega^1(E , \mathcal{V}E)\) such that
   forall (\(X\) : vertical vector fields) , \(\iota(X)\omega = X\)
 \itemwhen \(\omega\) : connection \(1\) form
 \itemdefi
-  define horizontal vector field := \(X\) : \(\Gamma(TE)\) such that \(\omega(X) = 0\) \\
-  define \(\mathcal{H}E\) := kernel of  \(\omega\) as \(TE \to \mathcal{V}E\) \\
+  \Define horizontal vector field := \(X\) : \(\Gamma(TE)\) such that \(\omega(X) = 0\) \\
+  \Define \(\mathcal{H}E\) := kernel of \(\omega\) as \(TE \to \mathcal{V}E\) \\
 \itemprop
-  let \(\mathcal{H}E \to \pi^* TB\) := restriction of \(TE \to \pi^*TB\) \\
-  then this is isomorphism
+  \Let \(\mathcal{H}E \to \pi^* TB\) := restriction of \(TE \to \pi^*TB\) \\
+  \Then this is isomorphism
 \itemdefi
-  for (\(X\) : \(\mathcal{X}(B)\)) ,\\
-  horizontal lift of \(X\) (\(X_E\)) : \(\Gamma(\mathcal{H}E)\) := unique by \(\pi_* X_E = X\)
+  \For (\(X\) : \(\mathcal{X}(B)\)) \\
+  \Define horizontal lift of \(X\) (\(X_E\)) : \(\Gamma(\mathcal{H}E)\) := unique by \(\pi_* X_E = X\)
 \end{Definition}
 
 \begin{Definition}
 \itemnote
   この接続に対して曲率を定義する。
-\itemwhen \((\pi , E , B)\) : fiber bundle
-\itemwhen \(\omega\) : connection \(1\) form
+\itemwhen
+  \Fix \((\pi , E , B)\) : fiber bundle \\
+  \Fix \(\omega\) : connection \(1\) form
 \itemdefi
-  curvature (\(\Omega\)) : \(\Gamma(\pi^*T^*B \otimes \mathcal{V}E)\) := by formula...
+  \Define curvature (\(\Omega\)) : \(\Gamma(\pi^*T^*B \otimes \mathcal{V}E)\) := by formula...
   \(\forall\) (\((X , Y)\) : \(\mathcal{X}(M)\)) , \(\Omega(\pi^*X , \pi^*Y) = [X , Y]_E - [X_E , Y_E]\)
 \itemprop
-  let \(\Omega\) := curvature of \(\omega\) \\
-  then \(\Omega(\pi^*(f X) , Y) = (\pi^* f) \Omega(X , Y)\)
+  \Let \(\Omega\) := curvature of \(\omega\) \\
+  \Then \(\Omega(\pi^*(f X) , Y) = (\pi^* f) \Omega(X , Y)\)
 \end{Definition}
 
 \begin{Definition}
 \itemnote
   主束の場合の接続と接続形式を定義する。
 \itemdefi
-  connection (\(\tau\)) := \(G\) invariant \(\dim (M)\) field of \(TP\) such that \(\pi_* : \tau_p \to T_{\pi(p)}X\) is isomorphism
+  \Define connection (\(\tau\)) := \(G\) invariant \(\dim (M)\) field of \(TP\) such that \(\pi_* : \tau_p \to T_{\pi(p)}X\) is isomorphism
 \itemdefi
-  for (\(\tau\) : connection) ,\\
-  connection \(1\) form (\(\omega\)) : \(\Omega^1(P ; \mathfrak{g})\) :=
+  \For (\(\tau\) : connection) \\
+  \Define connection \(1\) form (\(\omega\)) : \(\Omega^1(P ; \mathfrak{g})\) :=
   \begin{indentblock}
-    for (\(p\) : \(P\)) ,\\
-    let \(f\) : \(T_p P \to \mathcal{V}_p P\) := projection induced by \(\tau_p\) \\
-    let \(g\) : \(\mathcal{V}_p P \to \mathfrak{g}\) := induced by isomorphism of \(P \times \mathfrak{g} \to \mathcal{V}P\) \\
-    return \(g \circ f\)
+    \For (\(p\) : \(P\)) \\
+    \Let \(f\) : \(T_p P \to \mathcal{V}_p P\) := projection induced by \(\tau_p\) \\
+    \Let \(g\) : \(\mathcal{V}_p P \to \mathfrak{g}\) := induced by isomorphism of \(P \times \mathfrak{g} \to \mathcal{V}P\) \\
+    \Return \(g \circ f\)
   \end{indentblock}
 \itemprop
-  for (\(\tau\) : connection) ,\\
-  then \(T_p P = \mathcal{V}_p P \oplus \tau_p\)
+  \For (\(\tau\) : connection) \\
+  \Then \(T_p P = \mathcal{V}_p P \oplus \tau_p\)
 \itemdefi
-  for (\(\tau\) : connection) ,\\
-  define \(\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := \\
-  from projection : \(TP \to \mathcal{V}P\) := induced by \(\tau\)
+  \For (\(\tau\) : connection) \\
+  \Define \(\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := by projection : \(TP \to \mathcal{V}P\) := induced by \(\tau\)
 \end{Definition}
 
 \begin{Theorem}
@@ -62,27 +62,20 @@
   \WIP
 \end{Theorem}
 
-\begin{Definition}
-\itemprop
-  for (\(\tau\) : connection) ,\\
-  for (\(X\) : \(\mathcal{X}(M)\)) ,\\
-  define \(X_{P}\) : \(\Gamma(HP)\) := unique by \(\pi_* X_P = X\)
-\end{Definition}
-
 \begin{Theorem}
 \itemnote
   接続・接続形式・分裂が対応することを示す。
 \itemprop
-  for (\(\omega\) := connection \(1\) form of \(\tau\)) ,\\
-  \(\forall\) (\(V\) : \(\mathfrak{g}\)) , \(\omega(\tilde{V}) \equiv V\) and \\
-  \(\forall\) (\(g\) : \(G\)) , \(R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\)
+  \For (\(\omega\) := connection \(1\) form of \(\tau\)) \\
+  \Then \(\forall\) (\(V\) : \(\mathfrak{g}\)) , \(\omega(\tilde{V}) \equiv V\) \\
+  and \(\forall\) (\(g\) : \(G\)) , \(R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\)
 \itemprop
-  let \(\text{connection } \to \{\omega : \Omega^1(P ; \mathfrak{g}) \mid \omega(\tilde{V}) \equiv V , R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\}\) := defined above \\
-  this is isomorphism
+  \Let \(\text{connection } \to \{\omega : \Omega^1(P ; \mathfrak{g}) \mid \omega(\tilde{V}) \equiv V , R_g^* \omega = \text{Ad}_{g^{-1}}(\omega)\}\) := defined above \\
+  \Then this is isomorphism
 \itemprop
-  let \(\text{connection } \to \text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\) := defined above \\
-  this is isomorphism
-\itemdefi
+  \Let \(\text{connection } \to \{\text{splitting of } 0 \to \mathcal{V}P \to TP \to \pi^*P \to 0\}\) := defined above \\
+  \Then this is isomorphism
+\itemnote
   We identifying all of this
 \end{Theorem}
 
@@ -90,8 +83,8 @@
 \itemnote
   接続の曲率を定義する
 \itemdefi
-  for (\(\omega\) : connection \(1\) form) ,\\
-  curvature : \(\Omega^2(P ; \mathfrak{g})\) := \(d \omega + [\omega , \omega]\)
+  \For (\(\omega\) : connection \(1\) form) \\
+  \Define curvature : \(\Omega^2(P ; \mathfrak{g})\) := \(d \omega + [\omega , \omega]\)
 \end{Definition}
 
 \begin{Theorem}
@@ -108,18 +101,25 @@
 \begin{Theorem}
 \itemnote
   曲率の局所的な表示について
-\itemwhen fix \(G \subset \text{GL}(k , \mathbb{R})\)
+\itemwhen
+  \Fix \(G \subset \text{GL}(k , \mathbb{R})\)
 \itemdefi
-  \(\omega_{ij}\) , \(\Omega_{ij}\) : \(\Omega^i(P)\) := \((i,j)\) component of \(\omega\) \(\Omega\)
+  \(\omega_{ij}\) , \(\Omega_{ij}\) : \(\Omega^*(P)\) := \((i,j)\) component of \(\omega\) , \(\Omega\)
 \itemprop
-  \(\Omega_{i,j} = d \omega_{ij} + \sum_k \omega_{ik} \wedge \omega_{kj}\)
+  \(\Omega_{ij} = d \omega_{ij} + \sum_k \omega_{ik} \wedge \omega_{kj}\)
 \end{Theorem}
 
 \begin{Theorem}
+\itemnote
+  \(G\) が \(SO(n)\) のときには接続を次のように表せる。
+\itemwhen
+  \Fix \(G = \text{SO}(n)\) , \(G \subset \text{GL}(k , \mathbb{R})\) := natural definition
 \itemdefi
-  for (\(e_i , e_j\) : \(\mathbb{R}^n\)) ,\\
-  \(e_i \wedge e_j\) : \(\mathbb{R}^n \to \mathbb{R}^n\) := \(v \mapsto \langle e_i , v \rangle e_j - \langle e_j , e \rangle e_i\)
-\itemdefi
+  \For (\(e_i , e_j\) : \(\mathbb{R}^n\)) \\
+  \Define \(e_i \wedge e_j\) : \(\mathbb{R}^n \to \mathbb{R}^n\) := \(v \mapsto \langle e_i , v \rangle e_j - \langle e_j , e \rangle e_i\)
+\itemprop
+  \(e_i \wedge e_j \in \mathfrak{so}(n)\)
+\itemprop
   \(\omega = - \sum_{i \lneqq j} \omega_{ij} e_i \wedge e_j\)
 \end{Theorem}
 
@@ -127,47 +127,48 @@
 \itemnote
   共変微分を定義する
 \itemdefi
-  for (\((\pi : E \to M)\) : vector bundle) ,\\
-  covariant derivative := \(\nabla\) : \(\mathbb{R}\text{-linear } \Gamma(E) \to \Gamma(T^*M \otimes E)\) such that \(\forall (f : C(M)) (e : \Gamma(E))\) , \(\nabla(f e) = d f \otimes e + f \nabla e\)
+  \For (\((\pi : E \to M)\) : vector bundle) \\
+  \Define covariant derivative := \(\nabla\) : \(\mathbb{R}\text{-linear } \Gamma(E) \to \Gamma(T^*M \otimes E)\) such that \(\forall (f : C(M)) (e : \Gamma(E))\) , \(\nabla(f e) = d f \otimes e + f \nabla e\)
 \itemdefi
-  for (\(\nabla\) : connection) (\(X\) : vector field) ,\\
-  \(\nabla_X\) : \(\Gamma(E) \to \Gamma(E)\) := \(\iota (X) \circ \nabla\)
+  \For (\(\nabla\) : connection) (\(X\) : vector field) \\
+  \Define \(\nabla_X\) : \(\Gamma(E) \to \Gamma(E)\) := \(\iota (X) \circ \nabla\)
 \end{Definition}
 
 \begin{Theorem}
 \itemnote
   共変微分の性質を示す。
 \itemprop
-  forall (\(\nabla_1\) , \(\nabla_2\) : connection) ,\\
-  \(\nabla_1 - \nabla_2\) is \(C(M)\) linear
+  \For (\(\nabla_1\) , \(\nabla_2\) : connection) \\
+  \Then \(\nabla_1 - \nabla_2\) is \(C(M)\) linear
 \itemprop
-  forall (\(\nabla\) : connection) (\(\alpha\) : \(\Omega^1(M)\)) ,\\
-  \(\nabla + \alpha\) is connection
+  \For (\(\nabla\) : connection) (\(\alpha\) : \(\Omega^1(M)\)) \\
+  \Then \(\nabla + \alpha\) is connection
 \end{Theorem}
 
 \begin{Theorem}
 \itemnote
-  for (\(\omega\) : connection on \((P , M , \pi)\) : principal \(G\) bundle) (\(U\) : trivialization) (\(s\) : local section of \(U\)) (\(A\) : \(U \to G\)) ,\\
-  let \(\phi_A\) : \(P \mid_{U} \to P \mid_{U}\) := \(x \mapsto x \cdot A(x)\) \\
-  then \(s^* \phi_A^* (\omega \mid_{U}) = \text{Ad}_{A^{-1}} (s^* (\omega \mid_{U})) + A^{-1}dA\)
+  \For (\(\omega\) : connection on \((P , M , \pi)\) : principal \(G\) bundle) (\(U\) : trivialization) (\(s\) : local section of \(U\)) (\(A\) : \(U \to G\)) \\
+  \Let \(\phi_A\) : \(P \mid_{U} \to P \mid_{U}\) := \(x \mapsto x \cdot A(x)\) \\
+  \Then \(s^* \phi_A^* (\omega \mid_{U}) = \text{Ad}_{A^{-1}} (s^* (\omega \mid_{U})) + A^{-1}dA\)
 \end{Theorem}
 
 \begin{Definition}
 \itemnote
   共変微分をフレーム束の接続から構成する
-\itemwhen \((\pi : E \to M)\) : vector bundle
-\itemwhen \(\omega\) : connection form on \(P_{GL}(E)\)
+\itemwhen
+  \Fix \((\pi : E \to M)\) : vector bundle
+  \Fix \(\omega\) : connection form on \(P_{GL}(E)\)
 \itemdefi
-  for (\(U\) : trivialization) ,\\
-  define \(\nabla_U\) : covariant derivative on \(U\) :=
+  \For (\(U\) : trivialization) \\
+  \Define \(\nabla_U\) : covariant derivative on \(U\) :=
   \begin{indentblock}
-    take (\(\mathcal{E} = (e_1 , \ldots , e_n)\) : local frame on \(U\)) ,\\
-    let \(\tilde{\omega}\) : \(A^1(U ; \mathfrak{g})\) := \(\mathcal{E}^*\omega\) ,\\
-    let \(\tilde{\omega}_{ij}\) : \(A^1(U)\) := \((i,j)\) component of \(\tilde{\omega}\) ,\\
-    define induced by \(e_j \mapsto \sum_j \tilde{\omega}_{ji} \otimes e_j\)
+    \Take (\(\mathcal{E} = (e_1 , \ldots , e_n)\) : local frame on \(U\)) \\
+    \Let \(\tilde{\omega}\) : \(A^1(U ; \mathfrak{g})\) := \(\mathcal{E}^*\omega\) \\
+    \Let \(\tilde{\omega}_{ij}\) : \(A^1(U)\) := \((i,j)\) component of \(\tilde{\omega}\) \\
+    \Return induced by \(e_j \mapsto \sum_j \tilde{\omega}_{ji} \otimes e_j\)
   \end{indentblock}
 \itemdefi
-  define \(\nabla\) : covariant detivative on \(E\) := unique by forall (\(U\) : trivialization) (\(s\) : \(\Gamma(E)\)) , \((\nabla s) \mid_{U} = \nabla_U (s \mid_U)\)
+  \Define \(\nabla\) : covariant detivative on \(E\) := unique by forall (\(U\) : trivialization) (\(s\) : \(\Gamma(E)\)) , \((\nabla s) \mid_{U} = \nabla_U (s \mid_U)\)
 \end{Definition}
 
 \begin{Theorem}
@@ -179,17 +180,17 @@
 \itemnote
   この構成が向き付けられた計量付きベクトル束の場合にはよい性質を持つことを示す。
 \itemprop
-  for (\((\pi : E \to M)\) : ori.met.vector bundle) (\(\omega\) : connection on \(P_{SO}(E)\)) ,\\
-  let \(\nabla\) : covariant derivative on \(E\) := defined above ,\\
-  then forall (\(V\) : \(\mathcal{X}(M)\)) (\(s_1\) , \(s_2\) : \(\Gamma(E)\)) , \(V \langle s_1 , s_2 , \rangle = \langle \nabla_V s_1 , s_2 \rangle + \langle s_1 , \nabla_V s_2 \rangle\)
+  \For (\((\pi : E \to M)\) : ori.met.vector bundle) (\(\omega\) : connection on \(P_{SO}(E)\)) \\
+  \Let \(\nabla\) : covariant derivative on \(E\) := defined above \\
+  \Then forall (\(V\) : \(\mathcal{X}(M)\)) (\(s_1\) , \(s_2\) : \(\Gamma(E)\)) , \(V \langle s_1 , s_2 , \rangle = \langle \nabla_V s_1 , s_2 \rangle + \langle s_1 , \nabla_V s_2 \rangle\)
 \end{Theorem}
 
 \begin{Definition}
 \itemdefi
-  for (\(\nabla\) : covariant derivative on \((E \to M)\)) ,\\
-  define \(\tilde{\nabla}\) : \(\Omega^i(M , E) \to \Omega^{i + 1}(M , E)\) := induced by \(\alpha \otimes e \mapsto d \alpha \otimes e + (-1)^i \alpha \wedge \nabla e\) \\
-  define \(R\) := \(\tilde{\nabla} \circ \nabla\) \\
-  define \(R_{V , W}\) : \(\Gamma(E) \to \Gamma(E)\) := \(\)
+  \For (\(\nabla\) : covariant derivative on \((E \to M)\)) \\
+  \Define \(\tilde{\nabla}\) : \(\Omega^i(M , E) \to \Omega^{i + 1}(M , E)\) := induced by \(\alpha \otimes e \mapsto d \alpha \otimes e + (-1)^i \alpha \wedge \nabla e\) \\
+  \Define \(R\) := \(\tilde{\nabla} \circ \nabla\) \\
+  \Define \(R_{V , W}\) : \(\Gamma(E) \to \Gamma(E)\) := \(\)
 \end{Definition}
 
 \begin{Theorem}
@@ -200,5 +201,5 @@
 \itemprop
   forall (\(U\) : open subset of \(M\)) (\(V , W\) : \(\mathcal{X}(M) \mid_{U}\)) (\(e\) : \(\Gamma(E \mid_{U})\)) , \(R_{V , W}e = (\nabla_V \nabla_W - \nabla_W \nabla_V - \nabla_{[V , W]}) e\)
 \itemprop
-  forall (\(U\) : open subset of \(M\)) (\(V , W\) : \(\mathcal{X}(M) \mid_{U}\)) (\(s_1 , s_2\) : \(\Gamma(E \mid_{U})\)) , \(\langle R_{V, W} s_1 , s_2 + \langle s_1 , R_{V, W} s_2 \rangle = 0\)
+  forall (\(U\) : open subset of \(M\)) (\(V , W\) : \(\mathcal{X}(M) \mid_{U}\)) (\(s_1 , s_2\) : \(\Gamma(E \mid_{U})\)) , \(\langle R_{V, W} s_1 , s_2 \rangle + \langle s_1 , R_{V, W} s_2 \rangle = 0\)
 \end{Theorem}
