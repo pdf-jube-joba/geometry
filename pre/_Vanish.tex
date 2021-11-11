@@ -1,0 +1,365 @@
+\begin{When}
+\itemwhen \Fix \(X\) : compact riemannian manifold
+\itemwhen \Let \(D^2\) := dirac laplacian on \(\text{Cl}(X)\)
+\end{When}
+
+There exists a second, naturally deifned laplacian \(\nabla * \nabla\) on \(\text{Cl}(X)\) such that self-ajdoint, non-negative and has the same symbol as \(D^2\). 
+The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be expressed in terms of curvature tensor of X.
+
+\begin{Definition}
+\itemwhen
+  \Fix \(E\) : riemannian vector bundle on \(X\) with canonical connection \\
+  \Fix \(\nabla\) : riemannian connection on \(E\)
+\itemdefi
+  \For \(V,W\) : \(\Gamma(E)\) \\
+  \Define \(\nabla_{V,W}^2\) : \(\Gamma(E) \to \Gamma(E)\) := \(\phi \mapsto \nabla_V \nabla_W \phi - \nabla_{\nabla_V W} \phi\)
+\itemprop
+  \(\nabla_{V,W}^2\) is tensorial on \(V , W\)
+\itemprof
+  \(V\) について tensorial なのはよい。 \(W\) については
+  \begin{align*}
+    \nabla_V \nabla_{g W} \phi - \nabla_{\nabla_V g W} \phi
+    &= \nabla_V (g \nabla_W \phi) - \nabla_{V(g) W + g \nabla_V W} \phi \\
+    &= V(g) \nabla_V \nabla_W \phi + g \nabla_V \nabla_W \phi - \nabla_{V(g) W} \phi - \nabla_{g \nabla_V W} \phi \\
+    &= g (\nabla_V \nabla_W \phi - \nabla_{\nabla_V W} \phi)
+  \end{align*}
+  よりよい。
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\nabla_{\cdot , \cdot}^2\) : \(\Gamma(T^*X \otimes T^*X \otimes E)\) := \AIMAI{by natural definition} \\
+  \Define \(\nabla * \nabla\) : \(\Gamma(E) \to \Gamma(E)\) := \(\phi \mapsto - \text{trace}(\nabla_{\cdot , \cdot }^2 \phi)\)
+\itemprop
+  \For \((e_i)\) : local orthonormal tangent frame field \\
+  \Then \(\nabla*\nabla \phi = - \sum_j \nabla_{e_j , e_j}^2\phi\)
+\itemprof
+  一般に \(E \to X\) : riemannian vector bundle に対して trace : \(\Gamma(E \otimes E) \to C(X , \mathbb{R})\) が metric によって定義された。
+  \((e_i)\) の双対基底 \((e^i)\) をとれば \(\nabla_{\cdot , \cdot}^2 \phi\) : \(\Gamma(T^*X \otimes T^*X \otimes E) \cong \Gamma(T^*X) \otimes \Gamma(T^*X) \otimes \Gamma(E)\) を \(\sum_{i,j,k} a^k_{i,j} e^i \otimes e^j \otimes s_k\) と表したとき \(\text{trace}(\nabla_{\cdot , \cdot }^2 \phi) = \sum_{k} (\sum_i a^k_{i,i}) s_k\) であるが、これは \(\sum_i \nabla_{e_i , e_i}^2 \phi\) に等しい。
+\itemprop
+  \Then \(\sigma_{\xi}(\nabla * \nabla) = || \xi || ^2\)
+\itemprof
+  local には \(\nabla * \nabla = \sum_i \nabla_{e_i} \nabla_{e_i} \phi - \nabla_{\nabla_{e_i} e_i} \phi\) なので右側は一回微分であるから、
+  \[\sigma(\nabla * \nabla)(x ; \xi) = \sigma(- \sum_i \nabla_{e_i} \nabla_{e_i})(x ; \xi) = || \xi ||^2\]
+  \SORRY
+\end{Definition}
+
+\begin{Theorem}
+\itemdefi
+  \For \(\phi , \varphi\) \\
+  \Define \(\langle \nabla \phi , \nabla \varphi \rangle\) : \(C^{\infty}(X)\) := \(\sum_j \langle \nabla_{e_j} \phi , \nabla_{e_j} \varphi \rangle\) \\
+  \Define \((\phi , \varphi)\) := \(\int_X \langle \nabla \phi , \nabla \varphi \rangle\) \\
+\itemprop
+  \((\nabla * \nabla \phi , \varphi) = (\nabla \phi , \nabla \varphi)\)
+\itemprop
+  \(\nabla * \nabla \phi = 0\) \(\iff\) \(\nabla \phi = 0\)
+\itemprop
+  if \(X\) is complete , \(\nabla * \nabla\) is \AIMAI{essentially self-adjoint}, i.e., it has a unique self-adjoint closed extension on \(L^2(S)\)
+\itemprop
+  if above hold, kernel of \(\nabla * \nabla\) consists of parallel section.
+\itemprop
+  if \(X\) has infinite volume, no such section except \(0\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(x\) : \(X\) を固定し \((e_i)\) : local orthonormal frame field で \(\nabla e_i \mid_x = 0\) を満たすものをとる。
+  \(V\) : vector fields を \(\langle V , W \rangle = \langle_W \phi , \varphi \rangle\) を満たすものとしてとる。
+  \begin{align*}
+    \langle \nabla * \nabla \phi , \varphi \rangle
+    &= - \sum_j \langle \nabla_{e_j} \nabla_{e_j} \phi , \varphi \rangle \\
+    &= - \sum_j e_j \langle \nabla_{e_j} \phi , \varphi \rangle - \langle \nabla_{e_j} \phi , \nabla_{e_j} \varphi \rangle \\
+    &= - \text{div}(V) + \langle \nabla \phi , \nabla \varphi \rangle
+  \end{align*}
+  よりこれを積分して得られる。
+\itemprof
+  上の命題からわかる。
+\itemprof
+  もともとが self-adjoint なので \(L^2\) への拡張を考える解析的議論（定理 5.7 と同様の方法）によりわかる。
+\itemprof
+  上の命題よりわかる。
+\itemprof
+  \SORRY
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(S\) : dirac bundle on \(X\) \\
+  \Fix \(D\) := dirac operator of \(S\)
+\itemdefi
+  \Define \(\mathfrak{R}\) : \(\Gamma(\text{Hom}(S,S))\) := by locally formula \(\phi \mapsto \frac{1}{2} \sum_{j,k} e_j \cdot e_k \cdot R_{e_j , e_k} \phi\) for \((e_i)\) : orthonormal tangent frame
+\itemprop
+  \(D^2 = \nabla * \nabla + \mathfrak{R}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(x\) : \(X\) を固定し \((e_i)\) : local orthonormal frame field で \(\nabla e_i \mid_x = 0\) を満たすものをとる。
+  \begin{align*}
+    D^2
+    &= \sum_{j,k} e_j \cdot \nabla_{e_j} (e_k \cdot \nabla_{e_k}) \\
+    &= \sum_{j,k} e_j \cdot e_k \cdot \nabla_{e_j} \nabla_{e_k} = \sum_{j,k} e_j \cdot e_k \cdot \nabla_{e_j , e_k}^2 \\
+    &= -\sum_j \nabla_{e_j , e_j}^2 + \sum_{j < k} e_j \cdot e_k \cdot (\nabla_{e_j , e_k}^2 - \nabla_{e_k , e_j}^2) = \nabla * \nabla + \mathfrak{R}
+  \end{align*}
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define Ricci transformation (\(\text{Ric}\)) : \(\Gamma(TX) \to \Gamma(TX)\) := by locally formula \(\phi \mapsto - \sum_j R_{e_j , \phi}(e_j)\) \\
+  \Define Ricci curvature form (\(\text{Ric}(\phi , \varphi)\)) : \(\Gamma(T^*X) \to \Gamma(T^*X)\) := \(\langle \text{Ric}(\phi) , \varphi \rangle\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  Ricci curvature form is symmetric
+\itemprop
+  \(\Delta = \nabla * \nabla + \text{Ric}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  上の命題に \(S \leftarrow \text{Cl}(X)\) を考える。
+  等式は \(\text{Ric}\) が \(\Gamma(TX)\) 上でのみ定義されているため、 \(\mathfrak{R}\) の制限が \(\Gamma(T^*X) \to \Gamma(T^*X)\) を与えていること、 \(\mathfrak{R} = \text{Ric}\) を示せばよいが、一つ目は \(\Delta\) と \(\nabla * \nabla\) が次数を保つことからわかる。
+  \begin{align*}
+    \mathfrak{R} \phi
+    &= \frac{1}{2} \sum_{i,j} e_i e_j R_{e_i , e_j}(\phi) \\
+    &= \frac{1}{2} \sum_{i,j,k} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_k \\
+    &= \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_j +
+    \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_i +
+    \frac{1}{2} \sum_{i,j} \sum_{k \not = i,j} \langle R_{e_i , e_j} \phi , e_k \rangle e_i e_j e_k
+  \end{align*}
+  \SORRY
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  if \(\text{Ric} > 0\) , then \(b_1(X) = 0\)
+\itemprop
+  if Ricci curvature of \(X\) is non-negative, \(b_1(X) = \text{dim}\{\phi \in \Gamma(X) \mid \phi \, \text{is parallel}\}\)
+\itemprop
+  \(b_1(X) \leqq \text{dim}(X)\)
+\itemprop
+  equality hold if and only if \(X\) is a flat torus
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(b_1(X) = \text{dim}H^1(X ; \mathbb{R})\) であった。
+  \(\phi\) : \(\mathbf{H}^1\) に対して、 \(0 = \Delta \phi = \nabla * \nabla \phi + \text{Ric}(\phi)\) より、
+  \[\int_X \text{Ric}(\phi , \phi) = - (\nabla * \nabla \phi , \phi) = - || \nabla \phi ||^2\]
+  が成り立つ。
+  もし \(\text{Ric} > 0\) が成り立てば、 \(\phi \not = 0\) なる元がこれを満たせるはずがないので \(\phi = 0\) とわかる。
+\itemprof
+  上での議論と同様にして、 \(\text{Ric} \geqq 0\) なら
+  \[\{\phi : \Omega^1(X) \mid \phi \, \text{is harmonic}\} \subset \{\phi : \Omega^1(X) \mid \phi \, \text{is parallel}\} \cong \{\phi : \Gamma(X) \mid \phi \, \text{is parallel}\}\]
+  とわかった。
+  \SORRY
+\itemprof
+  \(k = b_1(X)\) 個の線型独立な vector fields が得られることが上の命題からわかる。
+  \(X\) の次元を考えれば \(l \leqq \text{dim}(X)\)
+\itemprof
+  parallel vector field は下で述べるように isometric flow を与える。
+  \(k = b_1(X)\) 個の線型独立な parallel vector field \(E_i\) であって、pointwise に orthonormal なものをとる（？）ことで、 \(\mathbb{R}^k\) の locally free action をえることができる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  parallel vector field gerenates an isometric flow, and its intergral curves are geodesics.
+\itemprop
+  if \(k < \text{dim}(X)\) and \(\text{Ric} \geqq 0\) , there exists locally free action of \(\mathbb{R}^k\) by isometries on \(X\) with totally geodesic orbits.
+\itemprop
+  for dual basis (\(\phi = (\phi_i)\)) of \(1\)-form, Integration of \(\phi\) gives a riemannian submersion (\(J\)) : \(X \to \mathbb{R}^n / \Lambda\) where \(\Lambda = \{\lambda \in \mathbb{R^k} \mid \lambda = \int_{\gamma} \phi \, \text{for} \, \gamma : \text{closed curve of} \, X\}\)
+\itemprop
+  \(J\) is a covering map on each orbit.
+\itemprop
+  universal covering of \(X\) (\(\tilde{X}\)) splits as a riemannian product of \(\mathbb{R}^n\) and compact riemannian manifold.
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define curvature operator (\(\mathbf{R}\)) : symmetric endomorphism of \(\Gamma(\Lambda^2(TX)) \to \Gamma(\Lambda^2(TX))\) := defined by \(\langle R_{V_1 , V_2} V_3 , V_4 \rangle\) \\
+  \Define curvature operator is positive /(resp non-negative) \(\iff\) all eigenvalues are \(< 0\) (resp \(\leq 0\)) \\
+  \Define scalar curvature (\(\kappa\)) : \(X \to \mathbb{R}\) := \(\text{trace}(\text{Ric})\)
+\itemprop
+  in locally , \(\kappa = -\sum_{i,j} \langle R_{e_i , e_j}(e_i) , e_j \rangle\) for \((e_i)\) : local orthonormal frame
+\itemprop
+  when \(n \leftarrow 2\) , \(\kappa\) = classical Gauss curvature function
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(\phi\) : \(\Gamma(\mathbb{R}^n)\) \\
+  if forall (\(\xi\) : \(\Gamma(\Lambda^2(\mathbb{R}^2))\)) , \(\text{ad}_{\xi}(\phi) = 0\) \\
+  then \(\phi = 0\)
+\itemprop
+  for each \(p\) ,
+  there is a positivity assumption on the curvature tensor which guarantees that \(b_p(X) = 0\)
+\itemprop
+  if curvature operator is positive , Then forall \(p\) , \(b_p(X) = 0\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\text{ad}_{\xi}\) なる \(\Lambda^p(\mathbb{R}^n)\) への表現はリー代数 \(\mathfrak{so}(n)\) への standard な表現となっていた。
+  \((e_i)\) : standard basis of \(\mathbb{R}^n\) に対して、 \([e_i e_j , \sum_{|I| = p} A_I e_I] = 0\) と仮定する。 \([e_i e_j , e_I]\) は \(i,j\) が共に \(I\) に含まれるか含まれないときには \(0\) 、 そうでないときは \(2 e_i e_j I\) となる。
+  したがって任意の \(i,j\) に対して \([e_i e_j , \sum_{|I| = p} A_I e_I] = 0\) とすると、 \(a_I = 0\) か、 \(i \in I\) または \(j \in I\) のどちらかのみが成り立つ。
+  任意の \(i,j\) で成り立つので \(a_I = 0\) であるからよい。
+\itemprof
+  これは詳細がべつの教科書に書いてあるらしい。
+\itemprof
+  curvature tensor が positive であることを示せばよい。
+  \((\lambda_\alpha , \xi_\alpha)\) を \(\mathbf{R}\) に対する固有値と固有ベクトルとしてとる。
+  \begin{align*}
+    \langle \mathfrak{R} (\phi) , \phi \rangle
+    &= \sum_{i < j} \langle e_i e_j R_{e_i , e_j} (\phi) , \phi \rangle \\
+    &= \frac{1}{2} \sum_{i < j} \langle [e_i e_j , R_{e_i , e_j}(\phi)] , \phi \rangle \\
+    &= -\frac{1}{2} \sum_{i < j} \langle R_{e_i , e_j}(\phi) , [e_i e_j , \phi] \rangle \\
+    &= -\frac{1}{4} \sum_{i < j , k < l}
+    \langle R_{e_i , e_j}(e_k) , e_l \rangle \langle \text{ad}_{e_i e_j}(\phi) , \text{ad}_{e_k e_l}(\phi) \rangle \\
+    &= -\frac{1}{4} \sum_{i<j,k<l} \langle \mathbf{R}_{e_i , e_j} , e_k e_l \rangle \langle \text{ad}_{e_i e_j} (\phi) , \text{ad}_{e_k e_l} (\phi) \rangle \\
+    &= - \frac{1}{4} \sum_{\alpha , \beta} \langle \mathbf{R}(\xi_{\alpha}) , \xi_{\beta} \rangle \langle \text{ad}_{\xi_\alpha}(\phi) , \text{ad}_{\xi_\beta}(\phi) \rangle \\
+    &= - \frac{1}{4} \sum_{\alpha} \lambda_\alpha || \text{ad}_{\xi_\alpha}(\phi) ||^2
+  \end{align*}
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For (\(X\) : spin manifold) (\(S\) : spinor bundle on \(X\) with canonical riemannian connection) \\
+  \Let \(\mathbb{D}\) := Atiyah-Singer operator of \(S\) \\
+  \Then \(\mathbb{D} = \nabla * \nabla + \frac{1}{4} \kappa\)
+\itemdefi
+  \(X\) has no harmonic spinors \(\iff\) for any spinor bundle , \(\text{ker}(\mathbb{D}) = 0\)
+\itemprop
+  if \(X\) has positive scalar , \(X\) has no harmonix spinors.
+\itemprop
+  if \(\kappa = 0\) , every harmonic spinor is globally parallel. 
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(D^2 = \nabla*\nabla + \mathfrak{R} \) であった。
+  spinor bundle の場合には \(R^s_{V,W} = \frac{1}{4}\sum_{k,l}\langle R_{V,W}(e_k),e_l\rangle e_k e_l\) とかけた。
+  \begin{align*}
+    \mathfrak{R}
+    &= \frac{1}{2} \sum_{i,j} e_i e_j R^s_{e_i,e_j} \\
+    &= \frac{1}{8} \sum_{i,j,k,l} \langle R_{e_i,e_j}(e_k),e_l \rangle e_i e_j e_k e_l \\
+    &= \frac{1}{8} \sum_l (
+    \frac{1}{3} \sum_{i,j,k}
+    \langle R_{e_i,e_j} (e_k) + R_{e_k,e_i} (e_j) + R_{e_j,e_k} (e_i) , e_l \rangle e_i e_j e_k \\
+    & + \sum_{i,j} \langle R_{e_i,e_j}(e_i),e_l \rangle e_i e_j e_i
+    + \sum_{i,j} \rangle R_{e_i,e_j}(e_j),e_l \rangle e_i e_j e_i
+    ) e_l
+    &= \frac{1}{4} \sum_{i,j,l} \langle R_{e_i,e_j}(e_i),e_l\rangle e_j e_l \\
+    &= - \frac{1}{4} \sum_{j,l}\text{Ric}(e_j,e_l) e_j e_l \\
+    &= \frac{1}{4} \kappa
+  \end{align*}
+  よりよい。
+\itemprof
+  上の命題より、 \(\sigma : \Gamma(S)\) が \(D \sigma = 0\) をみたすなら、
+  \[\int \kappa ||\sigma||^2 = - (\nabla*\nabla \sigma , \sigma) = - ||\nabla\sigma||^2\]
+  であるから positive scalar を持つなら矛盾する。
+\itemprof
+  上の積分より、 \(\kappa = 0\) なら \(\nabla \sigma = 0\) である。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  for \(X\) : compact spin manifold of dim \(4k\) , If \(X\) admit a metric of positive scalar curvature, then \(\hat{A}(X) = 0\).
+\itemprop
+  for \(X\) : compact spin manifold , if \(X\) admits a metric of positive scalar curvature , then \(\hat{A}(X) = 0\).
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  Atiyah-Singer の定理により得られる。
+  Example 6.3 と Theorem 7.3 参照。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(S^n\) := n-sphere with standard metric
+\itemprop
+  \Then curvature transformation (\(R\) satisfies \(- R_{V,W}(U) = \langle V , W \rangle W - \langle W , U \rangle V\)
+\itemprop
+  \Then curvature transformation is uniformly positive
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  for \(n \equiv 1 , 2 (\text{mod} 8) , n \geq 8\) , there exists compact differentiable mainfolds which are homeomorphic to the \(n\)-sphere but which do not admit any riemannian metric with positive scalr curvature.
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Let Kervaire sphere := \AIMAI{taking the boundary of the manifold obtained by plumbing together two copies of the tangent disk bundle of \(S^{2k+1}\)}
+\itemdefi
+  \Let \(p_d(z_0 , \ldots , z_n)\) := \(z_0^d + \ldots + z_n^2\) \\
+  \Let \(V(d)\) := \(\{z \in \mathbb{C}^{n+2} \mid p_d(z) = 0\}\) \\
+  \Let \(M^{2n+1}(d)\) := \(V(d) \cap S^{2n+3}\) \\
+\itemprop
+  if \(n = 2k , d \equiv 3,5 (\text{mod} \, 8)\) then \(M^{2n+1}(d)\) is a Kervaire sphere
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  if \(X\) admit an effective differentiable action by a compact, connected, non-abelian Lie group , then X admits a metric of positive scalar curvature.
+\itemprop 
+  if \(\hat{A}(X) \not{=} 0\) , then the only compact connected Lie transformation groups of \(X\) are tori.
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \(\hat{A}(\mathbb{CP}^{2k}) = (-1)^k2^{-4k} \begin{pmatrix} 2k \\ k \end{pmatrix}\)
+\itemprop
+  \(\mathbb{CP}^{2k}\) is not a spin manifold
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \Fix \(X\) : compact riemannian spin manifold \\
+  \Fix \(S\) : spinor bundle on \(X\) \\
+  \Fix \(E\) : riemannian bundle on \(X\) with orthogonal conncection \\
+  \Let \(S \otimes E\) : dirac bundle := by product connection 
+\itemdefi 
+  \Define \(\mathcal{R}^E\) : \(S \otimes E \to S \otimes E\) := by formula \(\mathcal{R}^E(\sigma \otimes \epsilon) = \frac{1}{2}\sum_{j,k} (e_j e_k \sigma) \otimes (R_{e_j , e_k}^E \epsilon)\) for \((e_i)\) : orthonormal tangent frame
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Let \(\mathbb{D}_E\) := dirac operator of \(S \otimes E\) \\
+  then \(\mathbb{D}_E^2 = \nabla * \nabla + \frac{1}{4}\kappa + \mathcal{R}^E\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(S \otimes E\) 上の covariant derivative は derivation により定義されていたため、これの curvature transformation は derivation である。
+  \(\mathfrak{R}\) を計算すると、
+  \begin{align*}
+    \mathfrak{R}(\sigma \otimes \epsilon)
+    &= \frac{1}{2} \sum_{j,k} e_j e_k R_{e_j,e_k}(\sigma \otimes \epsilon) \\
+    &= \frac{1}{2} \sum_{j,k} e_j e_k \{R^S_{e_j,e_k}\sigma \otimes \epsilon + \sigma \otimes R^E_{e_j,e_k}\} \\
+    &= (\frac{1}{2} \sum_{j,k} e_j e_k R^S_{e_j,e_k} \sigma \otimes \epsilon) + \frac{1}{2} \sum (e_j e_k) \sigma \otimes (R^E_{e_j,e_k} \epsilon)
+  \end{align*}
+  ここで最後の式の第一項は \(\frac{1}{4}\kappa\) であった。
+  したがって成り立つ。
+\end{Proof}
