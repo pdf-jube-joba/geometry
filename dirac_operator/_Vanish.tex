@@ -40,36 +40,40 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   \Then \(\sigma_{\xi}(\nabla * \nabla) = || \xi || ^2\)
 \itemprof
   local には \(\nabla * \nabla = \sum_i \nabla_{e_i} \nabla_{e_i} \phi - \nabla_{\nabla_{e_i} e_i} \phi\) なので右側は一回微分であるから、
-  \[\sigma(\nabla * \nabla)(x ; \xi) = \sigma(- \sum_i \nabla_{e_i} \nabla_{e_i})(x ; \xi) = || \xi ||^2\]
-  \SORRY
+  \[\sigma(\nabla * \nabla)(x ; \xi) = \sigma(- \sum_i \nabla_{e_i} \nabla_{e_i})(x ; \xi) = \sigma(\sum_i \frac{\partial}{\partial x_i} \frac{\partial}{\partial x_i} + \text{lower order})(x ; \xi) = || \xi ||^2\]
 \end{Definition}
 
 \begin{Theorem}
 \itemdefi
-  \For \(\phi , \varphi\) \\
+  \For \(\phi , \varphi\) : \(\Gamma(E)\) \\
   \Define \(\langle \nabla \phi , \nabla \varphi \rangle\) : \(C^{\infty}(X)\) := \(\sum_j \langle \nabla_{e_j} \phi , \nabla_{e_j} \varphi \rangle\) \\
-  \Define \((\phi , \varphi)\) := \(\int_X \langle \nabla \phi , \nabla \varphi \rangle\) \\
+  \Define \((\phi , \varphi)\) := \(\int_X \langle \nabla \phi , \nabla \varphi \rangle\)
 \itemprop
   \((\nabla * \nabla \phi , \varphi) = (\nabla \phi , \nabla \varphi)\)
 \itemprop
   \(\nabla * \nabla \phi = 0\) \(\iff\) \(\nabla \phi = 0\)
 \itemprop
-  if \(X\) is complete , \(\nabla * \nabla\) is \AIMAI{essentially self-adjoint}, i.e., it has a unique self-adjoint closed extension on \(L^2(S)\)
+  \IfHold \(X\) is complete \\
+  \Then \(\nabla * \nabla\) is \AIMAI{essentially self-adjoint}, i.e., it has a unique self-adjoint closed extension on \(L^2(S)\)
 \itemprop
-  if above hold, kernel of \(\nabla * \nabla\) consists of parallel section.
+  \IfHold above hold \\
+  \Then kernel of \(\nabla * \nabla\) consists of parallel section.
 \itemprop
-  if \(X\) has infinite volume, no such section except \(0\)
+  \IfHold \(X\) has infinite volume \\
+  \Then no such section except \(0\)
 \end{Theorem}
 
 \begin{Proof}
 \itemprof
   \(x\) : \(X\) を固定し \((e_i)\) : local orthonormal frame field で \(\nabla e_i \mid_x = 0\) を満たすものをとる。
-  \(V\) : vector fields を \(\langle V , W \rangle = \langle_W \phi , \varphi \rangle\) を満たすものとしてとる。
+  \(V\) : vector fields を \(\langle V , W \rangle = \langle \nabla_W \phi , \varphi \rangle\) を満たすものとしてとる。
   \begin{align*}
     \langle \nabla * \nabla \phi , \varphi \rangle
     &= - \sum_j \langle \nabla_{e_j} \nabla_{e_j} \phi , \varphi \rangle \\
     &= - \sum_j e_j \langle \nabla_{e_j} \phi , \varphi \rangle - \langle \nabla_{e_j} \phi , \nabla_{e_j} \varphi \rangle \\
-    &= - \text{div}(V) + \langle \nabla \phi , \nabla \varphi \rangle
+    &= - \sum_j e_j \langle V , e_j \rangle + \langle \nabla \phi , \nabla \varphi \rangle \\
+    &= - \sum_j \langle \nabla_{e_j} V , e_j \rangle + \langle \nabla \phi , \nabla \varphi \rangle \\
+    &= \text{div}(V) + \langle \nabla \phi , \nabla \varphi \rangle
   \end{align*}
   よりこれを積分して得られる。
 \itemprof
@@ -87,7 +91,8 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   \Fix \(S\) : dirac bundle on \(X\) \\
   \Fix \(D\) := dirac operator of \(S\)
 \itemdefi
-  \Define \(\mathfrak{R}\) : \(\Gamma(\text{Hom}(S,S))\) := by locally formula \(\phi \mapsto \frac{1}{2} \sum_{j,k} e_j \cdot e_k \cdot R_{e_j , e_k} \phi\) for \((e_i)\) : orthonormal tangent frame
+  \Define \(\mathfrak{R}\) : \(\Gamma(\text{Hom}(S,S))\) := by local formula
+  \[\mathfrak{R}(\phi) = \frac{1}{2} \sum_{j,k} e_j \cdot e_k \cdot R_{e_j , e_k} \phi\] for \((e_i)\) : orthonormal tangent frame
 \itemprop
   \(D^2 = \nabla * \nabla + \mathfrak{R}\)
 \end{Theorem}
@@ -105,8 +110,10 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
 
 \begin{Definition}
 \itemdefi
-  \Define Ricci transformation (\(\text{Ric}\)) : \(\Gamma(TX) \to \Gamma(TX)\) := by locally formula \(\phi \mapsto - \sum_j R_{e_j , \phi}(e_j)\) \\
-  \Define Ricci curvature form (\(\text{Ric}(\phi , \varphi)\)) : \(\Gamma(T^*X) \to \Gamma(T^*X)\) := \(\langle \text{Ric}(\phi) , \varphi \rangle\)
+  \Define Ricci transformation (\(\text{Ric}\)) : \(\Gamma(TX) \to \Gamma(TX)\) := by local formula
+  \[\text{Ric}(\phi) = - \sum_j R_{e_j , \phi}(e_j)\]
+  \Define Ricci curvature form (\(\text{Ric}\)) : \(\Gamma(TX \otimes TX)^*\) := by formula
+  \[\text{Ric}(\phi , \varphi) = \langle \text{Ric}(\phi) , \varphi \rangle\]
 \end{Definition}
 
 \begin{Theorem}
@@ -122,18 +129,24 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   等式は \(\text{Ric}\) が \(\Gamma(TX)\) 上でのみ定義されているため、 \(\mathfrak{R}\) の制限が \(\Gamma(T^*X) \to \Gamma(T^*X)\) を与えていること、 \(\mathfrak{R} = \text{Ric}\) を示せばよいが、一つ目は \(\Delta\) と \(\nabla * \nabla\) が次数を保つことからわかる。
   \begin{align*}
     \mathfrak{R} \phi
-    &= \frac{1}{2} \sum_{i,j} e_i e_j R_{e_i , e_j}(\phi) \\
-    &= \frac{1}{2} \sum_{i,j,k} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_k \\
-    &= \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_j +
-    \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_i +
-    \frac{1}{2} \sum_{i,j} \sum_{k \not = i,j} \langle R_{e_i , e_j} \phi , e_k \rangle e_i e_j e_k
+    &= \frac{1}{2} \sum_{i,j} e_i e_j R_{e_i , e_j}(\phi)
+     = \frac{1}{2} \sum_{i,j,k} e_i e_j \langle R_{e_i , e_j} \phi , e_k \rangle e_k \\
+    &= \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_j \rangle e_j
+    + \frac{1}{2} \sum_{i,j} e_i e_j \langle R_{e_i , e_j} \phi , e_i \rangle e_i \\
+    &+ \frac{1}{2} \sum_{i \not = j} \sum_{k \not = i,j} \langle R_{e_i , e_j} \phi , e_k \rangle e_i e_j e_k + \frac{1}{2} \sum_{i} \sum_{k \not = i} \langle R_{e_i , e_i} \phi , e_k \rangle e_i e_i e_k \\
+    &= - \frac{1}{2} \sum_{i,j} \langle R_{e_i , e_j} \phi , e_j \rangle e_i
+    + \frac{1}{2} \sum_{i,j} \langle R_{e_i , e_j} \phi , e_i \rangle e_j
+    - \frac{1}{2} \sum_{i \not = j \not = k \not = i} \langle R_{e_i , e_j} e_k , \phi \rangle e_i e_j e_k \\
+    &= - \frac{1}{2} \sum_{i,j} \langle R_{e_i , e_j} \phi , e_j \rangle e_i
+    - \frac{1}{2} \sum_{i,j} \langle R_{e_i , e_j} \phi , e_j \rangle e_i
+    - \frac{1}{2} \frac{1}{3} \sum_{i \not = j \not = k \not = i} \langle R_{e_i , e_j} e_k + R_{e_j , e_k} e_i + R_{e_k , e_i} e_j , \phi \rangle e_i e_j e_k \\
+    &= - \sum_{i,j} \langle R_{e_i , e_j} \phi , e_j \rangle e_i = - \sum_{i,j} \langle R_{e_j , \phi} e_j , e_i \rangle e_i = \sum_j R_{e_j , \phi} e_j = \text{Ric}(\phi)
   \end{align*}
-  \SORRY
 \end{Proof}
 
 \begin{Theorem}
 \itemprop
-  if \(\text{Ric} > 0\) , then \(b_1(X) = 0\)
+  if \(\text{Ric} \geq 0\) and \(\text{Ric} > 0\) at one point , then \(b_1(X) = 0\)
 \itemprop
   if Ricci curvature of \(X\) is non-negative, \(b_1(X) = \text{dim}\{\phi \in \Gamma(X) \mid \phi \, \text{is parallel}\}\)
 \itemprop
@@ -148,12 +161,15 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   \(\phi\) : \(\mathbf{H}^1\) に対して、 \(0 = \Delta \phi = \nabla * \nabla \phi + \text{Ric}(\phi)\) より、
   \[\int_X \text{Ric}(\phi , \phi) = - (\nabla * \nabla \phi , \phi) = - || \nabla \phi ||^2\]
   が成り立つ。
-  もし \(\text{Ric} > 0\) が成り立てば、 \(\phi \not = 0\) なる元がこれを満たせるはずがないので \(\phi = 0\) とわかる。
+  もし仮定より左辺は \(\phi \not = 0\) なら正であり \(\phi \not = 0\) なる元がこの等式を満たせるはずがないので \(\phi = 0\) とわかる。
+  したがって、 \(H^1(X;\mathbb{R}) = 0\) よりよい。
 \itemprof
   上での議論と同様にして、 \(\text{Ric} \geqq 0\) なら
   \[\{\phi : \Omega^1(X) \mid \phi \, \text{is harmonic}\} \subset \{\phi : \Omega^1(X) \mid \phi \, \text{is parallel}\} \cong \{\phi : \Gamma(X) \mid \phi \, \text{is parallel}\}\]
   とわかった。
-  \SORRY
+  ところで parallel な form は harmonic である。
+  実際、 \(\nabla \phi = \sum_i e_i \nabla_{e_i} (\sum_j e_j \nabla e_j \phi)\) なのでよい。
+  したがって上の包含は等しいため、次元も一致する。
 \itemprof
   \(k = b_1(X)\) 個の線型独立な vector fields が得られることが上の命題からわかる。
   \(X\) の次元を考えれば \(l \leqq \text{dim}(X)\)
@@ -194,13 +210,13 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
 \begin{Theorem}
 \itemprop
   \For \(\phi\) : \(\Gamma(\mathbb{R}^n)\) \\
-  if forall (\(\xi\) : \(\Gamma(\Lambda^2(\mathbb{R}^2))\)) , \(\text{ad}_{\xi}(\phi) = 0\) \\
-  then \(\phi = 0\)
+  \IfHold forall (\(\xi\) : \(\Gamma(\Lambda^2(\mathbb{R}^2))\)) , \(\text{ad}_{\xi}(\phi) = 0\) \\
+  \Then \(\phi = 0\)
 \itemprop
-  for each \(p\) ,
-  there is a positivity assumption on the curvature tensor which guarantees that \(b_p(X) = 0\)
+  \For each \(p\) ,
+  \AIMAI{there is a positivity assumption on the curvature tensor which guarantees that \(b_p(X) = 0\)}
 \itemprop
-  if curvature operator is positive , Then forall \(p\) , \(b_p(X) = 0\)
+  \IfHold \(\mathbf{R} \geq 0\) and \(\mathbf{R} > 0\) at one point , Then forall \(p\) , \(b_p(X) = 0\)
 \end{Theorem}
 
 \begin{Proof}
@@ -210,21 +226,27 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   したがって任意の \(i,j\) に対して \([e_i e_j , \sum_{|I| = p} A_I e_I] = 0\) とすると、 \(a_I = 0\) か、 \(i \in I\) または \(j \in I\) のどちらかのみが成り立つ。
   任意の \(i,j\) で成り立つので \(a_I = 0\) であるからよい。
 \itemprof
-  これは詳細がべつの教科書に書いてあるらしい。
+  おそらく、ここまでの議論では curvature tensor から Ricci curvature form が定義されて Ricci curvature の positivity に対応するのが \(b_1(X) = 0\) であることを示したのですが、似たような curvature form であって \(b_p(X) = 0\) に対応する form が curvature tensor から構成できることを主張していると思われます。
+  下での議論は実質的に、そもそも curvature operator が positive ならすべての \(b_p(X) = 0\) に対応する条件が成り立つということだと思われます。
+  これは詳細がべつのものに書いてあるらしいのでとばします。
 \itemprof
-  curvature tensor が positive であることを示せばよい。
+  curvature operator で同じような statement が成り立つことを示せばよい。
+  点 \(x\) とその上で \(\phi\) : \(T_x X\) をとり、 \(\)
   \((\lambda_\alpha , \xi_\alpha)\) を \(\mathbf{R}\) に対する固有値と固有ベクトルとしてとる。
+  ここで、 \(\mathbf{R}\) の対称性より \((\xi_\alpha)\) は直交する。
   \begin{align*}
     \langle \mathfrak{R} (\phi) , \phi \rangle
-    &= \sum_{i < j} \langle e_i e_j R_{e_i , e_j} (\phi) , \phi \rangle \\
-    &= \frac{1}{2} \sum_{i < j} \langle [e_i e_j , R_{e_i , e_j}(\phi)] , \phi \rangle \\
-    &= -\frac{1}{2} \sum_{i < j} \langle R_{e_i , e_j}(\phi) , [e_i e_j , \phi] \rangle \\
+    &= \sum_{i < j} \langle e_i e_j R_{e_i , e_j} (\phi) , \phi \rangle
+    = \frac{1}{2} \sum_{i < j} \langle [e_i e_j , R_{e_i , e_j}(\phi)] , \phi \rangle
+    = -\frac{1}{2} \sum_{i < j} \langle R_{e_i , e_j}(\phi) , [e_i e_j , \phi] \rangle \\
     &= -\frac{1}{4} \sum_{i < j , k < l}
     \langle R_{e_i , e_j}(e_k) , e_l \rangle \langle \text{ad}_{e_i e_j}(\phi) , \text{ad}_{e_k e_l}(\phi) \rangle \\
-    &= -\frac{1}{4} \sum_{i<j,k<l} \langle \mathbf{R}_{e_i , e_j} , e_k e_l \rangle \langle \text{ad}_{e_i e_j} (\phi) , \text{ad}_{e_k e_l} (\phi) \rangle \\
+    &= -\frac{1}{4} \sum_{i<j,k<l} \langle \mathbf{R}_{e_i e_j} , e_k e_l \rangle \langle \text{ad}_{e_i e_j} (\phi) , \text{ad}_{e_k e_l} (\phi) \rangle \\
     &= - \frac{1}{4} \sum_{\alpha , \beta} \langle \mathbf{R}(\xi_{\alpha}) , \xi_{\beta} \rangle \langle \text{ad}_{\xi_\alpha}(\phi) , \text{ad}_{\xi_\beta}(\phi) \rangle \\
-    &= - \frac{1}{4} \sum_{\alpha} \lambda_\alpha || \text{ad}_{\xi_\alpha}(\phi) ||^2
+    &= \sum_{\alpha} - \frac{1}{4}  \lambda_\alpha || \text{ad}_{\xi_\alpha}(\phi) ||^2
   \end{align*}
+  ここで \(\mathbf{R}\) が positive などの定義を見ることで \(- \frac{1}{4}  \lambda_\alpha > 0\) とわかるから、 \(\langle \mathfrak{R} \phi , \phi \rangle \geq 0\) であり等式は \(\text{ad}_{\xi_{\alpha}(\phi) = 0}\) の時に成り立つが、 \(\xi_\alpha\) が基底を成すことから上の命題と合わせて \(\phi = 0\) しかありえない。
+  curvature operator で \(\phi = 0\) のみが \(\langle \mathbf{R} \phi , \phi \rangle = 0\) をみたすなら、 \(b_p(X) = 0\) というのは上の命題による。
 \end{Proof}
 
 \begin{Theorem}
@@ -246,14 +268,14 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
   spinor bundle の場合には \(R^s_{V,W} = \frac{1}{4}\sum_{k,l}\langle R_{V,W}(e_k),e_l\rangle e_k e_l\) とかけた。
   \begin{align*}
     \mathfrak{R}
-    &= \frac{1}{2} \sum_{i,j} e_i e_j R^s_{e_i,e_j} \\
-    &= \frac{1}{8} \sum_{i,j,k,l} \langle R_{e_i,e_j}(e_k),e_l \rangle e_i e_j e_k e_l \\
-    &= \frac{1}{8} \sum_l (
+    &= \frac{1}{2} \sum_{i,j} e_i e_j R^s_{e_i,e_j}
+    = \frac{1}{8} \sum_{i,j,k,l} \langle R_{e_i,e_j}(e_k),e_l \rangle e_i e_j e_k e_l \\
+    &= \frac{1}{8} \sum_l \{
     \frac{1}{3} \sum_{i,j,k}
     \langle R_{e_i,e_j} (e_k) + R_{e_k,e_i} (e_j) + R_{e_j,e_k} (e_i) , e_l \rangle e_i e_j e_k \\
     & + \sum_{i,j} \langle R_{e_i,e_j}(e_i),e_l \rangle e_i e_j e_i
     + \sum_{i,j} \rangle R_{e_i,e_j}(e_j),e_l \rangle e_i e_j e_i
-    ) e_l
+    \} e_l \\
     &= \frac{1}{4} \sum_{i,j,l} \langle R_{e_i,e_j}(e_i),e_l\rangle e_j e_l \\
     &= - \frac{1}{4} \sum_{j,l}\text{Ric}(e_j,e_l) e_j e_l \\
     &= \frac{1}{4} \kappa
@@ -319,7 +341,7 @@ The difference \(D^2 - \nabla * \nabla\), is in fact, of order zero and can be e
 \itemprop
   if \(X\) admit an effective differentiable action by a compact, connected, non-abelian Lie group , then X admits a metric of positive scalar curvature.
 \itemprop 
-  if \(\hat{A}(X) \not{=} 0\) , then the only compact connected Lie transformation groups of \(X\) are tori.
+  if \(\hat{A}(X) \not = 0\) , then the only compact connected Lie transformation groups of \(X\) are tori.
 \end{Theorem}
 
 \begin{Proof}

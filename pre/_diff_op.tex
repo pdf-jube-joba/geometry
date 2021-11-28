@@ -1,0 +1,120 @@
+\begin{When}
+\itemwhen
+  \Fix \(X\) : manifold
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \For \(E , F\) : smooth complex vector bundle over \(X\) \\
+  \Define differential operator of order \(m\) := \\
+  local operator \(\Gamma(E) \to \Gamma(F)\) (\(P\)) such that forall point of \(X\) , there exists
+  \begin{itemize}
+    \itemenum a neiborhood (;\(U\)) with local coordinates (;\(x_1 , \ldots , x_n\) : \(U \to \mathbb{R}^n\))
+    \itemenum trivialization of \(E \mid U\) ; \(U , \phi_E : E \mid_U \to U \times \mathbb{C}^p\)
+    \itemenum trivialization of \(F \mid U\) ; \(U , \phi_F : E \mid_U \to U \times \mathbb{C}^q\)
+    \itemenum smooth \(p \times q\)-matrix of complex valued functions on \(U\) for each \(\alpha\) : \(n\)-tuples of integers such that \(| \alpha | = m\) ; \(A^{|\alpha|}\)
+    \itemwith \(A^\alpha \not = 0\) for some \(\alpha\) with \(| \alpha | = m\)
+    \itemwith identify \(\Gamma(E \mid _U) \to \Gamma(F \mid _U)\) and \(\Gamma(U \times \mathbb{C}^p) \to \Gamma(U \times \mathbb{C}^q)\) and \(C(U;\mathbb{C}^p) \to C(U;\mathbb{C}^q)\) by natural definition
+  \end{itemize}
+  such that
+  \[P \mid_U = \sum_{|\alpha| \leq m} A^{\alpha} \frac{\partial^{|\alpha|}}{\partial x^{\alpha}}\]
+\itemdefi
+  real version is defined similarly with \(\mathbb{C}\) replaced by \(\mathbb{R}\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(P\) : differential operator
+\itemprop
+  \For trivialization of \(E\) and \(F\) \\
+  \Then there exists unique \(A^{\alpha}\) such that \(P \mid _U = \sum_{\alpha} A^\alpha \frac{\partial ^{|\alpha|}}{\partial x^\alpha}\)
+\itemprop
+  \For \(g_E\) : \(U \to \text{GL}(p,\mathbb{C})\) , \(g_F\) : \(U \to \text{GL}(q,\mathbb{C})\) \\
+  \Let \(\tilde{\phi}_E\) , \(\tilde{\phi}_F\) := change of the local trivialization of \(E \mid _U\) , \(F \mid _U\) by smooth maps \(g_E\) , \(g_F\) \\
+  \Let \(\tilde{A}^\alpha\) : smooth \(p \times q\)-matrix of complex valued functions on \(U\) := unique by \\
+  \(P \mid _U = \sum_{|\alpha| \leq m} \tilde{A}^\alpha \frac{\partial^{|\alpha|}}{\partial x^{|\alpha|}}\) with respect to trivialization \(\tilde{\phi}_E\) , \(\tilde{\phi}_F\) \\
+  \Then for \(|\alpha| = m\) , \(\tilde{A}^{\alpha} = g_F A^{\alpha} g_E^{-1}\)
+\itemprop
+  \For change of local coordinates \(\tilde{x}= \tilde{x}(x)\) on \(U\) \\
+  \Let \(\tilde{A}^{\alpha}\) := unique by \(P = \sum_{|\alpha| \leq m} \tilde{A}^{\alpha} \frac{\partial^{\alpha}}{\partial \tilde{x}^{\alpha}}\) \\
+  \Then for \(|\alpha| = m\) , \(\tilde{A}^{\alpha} = \sum_{| \beta | = m} A^{\beta} \left[\frac{\partial \tilde{x}}{\partial x}\right]^{\alpha}_{\beta}\) \\
+  where \(\left[ \frac{\partial \tilde{x}}{\partial x}\right]^*_*\) := symmetrization of the \(m\)-th tensor power of Jacobian matrix \((\partial \tilde{x}_k / \partial x_j)_{kj}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは微分作用素の議論からわかる
+\itemprof
+  定義を考えることで \(\tilde{g_E}: C(U , \mathbb{C}^p) \to C(U , \mathbb{C}^p)\) := \(f \mapsto x \mapsto g_E(x) \cdot f(x)\) 及び \(\tilde{g}_F\) を同様に定義したとき、 \(\sum_{\alpha} \tilde{A}^\alpha \frac{\partial ^{|\alpha|}}{\partial x^\alpha} = \tilde{g_F} (\sum_{\alpha} A^\alpha \frac{\partial ^{|\alpha|}}{\partial x^\alpha}) \tilde{g_E}^{-1}\) であることがわかる。
+  これで \(| \alpha | = m\) の次数の部分だけを考えると \(\frac{\partial ^|\alpha|}{\partial x^\alpha} (g_E \cdot f) = g_E \cdot \frac{\partial ^{|\alpha|}}{\partial x^\alpha} f + \frac{\partial ^{|\alpha|}}{\partial x^\alpha} (g_e) \cdot f\) のため、確かに \(\tilde{A}^\alpha = g_F A^\alpha g_E ^{-1}\)
+\itemprof
+  \WIP
+  よくわかりませんでした。
+\end{Proof}
+
+\begin{Definition}
+\itemprop
+  \Then \(\{i^m A^{\alpha}\}_{|\alpha|=m}\) represent a well defined section of the bundle \(\odot ^m TX \otimes \text{Hom}(E,F)\) where \(\odot\) denotes symmetric tensor product.
+\itemdefi
+  \Define principal symbol of \(P\) ; \(\sigma(P)\) := \(\{i^m A^{\alpha}\}_{| \alpha | = m}\)
+\itemdefi
+  \For \(\xi\) : \(T^*X_x\) \\
+  \Define \(\sigma_{\xi}(P)\) : \(E_x \to F_x\) := for \(\xi = \sum_k \xi_k dx_k\) ,
+  \(i^m \sum_{|\alpha| = m} A^\alpha(x) \xi^{\alpha}\)
+\itemdefi
+  \Define differential operator is elliptic := principal symbol is invertible forall \(\xi\)
+\end{Definition}
+
+\begin{Proof}
+\itemprof
+  上の命題によりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(E , F \leftarrow \text{trivial line bundle}\) \\
+  \Let \(\Delta\) :\(C(X) \to C(X)\) := Laplace-Beltrami operator
+\itemprop
+  \Let \((g^{ik})\) := \((g_{jk})^{-1}\) where \(g = \sum_{jk} g_{jk} d x_j d x_k\) \\
+  \Then \(\Delta f = \frac{1}{\sqrt{g}} \sum_{j,k} \sqrt{g} g^{jk} \frac{\partial f}{\partial x^k} = \sum_{j,k} g^{jk} \frac{\partial^2 f}{\partial x_j \partial x_k} + \text{lower order}\)
+\itemprop
+  \For \(\xi = \sum_k \xi_k d x_k\) \\
+  \Then \(\sigma_{\xi}(\Delta) = - \sum_{jk} g^{jk} \xi_j \xi_k = - |\xi|^2\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \WIP 特に証明がありませんでした。
+\itemprof
+  上で局所的な表示があるため、定義よりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\sigma_{\xi}(t_1 P_1 + t_2 P_2) = t_1 \sigma_{\xi}(P_1) + t_2 \sigma_{\xi}(P_2)\)
+\itemprop
+  \Then \(\sigma_{\xi}(Q \circ P) = \sigma_{\xi}(Q) \circ \sigma_{\xi}(P)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  線型性は \(P_i = \sum_{\alpha} A_i^\alpha \frac{\partial^{|\alpha|}}{\partial x^{\alpha}}\) とすると、 \(\sigma(t_1 P_1 + t_2 P_2) = \sigma (\sum_{\alpha} (t_1 A_1^\alpha + t_2 A_2^\alpha) \frac{\partial^{|\alpha|}}{\partial x}) = \{i^m (t_1 P_1 + t_2 P_2)\}\) よりよい。
+\itemprof
+  \(P_i = \sum_{\alpha} A_i^\alpha \frac{\partial^{|\alpha|}}{\partial x^{\alpha}}\) とすると、一番上の次数を考えるとたしかにそうなる。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\sigma(P)\) : bundle map \(\pi^* E \to \pi^* F\) := \AIMAI{by natural definition}
+\itemdefi
+  \Define \(i(P)\) : \(K(DX , \partial DX)\) := \([\pi^*E , \pi^*F , \sigma(P)]\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(X\) : spin manifold \\
+  \Let \(P \leftarrow \text{Atiyah-Singer operator}\)
+\itemprop
+  \Then \(i(P)\) , restricted to any fiber, becomes the element \(\eta\) which generates the Bott periodicity
+  \(K(D^{2k} , S^{2k-1})\)
+\end{Theorem}
