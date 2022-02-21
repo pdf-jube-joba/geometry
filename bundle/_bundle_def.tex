@@ -1,6 +1,3 @@
-一般の束を定義し、ファイバー、束の間の写像や束の同型、積束や自明束などの束を述べる。
-ファイバー束・ベクトル束・主束の定義と写像や同型を定義し、同変束・代数束・加群束まで記述する。
-
 \begin{Definition}
 \itemnote
   一般の束を定義する。
@@ -12,16 +9,16 @@
     \itemenum projection : \(E \to B\)
   \end{itemize}
 \itemdefi
-  \For \((B , E , \pi)\) : bundle \(b\) : \(B\) \\
-  \Define \(E_b\) : space := \(\pi^{-1}(x)\)
+  \For \(\xi \leftarrow (B , E , \pi)\) : bundle , \(b\) : \(B\) \\
+  \Define \(\xi_b\) : space := \(\pi^{-1}(x)\)
 \end{Definition}
 
 \begin{Definition}
 \itemnote
   束の間の写像や合成、束の同型の定義を定義する。
 \itemdefi
-  \For \((B_1 , E_1 , \pi_1)\) , \((B_2 , E_2 , \pi_2)\) : bundle \\
-  \Define \((B_1 , E_1 , \pi_1) \to (B_2 , E_2 , \pi_2)\) := pair of
+  \For \(\xi_1 \leftarrow (B_1 , E_1 , \pi_1)\) , \(\xi_2 \leftarrow (B_2 , E_2 , \pi_2)\) : bundle \\
+  \Define \(\xi_1 \to \xi_2\) := pair of
   \begin{itemize}
     \itemenum \(f\) : \(B_1 \to B_2\)
     \itemenum \(\tilde{f}\) : \(E_1 \to E_2\)
@@ -29,15 +26,14 @@
   \end{itemize}
 \itemdefi
   \For \(\xi_1\) , \(\xi_2\) , \(\xi_3\) : bundle \\
-  \For \(\phi_1\) : \(\xi_1 \to \xi_2\) , \(\phi_2\) : \(\xi_2 \to \xi_3\) \\
-  \Define \(\phi_2 \circ \phi_1\) : \(\xi_1 \to \xi_3\) := \((g \circ f , \tilde{g} \circ \tilde{f})\) \\
-  where \(\phi_1 = (f , \tilde{f})\) , \(\phi_2 = (g , \tilde{g})\)
+  \For \(\phi_1 \leftarrow (f , \tilde{f})\) : \(\xi_1 \to \xi_2\) , \(\phi_2 \leftarrow (g , \tilde{g})\) : \(\xi_2 \to \xi_3\) \\
+  \Define \(\phi_2 \circ \phi_1\) : \(\xi_1 \to \xi_3\) := \((g \circ f , \tilde{g} \circ \tilde{f})\)
 \itemdefi
   \For \(\xi_1\) , \(\xi_2\) : bundle , \(f\) : \(\xi_1 \to \xi_2\) \\
-  \Define \(f\) is isomorphism \(\iff\) \AIMAI{by natural definition}
+  \Define \(f\) is isomorphism := \AIMAI{by natural definition}
 \itemdefi
   \For \(\xi_1\) , \(\xi_2\) : bundle \\
-  \Define \(\xi_1\) is isomorphic to \(\xi_2\) \(\iff\) \AIMAI{by natural definition}
+  \Define \(\xi_1\) is isomorphic to \(\xi_2\) := \AIMAI{by natural definition}
 \end{Definition}
 
 \begin{Definition}
@@ -45,20 +41,24 @@
   空間の上の束というものを定義する。
 \itemdefi
   \For \(B\) : space \\
-  \Define bundle over \(B\) := pair of
+  \Define bundle over \(B\) := structure on \(B\) with
   \begin{itemize}
     \itemenum total space (\(E\)) : space
     \itemenum projection : \(E \to B\)
   \end{itemize}
 \itemdefi
-  \For \((E_1 , \pi_1)\) , \((E_2 , \pi_2)\) : bundle over \(B\) \\
-  \Define map over \(B\) := pair of
+  \For \(\xi_1 \leftarrow (E_1 , \pi_1)\) , \(\xi_2 \leftarrow (E_2 , \pi_2)\) : bundle over \(B\) \\
+  \Define \(\xi_1 \to \xi_2\) := pair of
   \begin{itemize}
     \itemenum \(\tilde{f}\) : \(E_1 \to E_2\)
     \itemwith commutativity : \(\pi_2 \circ \tilde{f} = \pi_1\)
   \end{itemize}
+\end{Definition}
+
+\begin{Definition}
 \itemnote
   「空間の上の束」と「束」は特に区別しなくてよい。
+  ここ以降あまり区別しない。
 \end{Definition}
 
 \begin{Definition}
@@ -66,15 +66,15 @@
   積束・自明束・制限束・誘導束を定義する。
 \itemdefi
   \For \(B , F\) : space \\
-  \Define product bundle over \(B\) with fiber \(F\) : bundle over \(B\) := \((B \times F , \txt{projection})\)
+  \Define product bundle over \(B\) with fiber \(F\) : bundle over \(B\) := \((B \times F , \txt{"projection"})\)
 \itemdefi
-  \For \(\xi = (B , \place , \place)\) : bundle \\
-  \Define \(\xi\) is trivial := \(\xi\) is isomorphic to some product bundle as bundle over \(B\)
+  \For \(\xi \leftarrow (B , \place , \place)\) : bundle \\
+  \Define \(\xi\) is trivial := \AIMAI{\(\xi\) is isomorphic to some product bundle as bundle over \(B\)}
 \itemdefi
-  \For \(\xi = (B , \place , \pi)\) : bundle , \(U\) : subset of B \\
-  \Define restriction bundle (\(\restr{\xi}{U}\)) : bundle over \(U\) := \((U , \pi^{-1}(U) , \restr{\pi}{\pi^{-1}(U)})\)
+  \For \(\xi \leftarrow (B , \place , \pi)\) : bundle , \(U\) : subset of B \\
+  \Define restriction bundle (\(\restr{\xi}{U}\)) : bundle over \(U\) := \((\pi^{-1}(U) , \restr{\pi}{\pi^{-1}(U)})\)
 \itemdefi
-  \For \(\xi = (B , E , \pi)\) : bundle , \(f\) : \(B^{\prime} \to B\) \\
+  \For \(\xi \leftarrow (B , E , \pi)\) : bundle , \(f\) : \(B^{\prime} \to B\) \\
   \Define induced bundle (\(f^*\xi\)) : bundle over \(B^{\prime}\) :=
   \begin{itemize}
     \itemenum total space := \(\{(b , e) \in B^{\prime} \times E \mid \pi(e) = f(b)\}\)
@@ -86,19 +86,19 @@
 \itemnote
   制限束と制限写像の誘導束は同型であること、誘導束の構成は関手的である（ただし同型を除く）ことを示す。
 \itemprop
-  \For \(\xi = (B , E ,\pi)\) : bundle , \(U\) : subset of B \\
+  \For \(\xi \leftarrow (B , E ,\pi)\) : bundle , \(U\) : subset of B \\
   \Let \(i\) : \(U \to B\) := injection \\
   \Let \(E \to B \times E\) := \(e \mapsto (\pi(e) , e)\) \\
   \Then this becomes \(\txt{total space of} \, \restr{\xi}{U} \to \txt{total space of} \, i^*\xi\) \\
-  and this is isomorphism
+  \Then this is isomorphism
 \itemnote
   We identify the two in this way
 \itemprop
-  \For \(\xi = (B , E , \pi)\) : bundle \\
+  \For \(\xi \leftarrow (B , E , \pi)\) : bundle \\
   \For \(f\) : \(B_2 \to B_1\) , \(g\) : \(B_1 \to B\) \\
   \Let \(B_2 \times B_1 \times E \to B_2 \times E\) := projection \\
   \Then this becomes \(\text{total space of} \, f^*g^* \xi \to \text{total space of} \, (g \circ f)^* \xi\) \\
-  and this is isomorphism
+  \Then this is isomorphism
 \itemnote
   We identify the two in this way 
 \end{Theorem}
@@ -109,7 +109,7 @@
 \itemdefi
   \Define fiber bundle := structure of
   \begin{itemize}
-    \itembase \(\xi = (B , E , \pi)\) : bundle
+    \itembase \(\xi \leftarrow (B , E , \pi)\) : bundle
     \itemwith local triviality :
       \(\forall\) (\(b\) : \(B\)) ,\\
       \(\exists\) (\(U\) : open neighborhood of \(b\)) (\(\phi\) : \(\pi^{-1}(U) \to U \times \pi^{-1}(x)\)) , \\
