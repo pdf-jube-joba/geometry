@@ -1,0 +1,329 @@
+\begin{When}
+\itemwhen
+  \Fix \(X\) : compact riemmanian manifold
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \Define \(D^\alpha\) : differential operator on \(\mathbb{R^n}\) := \(i^{-\lvert \alpha \rvert} \frac{\partial^{\lvert \alpha \rvert}}{\partial x^\alpha}\) \\
+  \Define \(L^2\) := \(\{f : \mathbb{R}^n \to \mathbb{C}^p \mid \int |f|^2 \leq \infty\}\) \\
+  \Define innver product on \(L^2\) := defined by \((u,v)_{L^2} = \int \langle u , v \rangle\) \\
+  \Define for \(\phi_i\) , convolution product of \(\phi_1 , \phi_2\) (\((\phi_1 * \phi_2)(x)\)) := \(\int \phi_1(x-y) \phi_2(y) dy\)
+\end{Definition}
+
+\begin{Definition}
+\itemwhen
+  \Fix \(E\) : hermitian vector bundle with connection \(\nabla\) over \(X\)
+\itemdefi
+  \For \(u\) : \(\Gamma(E)\) , \(k\) : \(\mathbb{N}\) \\
+  \Define basic Sobolev \(k\)-norm \(\lVert u \rVert^2_k\) : \(\mathbb{R}\) := \(\sum_{j=0}^{k} \int_X \lvert \nabla^j u \rvert ^2\)
+\itemprop
+  \Then equivalence class is of this norm is independent from metric and connection
+\itemprof
+  \SORRY
+\itemdefi
+  \Define Sobolev space \(L^2_k(E)\) := completion of \(\Gamma(E)\) with this norm
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(E,F\) : nice vector bundle on \(X\)
+\itemprop
+  \For \(P\) : differential operator \(\Gamma(E) \to \Gamma(F)\) of order \(m\) \\
+  \Then forall \(k \geq m\) , there exists unique extension of \(P\) to a bounded linear map \(L^2_k(E) \to L^2_{k-m}(F)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  一意性は \(L^2_k(E)\) の定義から稠密であるので良い。
+  存在については、次のようにして構成することでわかる。
+  任意に \(u : L^2_k(E)\) をとり、 \(\{u_k\} : \Gamma(E)\) を Sobolev \(k\)-norm で \(u\) に収束するものとして自由にとり、 \(P u\) を \(P u_k\) の Sobolev \((k-m)\)-norm での収束先とする。
+  これの Well-defined 性について議論する。
+  \(P u_k\) の収束性については \SORRY
+\end{Proof}
+
+\begin{Definition}
+\itemwhen
+  \Fix \(E\) : nice vector bundke on \(X\)
+\itemdefi
+  \Define good presentation of \(E\) := consists of
+  \begin{itemize}
+    \itemenum \((U_1 , y_1) , \ldots , (U_N , y_N)\) : coordinates of \(X\) such that \(y_k(U_k) = \text{Ball of} \, (\text{radius} = 1 , \text{center} = 0)\) and \(\{y_k^{-1}(\text{Ball of} \, (\text{radius}=\frac{1}{\sqrt{2}},\text{center=0)})\}\) covers \(X\)
+    \itemenum each \(U_k\) has a smooth trivialization of \(E\) which posseses a smooth extension on to an open neighborhood of \(U_k\)
+    \itemenum \(\{U_k\}\) has a partition of unity \((\chi_k)_k\) subordinate to the covering \(B_k := \{y_k^{-1}(\text{Ball of} \, (\text{radius}=\frac{1}{\sqrt{2}},\text{center=0)})\}\)
+  \end{itemize}
+\itemdefi
+  \Let change coordinates by setting \(x_k\) := \(\frac{1}{\sqrt{1-\lvert y_k \rvert ^2}} y_k\)
+\itemprop
+  \For \(u\) : \(\Gamma(E)\) \\
+  \Then forall \(\alpha\) , \(\lvert D^\alpha (u \restriction_{U_k}) \rvert (1 + \lvert x \rvert)^{\lvert \alpha \rvert}\) is bounded
+\itemprof
+  \SORRY \\
+  計算してみたところ非常に難しく一般化が困難のため、諦めました。
+\itemprop
+  \For \(u\) : \(\Gamma(E)\) \\
+  \Let \(u_k\) := \(\chi_k u\) \\
+  \Then \(u = \sum_k u_k\) and \(u_k\) is smooth function with compact support in the \(B_k\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For family of vector bundle on \(X\) \\
+  \Define good presentation of family := family of good presentation of each vector bundle such that having same local coordinates and same partition of unity
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \Define Fourier transform \(\hat{\cdot}\) : \(L^2 \to L^2\) := defined by
+  \(\hat{u}(\xi) = (2 \pi)^{- \frac{2}{n}} \int_{\mathbb{R}^n} e^{- i \langle x , \xi \rangle} u(x) dx\) \\
+  \Define Schwartz space \(\mathscr{S}\) := \(\{u : C^{\infty}(\mathbb{R}^n) \mid \forall \alpha , k , \exists C_{\alpha,k} \, \text{such that} \, \lvert D^\alpha u(x) \rvert \leq C_{\alpha , k} (1 + \lvert x \rvert)^{-k}\}\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\text{compact support smooth function} \subset L^2\) and \(\mathscr{S} \subset L^2\)
+\itemprop
+  \Then \(\hat{\cdot} \restriction_{\mathscr{S}}\) is isomorphism on \(\mathscr{S} \to \mathscr{S}\)
+\itemprop
+  \Then \(u(x) = (2 \pi)^{- \frac{n}{2}} \int_{\mathbb{R}^n} e^{i \langle x , \xi \rangle} \hat{u}(\xi) d \xi\)
+\itemprop
+  \Then \(\hat{D^\alpha u}(\xi) = \xi^\alpha \hat{u}(\xi)\) \\
+  \Then \(\hat{x^\alpha u}(\xi) = (D^\alpha \hat{u})(\xi)\)
+\itemprop
+  \Then \((u,v)_{L^2} = (\hat{u} , \hat{v})_{L^2}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは関数解析の議論になるので省略する。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \For \(s\) : \(\mathbb{R}\) \\
+  \Define Sobolev \(s\)-norm on \(\mathscr{S}\) (\(\lVert \cdot \rVert^2_s\)):= defined by \(\lVert u \rVert^2_s = \int (1 + \lvert \xi \rvert)^{2s} \lvert \hat{u}(\xi) \rvert^2 d\xi\) \\
+  \Define Sobolev space \(L^2_s\) := completion of \(\mathscr{S}\) in this norm
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(s\) : positive integer \\
+  \Then Sobolev \(s\)-norm is equivalent to the basic sobolev \(k\)-norm of product bundle with trivial connection
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(c_1,c_2\) なる定数で \(\forall \xi , c_1 (1 + \lvert \xi \rvert)^{2s} \leq \sum_{k=0}^{s} \lvert \xi \rvert^{2k} \leq c_2 (1 + \lvert \xi \rvert)^{2s}\) なるものが存在する。
+  これに加えて、 \(\sum_{\lvert \alpha \rvert \leq k} \lvert \xi^\alpha \rvert^2 \leq \sum_{k=0}^s \lvert \xi \rvert^{2k} \leq c_3 \sum_{\lvert \alpha \rvert \leq k} \lvert \xi^\alpha \rvert^2\) などが成り立つことを考える。
+  \begin{align*}
+    \lVert u \rVert_s^2
+    &= \int (1 + \lvert \xi \rvert)^{2s} \lvert \hat{u}(\xi) \rvert^2 d \xi
+    \leq C_1 \int \sum_{k=0}^{s} \lvert \xi \rvert^{2k} \lvert \hat{u}(\xi) \rvert^2 d \xi
+    \leq C_2 \int \sum_{\lvert \alpha \rvert \leq s} \lvert \xi^\alpha \rvert^2 \lvert \hat{u}(\xi) \rvert^2 d \xi \\
+    &= C_2 \int \sum_{\lvert \alpha \rvert \leq s} \lvert \xi^\alpha \hat{u}(\xi) \rvert^2 d \xi
+    = C_2 \sum_{\lvert \alpha \rvert \leq s} \int \lvert \hat{D^\alpha u}(\xi) \rvert^2 d \xi
+    = C_2 \sum_{\lvert \alpha \rvert \leq s} \int \lvert D^\alpha u(\xi) \rvert^2 d \xi
+  \end{align*}
+  などのように示せる。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \For \(k\) : non negative integer \\
+  \Define uniform \(C^k\)-norm : norm on \(C^k\) := defined by \(\lVert u \rVert^2_{C^k} = \text{sup}_{\mathbb{R}^n} \sum_{\lvert \alpha \rvert \leq k} \lvert D^\alpha u \rvert^2\)
+\itemprop
+  \For \(s\) : \(\mathbb{R}\) , \(k\) : non negative int \\
+  \IfHold \(s \gneq \frac{n}{2} + k\) \\
+  \Then there exists constant \(K_s\) such that \(\lVert u \rVert_{C^k} \leq K_s \lVert u \rVert_s\)
+\itemprop
+  \Then there is a continuous embedding \(L^2_s \subset C^k\) for each such \(s\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  仮定より \(\int (1 + \lvert \xi \rvert)^{-2s}\) が発散しないことがわかる。
+  \(k = 0\) のときは
+  \begin{align*}
+    \lvert u(x) \rvert
+    &\leq (2 \pi)^{- \frac{n}{2}} \int \lvert \hat{u}(\xi) \rvert d \xi
+    = (2 \pi)^{- \frac{n}{2}} \int (1 + \lvert \xi \rvert^{-2s}) (1 + \lvert \xi \rvert^{2s}) \lvert \hat{u}(\xi) d \xi \\
+    &\leq (2 \pi)^{- \frac{n}{2}} \int (1 + \lvert \xi \rvert^{-2s}) d \xi \int (1 + \lvert \xi \rvert^{2s}) \lvert \hat{u}(\xi) \rvert d \xi \\
+    &= \text{Constant}_s \lVert u \rVert_s^2
+  \end{align*}
+  ここで \(u\) に \(D^{\alpha + 1}u\) を代入すればちょうど左側に \(\lvert \xi \rvert\) が一つ出てくることがわかるから、 \(\lvert \alpha \rvert \lneq s - \frac{n}{2}\) ならこれもまた定数倍で抑えられる。
+  したがってよい。
+\itemprof
+  集合として subset になっていることを示す。 \(L^2_k\) の定義を考えると、Schwartz 空間のコーシー列が uniform \(C^k\)-norm の意味でコーシー列であることを示せばよい。
+  これは上の不等式から明らか。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(s \lneq s^{\prime}\) \\
+  \Then \(\lVert u \rVert_{s^\prime} \leq \lVert u \rVert_s\) \\
+  \Then \(L^2_s \subset L^2_{s^{\prime}}\)
+\itemprop
+  \For \(\{u_j\}\) : sequence of \AIMAI{functions} with support in \(B^n\) such that \(\lVert u_j \rVert_s \leq C\) \\
+  \Then forall \(s^{\prime} \lneq s\) , there is a subsequence which is Cauchy in the Sobolev \(s\)-norm (and therefore converges in \(L_{s^\prime}^2\)) 
+\itemprop
+  \IfHold \(s \gneq \frac{2}{n} + k\) \\
+  \For \(\{u_j\}\) : sequence in \(L^2_s\) with support in \(B^n\) such that \(\lVert u_j \rVert_s \leq C\) \\
+  \Then there is a subsequence which converges to a function \(u \in C^k_0\) in the uniform \(k\)-norm
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \((1 + \lvert \xi \rvert^{2s^{\prime}}) \leq (1 + \lvert \xi \rvert^{2s})\) より。
+  完備化の定義よりコーシー列がコーシー列に写るため。
+\itemprof
+  \(\phi\) を smooth \(\mathbb{R}^n \to \mathbb{C}\) で compact support なものとする。
+  このとき、積分可能な \(u\) に対して
+  \(\hat{\phi u} = \hat{\phi} * \hat{u}\) かつ \(\hat{\phi * u} = \hat{\phi} \hat{u}\) が成り立つ。
+  （これは認める。）
+  ここで \(u\) の supp が \(B^n\) にあり \(\phi\) が \(B^n\) 上定数値 \(1\) をとるとき、 \(u = \phi u\) であり、したがって \(\hat{u} = \hat{\phi} * \hat{u}\) が成り立つ。微分すると
+  \[D^\alpha\hat{u} = \int (D^\alpha \hat{\phi})(\xi - \eta)\hat{u}(\eta) d \eta\]
+  が成り立つから、コーシーシュワルツにより
+  \begin{align*}
+    \lvert D^\alpha \hat{u}(\xi) \rvert
+    &\leq \int (1 + \lvert \eta \rvert)^{-2s} \lvert D^\alpha \hat{\phi} \rvert^2 (\xi - \eta) d \eta
+    \cdot \int (1 + \lvert \eta \rvert)^{2s} \lvert \hat{u}(\eta) \rvert^2 d \eta \\
+    &= K_{\alpha}(\xi) \lvert u \rvert_s^2
+  \end{align*} % \widehat を使う
+  % 微分が一様に有界なら一様連続を示す。
+  \(K_{\alpha}(\xi)\) は \(\xi\) に関して連続である。
+  命題にあるような列をとると、この式から書く多重指数 \(\alpha\) ごとに \(\{D^\alpha \hat{u_j}\}\) は一様に上から抑えられることがわかる。
+  特に、 \(\{\hat{u_j}\}\) はコンパクト集合に台を持ち一様有界かつ同程度連続であるから、 Arzela-Ascoli の定理により、コンパクト集合上で一様コーシーな部分列が取れる。
+  すなわち一様距離 \(d(u,v) = \sup_{\xi} \lvert u(\xi) - v(\xi) \rvert\) に関してコーシー列である部分列である。
+  適当に \(r\) をとりこの部分列に対して次のように積分を分ける。
+  \[
+    \lVert u_j - u_k \rVert_{s^\prime}^2 = \int_{\lvert \xi \rvert > r} (1 + \lvert \xi \rvert)^{2s^{\prime}} \lvert \hat{u_j}(\xi) - \hat{u_k}(\xi) \rvert^2 d \xi + \int_{\lvert \xi \rvert \leq r} (1 + \lvert \xi \rvert)^{2s^{\prime}} \lvert \hat{u_j}(\xi) - \hat{u_k}(\xi) \rvert^2 d \xi +
+  \]
+  第一項は \(\lvert \xi \rvert > r\) のとき \((1 + \lvert \xi rvert)^{2s^\prime} \leq (1 + r)^{-2(s-s^\prime) (1 + \lvert \xi \rvert)^{2s}}\) と抑えれば \(\leq \lVert u_j - u_k \rVert_s^2 / (1 + r)^{2(s-s^\prime)} \leq 2C / r^{2(s-s^\prime)}\) とわかる。
+  第二項は積分範囲と部分列の一様距離で抑えればよい。
+  しっかりと書くと、 \(\epsilon\) を任意にとるとき、 \(r\) を十分に大きくとると第一項が \(\epsilon\) よりも小さくなるような \(r\) が存在するからその \(r\) を固定する。このとき第二項は \((1 + r)^{2s^\prime} 2 \pi r^2\) と \(\sup_{\xi \leq r} \lvert \hat{u_j}(\xi) - \hat{u_k}(\xi) \rvert^2\) の積で抑えられるから、 \(j,k\) を十分に大きくすることで一様コーシー性より \(\epsilon\) より小さくなる。
+  したがって \(\{u_j\}\) は \(\lVert \cdot \rVert_s\)-norm についてコーシー列である。
+\itemprof
+  上の系により得られる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Then \((u,v) \mapsto \int \hat{u}(\xi) \cdot \hat{v}(\xi) d \xi\) : \(L_s^2 \times L_{-s}^2\) is a perfect pairing and hence \(L_{-s}^2 \cong \text{Hom}(L_s^2 , \mathbb{C})\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \[\lvert (u,v) \rvert = \lvert \int \hat{u}(\xi)(1 + \lvert \xi \rvert)^s \hat{v}(\xi)(1 + \lvert \xi \rvert^{-s}) d \xi \rvert \leq \lVert u \rVert_s \lVert v \rVert_{-s}\]
+  である。
+  したがってこの線形形式は確かに定義されていて連続である。
+  特に \(L_{-s}^2 \to \text{Continuous Hom}(L_{s}^2 , \mathbb{R})\) が Well-defined になる。
+  （任意に \(v\) : \(L_{-s}^2\) をとるとき \(\sup_{u : \lvert u \rvert_s = 1} \lvert (u,v) \rvert \leq \lVert u \rVert_{-s}\) となることから行先が有界作用素なのでわかる。）
+  もし等式を成り立たせる \(u\) があれば pairing が perfect であることがわかるから、そのような \(u\) を構成する。
+  \(u\) : \(L_s^2\) := unique by \(\hat{u}(\xi) = \bar{\hat{v}(\xi)}(1 + \lvert \xi \rvert)^{-2s}\) とする。
+  これがとれるのは、 \(v\) に収束する Schwartz 空間の Sobolev \(-s\)-norm での収束列をとりそれぞれに対して与式を満たすような Schwartz 空間の元を inversion 定理でとれば、これが Sobolev \(s\)-norm で収束しその収束先 \(u\) が条件を満たすとわかる。
+   \(\lvert \hat{u} \rvert^2 (1 + \lvert \xi \rvert)^{2s} = \lvert \hat{v} \rvert(1 + \lvert \xi \rvert)^{-2s}\) かつ \(\lVert u \rVert_s = \lVert v \rVert_{-s}\) である。
+  \[(u,v) = \int \hat{v}(1 + \lvert \xi \rvert)^{-2s} d \xi = \lVert v \rVert_{-s}^2\]
+  のため等式を満たす。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(T,T^*\) : \(\mathscr{S} \to \mathscr{S}\) \(s,c\) : \(\mathbb{R}\) \\
+  \IfHold forall \(u,v\) : \(\mathscr{S}\) , \((Tu , v) = (u , T^*v)\) \\
+  \IfHold \(T\) satisfies the condistion \(\lVert Tu \rVert_s \leq c \lVert u \rVert_s\) forall \(u\) : \(\mathscr{S}\) \\
+  \Then \(\lVert T^* v \rVert_{-s} \leq c \lVert v \rVert_{-s}\) forall \(v\) : \(\mathscr{S}\) \\
+  \Then if forall \(k\) : positive integer , \(T\) extends to a bounded linear map \(L_k^2 \to L_s^2\) , then \(T^*\) extends to a bounded map \(L_{-k}^2 \to L_{-k}^2\)
+\itemprop
+  \IfHold \(T\) satisfies the condition for \(s = s_1\) and \(s = s_2\) \\
+  \Then \(T\) satisfies the condistion for \(s\) : values between \(s_1\) and \(s_2\)
+\itemprop
+  \For \(A\) : smooth matrix valued function on \(\mathbb{R}^n\) such that \(\lvert D^\alpha A \rvert\) is bounded forall \(\alpha\) \\
+  \Then \(u \mapsto A u\) extends to a bounded linear map \(L^2_s \to L^2_s\) forall \(s\) : \(\mathbb{R}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\lvert (T^* u , v) \rvert = (v , Tu) \leq \lVert v \rVert_{-s} \lVert T u \rVert_{s} \leq c \lVert v \rVert_{-s} \lVert u \rVert_s\) のため \(\lVert T^* v \rVert_{-s} = \sup \{\lvert (T^* v , u) \rvert \mid \lVert u \rVert_s = 1\} \leq c \lVert v \rVert_{-s}\) よりよい。
+\itemprof
+  \ADMIT \\
+  これは証明が省略されていたため置いておきます。
+\itemprof
+  \(k\) : positive integer に対して extension を持つことを示せばよい。
+  これには \(\{u_j\}\) なる Schwartz 空間での Sobolev \(k\)-norm に関する収束列に対して \(T u_j\) もまた収束することを示せばよいが、整数に対しては norm を \(D^\alpha\) を使って書いてもよいから
+  \[
+    \lVert T u_j \rVert_k = \sum_{\lvert \alpha \rvert \leq k} \int \lvert D^\alpha (A u_j) \rvert = \sum_{\lvert \alpha \rvert \leq k} \int \lvert D^\alpha (A) \rvert \lvert u_j \rvert + \lvert A \rvert \lvert D^\alpha u_j \rvert \leq \text{Constant} \int \lvert u_j \rvert + \text{Constant} \lVert u_j \rVert_k \leq \text{Constant} \lVert u_j \rVert_k
+  \]
+  より確かに収束する。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(\omega_i\) : bounded open sets with smooth boundary in \(\mathbb{R}^n\) , \(\Phi\) : diffeomorphism \(\bar{\Omega_1} \to \bar{\Omega_2}\) \\
+  \Let \(T\) : \(C^{\infty}_0(\Omega_2) \to C^{\infty}_0(\Omega_1)\) := \(u \mapsto u \circ \Phi\) \\
+  \Then \(T\) extends to a bounded linear map \(L^2_{s,\Omega_2} \to L^2_{s,\Omega_1}\)
+\itemprop
+  \For \(\Phi\) : diffeomorphism \(\mathbb{R}^n \to \mathbb{R}^n\) such that linear ouside a compact subset \\
+  \Then \(u \mapsto u \circ \Phi\) : \(\mathscr{S} \to \mathscr{S}\) extends to a bounded map \(L^2_s \to L^2_s\) forall \(s\) : \(\mathbb{R}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これまでと同様の議論によりわかる。
+\itemprof
+  \(T^* v = J(\phi) \cdot (u \circ \Phi)\) とすると \((Tu , v) = (u , T^* v)\) である。
+  仮定より上の命題と同様にして \(T\) と \(T^*\) が \(k\)-norm に関して bounded であることがわかるからよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(\sum_{|\alpha|\leq m} A^\alpha D^\alpha\) : differential operator of order \(m\) on \(\mathbb{R}^n\) whose coefficients are bounded as above \\
+  \Then this extends to a bounded linear map \(L^2_s \to L^2_{s-m}\) forall \(s\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(P = D^\alpha\) の場合には、
+  \(\lVert D^\alpha u \rVert_s^2 = \int (1 + \lvert \xi \rvert)^{2s} \lvert \xi^\alpha \rvert^2 \lvert \hat{u}(\xi) \rvert^2 d \xi \leq \lVert u \rVert_{s + \lvert \alpha \rvert}^2\)
+  したがって extension to \(L_s^2 \to L_{s-\lvert \alpha \rvert}^2\) を持つ。
+  一般の場合には条件より三角不等式と先ほどの命題からよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \(E\) : nice vector bundle on \(X\) \\
+  \(s\) : \(\mathbb{R}\)
+\itemdefi
+  \For good presentation of \(E\) \\
+  \Let \(\chi_k\) := partition of unity from good representation \\
+  \Define Sobolev \(s\)-norm : norm on \(\Gamma(E)\) :=  defined by \(\lVert u \rVert_s = \sum_k \lVert u_k \rVert_s\)
+\itemprop
+  \Then equivalent class of the norm \(\lvert \cdot \rvert_s\) is independent of the good presentation \\
+  \Then if \(s\) is in non negative int , then two definition of norm is equivalent
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは二つ上の命題が coordinates の変換と trivialization の変換に対して norm が同値であることが示されているから良い。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \(E,F\) : vector bundle on \(X\)
+\itemprop
+  \For \(k\) : non negative int , \(s \gneq \frac{n}{2} + k\) \\
+  \Then \(L^2_s(E) \subset C^k(E)\) \\
+  \Then every sequence bounded in the \(\lvert \cdot \rvert\)-norm has a subsequence which converges in the uniform \(C^k\)-norm
+\itemprop
+  \For any riemannian volume measure on \(X\) \\
+  \Then \((u,u^*) \mapsto \int_X u^*u\) : bilinear map on \(\Gamma(E) \times \Gamma(E^*)\) extends to a perfect pairing \(L^2_s(E) \times L^2_{-s}(E^*)\)
+\itemprop
+  \For \(A\) : \(\Gamma(\text{Hom}(E,F))\) \\
+  \Then \(u \mapsto Au\) exntends to a bounded linear map \(L^2_s(E) \to L^2_s(F)\)
+\itemprop
+  \Then any \(P\) : differential operator of order \(m\) exntends to a bounded linear map \(L^2_s(E) \to L^2_{s-m}(F)\) forall \(s\)
+\end{Theorem}
+
+\begin{Proof}
+\itemthen
+  これらは上の命題の系となる。
+\end{Proof}

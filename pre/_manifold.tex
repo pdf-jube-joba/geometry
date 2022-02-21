@@ -1,0 +1,96 @@
+\begin{When}
+\itemwhen \(X\) : manifold
+\itemwhen \(E , F\) : complex vector bundle on \(X\)
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \For \(P\) : linear map \(\Gamma(E) \to \Gamma(F)\) \\
+  \Define \(P\) is infinitely smoothing := it extends to a bounded linear map \(L^2_s(E) \to L^2_{s+m}\) for all \(s,m\) : \(\mathbb{R}\)
+\itemprop
+  \Then This implies \(P(L^2_S(E)) \subset \Gamma(F)\) for all \(s\) : \(\mathbb{R}\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \Fix Riemannian volume measure \(\mu\) on \(X\)
+\itemprop
+  \For \(P\) : infinitely smoothing \\
+  \Then there exists \(k\) : \(\Gamma(X \times X ; E^* \times F)\) such that \((P u)(x) = \int_X k(x,y) u(y) d\mu (y)\)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \For \(P\) : linear map \(\Gamma(E) \to \Gamma(F)\) , \(m\) : \(\mathbb{R}\) \\
+  \Define \(P\) is pseudodifferential operator of order \(m\) := \(P\) is finite sum of \(P_\alpha\) modulo infinitely smoothing operator \\
+  where \(P_\alpha\) is pseudodifferential operator of order \(m\) with compact support in some system of local coordinates and smooth trivialization 
+\itemdefi
+  \Define \(\Psi DO_m(E,F)\) := linear space of such operator
+\itemdefi
+  \Define two such operator are equivalent := they differ by an infinitely smoothing operator
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \Fix Riemannian metric on \(X\)
+\itemprop
+  \Then forall \(P\) : \(\Psi DO_m(E,F)\) , \(\epsilon > 0\) there exists \(P_{\epsilon}\) such that \(P\) is equivalent to \(P\) and is \(\epsilon\)-local  \\
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \Fix Riemannian volume measure \(\mu\) on \(X\)
+\itemdefi
+  \For \(P\) : \(\Gamma(E) \to \Gamma(F)\) , \(Q\) : \(\Gamma(F^*) \to \Gamma(E)\) \\
+  \Define \(Q\) is a formal adjoint of \(P\) := \(\int_X \langle P u , v \rangle d \mu = \int \langle u , Q v \rangle d\mu\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then forall \(P\) : \(\Psi DO_m(E,F)\) extends to a bounded linear map \(L^2_{s}(E) \to L^2_{s - m}(F)\)
+\itemprop
+  \For \(P\) : \(\Psi DO_m(E,F)\) , \(U\) : open subset of \(X\) , \(u\) : in domain of \(P\) \\
+  \Then \(\restr{u}{U}\) is smooth implies \(\restr{(P u)}{U}\) is smooth
+\itemprop
+  \For \(P\) : \(\Psi DO_m(E,F)\) , \(Q\) : \(\Psi DO_l(F,G)\) \\
+  \Then \(Q \circ P\) is in \(\Psi_{m+l}(E,G)\)
+\itemprop
+  \For \(P\) : \(\Psi DO_m(E,F)\) , \(Q\) : adjoint of \(P\) for some measure \(\mu\) \\
+  \Then \(Q\) is in \(\Psi DO_m(F^* , E^*)\)
+\itemprop
+  \For \(\phi\) : diffeomorphism of \(X\)  \\
+  \Then forall \(P\) \(\Psi DO_{m}(\phi^* E , \phi^* F)\) , \(u \mapsto {\phi^*}^{-1} (P (\phi^* (P u)))\) is in \(\Psi DP_m (E,F)\) \\
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \Let \(\pi^*(\cdot )\) denote the pull-back of bundle to the contanget bundle \(T^*X\)
+\itemdefi
+  \For \(p\) : \(\Gamma(\text{Hom}(\pi^*E , \pi^*F))\) \\
+  \Define \(p\) is symbol of order \(m\) := in good presentation of \(E , F\) , \(p\) defines an element of \(text{Sym}^m\) in each local coordinates under identification of \((\xi_i)\) and \(d x_i\)
+\itemdefi
+  \Define \(\text{Sym}^m(E,F)\) := vector space of all such symbols of order \(m\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then each \(P\) : \(\Psi DO_m(E,F)\) has an associated principal symbol \(\sigma(P)\) in \(\text{Sym}^m(E,F) / \text{Sym}^{m-1}(E,F)\)
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \Fix Riemannian metric on \(X\) , connection \(\nabla\) on \(E\) \\
+  \Fix \(\rho > 0\) such that the exponential map \(\text{exp}_{x}\) : \(T_x X \to X\) gives a smooth embedding of the \(\rho\)-disk for all \(x\) \\
+  \Fix \(\varphi\) : \([0,\rho] \to [0,1]\) such that \(\varphi = 1\) near \(0\) and \(\varphi = 0\) near \(1\)
+\itemdefi
+  \Define "Fourier transform" \(\tilde{(\cdot)}\) : \(\Gamma(E) \to \Gamma(\pi^* E)\) := defined by
+  \[\hat{u}(x,\xi) = \int_{T_x X} e^{-i \langle V , \xi \rangle} U(V)\]
+  where \(U(V)\) := if \(\lvert V \rvert < \rho\) then \(\varphi (\lvert V \rvert) \bar{u}(\text{exp}_x V)\) else \(0\) \\
+  where \(\bar{u}(y)\) := parallel translate of \(u(y)\) along the (unique , shortest) geodesic ray joing \(y\) to \(x\) for all \(\text{distance} \, (y,x) < \rho\)
+\itemdefi
+  \For \(p\) : \(\text{Sym}^m(E,F)\) \\
+  \Define operator \(P = p(\nabla)\) := defined for \(u\) : \(\Gamma(E)\) ,
+  \[(P u) (x) = (2\pi)^{-n} \int_{T_x^*X} p(\xi)\hat{u}(\xi) d\xi\]
+\itemprop
+  \Then \(P\) is in \(\Psi DO_m(E,F)\)
+\end{Definition}

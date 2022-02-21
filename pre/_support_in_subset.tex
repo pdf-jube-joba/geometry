@@ -1,0 +1,228 @@
+\begin{Theorem}
+\itemwhen
+  \Fix \(p\) : symbol \\
+  \Let \(P\) := pseudodifferential operator defined by \(p\)
+\itemprop
+  \IfHold \(p(x_0 , \xi) = 0\) forall \(\xi\) \\
+  \Then \((Pu)(x_0) = 0\) forall \(u\)
+\itemprop
+  \IfHold \(p(x_0 , \xi_0) \not = 0\) \\
+  \Then there exists \(u\) : \(C^\infty_0\) such that \((Pu)(x_0) \not = 0\)
+\itemprop
+  \Then for any \(K\) : compact subset which containing \(x_0\) as interior subset , above statement still hold if we restrict \(u\) so that has support in \(K\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  計算すると確かにそうなる。
+\itemprof
+  \(C\) := \(e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0)\) とすると \(C \not = 0\) である。
+  このとき、もし \(u\) : \(C^\infty_0\) であって、 \(\lvert C \int \hat{u}(\xi) d\xi \rvert > \int \lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert \lvert \hat{u}(\xi) \rvert d\xi\) を満たすものがあれば、 \(\lvert (Pu)(\xi_0) - C \int \hat{u}(\xi) \rvert \leq \int \lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert \lvert \hat{u}(\xi) \rvert d\xi\) より示すべき命題が示せる。
+  \(C \mathbf{e}_i \not = 0\) なる \(\mathbf{e}_i\) をとればある \(f : \mathbb{R}^n \to \mathbb{R}_{>0}\) が存在して \(\hat{u}(\xi) = f(\xi) \mathbf{e}_i\) となるような \(u\) のみを考え
+  \[
+    \lvert C \int \hat{u}(\xi) d\xi \rvert = \lvert C \mathbf{e}_i \rvert \int f(\xi) d\xi > \int \lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert f(\xi) d\xi
+  \]
+  を満たす support in \(K\) な \(f\) の存在に帰着する。
+  \(\lvert C \mathbf{e}_i \rvert > \epsilon > 0\) と \(r > 0\) であって \(\lvert \xi - \xi_0 \rvert < r\) なら \(\lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert < \epsilon\) を満たすものをとる。
+  \(f(\xi)\) であって \(\lvert \xi - \xi_0 \rvert \geq 0\) なら \(f = 0\) となるような \(f \not = 0\) が存在すれば
+  \begin{align*}
+    &\int \lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert f(\xi) d\xi
+    = \int_{\lvert \xi - \xi_0 \rvert < r} \lvert e^{i \langle x_0 , \xi \rangle} p(x_0 , \xi) - e^{i \langle x_0 , \xi_0 \rangle} p(x_0 , \xi_0) \rvert f(\xi) d\xi \\
+    &\leq \epsilon \int_{\lvert \xi - \xi_0 \rvert < r} f(\xi) d\xi = \epsilon \int f(\xi) d\xi < \lvert K \mathbf{e}_i \rvert \int f(\xi) d\xi
+  \end{align*}
+  よりよいがこのような \(f\) は明らかに存在するので良い。
+\itemprof
+  \(f\) のとり方として support が \(K\) に含まれるようにとればよいが、これは \(x_0\) を内点に含むという条件から確かにとれる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Then symbol of pseudodifferential operator is unique
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \Fix \(U\) : subset of \(\mathbb{R}^n\)
+\itemdefi
+  \Define \(C^\infty_0(U)\) := \(\{u \in C^\infty_0 \mid \text{supp} \, u \subset U\}\)
+\itemdefi
+  \For \(P\) : pseudodifferential operator \\
+  \Define support of \(P\) : subset of \(\mathbb{R}^n\) := \(x\)-support of symbol of \(P\)
+\itemdefi
+  \Define symbol support in \(U\) := symbol (\(p\)) such that \(\text{supp} \, p \subset U\)
+\itemprop
+  \For \(p\) : symbol support in \(U\) \\
+  \Let \(P\) := pseudodifferential operator defined by \(p\) \\
+  \Then \(P(\mathscr{S}) \subset C^\infty_0(U)\)
+\itemprof
+  略
+\itemprop
+  \Define pseudodifferential operator on \(U\) := \(\restr{P}{C^\infty_0(U)}\)
+\end{Definition}
+
+\begin{Definition}
+
+\itemprop
+  \Then forall \(u\) : \(\mathscr{S}\) , \(\text{supp} \, Pu \subset \text{supp} \, P\) \\
+  \Then \(\cup_{u : C^\infty_0} \text{supp} \, Pu = \text{supp} \, P\)
+\itemprof
+  確かに成り立つ。
+\itemdefi
+  \For \(P\) : \(\Psi DO_m\) , \(K\) : compact set \\
+  \Define \(P\) is said to have support in \(K\) := \\
+  for \(u\) : \(C^\infty_0\) , \(\text{supp} \, Pu \subset K\) and \(\text{supp} \, u \cap K = \emptyset\) implies \(P u = 0\)
+\itemprop
+  \Then first statement is equivalent to \(K\) containing support of \(P\)
+\itemprof
+  確かに成り立つ。
+\itemdefi
+  \For \(p\) : symbol of order \(d\) with support in \(K\) \\
+  \Define pseudodifferential of order \(m\) on \(K\) := \\
+  restriction of pseudodifferential operator defined by \(p\) to the \(C^\infty_0(K) \to C^\infty_0(K)\)
+\itemdefi
+  \Define \(\Psi DO_{K,m}\) := linear space of such operators
+\itemnote
+  この定義により pseudodifferential operator on \(K\) の元を与えるには \(C^\infty_0(K)\) の元に対してのみ定義されていればよい。
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(P , Q\) : \(\Psi DO_{K,m}\) \\
+  \Define \(Q\) is formal adjoint of \(P\) := \\
+  forall \(u,v\) : \(\mathscr{S}\) with support in \(K\) , \((Pu , v)_{L^2} = (u , Q v)_{L^2}\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then formal adjoint is unique
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(P\) : \(\Psi DO_{K,m}\) であって任意の \(u,v\) : \(\mathscr{S}\) with support in \(K\) なものに対して \((Pu , v) = 0\) を満たすものが \(P = 0\) のみであることを示せばよい。
+  条件より \(u\) : \(\mathscr{S}\) with support in \(K\) に対しては \(P u = 0\) とわかる。
+  \(p(x,\xi) \not = 0\) を満たすような \(x\) があったとすると、 \(p(x,\xi)\) の連続性から \(x\) として \(K\) の内点か \(K\) の補集合の（内）点であるとしてよく、この二つの場合で矛盾を示す。
+  前者の場合は \(u\) をうまくとると \(Pu \not = 0\) となるようにとれるがこれは \(u\) : \(\mathscr{S}\) with support in \(K\) に対しては \(P u = 0\) となることと矛盾する。
+  後者の場合は \(u\) をうまくとることで \(\text{supp} \, u \cap K = \phi\) かつ \(P u \not = 0\) が満たされ矛盾する。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(P\) : \(\Psi DO_{K,m}\) with symbol \(p\) \\
+  \Then there exists \(Q\) : \(\Psi DO_{K,m}\) with symbol \(q\) such that \\
+  \(Q\) is formal adjoint of \(P\) and \(q \sim \sum_{\alpha} \frac{i ^ {\lvert \alpha \rvert}}{\alpha !} D^\alpha_{\xi} D^\alpha_x \bar{p}^t\)
+\itemnote
+  この構成方法を \(P^* , p^*\) のように書くこととする。
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\phi(x)\) : \(C^\infty_0\) であって \(K\) 上 \(\phi = 1\) となるものを固定する。
+  任意の \(u\) : \(\mathscr{S}\) で support が \(K\) に含まれるものに対して、 \(\phi u = u\) である。
+  特に、 \(u,v\) : \(\mathscr{S}\) で support が \(K\) に含まれるものに対して
+  \begin{align*}
+    (Pu , v)_{L^2}
+    &= \int \langle \int e^{i \langle x , \xi \rangle} p(x , \xi) \mathscr{F}[u](\xi) d\xi , v(x) \rangle dx \\
+    &= \int \int \int e^{i \langle x - y , \xi \rangle} \langle p(x , \xi) u(y) , v(x) \rangle dy d\xi dx \\
+    &= \int \int \int \langle u(y) , e^{- i \langle x - y , \xi \rangle} \bar{p}^t(x,\xi) v(x) \rangle dy d\xi dx \\
+    &= \langle u , x \mapsto \int e^{i \langle x - y , \xi \rangle} \bar{p}^t(y,\xi) v(y) dy d\xi \rangle \\
+    &= \langle u , x \mapsto \int e^{i \langle x - y , \xi \rangle} \phi(x) \bar{p}^t(y,\xi) v(y) dy d\xi \rangle
+    =: \langle u , Q v \rangle
+  \end{align*}
+  最後の行の変形が正当化されるのは、 \(u\) が support が \(K\) に含まれるような関数であることから、 \(\langle u , f \rangle = \langle u , \phi f \rangle\) となるためである。
+  （ \(f\) 側が support in \(K\) となるかはわからない。）
+  上で定義された operator \(Q\) は \(a(x,y,\xi) = \phi(x) \bar{p}^t(y,\xi)\) と置いたときの WorkHorse theorem により得られる operator であり、定義上 \(P\) の formal adjoint になることがわかる。
+  従って、 WorkHorse theorem の適用のための前提を満たすこと、 theorem の帰結としてえられる formal development が求める formal development になること、 \(Q\) が support in \(K\) であることを示す。
+\itemthen
+  \(x,y\)-support compact であることが \(\phi(y)\) の y-support コンパクト性と \(p(x,\xi)\) の \(x\)-support コンパクト性よりわかる。
+  また、微分に関する条件も、 \(\lvert D^\alpha_x D^\beta_y D^\gamma_\xi [\phi(y) \bar{p}^t(x,\xi) \rvert] = \lvert D^\alpha_x \phi(x) \rvert \lvert D^\alpha_y D^\gamma_\xi \bar{p}^t(y,\xi) \rvert \leq \text{const} \lvert D^\alpha_y D^\gamma_\xi \bar{p}^t(y,\xi) \rvert\) となり計算によりわかる。
+  これによりえられる operator \(Q\) の symbol \(q\) は次の formal development を持つ。
+  \begin{align*}
+    \sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} D^\alpha_\xi D^\alpha_y [\phi(x) \bar{p}^t(y,\xi)](x,x,\xi)
+    &= \sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} \phi(x) (D^\alpha_x D^\alpha_\xi \bar{p}^t)(x , \xi) \\
+    &= \sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_x D^\alpha_\xi \bar{p}^t)(x , \xi)
+  \end{align*}
+  ただし、 \(p\) の \(x\)-support が \(K\) に含まれていることから \(\phi \bar{p}^t = \bar{p}^t\) を使った。
+  \(Q\) が support in \(K\) であることを示す。
+  \(u\) : \(C^\infty_0\) と \(x\) : not in \(K\) に対して \((Q u)(x) = \phi(x) \cdots = 0\) であるから \(\text{supp} (Pu) \subset K\) である。
+  また、 \(\text{supp} u \cap K = \emptyset\) なら \(\phi(x)\bar{p}^t(y,\xi) u(y)\) は \(y \in K\) かどうかで場合分けをすると任意の \(y\) で \(0\) となることがわかるから \(Qu = 0\) となる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(p,q\) : symbol \\
+  \Let \(P , Q\) : \(\Psi DO_{K,m} , \Psi DO_{K,l}\) := define by \(p,q\) \\
+  \Then \(P \circ Q\) is pseudo differential operator of order \(m + l\) with symbol 
+  which has formal development \(\sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_{\xi} p) (D^\alpha_{x} q)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(Q = (Q^*)^*\) であるから
+  \begin{align*}
+    (Qu)(x)
+    &= \int\int e^{i \langle x-y ,\xi \rangle} \bar{q^*}^t(y,\xi) u(y) dy d\xi \\
+    &= \int e^{i\langle x,\xi \rangle} \left[\int e^{-i\langle y,\xi \rangle} \bar{q^*}^t(y,\xi) u(y) dy \right] d\xi \\
+  \end{align*}
+  のため Fourier inversion により
+  \[
+    \widehat{Qu}(\xi) = \int e^{-i \langle y,\xi \rangle} \bar{q^*}^t(y,\xi) u(y) dy
+  \]
+  とわかる。
+  したがって
+  \begin{align*}
+    (PQu)(x)
+    &= \int e^{i \langle x ,\xi \rangle} p(x,\xi) \widehat{Qu}(\xi) d\xi
+      = \int e^{i \langle x ,\xi \rangle} p(x,\xi) \int e^{-i \langle y,\xi \rangle} \bar{q^*}^t(y,\xi) u(y) dy d\xi \\
+    &= \int e^{i \langle x-y ,\xi \rangle} p(x,\xi) \bar{q^*}^t(y,\xi) dy d\xi
+  \end{align*}
+  ここで WorkHorse theorem を用いる。
+\itemthen
+  \(x,y\)-support のコンパクト性は確かに成り立つ。
+  微分に関する条件も確かに計算により order が \(m + l\) となる。
+  したがって定理の帰結として \(PQ\) は pseudodifferential operator でありその symbol が次の formal development を持つものとして得られる。
+  formal development は各自然数 \(l\) で添え字付けられていた。
+  \begin{align*}
+    &\sum_{\lvert \alpha \rvert = l} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_\xi D^\alpha_y p(x,\xi) \bar{p^*}^t(y,\xi))(x,x,\xi) \\
+    &= \sum_{\lvert \alpha \rvert = l} \frac{i^{\lvert \alpha \rvert}}{\alpha !}
+    \sum_{\alpha_1 + \alpha_2 = \alpha} \frac{\alpha !}{\alpha_1 ! \alpha_2 !} (D^{\alpha_1}_\xi p) (D^{\alpha_2}_\xi D^{\alpha_1 + \alpha_2}_x \bar{p^*}^t(x,\xi)) \\
+    &= \sum_{\lvert \alpha_1 \rvert , \lvert \alpha_2 \rvert = l} \frac{i^{\lvert \alpha \rvert }}{\alpha_1 !} \frac{i^{\lvert \alpha_2 \rvert}}{\alpha_2 !} (D^{\alpha_1}_\xi p) (D^{\alpha_2}_\xi D^{\alpha_1 + \alpha_2}_x \bar{p^*}^t(x,\xi)) \\
+    &= \sum_{\lvert \beta \rvert = l} \frac{i^{\lvert \beta \rvert}}{\beta !} (D^{\beta}_\xi p) (D^{\beta}_x 
+    \left[\sum_{\lvert \gamma \rvert = l} \frac{i^{\lvert \gamma \rvert}}{\gamma !} D^\gamma_\xi D^\gamma_x \bar{q^*}^t \right]) \\
+    &\sim \sum_{\lvert \beta \rvert = l} \frac{i^{\lvert \beta \rvert}}{\beta !} (D^{\beta}_\xi p) (D^{\beta}_x q) \\
+  \end{align*}
+  途中で項の grouping の順番を変えた。
+  最後は \(Q =(Q^*)^*\) より \(q\) の formal development が \(\sum_{\gamma} D^\gamma_\xi D^\gamma_x \bar{q^*}^t\) であることよりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \Fix \(U,V\) : open subset , \(\phi\) : \(U \to V\) , \(K\) : compact subset \(\subset U\)
+\itemdefi
+  \For \(u\) : \(C^\infty_0(\phi(K))\)
+  \Define \(\phi_* u\) : \(C^\infty_0(K)\) := \(u \circ \phi\) if \(x \in U\) and \(0\) otherwise
+\itemprop
+  \For \(P\) : \(\Psi DO_{K,m}\) , \(u\) : \(\mathscr{S}\) , \(C^\infty_0(\phi(K))\) \\
+  \Then \((\phi_* P)(u)\) : \(C^\infty_0(K)\) := \((\phi_*)^{-1} P(\phi_* u)\)
+\itemprop
+  \Define \(\phi_*\) : \(\Psi DO_{K,m} \to \Psi DO_{\phi(K) , m}\) := \(P \mapsto (\phi_* P)\) \\
+  \Then \(\phi_*\) is isomorphism
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+\WIP
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Then \AIMAI{the symbol of a pseudo differential operator transforms like a function on the cotangent bundle}.  i.e. Fourier transform \(\tilde{x} , \xi\) be considered as standard coordinates ofr \(1\)-forms \(\sum \xi_j d \tilde{x}_j\) 
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \For \(P\) : \(\Psi DO_m\) with symbol \(p\)
+  \Define principal symbol of \(P\) = \([p] \in \text{Sym}^m / \text{Sym}^{m-1}\)
+\itemprop
+  \Then \(\sigma(P)\) transforms under diffeomorphism like a function on the cotangent bundle of \(\mathbb{R}^n\)
+\end{Definition}

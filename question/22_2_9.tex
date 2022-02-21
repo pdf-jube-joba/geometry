@@ -1,0 +1,143 @@
+\begin{Theorem}
+\itemwhen
+  \For \(P\) : \(\Psi DO_{K,m}\) , \(\phi\) : diffeo on open subset \(U \to \tilde{U}\) , \(K\) : compact subset \(\subset U\) \\
+  \Define \(\phi_* P\) := \(u \mapsto P(u \circ \phi) \circ \phi^{-1}\) \\
+  \Then \(\phi_* P\) is pseudodifferential operator and \(\phi_*\) is isomorphism \(\Psi DO_{K,m} \to \Psi DO_{\phi(K),m}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprop
+  \Define \(\tilde{x}\) := by formula \(x = \phi(\tilde{x})\) , \(\psi\) := \(\phi^{-1}\) \\
+  \Define \(\Psi(x,y)\) := by formula \(\tilde{x} - \tilde{y} = \int_0^1 \frac{d}{dt} \psi (tx + (1-t)y) dt = \Psi(x,y) \cdot (x-y)\) \\
+  \Then \(\Psi(x,x) = (\frac{\partial \psi}{\partial x})_x\) and \(\Psi(x,y)\) is invertible on some neighborhood of diagonal \\
+  \Define \(\mathscr{O}\) := that neighborhood \\
+  \Take \(\chi\) : \(C^\infty_0(\mathscr{O})\) such that \(\chi = 1\) on smaller neighborhood \\
+  \Define \(J\) := \(\text{det} \frac{\partial \psi}{\partial x}\) \\
+  \Then
+  \begin{align*}
+   [(\phi_* P)u](x) &= [P(u \circ \phi)] (\tilde{x}) \\
+   &= \int \int e^{i \langle \tilde{x} - \tilde{y} , \xi \rangle} p(\tilde{x} , \xi) u(\phi(\tilde{y})) d\tilde{y} d\xi \\
+   &= \int \int e^{i \langle x - y , \Psi^t(x,y) \xi \rangle} p(\psi(x) , \xi) u(y) J(y) dy d\xi \\
+  \end{align*}
+  \Define \(\mathscr{S}\) := \(e^{i \langle x - y , \Psi^t(x,y) \xi \rangle} p(\psi(x) , \xi) u(y) J(y)\) \\
+  \Then integral of \((1 - \chi) \mathscr{S}\) is infinitely smoothing by 3.6 \\
+  \Define \(\Theta(x,y)\) := by formula \(\xi = [\Psi^t(x,y)]^{-1}\zeta = \Theta(x,y) \cdot \zeta\) \\
+  \Define \(a(x,y,\zeta)\) := \(\chi(x,y) J(y) \lvert \text{det} \Theta \rvert p(\psi(x) , \Theta(x,y) \zeta)\) \\
+  \Then
+  \[
+    [(\phi_* P)u](x) \cong \int\int e^{i \langle x-y,\zeta \rangle} a(x,y,\xi) u(y) dy d\zeta
+  \]
+  by change of coordinates \(\xi = [\Psi^t(x,y)]^{-1} \zeta = \Theta(x,y) \zeta\) modulo infinitely smoothing operator by 3.6 \\
+  \Then \(\phi_* P\) is pseudodifferential operator by Workhorse theorem
+\end{Proof}
+
+\begin{Remark}
+\item[] ここでは上の命題及びその証明に対する問題点を書く。
+\item \(P\) に代入されている \(u \circ \phi\) は \(U \to \ldots\) なる部分関数であるため、 \(\mathbb{R}^n \to \ldots\) を引数にとる \(P\) に代入することは不正であり、なんらかの拡張を行う必要がある。 \(\ldots \circ \phi^{-1}\) についても同様。
+\item もし拡張を行った場合で考える場合、 pseudodifferential operator の定義を考えると \(\phi_* P\) の定義は \(C^\infty_0(K)\) 上の関数でしかあたえていないため、これをもって pseudodifferential operator ということはできない。ある pseudodifferential operator が存在して、というべき。
+\item \(U\) は convex ではないため、 \(\Psi(x,y)\) なる関数は一般に定義されない。
+\item 積分において \(2\) 行目の \(\tilde{y}\) の積分範囲が全域でなく、\(3\) 行目の \(y\) の積分範囲が全域でない。変形自体は正当化されるだろうが、その後の Workhorse theorem を用いる際は全域での積分でなければいけない。
+\item \((1 - \chi) \mathscr{S}\) が infinitely smoothing であることが 3.6 からわかるためには \(\Psi(x,y)\) が恒等的に \(1\) であるか変数変換が可能である必要がある。この本は仮定を確かめることができていない。
+\item Workhorse theorem に用いる \(a(x,y,\xi)\) が全域で定義されていない。
+\end{Remark}
+
+ここでは上の問題点に対して、定義や命題のレベルから考察する。
+
+\(\phi_*\) : \(C^\infty_0(\phi(K)) \to C^\infty_0(K)\) を \(U\) 上では \(u \circ \phi\) としそれ以外では \(0\) とする。
+これは確かに well-defined である。
+これを用いて \(\phi_* P\) : \(C^\infty_0(K) \to C^\infty_0(\phi(K))\) := \(u \mapsto \phi_*^{-1} P(\phi_* u)\) を考える。
+今定めた \(\phi_* P\) は \(C^\infty_0(K)\) 上での写像であるが \(\phi_*\) : \(\Psi DO_{K,m} \to \Psi DO_{\phi(K),m}\) が定まるということはこの \(\phi_* P\) が pseudodifferential operator (\(\mathscr{S}\) 上の写像) であってその \(C^\infty_0(\phi(K))\) への制限が \(\phi_* P\) と一致するものを（少なくとも一つ、できれば一意に）定めることを示す必要がある。
+少なくとも一つ、については積分の変形でよい。
+
+前の書き方に合わせると
+\begin{Theorem}
+\itemdefi
+  \For \(U , \tilde{U}\) : subset , \(\phi\) : diffeo on \(U \to \tilde{U}\) \\
+  \Define \(\phi_*\) : \(C^\infty_0(\tilde{U}) \to C^\infty_0(U)\) :=
+  \(u \mapsto
+  \left\{
+    \begin{array}{ll}
+    x \in U & u(\phi(x)) \\
+    \text{otherwise} & 0
+    \end{array}
+  \right.\) \\
+  \Then this is isomorphism of vector space
+\itemdefi
+  \For \(K\) : compact subset \(\subset U\) , \(P\) : pseudodifferential operator support in \(K\) \\
+  \Let \(\tilde{K}\) := \(\phi(K)\) \\
+  \Define \(\phi_* P\) : operator on \(\tilde{K}\) := \(u \mapsto \phi_*^{-1} P(\phi_* u)\)
+\itemprop
+  \Then \(\phi_* P\) is pseudodifferential operator on \(\tilde{K}\) \\
+  \Then and this is isomorphism
+\end{Theorem}
+
+\(U\) が convex であり（したがって定義することができる） \(\Psi^t(x,y)\) が invertible の場合に示すことは次のようにしてできる。
+\(\Psi(x,y)\) : \(\phi(U) \times \phi(U) \to M(n , \mathbb{R})\) である。
+\(\chi\) : \(C^\infty_0\) で \(\phi(K)\) 上 \(1\) だが \(\phi(U)^c\) 上 \(0\) となるものをとる。
+\(u = \chi u , p(\psi(x),\xi) = p(\psi(x),\xi) \chi(x)\) であることに注目する。
+後者は \(p\) が symbol support in \(K\) なら \(\text{sym}(P)\) の \(x\)-supp も \(K\) に含まれることから。
+\(u\) : \(C^\infty_0(K)\) と \(x\) : \(\phi(U)\) に対して
+\begin{align*}
+  (\phi_* P)(u)(x) &= (P(\phi_* u)) (\psi(x)) \\
+  &= \int \int e^{i \langle \psi(x) - y , \xi \rangle} p(\psi(x) , \xi) (\phi_* u)(y) dy d\xi \\
+  &= \int \int_{K \times \mathbb{R}^n} e^{i \langle \psi(x) - \tilde{y} , \xi \rangle} p(\psi(x) , \xi) u(\phi(\tilde{y})) d\tilde{y} d\xi \\
+  &= \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle \psi(x) - \psi(y) , \xi \rangle} p(\psi(x) , \xi) \text{det} (\partial \psi / \partial x)_y u(y) dy d\xi \\
+  &= \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \Psi^t(x,y) \cdot \xi \rangle} p(\psi(x) , \xi) \text{det} (\partial \psi / \partial x)_y u(y) dy d\xi \\
+  &= \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \chi(y) \Psi^t(x,y) \cdot \xi \rangle} p(\psi(x) , \xi) \chi(y) \text{det} (\partial \psi / \partial x)_y u(y) dy \chi(x) \chi(y) d\xi \\
+  &= \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \zeta \rangle} a(x,y,\xi) u(y) dy d\zeta \\
+\end{align*}
+ただし \(a(x,y,\xi)\) := \(p(\psi(x) , \chi(y) \Psi^t(x,y)^{-1} \cdot \zeta) \cdot (\chi(x) \chi(y) \text{det} (\Psi^t(x,y)^{-1})) \cdot (\chi(y) \text{det} ((\partial \psi / \partial x)_y))\) でありその定義域は \(\phi(U) \times \phi(U) \times \mathbb{R}^n\) となる。
+ここでこの \(a(x,y,\xi)\) の \(\mathbb{R}^n \times \mathbb{R}^n \times \mathbb{R}^n\) への拡張がとれることがその形によりわかる。
+この \(a(x,y,\xi)\) が Workhorse theorem の仮定を満たすことを示せば、最後の積分の範囲を広げることで確かに成り立つとわかる。
+support に関する条件は確かに成り立つ。
+微分に関する条件も、計算によりわかる。
+したがって示された。
+
+次に \(\Psi(x,y)\) が invertible とは限らない場合を考える。
+次のところまで \((\phi_* P)(u)(x)\) の積分の変形が正当化されることがわかる。
+
+\[
+  (\phi_* P)(u)(x) = \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \Psi^t(x,y) \cdot \xi \rangle} p(\psi(x) , \xi) \text{det} (\partial \psi / \partial x)_y u(y) dy d\xi
+\]
+
+このとき、教科書での証明と同様にして \(\tilde{\chi}(x,y)\) のようなものを考え、積分を \(\tilde{\chi}\) のついたものと \(1 - \tilde{\chi}\) のついたものにわける。
+前者の積分である、 \(\int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \Psi^t(x,y) \cdot \xi \rangle} \tilde{\chi}(x,y) p(\psi(x) , \xi) \text{det} (\partial \psi / \partial x)_y u(y) dy d\xi\) が \(u\) に対して pseudodifferential operator を与えていることは積分範囲を \(\Psi^t(x,y)\) が invertible となるような対角線の近傍に制限して前の段落と同様に変数変換を行うと確かにそうなる。
+ここで後者の積分が infinitely smoothing pseudodifferential operator を与えていることを示せばよい。
+
+後者の積分は由来を考えると
+\begin{align*}
+  \int \int_{\phi(K) \times \mathbb{R}^n} e^{i \langle x - y , \Psi^t(x,y) \cdot \xi \rangle} (1 - \tilde{\chi})(x,y) p(\psi(x) , \xi) \text{det} (\partial \psi / \partial x)_y u(y) dy d\xi \\
+  =
+  \phi_* (u \mapsto \int e^{i \langle x-y , \xi \rangle} (1 - \tilde{\chi})(\psi(x) , \psi(y)) p(x,\xi)u(y) dy d\xi)
+\end{align*}
+となる。
+後者の積分は infinitely smoothing operator であることが 3.6 よりわかる。
+もし infinitely smoothing pseudodifferential operator の pushout は infinitely smoothing pseudodifferential operator になることを示せば求めていた命題が示される。
+次の命題を示せばよい。
+\begin{itemize}
+  \item infinitely smoothing pseudodifferential operator であって support が \(U\) に含まれるものは、ある smooth な \(K(x,y)\) で \(x\)-support in \(U\) を満たすものが存在して \(u \mapsto \int K(x,y)u(y)dy\) で定義される operator に等しい。
+  \item smooth な \(K(x,y)\) で \(x\)-support in \(U\) を満たすものに対して \(u \mapsto \int K(x,y)u(y)dy\) : \(C^\infty_0(U) \to C^\infty_0(U)\) で定義される作用素は infinitely smoothing pseudodifferential operator であって support が \(U\) に含まれるものの制限である。
+\end{itemize}
+これが成り立てば（定義域を気にしない変形ではあるが
+\begin{align*}
+  (\phi_* \int K(x,y)u(y))(x)
+  &= \int K(\phi^{-1}(x) , y) u(\phi(y)) dy \\
+  &= \int K(\phi^{-1}(x) , \phi^{-1}y) (\partial \phi^{-1})(y) u(y) dy
+\end{align*}
+より pushout も infinitely smoothing pseudodifferential operator である。
+
+一つ目を示す。
+symbol \(p\) によって定義される作用素は 
+\[\int \int e^{i \langle x - y, \xi \rangle} p(x,\xi) u(y) dy d\xi = \int \left(\int e^{i \langle x-y,\xi \rangle} p(x,\xi) d\xi \right) u(y) dy\]
+であるが真ん中の積分は \(p\) の order を考えると収束する。
+したがって示された。
+
+二つ目を示す。
+\(\chi(y)\) を \(U\) 上で \(1\) となる support compact となるものと \(\int \phi(\xi) d\xi = 1\) となる \(\phi\) : \(C^\infty_0\) をとる。
+\begin{align*}
+  \int K(x,y) u(y) dy
+  &= \int \int e^{i \langle x-y , \xi \rangle} e^{- i \langle x-y , \xi \rangle} \phi(\xi) K(x,y) \chi(y) u(y) dy d\xi
+\end{align*}
+であるから、 \(e^{- i \langle x-y , \xi \rangle} \phi(\xi) K(x,y) \chi(y)\) が Workhorse theorem の仮定を満たすことを示せばよい。
+support に関する条件も微分に関する条件も成り立つから確かに良い。
+ここにおける議論には \(U\) が convex であるという仮定は使われていないため、 infinitely smoothing pseudodifferential operator については pushout が infinitely smoothing pseudodifferential operator となることは convex 無しで示せる。

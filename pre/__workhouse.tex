@@ -1,0 +1,131 @@
+\begin{Theorem}
+\itemwhen
+  \For \(m\) : \(\mathbb{R}\) \\
+  \For \(a(x,y,\xi)\) : \(C^{\infty}(\mathbb{R}^n \times \mathbb{R}^n \times \mathbb{R}^n , M(l,\mathbb{C}))\) with compact \(x\)- and \(y\)-support \\
+  \IfHold forall \(\alpha , \beta , \gamma\) , there exists \(C_{\alpha , \beta , \gamma}\) such that \(\lvert D^\alpha_x D^\beta_y D^\gamma_\xi a \rvert \leq C_{\alpha , \beta , \gamma} (1 + \lvert \xi \rvert)^{m - \lvert \gamma \rvert}\)
+\itemprop
+  \Then forall \(\alpha\) , function \((D^\alpha_\xi D^\alpha_y a)(x , x , \xi)\) of \(x,\xi\) is symbol of order \(m - \lvert \alpha \rvert\)
+\itemprop
+  \Then for \(u\) : \(\mathscr{S}\) , \(\left[x \mapsto (2\pi)^{-n} \int \int e^{i \langle x-y , \xi \rangle} a(x,y,\xi) u(y) dy d\xi \right]\) is in \(\mathscr{S}\)
+\itemprop
+  \Let \(K\) : \(\mathscr{S} \to \mathscr{S}\) := defined by \((Ku)(x) = (2\pi)^{-n} \int \int e^{i \langle x-y , \xi \rangle} a(x,y,\xi) u(y) dy d\xi\) \\
+  \Then \(K\) is a pseudodifferential operator whose symbol \(k\) is order \(m\) \\
+  \Then and has formal development \(k(x,\xi) \sim \sum_{\alpha} \frac{i ^ {\lvert \alpha \rvert}}{\alpha !} (D^\alpha_\xi D^\alpha_y a)(x , x , \xi)\)
+\itemprop
+  \IfHold \(a(x,y,\xi)\) vanishes for all \(x,y\) in a neightborhood of the diagonal \\
+  \Then corresponding operator is infinitely smoothing
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  実際に計算する。
+  各 \(\alpha , \beta , \gamma\) について \(x,\xi\) の式として
+  \begin{align*}
+    \lvert D^\alpha_x D^\beta_\xi[(x,\xi) \mapsto (D^\gamma_\xi D^\gamma_y a)(x , x , \xi)](x,\xi) \rvert 
+    &= \lvert D^\alpha_x D^\beta_\xi D^\gamma_\xi D^\gamma_y a (x , x , \xi)
+      + D^\alpha_y D^\beta_\xi D^\gamma_\xi D^\gamma_y a (x , x , \xi) \rvert \\
+    &\leq \text{const} (1 + \lvert \xi \rvert)^{m - \lvert \beta + \gamma \rvert}
+    = \text{const} (1 + \lvert \xi \rvert)^{(m - \lvert \gamma \rvert) - \lvert \beta \rvert}
+  \end{align*}
+  よりよい。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  smooth な \(k(x,\xi)\) で \((2\pi)^{-n} \int \int e^{i \langle x-y , \xi \rangle} a(x,y,\xi) u(y) dy d\xi = \int e^{i \langle x , \eta \rangle} k(x,\eta) \hat{u}(\eta) d\eta\) となるようなものが存在すれば、 \(k(x,\xi)\) が symbol となることを示せば \(\mathscr{S}\) の元と分かる。
+  このような \(k(x,\xi)\) として \(k(x,\xi) = \int e^{i \langle x , \xi^\prime - \xi \rangle} \mathscr{F}_y[a] (x , \xi^\prime - \xi , \xi^\prime) d\xi^\prime\) を与えればよいことが次のようにしてわかる。
+  また、定数倍を無視して書いている。
+  \begin{align*}
+    (Ku)(x)
+    &= \int \int e^{i \langle x-y , \xi \rangle} a(x,y,\xi) u(y) dy d\xi \\
+    &= \int e^{i \langle x , \xi \rangle} \int e^{- i \langle y , \xi \rangle} a(x,y,\xi) u(y) dy d\xi \\
+    &= \int e^{i \langle x , \xi \rangle} \mathscr{F}[y \mapsto a(x,y,\xi) u(y)](\xi) d\xi \\
+    &= \int e^{i \langle x , \xi \rangle} \left(\mathscr{F}[y \mapsto a(x,y,\xi)] * \mathscr{F}[y \mapsto u(y)]\right) (\xi) d\xi \\
+    &= \int e^{i \langle x , \xi \rangle} \int \mathscr{F}[y \mapsto a(x,y,\xi)] (\xi - \eta)\mathscr{F}[y \mapsto u(y)](\eta) d\eta d\xi \\
+    &= \int \int e^{i \langle x , \xi \rangle} \mathscr{F}_y[a](x , \xi - \eta , \xi) \hat{u}(\eta) d\eta d\xi \\
+    &= \int e^{i \langle x , \eta \rangle} \int e^{i \langle x , \xi - \eta \rangle} \mathscr{F}_y[a](x , \xi - \eta , \xi) d\xi \hat{u}(\eta) d\eta \\
+    &= \int e^{i \langle x , \eta \rangle} k(x,\eta) \hat{u}(\eta) d\eta
+  \end{align*}
+  積分順序の変更
+  \(\Leftarrow\) \(\lvert \mathscr{F}_y[a](x,\xi - \eta , \xi) \rvert \lvert \hat{u}(\eta) \rvert\) が各 \(x\) に対して \((\xi , \eta)\)  の関数として可積分である
+  \(\Leftarrow\) どの整数 \(l\) に対して \(x , \xi , \eta\) の式として \(\lvert \mathscr{F}_y[a](x , \xi - \eta , \xi) \rvert \lvert \hat{u}(\eta) \rvert \leq \text{const} (1 + \lvert \xi \rvert)^m (1 + \lvert \xi - \eta \rvert)^{-l} (1 + \lvert \eta \rvert)^{-l}\)
+  \(\Leftarrow\) どの整数 \(l\) に対しても \(x,y,\xi\) の式として \(\lvert y \rvert^l \lvert \mathscr{F}_y[a](x,y,\xi) \rvert \leq \text{const} (1 + \lvert \xi \rvert)^m\) となるからこれを示す。
+  \(\lvert \beta \rvert = l\) なる \(\beta\) をとれば
+  \begin{align*}
+    \lvert y^\beta \rvert \lvert \mathscr{F}_y[a] (x,y,\xi) \rvert
+    &= \lvert \mathscr{F}_y[D^\beta_y a](x , y , \xi) \rvert
+      = \lvert \int e^{i \langle y , y^\prime \rangle} (D^\beta_y a)(x , y^\prime , \xi) dy^\prime \rvert \\
+    &\leq \int \lvert (D^\beta_y a)(x , y^\prime , \xi) \rvert dy^\prime
+      \leq \int_{y-\text{supp}(a)} (1 + \lvert \xi \rvert)^m dy^\prime
+      \leq \text{const} (1 + \lvert \xi \rvert)^m
+  \end{align*}
+  ゆえに正当化された。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  これが symbol になることは以下で \(k(x,\xi) = \sum_{\lvert \alpha \rvert \leq l} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_y D^\alpha_\xi a)(x,x,\xi) + r_l(x,\xi)\) とかけて右辺が symbol の和になることから従う。
+  order については \((D^\alpha_y D^\alpha_\xi a)(x,x,\xi)\) が \(m - \lvert \alpha \rvert\) で \(r_l(x,\xi)\) が \(m - (l + 1)\) であるからそれぞれ order \(m\) ではあるため \(k(x,\xi)\) は order \(m\) である。
+\itemthen
+  次に \(k(x,\xi)\) の asymptotic development が上の式で与えられることを示す。
+  \(k(x,\xi) = \int e^{i \langle x , \zeta \rangle} \mathscr{F}_y[a](x , \zeta , \zeta + \xi) d \zeta\) であることに着目し、 \(\mathscr{F}_y[a](x , \zeta , \zeta + \xi)\) の Taylor 展開を次のように考える。
+  \(\mathscr{F}_y[a](x , \zeta , \zeta + \xi) = [h \mapsto \mathscr{F}_y[a](x , \zeta , \xi + h)](\zeta)\) としてこの \(h\) についての Taylor 展開を行い \(\zeta\) を代入する。
+  その結果はある関数 \(R_l(x,y,\xi)\) により次のようになる。
+  それぞれ \(x , \zeta , \eta\) の式として
+  \begin{align*}
+    \mathscr{F}_y[a](x , \zeta , \zeta + \eta) = \sum_{\lvert \alpha \rvert \leq l} \frac{i^{\lvert \alpha \rvert}}{\alpha !}(D^\alpha_{\xi} [\mathscr{F}_y[a]])(x , \zeta , \eta) \zeta^\alpha + R_{l}(x , \zeta , \zeta + \eta) \\
+    R_l(x , \zeta , \zeta + \eta) = (l + 1)i^{l + 1} \sum_{\lvert \mu \rvert = l + 1} \frac{1}{\mu !} \int_0^1 (D^\mu_\xi \mathscr{F}_y[a])(x , \zeta , t \zeta + \eta) \zeta^\mu (1 - t)^l dt
+  \end{align*}
+  \\ \ADMIT \\
+  ところで \(\zeta , \eta\) の式として
+  \begin{align*}
+    \int e^{i \langle x ,\zeta \rangle} (D^\alpha_\xi[\mathscr{F}_y[a]])(x,\zeta,\eta)\zeta^\alpha d\zeta
+    &= \int e^{i \langle x ,\zeta \rangle} (\mathscr{F}_y[(D^\alpha_\xi a)])(x,\zeta,\eta)\zeta^\alpha d\zeta \\
+    &= \int e^{i \langle x ,\zeta \rangle} (\mathscr{F}_y[(D^\alpha_y D^\alpha_\xi a)])(x,\zeta,\eta) d\zeta \\
+    &= (D^\alpha_y D^\alpha_\xi a)(x,x,\eta)
+  \end{align*}
+  が成り立つから \(r_l(x,\xi) = \int e^{i \langle x , \zeta \rangle} R_l(x,\zeta,\zeta + \xi) d\zeta\) と書けば \(k(x,\xi) = \sum_{\lvert \alpha \rvert \leq l} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_y D^\alpha_\xi a)(x,x,\xi) + r_l(x,\xi)\) が成り立つから、 \(r_l(x,\xi)\) が symbol of order \(m - (l + 1)\) になっていることを示せば \(k(x,\xi)\) なる symbol の formal development として \(\sum_{\lvert \alpha \rvert \leq l} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_y D^\alpha_\xi a)(x,x,\xi)\) がとれることがわかる。
+\end{Proof}
+
+\begin{Proof}
+\itemthen
+  補題として各 \(\alpha , \beta , k\) に対して \(\lvert (D^\alpha_x D^\beta_\xi \mathscr{F}_y[a])(x , \zeta , \tilde{\zeta} + \eta) \rvert \leq \text{const} (1 + \lvert \tilde{\zeta} + \eta \rvert)^{m - \lvert \beta \rvert} (1 + \lvert \zeta \rvert)^{-k}\) が存在することを示す。
+  \(\lvert \gamma \rvert = k\) なる \(g\) をとれば \(x,\zeta,\tilde{\zeta},\eta\) の式として
+  \begin{align*}
+    \lvert \zeta^\gamma (D^\alpha_x D^\beta_\xi \mathscr{F}_y[a])(x , \zeta , \tilde{\zeta} + \eta) \rvert
+    &= \lvert \int (D^\alpha_x D^\beta_\xi a)(x , y, \tilde{\zeta} + \eta) \, D^{\gamma}_y [e^{-i \langle y , \zeta \rangle}] dy \rvert \\
+    &= \lvert \int (D^\alpha_x D^\gamma_y D^\beta_\xi a)(x , y, \tilde{\zeta} + \eta) e^{-i \langle y , \zeta \rangle} dy \rvert \\
+    &\leq \int \lvert (D^\alpha_x D^\gamma_y D^\beta_\xi a)(x , y, \tilde{\zeta} + \eta) \rvert dy \\
+    &\leq \text{const} \int_{y-\text{supp}(a)} (1 + \lvert \tilde{\zeta} + \eta \rvert)^{m - \lvert \beta \rvert} dy = \text{const} (1 + \lvert \tilde{\zeta} + \eta \rvert)^{m - \lvert \beta \rvert}
+  \end{align*}
+  途中で \(y\)-supp が compact であることを用いた。
+  この変形を観察し左辺に \(\xi^\chi\) がついてもよいとわかる。
+\itemthen
+  \(r_l(x,\xi)\) が symbol of order \(m - (l + 1)\) であること、すなわち各 \(\alpha , \beta\) に対して \(x , \xi\) の式として \(\lvert D^\alpha_x D^\beta_\xi r_l \rvert \leq \text{const} (1 + \lvert \xi \rvert)^{m - (l + 1) - \lvert \beta \rvert}\) であることを示す。
+  \((1 + \lvert \xi \rvert)^{-s} (1 + \lvert \eta \rvert)^{s} \leq \text{const} (1 + \lvert \xi - \eta \rvert)^{\lvert s \rvert}\) などが成り立っていた。
+  整数 \(k\) に対して \(x,\xi\) の式として
+  \begin{align*}
+    \lvert D^\alpha_x D^\beta_\xi r_l \rvert
+    &= \lvert D^{\alpha}_x D^{\beta}_\xi \int e^{i \langle x , \zeta \rangle} R_l(x , \zeta , \zeta + \xi) d\zeta \rvert
+      = \int \sum_{\alpha_1 + \alpha_2 = \alpha} \lvert \zeta^{\alpha_1} (D^{\alpha_2}_x D^{\beta}_\xi [R_l(x , \zeta , \zeta + \xi)]) \rvert d\zeta \\
+    &= \sum_{\alpha_1 + \alpha_2 = \alpha} \int \lvert \sum_{\lvert \mu \rvert = l + 1} \frac{1}{\mu !}
+      \int_0^1 \zeta^{\alpha_1} D^{\alpha_2}_x D^\beta_\xi \left[(l + 1) D^\mu_\xi \mathscr{F}_y[a](x , \zeta , t \zeta + \xi) \zeta^\mu (1 - t)^l d t \right] \rvert d\zeta \\
+    &\leq \text{const} \sum_{\alpha_1 + \alpha_2 = \alpha} \int \int_0^1 \lvert \zeta^{\alpha_1 + \mu} D^{\alpha_2}_x D^{\beta + \mu}_\xi \mathscr{F}_y[a](x , \zeta , t \zeta + \xi) \rvert \, \lvert (1 - t)^l \rvert dt d\zeta \\
+    &\leq \text{const} \int \int_0^1 (1 + \lvert t \zeta + \xi \rvert)^{m - \lvert \beta + \mu \rvert} (1 + \lvert \zeta \rvert)^{-k} (1 - t)^l dt d\zeta \\
+    &\leq \text{const} \int \int_0^1 (1 + \lvert t \zeta \rvert)^{\lvert m - (l + 1) - \lvert \beta \rvert \rvert} (1 + \lvert \xi \rvert)^{m - (l + 1) - \lvert \beta \rvert} (1 + \lvert \zeta \rvert)^{-k} (1 - t)^l dt d\zeta \\
+    &= \text{const} \left[\int \int_0^1 (1 + t \lvert \zeta \rvert)^{\lvert m - (l + 1) - \lvert \beta \rvert \rvert} (1 + \lvert \zeta \rvert)^{-k} (1 - t)^l dt d\zeta \right] (1 + \lvert \xi \rvert)^{m - (l + 1) - \lvert \beta \rvert} \\
+  \end{align*}
+  この式を見れば、\(K := \lvert m - (l + 1) - \lvert \beta \rvert \rvert \geq 0\) と \(l\) に対して \(\int_0^\infty \int_0^1 (1 + x t)^{K} (1 + x)^{-k} (1 - t)^{l} dt dx\) が有限となる整数 \(k\) が存在することを示せばよい。
+  これには \(k = K + k^\prime\) のように書くと
+  \begin{align*}
+    \int_0^\infty \int_0^1 \left(\frac{1 + x t}{1 + x}\right)^{K} (1 + x)^{-k^\prime} (1 - t)^l dt dx
+    &\leq \int_0^\infty \int_0^1 (1 + x)^{-k^\prime} (1 - t)^l dt dx \\
+    &= \int_0^\infty (1 + x)^{-k^\prime} dx \int_0^1 (1 - t)^l dt
+  \end{align*}
+  \(k^\prime\) を十分大きくとると有限である。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  \(k(x,\xi) = \sum_{\lvert \alpha \rvert \leq l} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_y D^\alpha_\xi a)(x,x,\xi) + r_l(x,\xi)\) で \(r_l\) が \(\text{Sym}^{m-(l+1)}\) に含まれていることから、仮定と合わせて \(k(x,\xi) = r_l(x,\xi)\) であるからよい。
+\end{Proof}

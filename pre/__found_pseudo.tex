@@ -1,0 +1,101 @@
+\begin{Theorem}
+\itemwhen
+  \Fix \(p\) : symbol of order \(m\)
+\itemprop
+  \For \(u\) : \(\mathscr{S}\) \\
+  \Then \(x \mapsto (Pu) (x) = (2\pi)^{-\frac{n}{2}} \int e^{i \langle x , \xi \rangle} p(x , \xi) \hat{u}(\xi) d \xi\) defines a element of \(\mathscr{S}\)
+\itemprop
+  \IfHold \(p\) has compact \(x\)-support (independent from \(\xi\)) \\
+  \Then forall \(s\) , this operator has a continuous extension \(L^2_{s+m} \to L^2_s\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  各 \(x\) ごとに \(\mathbb{C}^p\) の元が定まっているかを示す。
+  「 \(\int \lvert f \rvert < \infty\) なら \(\int f < \infty\) 」より \(\int \lvert p(x ,\xi) \rvert \lvert \hat{u}(\xi) \rvert d \xi < \infty\) を示せばよい。
+  \(\lvert p(x,\xi) \rvert \leq \text{const} (1 + \lvert \xi \rvert)^m\) なる \(C\) をとる。
+  \(u \in \mathscr{S}\) なら \(\hat{u} \in \mathscr{S}\) であるから各整数 \(k\) に対して \(\lvert \hat{u}(\xi) \rvert \leq \text{const} (1 + \lvert \xi \rvert)^{-k}\) をとる。
+  このとき、各整数に対して
+  \[
+    \cdots \leq \int \text{const} (1 + \lvert \xi \rvert)^{m} \text{const} (1 + \lvert \xi \rvert)^{-k} d \xi \leq \text{const} \int (1 + \lvert \xi \rvert)^{m - k} d\xi
+  \]
+  である。
+  \(k\) をうまくとれば右辺は有限なのでよい。
+\itemthen
+  \(x \mapsto (2\pi)^{-\frac{n}{2}} \int e^{i \langle x , \xi \rangle} p(x , \xi) \hat{u}(\xi) d \xi\) が \(\mathbb{R}^n \to \mathbb{C}^p\) としてなめらかかどうかについて示す。
+  \(f(x,\xi)\) := \(e^{i\langle x , \xi \rangle} p(x,\xi) \hat{u}(\xi)\) とするとこれは滑らかであり、 \(x \mapsto \int f(x,\xi) d\xi\) が滑らかかどうかを示すということである。
+  各 \(x_0\) : \(\mathbb{R}^n\) と \(\alpha\) : multi index に対して \(\lim_{h \to \infty} \int \lvert (D^\alpha_x f)(x + h ,\xi) \rvert = \int \lvert (D^\alpha_x f)(x , \xi) \rvert \) を示せばよいことが次のようにしてわかる。
+  もしこれが成り立てば \(\lim_{y \to x_0} \int (D^\alpha_x f)(y , \xi) d\xi = \int (D^\alpha_x f)(x_0 , \xi) d\xi\) である。
+  一階微分が可能であることについては任意の \(h\) : \(\mathbb{R}\) に対して平均値の定理より \(0 \leq \theta (h) \leq h\) が存在して、 \(h_i\) := \((0 , \ldots , h , \ldots , 0)\) とすると
+  \[\frac{1}{h}(\int f(x + h_i ,\xi) d\xi - \int f(x , \xi) d\xi) = \int \frac{f(x + h_i , \xi) - f(x , \xi)}{h} d\xi = \int \frac{\partial f}{\partial x_i} (x + \theta (h) , \xi) d\xi\]
+  であるから、 \(h \to \infty\) のとき、
+  \(\frac{\partial}{\partial x_i} \int f(x,\xi) d\xi = \lim_{h \to 0} \frac{1}{h}(\int f(x + h_i ,\xi) d\xi - \int f(x , \xi) d\xi) = \lim_{h \to 0} \int \frac{\partial f}{\partial x_i}(x + \theta(h) , \xi) d\xi = \int \frac{\partial f}{\partial x_i}(x , \xi) d\xi\) なのでよい。
+  これを繰り返せば何回も微分できる。
+\itemthen
+  \(x_0\) と \(\alpha\) を固定する。
+  \(h\) : \(\mathbb{R}\) に対して \(f_h(\xi) := (D^\alpha_x f)(x_0 + h , \xi)\) とすると、ルベーグの優収束定理により可積分な \(g(\xi)\) で \(\lvert f_h(\xi) \rvert\) を支配する関数があればよいとわかる。
+  各整数 \(k\) に対して \(\xi , h\) の式として
+  \begin{align*}
+    \lvert f_h(\xi) \rvert
+    &= D^\alpha_x [e^{i \langle x , \xi \rangle} p](x_0 + h , \xi) \hat{u}(\xi) \\
+    &\leq \sum_{\alpha_1 + \alpha_2 = \alpha} \lvert \xi^{\alpha_1} \rvert \lvert (D^{\alpha_2}_x p)(x_0 + h , \xi) \rvert \lvert \hat{u}(\xi) \rvert
+    \leq \sum_{\alpha_1 + \alpha_2 = \alpha} \text{const} \, (1 + \lvert \xi \rvert)^{\lvert \alpha_1 \rvert + m - k} \\
+    &\leq \text{const} (1 + \lvert \xi \rvert)^{\lvert \alpha \rvert + m - k}
+  \end{align*}
+  右辺は \(h\) によらない関数であり \(k\) を十分に大きくとれば可積分なのでよい。
+\itemthen
+  \(u\) : \(\mathscr{S}\) に対して \(P u \in \mathscr{S}\) を示す。
+  これにはどの pseudodifferential operator \(P\) についても各整数 \(k\) に対して \(x\) の式として \(\lvert (P u)(x) \rvert \leq \text{const} (1 + \lvert x \rvert)^{-k}\) が有界となること、 \(D^\alpha \circ P\) も pseudodifferential operator であることを示せばよい。
+  一つ目は各整数 \(N > 0\) に対して
+  \begin{align*}
+    \lvert x \rvert^{2N} Pu(x)
+    &= (-1)^N \int (\Delta^N_{\xi} e^{i \langle x , \xi \rangle}) p(x , \xi) \hat{u}(\xi) d\xi \\
+    &= (-1)^N \int e^{i \langle x , \xi \rangle} (\Delta^N_{\xi} [p(x,\xi) \hat{u}(\xi)]) d\xi
+  \end{align*}
+  であるが最後の式は有界であることから、各整数 \(k\) に対して \(x\) の式として \(\lvert (P u) (x) \rvert \leq \text{const} (1 + \lvert x \rvert)^{-k}\) となるようにとることができる。
+  二つ目は \(D^\alpha \circ P\) に対応する symbol の存在を示す。
+  これは計算すれば \(\sum_{\beta + \beta^{\prime} = \alpha} \xi^\beta p(x,\xi) + D^{\beta^\prime}_x p(x,\xi)\) が symbol になることからしたがうがこれは成り立つ。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  補題としていくつかの式を確認する。
+  \(\zeta , \xi\) : \(\mathbb{R}^n\) に対して \(\zeta^\alpha \int e^{i \langle x , \zeta \rangle} p(x , \xi) d x = (-1)^{\lvert \alpha \rvert} \int e^{i \langle x , \zeta \rangle} D^\alpha_x p(x , \xi) dx\) であることが \(x\)-compact よりわかる。
+  したがって各 \(\alpha\) に対して \(\zeta,\xi\) の式として
+  \begin{align*}
+    \lvert \int e^{i \langle x , \zeta \rangle} p(x , \xi) d x \rvert
+    &\leq \lvert \zeta^\alpha \rvert^{-1} \int  \lvert D^\alpha_x p(x , \xi) \rvert dx = \lvert \zeta^\alpha \rvert^{-1} \int_{x\text{-support of} p} \lvert D^\alpha_x p(x , \xi) \rvert dx \\
+    &\leq \text{const} \, (1 + \lvert \zeta \rvert)^{- \lvert \alpha \rvert}  \int_{x\text{-support of} p} (1 + \lvert \xi \rvert)^m dx \\
+    &\leq \text{const} (1 + \lvert \xi \rvert)^m (1 + \lvert \zeta \rvert)^{- \lvert \alpha \rvert} \\
+  \end{align*}
+  ゆえに各正の整数 \(t\) に対して \(\zeta , \xi\) の式として \(\cdots \leq \text{const} (1 + \lvert \xi \rvert)^m (1 + \lvert \zeta \rvert)^{-t}\) とわかる。
+  \(\Psi(\xi,\eta)\) := \(\lvert \int e^{i \langle x , \xi - \eta \rangle} p(x , \xi) dx \rvert (1 + \lvert \xi \rvert)^{-s-m} (1 + \lvert \eta \rvert)^s\) とする。
+  \(\zeta , \eta , s\) の式として \((1 + \lvert \xi \rvert)^{-s} (1 + \lvert \eta \rvert)^s \leq \text{const} (1 + \lvert \xi - \eta \rvert)^{\lvert s \rvert}\) をとる。
+  これがとれるのは \(s \geq 0\) に対して \(\text{max}_{x,y : [0 , \infty)} ((1 + x) / (1 + y) (1 + \lvert x - y \rvert))^s \leq 1\) となることからわかる。
+  各実数 \(s\) と整数 \(t\) に対して \(\xi , \zeta\) の式として
+  \begin{align*}
+    \Psi(\xi,\zeta)
+    &\leq \text{const} (1 + \lvert \xi \rvert)^{-s} (1 + \lvert \zeta \rvert)^{s} (1 + \lvert \xi - \zeta \rvert)^{-t} \\
+    &\leq \text{const} (1 + \lvert \xi - \zeta \rvert)^{-t + \lvert s \rvert}
+  \end{align*}
+  したがって \(\int \Psi(\xi,\zeta) d\xi \leq C\) かつ \(\int \Psi(\xi , \zeta) d\zeta \leq C\) なる定数 \(C\) がとれる。
+\itemthen
+  \(u\) : \(L^2_{s + m}\) に対して \(P u \in L^2_s\) を示せばよいのだった。
+  ここで \((u,v) = \int \hat{u}(\xi) \cdot \hat{v}(\xi) d\xi\) は \(L^2_s \times L^2_{-s}\) の perfect な pairing になるのであった。
+  まず \(u , v\) : \(\mathscr{S}\) に対して定数倍を無視して変形すると
+  \begin{align*}
+    (Pu , v)
+    &= \int \widehat{Pu}(\eta) \cdot \hat{v}(\eta) d\eta \\
+    &= \int \int e^{-i \langle x , \eta \rangle} (Pu)(x) dx \hat{v}(\eta) d\eta \\
+    &= \int \int \int e^{-i \langle x , \eta \rangle} \int e^{i \langle x , \xi \rangle} p(x,\xi)  \hat{u}(\xi) d\xi \hat{v}(\eta) dx d\eta \\
+    &= \int \int \int e^{i \langle x ,\xi - \eta \rangle} p(x,\xi) dx \hat{u}(\xi) \hat{v}(\eta) d\xi d\eta
+  \end{align*}
+  これにより、
+  \begin{align*}
+    \lvert (P u , v) \rvert
+    &\leq \int \int \Psi (\xi , \eta) \{\hat{u}(\xi) (1 + \lvert \xi \rvert)^{s+m}\} \{\hat{v}(\eta)(1 + \lvert \eta \rvert)^{-s}\} d\xi d\eta\\
+    &\leq \left\{\int \int \Psi(\xi , \eta) (1 + \lvert \xi \rvert)^{2(s+m)} \lvert \hat{u}(\xi) \rvert ^2 d\xi d\eta \right\}^{\frac{1}{2}} \left\{\int \int \Psi(\xi , \eta) (1 + \lvert \xi \rvert)^{-2s} \lvert \hat{v}(\eta) \rvert ^2 d\eta d\xi \right\}^{\frac{1}{2}} \\
+    &\leq C \lVert u \rVert_{s+m} \lVert v \rVert_{-s}
+  \end{align*}
+  これに pairing の完全性（双対性）を考えれば確かに成り立つ。
+\end{Proof}

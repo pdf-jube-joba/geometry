@@ -1,0 +1,107 @@
+\input{__found_pseudo.tex}
+
+\begin{Definition}
+\itemdefi
+  \Define pseudodifferential operator of order \(m\) on \(\mathbb{R}^n\) := \\
+  operator \(\mathscr{S} \to \mathscr{S}\) given by symbol of order \(m\) \\
+  \Define \(\Psi DO_m\) := space of all such operator
+\itemdefi
+  \For \(m > 0\) , \\
+  \Define smoothing of order \(m\) := pseudodifferential operator of order \(- m\) \\
+  \Define infinitely smoothing operator := \\
+  linear map \(\mathscr{S} \to \mathscr{S}\) which extends to a bounded linear map \(L_s \to L_{s+m}\) forall \(s,m\) : \(\mathbb{R}\)
+\itemdefi
+  \For \(P , P^{\prime}\) : pseudodifferential operator \\
+  \Define \(P\) and \(P^{\prime}\) is equivalent := \(P-P^{\prime}\) is infinitely smoothing operator
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(P\) : pseudodifferential operator with compact support \\
+  \IfHold forall \(m > 0\) , \(P\) is smoothing of order \(m\) \\
+  \Then \(P\) is pseudodifferential operator of any order and is infinitely smoothing operator
+\itemprop
+  \For \(P\) : infinitely smoothing operator \\
+  \Then \(P(L^2_s) \subset C^\infty\) forall \(s\) : \(\mathbb{R}\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  条件より任意の \(m\) : \(\mathbb{R}\) に対して pseudodifferential operator of order \(m\) であるとわかる。
+  compact support であることと合わせて任意の \(s,m\) : \(\mathbb{R}\) に対して \(L^2_{s+m} \to L^2_{s}\) に拡張されるから、任意の \(s,m\) : \(\mathbb{R}\) に対して  \(L^2_{s} \to L^2_{s+m}\) に拡張される。
+\itemprof
+  Sobolev embedding theorem により任意の実数 \(s\) と整数 \(k\) に対して \(s > \frac{n}{2} + k\) が満たされていれば \(L^2_s \subset C^k\) であった。
+  定義より \(u\) : \(L^2_{s}\) は任意の \(m\) : \(\mathbb{R}\) に対して \(P u \in L^2_{s + m}\) である。
+  したがって任意にとった \(k\) に対して \(m\) を \(s + m > \frac{2}{n} + k\) を満たす程度に十分大きくとることで \(P u \in L^2_{s + m} \subset C^k\) とわかる。
+\end{Proof}
+
+\input{__workhouse.tex}
+
+\begin{Definition}
+\itemdefi
+  \For \(A \subset \mathbb{R}^n\) , \(\epsilon > 0\) \\
+  \Define \(A_{\epsilon}\) := \(\{x : \mathbb{R}^n \mid \text{distance}(x,A) \leq \epsilon\}\)
+\itemdefi
+  \For \(A\) : operator \\
+  \Define \(P\) is \(\epsilon\)-local := \(\forall\) \(u\) : \(C^\infty_0\) , \(\text{supp} \, Pu \subset (\text{supp} \, u)_e\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(P\) : \(\Psi DO_m\) whose symbol \(p\) has compact \(x\)-support , \(\epsilon > 0\) \\
+  \Then there exists \(P_{\epsilon}\) : \(\Psi DO_m\) which equivalent to \(P\) and is \(\epsilon\)-local
+\itemprop
+  \For \(\chi_1 , \chi_2\) : real-valued function with compact support on \(\mathbb{R}^n\) , \(P\) : \(\Psi DO_m\) \\
+  \Then \(u \mapsto \chi_1 P(\chi_2 u) \in \Psi DO_m\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\phi(x,y)\) : \(C^\infty(\mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R})\) であって対角線の近傍で \(1\) かつ対角線から \(\epsilon\) 離れたところで \(0\) となるようなものを固定する。
+  このとき \(\phi(x,y)\) は
+  \(a(x,y,\xi) = \phi(x,y)p(x,\xi)\) とする。
+  定理 3.5 を適用するための仮定を確かめる。
+  \(x,y\)-supp が compact であることは確かに成り立つ。
+  任意の \(\alpha , \beta , \gamma\) に対して \(x,y,\xi\) の式として 
+  \begin{align*}
+    \lvert D^\alpha_x D^\beta_y D^\gamma_\xi a(x,y,\xi) \rvert
+    &\leq \sum_{\alpha_1 + \alpha_2 
+    = \alpha} \lvert (D^{\alpha_1}_x D^\beta_y \phi) \rvert \lvert (D^{\alpha_2}_x D^\gamma_\xi p) \rvert \\
+    &\leq \text{const} (1 + \lvert \xi \rvert)^{m - \lvert \gamma \rvert}
+  \end{align*}
+  となるのでよい。
+  特にこのように定義した \(a(x,y,\xi)\) を定理 3.5 に適用して得られる \(P_{\epsilon}\) について、
+  \begin{itemize}
+    \itemenum ある order \(m\) の symbol \(p_{\epsilon}\) による pseudodifferential operator of order \(m\) である
+    \itemenum \(p_{\epsilon}\) は formal development として \(\sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_y D^\alpha_\xi a)(x , x , \xi)\) を持つ。
+  \end{itemize}
+  などが成り立った。
+\itemthen
+  \(P_{\epsilon}\) が \(P\) と equivalent になることを示す。
+  \[
+    (D^\alpha_y D^\alpha_\xi [\phi(x,y) a(x,\xi)])(x,x,\xi) = (D^\alpha_y \phi)(x,x) (D^\alpha_\xi a)(x,\xi) = D^\alpha_\xi(x,\xi)
+  \]
+  なので formal development は \(\sum_{\alpha} \frac{i^{\lvert \alpha \rvert}}{\alpha !} (D^\alpha_\xi p)(x,\xi)\) となる。
+  ところで \(p\) もまたこれを formal development に持つことがわかることからこのふたつの symbol から得られる pseudodifferential operator は equivalent である。
+\itemthen
+  \(P_{\epsilon}\) が \(\epsilon\)-local であることを示す。
+  \(x\) に対して任意の \(y\) が \(u (y) = 0\) か \(\lvert x - y \rvert > \epsilon\) を満たしているとき \((P_{\epsilon} u)(x) = 0\) を満たすことからわかる。
+\itemprof
+  \(a(x,y,\xi) = \chi_1(x)\chi_2(y)p(x,\xi)\) とすると \(x,y\)-supp compact であり条件を満たすことが計算によりわかる。
+  ゆえに定理 3.5 よりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(P\) : pseudodifferential operator , \(u\) : a function in its domain \(L^2_s\) , \(U\) : open subset in \(\mathbb{R}^n\) \\
+  \Then \(\restr{u}{U} \in C^\infty(U)\) \(\rightarrow\) \(\restr{(P u)}{U} \in C^\infty(U)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(x_0\) : \(U\) を任意にとり fix し、 \((P u)\) が \(x_0\) の近傍でなめらかであることを示す。
+  \(\chi_1 , \chi_2\) を \(x_0 \in \text{supp} \chi_1 \subset \text{supp} \chi_2\) で \(x_0\) の近傍で \(\chi_1 = 1\) かつ \(\text{supp} \chi_1\) の近傍で \(\chi_2 = 1\) となるようにとる。
+  \(a(x,y,\xi) = \chi_1(x) (1 - \chi_2(y)) p(x,\xi)\) は対角線の近傍で \(0\) であるから定理 3.5 を適用するとここからえられる作用素は infinitely smoothing であり、 \(\chi_1 P ((1 - \chi_2) u)\) は smooth である。
+  また \(\chi_2 u \in C^\infty_0\) のため \(\chi_1 P(\chi_2 u) \in C^\infty\) である。
+  したがって \(\chi_1 P u = \chi_1 P ((1 - \chi_2) u) - \chi_1 P (\chi_2) u\) もまた滑らかであり、 \(P u\) は \(x_0\) の近傍で滑らかとわかる。
+\end{Proof}

@@ -1,0 +1,86 @@
+\begin{Theorem}
+\itemprop
+  \For any formal series \(\sum_{j=1}^\infty p_j\) with \(p_j \in \text{Sym}^{m_j}\) , \(\lim_{j \to \infty} m_j \to - \infty\) \\
+  \Then is the formal development of a symbol \\
+  \Then and this operator is unique up to symbol of order \(-\infty\)
+\itemnote
+  項を grouping して \(m_j \gneq 1 + m_{j+1}\) となるようにしておく。
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  基本的な設定を導入する。
+\itemprop
+  \(k \lneq j\) と \(\lvert \alpha \rvert , \lvert \alpha^\prime \rvert \leq j\) に対して、 \(\lvert D^\alpha_x D^{\alpha^\prime}_\xi \phi_j p_j \rvert \leq \frac{1}{2^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert}\) を示す。
+\itemprop
+  定義した \(p\) が symbol であり formal development になることを示す。
+\itemprop
+  これが unique であることを示す。
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\phi\) : smooth function of \(\mathbb{R}^{+} \to [0,1]\) であって \(t \leq 1\) なら \(\phi(t) = 0\) かつ \(t \geq 2\) なら \(\phi(t) = 2\) を満たすものを固定する。
+  \(\{r_j\}_{j=1}^\infty\) で \(\lim r_j = \infty\) をうまくとることで、
+  \(\phi_j(\xi)\) := \(\phi(\lvert \xi \rvert / r_j)\) としたとき
+  \[p(x,\xi) = \sum_{j=1}^\infty \phi_j(\xi) p_j(x,\xi)\]
+  が求める symbol になることを示す。
+  後で使うため \(\tilde{\phi}(\xi) = \phi(\lvert \xi \rvert)\) としておく。
+  このとき、 \(\phi_j(\xi) = \tilde{\phi}(\xi / r_j)\) である。
+  各 \((x,\xi)\) ごとに \(\mathbb{C}^p\) の元が定まっているかについては \(r_j \to \infty\) より和が有限のためよい。
+  また、各 \((x,\xi)\) ごとに十分に近い近傍の上では有限和が同じように \(0\) でない項が残るようにできるため、 smooth であることや偏微分と極限和が交換することもわかる。
+  （つまり、 各 \((x,\xi)\) に対して \(r\) であって \((x^{\prime} , \xi^{\prime})\) が \((x,\xi)\) に十分近いとき \(p(x^{\prime},\xi^{\prime}) = \sum_{j=1}^r \phi(\lvert \xi^{\prime} \rvert / r_j) p_j(x^{\prime},\xi^{\prime})\) ととれる。）
+  これが symbol になるために条件を満たすかどうかは少し後でやる。
+  \(\tilde{\phi}\) : smooth function on \(\mathbb{R}^n\) := \(\phi(\lvert \xi \rvert)\) とする。
+  \(C_{\alpha , \alpha^{\prime} , j}\) を \(\lvert D^\alpha_x D^{\alpha^\prime}_\xi p_j \rvert \leq C_{\alpha , \alpha^{\prime} , j} (1 + \lvert \xi \rvert)^{m_j - \lvert \alpha^\prime \rvert}\) を満たすものとしてとり、 \(C_j\) := \(\text{max} \{C_{\alpha , \alpha^\prime , j} \mid \lvert \alpha \rvert \leq j , \lvert \alpha^\prime \rvert \leq j\}\) とする。
+  各 \(j\) に対して \(k_j\) := \((j + 1)^{n} \lVert \tilde{\phi} \rVert_{C^j}\) とする。
+  \(k_j \geq 1\) である。
+  \(r_j \geq k_j 6^j C_j\) かつ \(r_j \geq 1\) となるように \(\{r_j\}_j\) をとる。
+  まとめとして、
+  \begin{itemize}
+    \itemenum fix \(\phi\) : \(\mathbb{R}^+ \to [0,1]\) such that \(\phi(t) = 0\) on \(t \leq 1\) and \(\phi(t) = 1\) on \(t \geq 2\)
+    \itemenum let \(\tilde{\phi}\) := \(\phi(\lvert \xi \rvert)\)
+    \itemenum let \(k_j\) := \((j + 1)^{n} \lVert \tilde{\phi} \rVert_{C^j}\)
+    \itemenum fix \(r_j\) : sequence such that \(\lim r_j = \infty\) and \(r_j \geq 1\) and \(r_j \geq k_j 2^j C_j\)
+    \itemenum let \(\phi_j\) := \(\tilde{\phi}(\xi / r_j)\)
+  \end{itemize}
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  \(k \lneq j\) より \(1 + m_j \leq m_k\) となり
+  \begin{align*}
+    \lvert D^\alpha_x D^{\alpha^\prime}_\xi p_j \rvert
+    &\leq C_j(1 + \lvert \xi \rvert)^{m_j - \lvert \alpha^\prime \rvert} \\
+    &\leq C_j(1 + \lvert \xi \rvert)^{-1} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert} \\
+    &\leq \frac{1}{k_j 6^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert}
+  \end{align*}
+  と抑えられることがわかる。
+  命題について、 \(\lvert \xi \rvert \leq r_j\) の場合は \(\phi_j = 0\) より成り立つ。
+  \(\lvert \xi \rvert \geq 2 r_j\) の場合は \(\phi_j = 1\) より\(\beta \not = 0\) なら \(D^\beta \phi_j = 0\) であることと合わせて、 \(\lvert D^\alpha_x D^{\alpha^\prime}_\xi \phi_j p_j \rvert = \lvert D^\alpha_x D^{\alpha^\prime}_\xi p_j \rvert \leq \frac{1}{k_j 6^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert} \leq \frac{1}{2^j} \cdots \) とわかる。
+  
+  \(r_j \leq \lvert \xi \rvert \leq 2 r_j\) の場合を考える。
+  \(r_j \geq 1\) と合わせて \(\frac{1}{r_j} (1 + \lvert \xi \rvert) \leq 3\)
+  \begin{align*}
+    \lvert D^\alpha_x D^{\alpha^\prime}_\xi \phi_j p_j \rvert
+    &\leq \sum_{\beta + \beta^\prime = \alpha^\prime} \lvert D^\beta_\xi \phi_j \rvert \lvert D^\alpha_x D^{\beta^\prime}_\xi p_j \rvert \\
+    &\leq \sum_{\beta + \beta^{\prime} = \alpha^\prime} \frac{1}{r_j^{\lvert \beta \rvert}} \lvert D^\beta_\xi \tilde{\phi} \rvert \frac{1}{k_j 6^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \beta^\prime \rvert} \\
+    &\leq \sum_{\beta + \beta^{\prime} = \alpha^\prime} \frac{1}{r_j^{\lvert \beta \rvert}} \frac{k_j}{(j + 1)^n} \frac{1}{k_j 6^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \beta^\prime \rvert} \\
+    &\leq \frac{1}{2^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert} \sum_{\beta \leq \alpha^\prime} \frac{1}{(j+1)^n} \frac{1}{3^j} \frac{1}{r_j^{\lvert \beta \rvert}} (1 + \lvert \xi \rvert)^{\lvert \beta \rvert} \\
+    & \leq \frac{1}{2^j} (1 + \lvert \xi \rvert)^{m_k - \lvert \alpha^\prime \rvert} \sum_{\beta \leq \alpha^\prime} \frac{1}{(j+1)^n} \frac{3^{\lvert \beta \rvert}}{3^j}
+  \end{align*}
+  ここで \(\sum_{\beta \leq \alpha^\prime} \frac{1}{(j+1)^n} \frac{3^{\lvert \beta \rvert}}{3^j}\) について、 \(\beta \subset \alpha^\prime , \lvert \alpha^\prime \rvert \leq j\) により \(\cdots \leq \sum_{\beta \leq \alpha^\prime} \frac{1}{(j+1)^n}\) とわかる。
+  ここで \(\sum_{\beta \leq \alpha^\prime} 1 \leq \prod_{i=1}^n \text{multiplicity of} \, i \, \text{in} \, \alpha^\prime \leq \prod_{i=1}^n (j + 1)\) より成り立つとわかった。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  \(J \geq \lvert \alpha \rvert , \lvert \alpha^\prime \rvert , 2\) のとき \(\lvert D^\alpha_x D^{\alpha\prime}_\xi \sum_{j = J}^\infty \phi_j p_j \rvert \leq \sum_{j = J}^\infty \frac{1}{2^j} (1 + \lvert \xi \rvert)^{m_1 - \lvert \alpha^\prime \rvert} \leq (1 + \lvert \xi \rvert)^{m_1 - \lvert \alpha^\prime \rvert}\) とわかる。
+  これを用いて、各 \(\alpha , \alpha^\prime\) ごとに \(J\) を \(\text{max} \{\lvert \alpha \rvert , \lvert \alpha^\prime \rvert , 2\}\) とすれば \(\sum_{j = 1}^\infty \phi_j p_j\) を \(J + 1\) 個の symbol of order \(m_1\) の和 \(\phi_1 p_1 + \cdots + \phi_J p_J + \sum_{j = J} \phi_j p_j\) と分けることができるのでよい。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  uniqueness について。
+  これは \(p , p^{\prime}\) が formal development になるとき、任意の \(k\) について \(p - p^\prime = (p - \sum_{j=1}^k p_j) - (p^\prime - \sum_{j=1}^k p_j)\) となるので十分に大きい \(k\) をとればこれが \(\text{Sym}^{-m}\) に含まれるとわかることからよい。
+\end{Proof}

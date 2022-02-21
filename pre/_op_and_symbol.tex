@@ -1,0 +1,117 @@
+\begin{Definition}
+\itemdefi
+  \Define \(D^\alpha\) := \(i^{- \lvert \alpha \rvert} \frac{\partial ^{\lvert \alpha \rvert}}{\partial x^\alpha}\) \\
+  \Define \(\mathscr{S}\) := \\
+  \(\{u : C^{\infty}(\mathbb{R}^n;\mathbb{C}^l) \mid \forall \alpha : \text{multi index} , k : \text{pos int} , \exists C , \lvert (D^\alpha u)(\xi) \rvert \leq C (1 + \lvert \xi \rvert)^{-k}\}\)
+\itemdefi
+  \For \(u\) : \(\mathscr{S}\) \\
+  \Define \(\hat{u}\) : \(\mathscr{S}\) := \( \hat{u}(\xi) = (2\pi)^{- \frac{n}{2}} \int e^{- i \langle x , \xi \rangle} u(x) dx \)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(u\) : \(\mathscr{S}\) \\
+  \Then \( u(x) = (2\pi)^{- \frac{n}{2}} \int e^{i \langle x , \xi \rangle} \hat{u}(\xi) d\xi \)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \For \(m\) : nonnegative integer \\
+  \Define differential operator of m := operator \(P\) on \(C^{\infty}(\mathbb{R}^n ; \mathbb{C}^l)\) such that there exists \(\{A^\alpha\}_{\lvert \alpha \rvert \leq m}\) : family of \(C^{\infty}(\mathbb{R}^n ; M(l , \mathbb{C}))\) which satisfies \(P = \sum_{\alpha} A^\alpha(x) D^\alpha\) and \(A_{\alpha} \not = 0\) for some \(\alpha\)
+\itemprop
+  \Then \(P\) is uniquely determined by \(A^\alpha\)
+  \\ \ADMIT
+\itemdefi
+  \For \(P = \sum_{\alpha} A^\alpha D^\alpha\) : differential operator on \(C^{\infty}(\mathbb{R}^n ; M(l , \mathbb{C}))\) with compact support \\
+  \Define symbol of \(P\) : \(C^\infty(\mathbb{R}^n \times \mathbb{R}^n , \mathbb{C}^l)\) := \((x,\xi) \mapsto \sum_{\alpha} A^\alpha(x) \xi^\alpha\)
+\itemprop
+  \Then differential operator preserves \(\mathscr{S}\)
+  \\ \ADMIT
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(P = \sum_{\alpha} A^\alpha D^\alpha\) : differential operator on \(C^{\infty}(\mathbb{R}^n ; M(n , \mathbb{C}))\) \\
+  \Let \(p\) := symbol of \(P\) \\
+  \Then forall \(u\) : \(\mathscr{S}\)
+  \[
+    (P u) (x) = (2\pi)^{-\frac{n}{2}} \int e^{i \langle x , \xi \rangle} p(x , \xi) \hat{u}(\xi) d \xi
+  \]
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  inversion 定理により \(u(x) = (2\pi)^{-\frac{n}{2}} \int e^{i \langle x , \xi \rangle} \hat{u}(\xi) d \xi\) と書ける。
+  これに \(P u\) を代入したら与式が得られる。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \For \(m\) : \(\mathbb{R}\) , \(p(x,\xi)\) : \(C^\infty(\mathbb{R}^n \times \mathbb{R}^n ; M(p , \mathbb{C}))\) \\
+  \Define \(p\) is symbol of order \(m\) := \\
+  for each \(\alpha , \alpha^\prime\) there is a constant \(C_{\alpha \alpha^\prime}\) such that \(\lvert D^\alpha_x D^{\alpha^\prime}_\xi p(x , \xi) \rvert \leq C_{\alpha \alpha^\prime} (1 + \lvert \xi \rvert)^{m - \lvert \alpha^{\prime} \rvert}\) as formula of \(x,\xi\)
+\itemdefi
+  \Define \(\text{Sym}^m\) := set of symbol of order \(m\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then linear combination of order \(m\) is symbol of order \(m\)
+\itemprop
+  \For \(p_i\) : symbol of order \(m_i\) \\
+  \Then \(p_1 \cdot p_2\) is symbol of order \(m_1 \cdot m_2\)
+\itemprop
+  \IfHold \(m \leq m^{\prime}\) \\
+  \Then symbol of order \(m\) is symbol of order \(m^{\prime}\)
+\itemprop
+  \For \(p\) : symbol of order \(m\) \\
+  \Then \(D^\alpha_x p\) is symbol of order \(m\) \\
+  \Then \(D^\alpha_\xi p\) is symbol of order \(m - \lvert \alpha \rvert\)
+\itemprop
+  \Then \(\xi^\alpha\) is symbol of order \(\lvert \alpha \rvert\) \\
+  \Then \(\lvert \xi \rvert\) is symbol of order \(1\)
+\itemprop
+  \Then symbol of differential operator of order \(m\) with compact support is symbol of order \(m\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  微分を考えれば定数を max で抑えれるのでよい。
+\itemprof
+  \begin{align*}
+    \lvert D^\alpha_x D^{\alpha^\prime}_\xi (p_1 \cdot p_2) \rvert
+    &= \lvert \sum_{\beta + \gamma = \alpha , \beta^\prime + \gamma^\prime = \alpha^\prime} (D^\beta_x D^{\beta^\prime}_\xi p_1) \cdot (D^\gamma_X D^{\gamma^\prime}_\xi p_2) \rvert \\
+    &\leq \sum_{\beta + \gamma = \alpha , \beta^\prime + \gamma^\prime = \alpha^\prime} \, \text{const} \, (1 + \lvert \xi \rvert)^{m_1 - \lvert \gamma \rvert} \cdot (1 + \lvert \xi \rvert)^{m_2 - \lvert \gamma^\prime \rvert} \\
+    &\leq \text{const} \, (1 + \lvert \xi \rvert)^{m_1 + m_2 - \lvert \alpha^\prime \rvert}
+  \end{align*}
+\itemprof
+  \(m \leq m^{\prime}\) より \((1 + \lvert \xi \rvert)^{m - m^{\prime}} \leq 1\) のため、 \((1 + \lvert \xi \rvert)^{m - \lvert \alpha \rvert} = (1 + \lvert \xi \rvert)^{m^{\prime} - \lvert \alpha \rvert} (1 + \lvert \xi \rvert)^{m - m^{\prime}} \leq (1 + \lvert \xi \rvert)^{m^{\prime} - \lvert \alpha \rvert}\) であるからよい。
+\itemprof
+  計算による。
+\itemprof
+  計算による。
+\itemprof
+  differential operator of order \(m\) の symbol は \(\sum_{\lvert \beta \rvert \leq m} A^\beta \xi^\beta\) であるから
+  \[
+    \lvert D^\alpha_{x} D^{\alpha^\prime}_{\xi} p(x,\xi) \rvert 
+    \leq \lvert \sum_{\lvert \beta \rvert \leq m} D^\alpha_{x} A^\beta(x) D^{\alpha^\prime}_{\xi} \xi^\beta \rvert
+    \leq \sum_{\lvert \beta \rvert \leq m} \lvert D^\alpha_{x} A^\beta(x) \rvert \lvert D^{\alpha^\prime}_{\xi} \xi^\beta \rvert
+    \leq \text{const} \, (1 + \lvert \xi \rvert)^{m - \lvert \alpha^\prime \rvert}
+  \]
+  などが compact support であるという仮定により成り立つ。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define symbol of order \(- \infty\) := \\
+  \(p\) : \(C^\infty(\mathbb{R}^n \times \mathbb{R}^n , M(l , \mathbb{C}))\) such that \(p\) is symbol of order \(m\) for any \(m\) : \(\mathbb{R}\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(p\) : symbol , \((p_j)_{j=1}^{\infty}\) : symbol of order \(m_j\) \\
+  \Define \((p_j)_j\) is a formal development of \(p\) := \\
+  forall \(m\) : integer , there exists a \(K\) such that \(p-\sum_{j=1}^k p_j \in \text{Sym}^{-m}\) forall \(k \geq K\)
+\end{Definition}
+
+\input{__formal_dev.tex}
