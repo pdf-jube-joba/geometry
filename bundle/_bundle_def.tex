@@ -12,17 +12,15 @@
     \itemenum projection : \(E \to B\)
   \end{itemize}
 \itemdefi
-  \Define bundle over \(B\) := bundle (\(\xi\)) such that base space of \(\xi\) is \(B\)
-\itemdefi
-  \For (\((B , E , \pi)\) : bundle) (\(b\) : \(B\)) \\
+  \For \((B , E , \pi)\) : bundle \(b\) : \(B\) \\
   \Define \(E_b\) : space := \(\pi^{-1}(x)\)
 \end{Definition}
 
 \begin{Definition}
 \itemnote
-  束の間の写像や合成、束の同型の定義を定義する
+  束の間の写像や合成、束の同型の定義を定義する。
 \itemdefi
-  \For (\((B_1 , E_1 , \pi_1)\) , \((B_2 , E_2 , \pi_2)\) : bundle) \\
+  \For \((B_1 , E_1 , \pi_1)\) , \((B_2 , E_2 , \pi_2)\) : bundle \\
   \Define \((B_1 , E_1 , \pi_1) \to (B_2 , E_2 , \pi_2)\) := pair of
   \begin{itemize}
     \itemenum \(f\) : \(B_1 \to B_2\)
@@ -30,37 +28,53 @@
     \itemwith commutativity : \(f \circ \pi_1 = \pi_2 \circ \tilde{f}\)
   \end{itemize}
 \itemdefi
-  \For (\((E_1 , \pi_1)\) , \((E_2 , \pi_2)\) : bundle over \(B\)) \\
-  \Define map over \(B\) := pair of
-  \begin{itemize}
-    \itemenum \(\tilde{f}\) : \(E_1 \to E_2\)
-    \itemwith commutativity : \(\pi_2 \circ \tilde{f} = \pi_1\)
-  \end{itemize}
-\itemdefi
-  \For (\(\xi_1\) , \(\xi_2\) , \(\xi_3\) : bundle) (\(\phi_1\) : \(\xi_1 \to \xi_2\)) (\(\phi_2\) : \(\xi_2 \to \xi_3\)) \\
+  \For \(\xi_1\) , \(\xi_2\) , \(\xi_3\) : bundle \\
+  \For \(\phi_1\) : \(\xi_1 \to \xi_2\) , \(\phi_2\) : \(\xi_2 \to \xi_3\) \\
   \Define \(\phi_2 \circ \phi_1\) : \(\xi_1 \to \xi_3\) := \((g \circ f , \tilde{g} \circ \tilde{f})\) \\
   where \(\phi_1 = (f , \tilde{f})\) , \(\phi_2 = (g , \tilde{g})\)
 \itemdefi
-  \For (\(\xi_1\) , \(\xi_2\) : bundle) (\(f\) : \(\xi_1 \to \xi_2\)) \\
+  \For \(\xi_1\) , \(\xi_2\) : bundle , \(f\) : \(\xi_1 \to \xi_2\) \\
   \Define \(f\) is isomorphism \(\iff\) \AIMAI{by natural definition}
 \itemdefi
-  \For (\(\xi_1\) , \(\xi_2\) : bundle) \\
+  \For \(\xi_1\) , \(\xi_2\) : bundle \\
   \Define \(\xi_1\) is isomorphic to \(\xi_2\) \(\iff\) \AIMAI{by natural definition}
 \end{Definition}
 
 \begin{Definition}
 \itemnote
-  積束・自明束・制限束・誘導束を定義する
-\itemdefi 
-  \Define product bundle : bundle over \(B\) := bundle with following form...\((B \times F , \text{projection})\)
+  空間の上の束というものを定義する。
 \itemdefi
-  \For (\(\xi = (B , - , -)\) : bundle) \\
-  \Define \(\xi\) is trivial \(\iff\) \(\xi\) is isomorphic to some product bundle as bundle over \(B\)
+  \For \(B\) : space \\
+  \Define bundle over \(B\) := pair of
+  \begin{itemize}
+    \itemenum total space (\(E\)) : space
+    \itemenum projection : \(E \to B\)
+  \end{itemize}
 \itemdefi
-  \For (\(\xi = (B , - , \pi)\) : bundle) (\(U\) : subset of B) \\
-  \Define restriction bundle (\(\xi \mid_{U}\)) : bundle over \(U\) := \((U , \pi^{-1}(U) , \pi \mid_{\pi^{-1}(U)})\)
+  \For \((E_1 , \pi_1)\) , \((E_2 , \pi_2)\) : bundle over \(B\) \\
+  \Define map over \(B\) := pair of
+  \begin{itemize}
+    \itemenum \(\tilde{f}\) : \(E_1 \to E_2\)
+    \itemwith commutativity : \(\pi_2 \circ \tilde{f} = \pi_1\)
+  \end{itemize}
+\itemnote
+  「空間の上の束」と「束」は特に区別しなくてよい。
+\end{Definition}
+
+\begin{Definition}
+\itemnote
+  積束・自明束・制限束・誘導束を定義する。
 \itemdefi
-  \For (\(\xi = (B , E , \pi)\) : bundle) (\(f\) : \(B^{\prime} \to B\)) \\
+  \For \(B , F\) : space \\
+  \Define product bundle over \(B\) with fiber \(F\) : bundle over \(B\) := \((B \times F , \txt{projection})\)
+\itemdefi
+  \For \(\xi = (B , \place , \place)\) : bundle \\
+  \Define \(\xi\) is trivial := \(\xi\) is isomorphic to some product bundle as bundle over \(B\)
+\itemdefi
+  \For \(\xi = (B , \place , \pi)\) : bundle , \(U\) : subset of B \\
+  \Define restriction bundle (\(\restr{\xi}{U}\)) : bundle over \(U\) := \((U , \pi^{-1}(U) , \restr{\pi}{\pi^{-1}(U)})\)
+\itemdefi
+  \For \(\xi = (B , E , \pi)\) : bundle , \(f\) : \(B^{\prime} \to B\) \\
   \Define induced bundle (\(f^*\xi\)) : bundle over \(B^{\prime}\) :=
   \begin{itemize}
     \itemenum total space := \(\{(b , e) \in B^{\prime} \times E \mid \pi(e) = f(b)\}\)
@@ -72,17 +86,18 @@
 \itemnote
   制限束と制限写像の誘導束は同型であること、誘導束の構成は関手的である（ただし同型を除く）ことを示す。
 \itemprop
-  \For (\(\xi = (B , E ,\pi)\) : bundle) (\(U\) : subset of B) \\
+  \For \(\xi = (B , E ,\pi)\) : bundle , \(U\) : subset of B \\
   \Let \(i\) : \(U \to B\) := injection \\
   \Let \(E \to B \times E\) := \(e \mapsto (\pi(e) , e)\) \\
-  \Then this becomes \(\text{total space of } \xi \mid_{U} \to \text{total space of } i^*\xi\) \\
+  \Then this becomes \(\txt{total space of} \, \restr{\xi}{U} \to \txt{total space of} \, i^*\xi\) \\
   and this is isomorphism
 \itemnote
   We identify the two in this way
 \itemprop
-  \For (\(\xi = (B , E , \pi)\) : bundle) (\(f\) : \(B_2 \to B_1\)) (\(g\) : \(B_1 \to B\)) ,\\
+  \For \(\xi = (B , E , \pi)\) : bundle \\
+  \For \(f\) : \(B_2 \to B_1\) , \(g\) : \(B_1 \to B\) \\
   \Let \(B_2 \times B_1 \times E \to B_2 \times E\) := projection \\
-  \Then this becomes \(\text{total space of } f^*g^* \xi \to \text{total space of } (g \circ f)^* \xi\) \\
+  \Then this becomes \(\text{total space of} \, f^*g^* \xi \to \text{total space of} \, (g \circ f)^* \xi\) \\
   and this is isomorphism
 \itemnote
   We identify the two in this way 
@@ -92,13 +107,13 @@
 \itemnote
   ファイバー束とその間の射や同型を定義する。
 \itemdefi
-  \Define fiber bundle := pair of
+  \Define fiber bundle := structure of
   \begin{itemize}
-    \itemenum \(\xi = (B , E , \pi)\) : bundle
+    \itembase \(\xi = (B , E , \pi)\) : bundle
     \itemwith local triviality :
       \(\forall\) (\(b\) : \(B\)) ,\\
       \(\exists\) (\(U\) : open neighborhood of \(b\)) (\(\phi\) : \(\pi^{-1}(U) \to U \times \pi^{-1}(x)\)) , \\
-      \(\phi\) is isomorphism and \(\text{projection} \circ \phi = \pi\)
+      \(\phi\) is isomorphism and \(\txt{projection} \circ \phi = \pi\)
   \end{itemize}
 \itemdefi
   \Define fiber bundle with typical fiber \(F\) := fiber bundle (\((B , E , \pi)\)) such that \(\forall\) (\(b\) : \(B\)) , \(E_b \cong F\)
@@ -123,15 +138,15 @@
 \itemnote
   ベクトル束とその間の射や同型を定義する。
 \itemdefi
-  \Define vector bundle := pair of
+  \Define vector bundle := structure of
   \begin{itemize}
-    \itemenum \((B , E , \pi)\) : bundle
+    \itembase \((B , E , \pi)\) : bundle
     \itemenum fiberwise vector space structure :
       for (\(b\) : \(B\)) , vector space on \(E_b\)
     \itemwith local triviality :
       \(\forall\) (\(b\) : \(B\)) ,\\
       \(\exists\) (\(U\) : open neiborhood of \(b\)) (\(\phi\) : \(\pi^{-1}(U) \to U \times \pi^{-1}(x)\)) , \\
-      (\(\forall\) (\(y\) : \(U\)) , \(\text{projection } \circ \phi \mid \pi^{-1}(y)\) : \(E_y \to E_x\) is isomorphism as vector space) and \(\text{projection} \circ \phi = \pi\)
+      (\(\forall\) (\(y\) : \(U\)) , \(\txt{projection} \, \circ \phi \mid \pi^{-1}(y)\) : \(E_y \to E_x\) is isomorphism as vector space) and \(\txt{projection} \, \circ \phi = \pi\)
   \end{itemize}
 \itemdefi
   \Define \(n\)-dimensional vector bundle :=
@@ -144,10 +159,11 @@
 \itemnote
   ベクトル束構造が誘導束などに対して自然に誘導されることを示す。
 \itemdefi
-  \For (\(\xi = (B , E , \pi)\) : vector bundle) (\(f\) : \(B^{\prime} \to B\)) ,\\
+  \For \(\xi = (B , E , \pi)\) : vector bundle \\
+  \For \(f\) : \(B^{\prime} \to B\) \\
   \Define induced vector bundle (\(f^*\xi = (B^{\prime} , E^{\prime} , \pi^{\prime})\)) : vector bundle :=
   \begin{itemize}
-    \itemenum \(f^*\xi\)
+    \itembase \(f^*\xi\)
     \itemenum fiberwise vector space structure :=
       for (\(b\) : \(B^{\prime}\)) , \AIMAI{induced by vector space structure on \(E_{f(b)}\)}
   \end{itemize}
@@ -156,63 +172,53 @@
 
 \begin{Definition}
 \itemnote
-  ベクトル束の切断の空間を定義する。
+  主束やその間の射を定義する。
 \itemdefi
-  for (\((\pi : E \to M)\) : vector bundle) ,\\
-  \(\Gamma(M , E)\) : \(C(M)\) module :=
+  \For \(G\) : Lie group ,\\
+  \Define principal \(G\) bundle := structure of
   \begin{itemize}
-    \itemenum base := \(\{f : M \to E \mid \pi \circ f = \text{id}\}\)
-    \itemenum module structure := \AIMAI{by pointwise action}
-  \end{itemize}
-\end{Definition}
-
-\begin{Definition}
-\itemnote
-  主束やその間の射を定義する
-\itemdefi
-  for (\(G\) : Lie group) ,\\
-  principal \(G\) bundle := pair of
-  \begin{itemize}
-    \itemenum \((B , P , \pi)\) : bundle
-    \itemenum \(- \cdot -\) : right action of \(G\) on \(P\)
+    \itembase \((B , P , \pi)\) : bundle
+    \itemenum \(\place \cdot \place\) : right action of \(G\) on \(P\)
     \itemwith local triviality :
       \(\forall\) (\(b\) : \(B\)) ,\\
       \(\exists\) (\(U\) : open neiborhood of \(b\)) (\(\phi\) : \(\pi^{-1}(U) \to U \times G\)) , \\
-      \(\phi\) is isomorphism as \(G\) space and \(\text{projection} \circ \phi = \pi\)
+      \(\phi\) is isomorphism as \(G\) space and \(\txt{projection} \circ \phi = \pi\)
   \end{itemize}
 \itemdefi
-  map of principal \(G\) bundle := map as bundle such that \AIMAI{\(G\) morphism on each fiber}
+  \Define map of principal \(G\) bundle := map as bundle such that \AIMAI{\(G\) morphism on each fiber}
 \end{Definition}
 
 \begin{Definition}
 \itemnote
   主束構造が誘導束などに対して自然に誘導されることを示す。
 \itemdefi
-  for (\(G\) : Lie group) (\(\xi = (P , B , \pi)\) : principal \(G\) bundle) (\(f\) : \(B^{\prime} \to B\)) ,\\
-  induced princiapl \(G\) bundle (\(f^*\xi = (B^{\prime} , E^{\prime} , \pi^{\prime})\)) : principal \(G\) bundle :=
+  \For \(G\) : Lie group \\
+  \For \(\xi = (P , B , \pi)\) : principal \(G\) bundle \\
+  \For \(f\) : \(B^{\prime} \to B\) \\
+  \Define induced princiapl \(G\) bundle (\(f^*\xi = (B^{\prime} , E^{\prime} , \pi^{\prime})\)) : principal \(G\) bundle :=
   \begin{itemize}
-    \itemenum \(f^*\xi\)
-    \itemenum \((- \cdot -)\) := induced by \((b , e) \cdot g \mapsto (b , e \cdot g)\)
+    \itembase \(f^*\xi\)
+    \itemenum \((\place \cdot \place)\) := induced by \((b , e) \cdot g \mapsto (b , e \cdot g)\)
   \end{itemize}
-\itemprof
-  local triviality の存在を言う必要がある \WIP
 \end{Definition}
 
 \begin{Definition}
-\itemnote \(G\) 同変な束を定義する
-\itemwhen \(G\) : Lie group
+\itemnote
+  \(G\) 同変な束を定義する。
+\itemwhen
+  \Fix \(G\) : topological group
 \itemdefi
-  \(G\) equivariant bundle := pair of
+  \Define \(G\) equivariant bundle := structure of
   \begin{itemize}
-    \itemenum \(\xi = (B , E , \pi)\) : fiber bundle
+    \itembase \(\xi = (B , E , \pi)\) : fiber bundle
     \itemenum left action of \(G\) on B
     \itemenum left action of \(G\) on E
-    \itemwith forall (\(g\) : \(G\)) , \(\pi \circ (- \cdot g) = (- \cdot g) \circ \pi\)
+    \itemwith forall (\(g\) : \(G\)) , \(\pi \circ (\place \cdot g) = (\place \cdot g) \circ \pi\)
   \end{itemize}
 \itemdefi
-  \(G\) equivariant vector bundle := pair of
+  \Define \(G\) equivariant vector bundle := structure of
   \begin{itemize}
-    \itemenum \(\xi = (B , E , \pi)\) : \(G\) equivariant bundle and vector bundle
+    \itembase \(\xi = (B , E , \pi)\) : \(G\) equivariant bundle and vector bundle
     \itemwith
       forall (\(g\) : \(G\)) , \((- \cdot g)\) : \(\xi \to \xi\) is vector bundle map
   \end{itemize}
@@ -221,17 +227,18 @@
 \begin{Definition}
 \itemnote 代数束・加群束を定義する
 \itemdefi 
-  algebra bundle :=
+  \Define algebra bundle :=
   \begin{itemize}
-    \itemenum \(\xi = (B , E , \pi)\) : vector bundle
-    \itemenum \(- \cdot -\) :
+    \itembase \(\xi = (B , E , \pi)\) : vector bundle
+    \itemenum \(\place \cdot \place\) :
       for (\(b\) : \(B\)) , algebra structure on \(E_b\)
     \itemwith \AIMAI{algebra structure is locally trivial}
   \end{itemize}
-  module bundle of algebra bundle (\(B , E^{\prime} , \pi^{\prime}\)) :=
+\itemdefi
+  \Define module bundle of algebra bundle (\(B , E^{\prime} , \pi^{\prime}\)) :=
   \begin{itemize}
-    \itemenum \(\xi = (B , E , \pi)\) : vector bundle
-    \itemenum \(- \cdot -\) :
+    \itembase \(\xi = (B , E , \pi)\) : vector bundle
+    \itemenum \(\place \cdot \place\) :
       for (\(b\) : \(B\)) , \(E^{\prime}_b\) module structure on \(E_b\) 
     \itemwith \AIMAI{module structure is locally trivial}
   \end{itemize}
