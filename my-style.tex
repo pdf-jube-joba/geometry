@@ -15,8 +15,8 @@
 \newtheorem*{tWhen}{設定}
 
 \newenvironment{Mini}{
-  \begin{minipage}[t]{0.9\hsize}
-  \setlength{\parindent}{12pt}
+  \begin{minipage}[t]{1\hsize}
+  \setlength{\parindent}{10pt}
   \begin{itemize}
   \setlength{\labelsep}{10pt}
 }{
@@ -25,16 +25,18 @@
   \end{minipage}
 }
 
-\newenvironment{Definition}{
+\newenvironment{Definition}[1][\quad]{
   \begin{tDefinition}
+  #1 \\
   \begin{Mini}
 }{
   \end{Mini}
   \end{tDefinition}
 }
 
-\newenvironment{Theorem}{
+\newenvironment{Theorem}[1][\quad]{
   \begin{tTheorem}
+  #1 \\
   \begin{Mini}
 }{
   \end{Mini}
@@ -43,6 +45,7 @@
 
 \newenvironment{Proof}{
   \begin{tProof}
+  \quad \\
   \begin{Mini}
       }{
   \end{Mini}
@@ -59,9 +62,7 @@
 
 \newenvironment{Remark}{
   \begin{tRemark}
-  \begin{itemize}
 }{
-  \end{itemize}
   \end{tRemark}
 }
 

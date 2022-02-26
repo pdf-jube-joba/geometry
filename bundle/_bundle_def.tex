@@ -1,6 +1,4 @@
-\begin{Definition}
-\itemnote
-  一般の束を定義する。
+\begin{Definition}[一般の束]
 \itemdefi
   \Define bundle := pair of
   \begin{itemize}
@@ -13,9 +11,7 @@
   \Define \(\xi_b\) : space := \(\pi^{-1}(x)\)
 \end{Definition}
 
-\begin{Definition}
-\itemnote
-  束の間の写像や合成、束の同型の定義を定義する。
+\begin{Definition}[束の間の写像や合成、束の同型]
 \itemdefi
   \For \(\xi_1 \leftarrow (B_1 , E_1 , \pi_1)\) , \(\xi_2 \leftarrow (B_2 , E_2 , \pi_2)\) : bundle \\
   \Define \(\xi_1 \to \xi_2\) := pair of
@@ -36,9 +32,7 @@
   \Define \(\xi_1\) is isomorphic to \(\xi_2\) := \AIMAI{by natural definition}
 \end{Definition}
 
-\begin{Definition}
-\itemnote
-  空間の上の束というものを定義する。
+\begin{Definition}[空間の上の束]
 \itemdefi
   \For \(B\) : space \\
   \Define bundle over \(B\) := structure on \(B\) with
@@ -55,18 +49,15 @@
   \end{itemize}
 \end{Definition}
 
-\begin{Definition}
-\itemnote
-  「空間の上の束」と「束」は特に区別しなくてよい。
-  ここ以降あまり区別しない。
-\end{Definition}
+\begin{Remark}
+「空間の上の束」と「束」は特に区別しなくてよい。
+ここ以降あまり区別しない。
+\end{Remark}
 
-\begin{Definition}
-\itemnote
-  積束・自明束・制限束・誘導束を定義する。
+\begin{Definition}[積束・自明束・制限束・誘導束]
 \itemdefi
   \For \(B , F\) : space \\
-  \Define product bundle over \(B\) with fiber \(F\) : bundle over \(B\) := \((B \times F , \txt{"projection"})\)
+  \Define product bundle over \(B\) with fiber \(F\) : bundle over \(B\) := \((B \times F , \txt{projection})\)
 \itemdefi
   \For \(\xi \leftarrow (B , \place , \place)\) : bundle \\
   \Define \(\xi\) is trivial := \AIMAI{\(\xi\) is isomorphic to some product bundle as bundle over \(B\)}
@@ -82,9 +73,7 @@
   \end{itemize}
 \end{Definition}
 
-\begin{Theorem}
-\itemnote
-  制限束と制限写像の誘導束は同型であること、誘導束の構成は関手的である（ただし同型を除く）ことを示す。
+\begin{Theorem}[制限束と制限写像の誘導束は同型、誘導束の構成は関手的である（ただし同型を除く）]
 \itemprop
   \For \(\xi \leftarrow (B , E ,\pi)\) : bundle , \(U\) : subset of B \\
   \Let \(i\) : \(U \to B\) := injection \\
@@ -103,9 +92,7 @@
   We identify the two in this way 
 \end{Theorem}
 
-\begin{Definition}
-\itemnote
-  ファイバー束とその間の射や同型を定義する。
+\begin{Definition}[ファイバー束とその間の射や同型]
 \itemdefi
   \Define fiber bundle := structure of
   \begin{itemize}
@@ -123,9 +110,7 @@
   \Define isomorphism of fiber bundle := \AIMAI{by natural definition}
 \end{Definition}
 
-\begin{Theorem}
-\itemnote
-  ファイバー束と束に対する操作について
+\begin{Theorem}[ファイバー束と束に対する操作について]
 \itemprop
   product bundle (\((B , B \times F , -)\)) becomes fiber bundle with fiber \(F\)
 \itemprop

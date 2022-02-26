@@ -1,0 +1,42 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem*{tDefinition}{定義}
+
+\newenvironment{Mini}{
+  \begin{minipage}[t]{0.9\hsize}
+  \setlength{\parindent}{12pt}
+  \begin{itemize}
+  \setlength{\labelsep}{10pt}
+}{
+  \end{itemize}
+  \vspace{5pt}
+  \end{minipage}
+}
+
+%\newenvironment{Definition}{
+%  \begin{tDefinition}
+%  \begin{Mini}
+%}{
+%  \end{Mini}
+%  \end{tDefinition}
+%}
+
+\newenvironment{Definition}[1]{
+  \begin{tDefinition}
+    #1 \\
+  \begin{Mini}
+}{
+  \end{Mini}
+  \end{tDefinition}
+}
+
+\begin{document}
+
+\begin{Definition}{Hello K theory}
+\item hello
+\item next
+\end{Definition}
+\end{document}
