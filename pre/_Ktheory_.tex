@@ -1,0 +1,278 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../my-style.tex}
+
+\begin{document}
+\(K(X)\) がアーベル群になること、 \(\tilde{K}(X^{+}) \cong K(X)\) が任意の locally compact space に対して成り立つこと、 \(K(X)\) が普通の定義と一致することを見る。
+
+\section{\(K(X)\) がアーベル群になること}
+\begin{Proof}
+\itemprof
+  逆元の存在のみが非自明なためそれを示す。
+  長さが \(n\) の複体　\(\xi = 0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} \cdots E_n \to 0\) に対して、 長さが \(n+1\) の複体 \(0 \to 0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} \cdots E_n \to 0\) を直和した複体に同型な次の複体
+  \[
+    \zeta = 0 \to 0 \oplus E_0 \overset{\beta^0}{\to} E_0 \oplus E_1 \overset{\beta^1}{\to} E_1 \oplus E_2 \cdots E_{n-1} \oplus E_n \overset{\beta^n}{\to} E_n \oplus 0 \to 0
+  \]
+  は、ある acyclic な複体に homotopic である。
+  ここで、 \(\beta^i\) は \(\alpha_0 = \alpha_{n+1} = 0\) とおいたとき
+  \(\beta^i = \begin{pmatrix}
+    \alpha_i & 0 \\
+    0 & \alpha_{i+1} 
+  \end{pmatrix}\) である。
+  そのような homotopy として \(\zeta\) の boundary map を \(t\) : \([0,1]\) に対して
+  \[
+    \beta^i_t = \begin{pmatrix}
+    (1-t) \alpha_i & (-1)^i t \\
+    0 & (1-t)\alpha_{i+1}
+    \end{pmatrix}
+  \]
+  として定義される parametrize された複体 \(\zeta_t\) を考えればよいことが次のようにしてわかる。
+\itemprof
+  複体になっていることを示す。
+  \[\begin{pmatrix}
+    (1-t) \alpha_{i+1} & (-1)^{i+1} t \\
+    0 & (1-t)\alpha_{i+2}
+  \end{pmatrix} \begin{pmatrix}
+    (1-t) \alpha_{i} & (-1)^{i} t \\
+    0 & (1-t)\alpha_{i+1}
+  \end{pmatrix} = \begin{pmatrix}
+    (1-t)^2 \alpha_{i+1} \alpha_{i} & 0 \\
+    0 & (1-t)^2 \alpha_{i+2} \alpha_{i+1}
+  \end{pmatrix} = 0\] よりよい。
+\itemprof
+  compact support であることを示す。
+  \(t=0\) の場合 support が \(\zeta\) と一致し、計算により元々の複体 \(\xi\) と一致することがわかる。
+  次に \(t>0\) の場合を考える。
+  このとき、任意の点で exact であることが次のようにしてわかる。
+  \(v = \begin{pmatrix}
+    v_{i} \\ v_{i+1}
+  \end{pmatrix}\) : \(E_{i} \oplus E_{i+1}\) に対して \(\beta^i v = 0\) と仮定する。
+  これは \((1-t) \alpha_{i} v_i + (-1)^i t v_{i+1} = 0 , (1-t) \alpha_{i+1} v_{i+1} = 0\) と同値である。
+  このとき \(v^\prime = \begin{pmatrix}
+    0 \\ (-1)^{i+1} \frac{1}{t} v_{i}
+  \end{pmatrix}\) : \(E_{i-1} \oplus E_{i}\) を考えると
+  \begin{align*}
+    \beta^{i-1} v^\prime
+    &= \begin{pmatrix}
+      (1-t) \alpha_{i-1} & (-1)^{i-1} t \\
+      0 & (1-t)\alpha_{i}
+    \end{pmatrix} \begin{pmatrix}
+      0 \\ \frac{1}{t} v_{i}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+      (-1)^{i-1} v_i \\ (1-t) \frac{1}{t} \alpha_{i} v_i
+    \end{pmatrix} = \begin{pmatrix}
+      (-1)^{i} v_i \\ (-1)^{i+1} v_{i+1} 
+    \end{pmatrix} = \pm \begin{pmatrix}
+      v_i \\ v_{i+1}
+    \end{pmatrix} = \pm v
+  \end{align*}
+  したがってこの homotopy を与えている複体 \(\zeta\) の support は \(\text{supp} \, \xi \times \{0\}\) であり compact support である。
+\itemprof
+  最後に、 \(\zeta_t\) が \(\zeta\) と acyclic な複体の間の homotopy を与えていることを示す。
+  \(\zeta = \zeta_0\) であるから前半はよい。
+  \(\zeta_1\) をみると \(\beta^i_1\) が直和成分への同型を与えているため \(\zeta_1\) は acyclic である。
+\end{Proof}
+
+\newpage
+
+\section{補題：代表元のとり方について}
+\begin{Theorem}
+\itemprop
+  \For \(\xi = (0 \to E_0 \overset{\alpha_1}{\to} E_1 \to 0)\) : compact support complex \\
+  \Then there exists \(\xi^\prime = (0 \to \epsilon^n \to E \to 0)\) : compact support complex such that \([\xi] = [\xi^\prime]\)
+\itemprop
+  \For \(0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \to E_n \to 0\) : compact support complex \\
+  \For \(0 \to E_0 \overset{\alpha_1}{\to} E_1 \to E \to 0\) : acyclic complex \\
+  \Then there exists \(0 \to E \overset{\alpha}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \to E_n \to 0\) : compact support complex
+\itemprop
+  \For \(\xi = (0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \to \cdots \to E_n \to 0)\) \\
+  \Then there exists \(\xi^\prime = (0 \to E^\prime_0 \overset{\alpha^\prime_1}{\to} E^\prime_1 \overset{\alpha^\prime_2}{\to} E^\prime_2 \to \cdots \to E^\prime_n \to 0)\) such that \([\xi] = [\xi^\prime]\) and \(\alpha^\prime_1\) is injective
+\itemprop
+  \For \(x\) : \(K(X)\) \\
+  \Then there exists \(\xi = (0 \to \epsilon^n \to E \to 0)\) : compact support complex such that \([\xi] = x\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\text{supp} \, \xi\) が compact より \(s\) : \(E_0 \to \epsilon^n\) であって \(\text{supp} \,\xi\) 上単射となるものをとれば、 \(E_0 \to E_1 \oplus \epsilon^n\) は全体で単射となるから、
+  \(
+    0 \to E_0 \overset{
+        \begin{pmatrix}
+        \alpha_1 \\
+        s
+        \end{pmatrix}
+      }{\to} E_1 \oplus \epsilon^n \overset{
+        \begin{pmatrix}
+          \pi_1 & \pi_2
+        \end{pmatrix}
+      }{\to} E \to 0
+  \)
+  なる完全な複体を得る。
+  ここから
+  \begin{align*}
+    & 0 \to E_0 \overset{\alpha_1}{\to} E_1 \to 0 \\
+    &\equiv 0 \to E_0 \overset{\alpha_1}{\to} E_1 \to 0 \\
+    &\oplus 0 \to \epsilon^n \overset{1}{\to} \epsilon^n \to 0 \\
+    &\oplus 0 \to 0 \to E \overset{1}{\to} E \to 0 \\
+    &\simeq 0 \to E_0 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \alpha_1 & 0\\
+        0 & 1 \\
+        0 & 0
+      \end{pmatrix}
+    }{\to} E_1 \oplus \epsilon^n \oplus E \overset{
+      \begin{pmatrix}
+        0 & 0 & 1
+      \end{pmatrix}
+    }{\to} E \to 0 \\
+    &\simeq 0 \to E_0 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+      \alpha_1 & 0 \\
+      s & 0 \\
+      0 & -\pi_2
+      \end{pmatrix}
+    }{\to} E_1 \oplus \epsilon^n \oplus E \overset{
+      \begin{pmatrix}
+        \pi_1 & \pi_2 & 0
+      \end{pmatrix}
+    }{\to} E \to 0 \\
+    &\simeq 0 \to \epsilon^n \overset{-\pi_2}{\to} E \to 0 \\
+    &\oplus 
+    0 \to E_0 \overset{
+      \begin{pmatrix}
+      \alpha_1 \\
+      s
+      \end{pmatrix}
+    }{\to} E_1 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \pi_1 & \pi_2
+      \end{pmatrix}
+    }{\to} E \to 0 \\
+    &\equiv 0 \to \epsilon^n \overset{-\pi_2}{\to} E \to 0
+  \end{align*}
+  最後の複体の support を考えると \(\alpha_1\) が同型となる点では \(\pi_2\) も同型であるから support が compact である。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  これは商空間と同様にして定義できるためよい。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  \(s\) : \(E_0 \to \epsilon^n\) であって \(\text{supp} \, \xi\) 上単射かつ support が compact となるものをとれば、以前の証明と同様に \(E_0 \to E_1 \oplus \epsilon^n\) が単射となる。
+  \(\rho\) : \(X \to \mathbb{R}\) であって compact set をのぞいて \(\rho = 1\) かつ \(s\) の support 上 \(0\) となるものをとる。
+  \begin{align*}
+    &0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \\
+    &\simeq 0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \\
+    &\oplus 0 \to 0 \to \epsilon^n \overset{1}{\to} \epsilon^n \to 0 \to \cdots \\
+    &=0 \to E_0 \overset{
+      \begin{pmatrix}
+        \alpha_1 \\
+        0
+      \end{pmatrix}
+    }{\to} E_1 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \alpha_2 & 0 \\
+        0 & 1
+      \end{pmatrix}
+    }{\to} E_2 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \alpha_3 , 0
+      \end{pmatrix}
+    }{\to} E_3 \to \cdots \\
+    &\simeq 0 \to E_0 \overset{
+      \begin{pmatrix}
+        \alpha_1 \\
+        s
+      \end{pmatrix}
+    }{\to} E_1 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \alpha_2 & 0 \\
+        0 & \rho
+      \end{pmatrix}
+    }{\to} E_2 \oplus \epsilon^n \overset{
+      \begin{pmatrix}
+        \alpha_3 , 0
+      \end{pmatrix}
+    }{\to} E_3 \to \cdots
+  \end{align*}
+  最後の複体は \(\rho = 1\) を満たす点では exact であるから compact support である。
+  これが求める複体の条件を満たすためよい。
+\end{Proof}
+
+\newpage
+\section{\(\tilde{K}(X^+) \cong K(X)\)}
+\(\tilde{K}(X^+) \to K(X)\) を次のように構成する。
+\begin{Definition}
+  \itemdefi \Define \(\tilde{K}(X^+) \to K(X)\) :=
+  \begin{indentblock}
+    \For \(x\) : \(\tilde{K}(X^+)\) \\
+    \Take \(\xi\) : \(x\) such that \(\xi_{\infty}\) is acyclic \\
+    \Return \([\restr{\xi}{X}]\)
+  \end{indentblock}
+\end{Definition}
+この写像の well-definedness を示す。
+\begin{Proof}
+\itemprof
+  値域に対して well-defined に定まっていることを示す。
+  \(\restr{\xi}{X}\) が compact support であることを示せばよいが、 \(\restr{\xi}{\infty}\) が acyclic なので \(\xi\) の support が \(X\) に含まれることからよい。
+\itemprof
+そのような条件を満たす \(\xi\) の存在を示す。
+まず、 \(x\) : \(\tilde{K}(X^+)\) に対してこれを代表する \(X^+\) 上の複体 \(\xi\) を任意にとったとき \([\restr{\xi}{\infty}] = 0\) すなわち \(\restr{\xi}{\infty}\) が acyclic なものと homotopic であるという条件を満たしていることが \(\tilde{K}(X^+)\) の元であることからわかる。
+この homotopy を全体に拡張する。
+設定を整理すると（後者 2 点は \(X\) が locally compact であることからとった）
+\begin{itemize}
+  \item \(X\) : locally compact space , \(\xi = (E,f)\) : cpx. over \(X^+\)
+  \item \(\alpha_t\) : homotopy of \(\restr{\xi}{\infty}\) and acyclic complex
+  \item \((U,\phi)\) : trivialization of \(\xi\) near \(\infty\)
+  \item \(\rho\) : \(X \to \mathbb{R}\) such that \(\rho(\infty) = 1\) and \(\text{supp} \, \rho \subset U\)
+\end{itemize}
+のような状況で \(\tilde{\alpha}_t\) : for \(t \in [0,1]\) , boundary map in \(\xi\)'s base であって \(\restr{\tilde{\alpha}_t}{\infty}\) が \(\alpha_t\) と一致するものがとれればよい。
+
+次のように写像を構成すればできる。
+\begin{itemize}
+  \item \(\tilde{\phi}_x\) : for \(x \in U\) , \(\restr{\xi}{x} \to \restr{\xi}{\infty}\) := \(\phi^{-1}(\infty , \pi_2 \phi [\cdot])\)
+  \item \(\tilde{H}_t\) : for \(x \in U\) , \(\text{boundary map in} \, \restr{\xi}{\infty}\) := \((1-\rho)(x) \text{Id} + \rho(x) \alpha_t\)
+  \item \(\tilde{F}_t\) : \(\text{boundary map in} \, \restr{E}{U}\) := \(\restr{E}{x}\) 上では \(x \in U\) のとき \(\tilde{\phi}_x^{-1} \tilde{H}_t \tilde{\phi}_x\) 、それ以外では \(E\) と同じ。
+\end{itemize}
+\(\tilde{F}_t\) は連続であり \(\tilde{F}_1\) は \(\infty\) へ制限すると acyclic である。
+この homotopy の \(t=1\) への制限が求める \(\xi\) を与える。
+
+\itemprof
+次にそのような \(\xi\) のとり方によらないことを示す。
+これは明らか。
+\end{Proof}
+以上で定義された。
+
+これが単射であることを示す。
+この写像は明らかに準同型であるため、核を計算する形でよい。
+
+\begin{Theorem}
+\itemprop
+  \For \(H = (0 \to \epsilon^n \to E \to 0)\) : cpt.supp.cpx over \(X \times I\) \\
+  \IfHold there exists \(U\) : neighborhood of \(\infty\) \(\subset X^+\) such that \(\restr{H}{(U \backslash \infty) \times I}\) is acyclic \\
+  \Then \(H\) has extension to \(X^+ \times I\) whose support equals that of \(H\)
+\itemprop
+  \For \(\xi\) : cpt.supp.cpx over \(X^+\) \\
+  \IfHold \(\restr{\xi}{\infty}\) is acyclic , \(\restr{\xi}{X}\) is homotopic to acyclic \\
+  \Then \(\xi\) is acyclic
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは張り合わせによる。
+  \(G = 0 \to \epsilon^n \to \epsilon^n \to 0\) なる \(U \times I\) 上の acyclic な複体を考えると \(G\) と \(H\) は同型なのでこれを貼り合わせて求める拡張が得られる。
+\itemprof
+  前の命題を homotopy として適用できるように、 homotopy 自体をよい複体で代表してよいことと、 compact 集合 \(\text{supp} \, H \subset X \times I\) の \(X\) への射影が compact のため \(\infty\) と開集合で分離できることを考えると、確かに成り立つ。
+\end{Proof}
+
+これが全射であることを示す。
+\(K(X)\) の任意の元は \(0 \to \epsilon^n \to E \to 0\) の形で代表されるから、これを \(X^+\) へ拡張することができればよいが、これは確かに拡張できるためよい。
+以上より同型である。
+
+\section{この定義がふつうの \(K\) 理論と整合的であること}
+これは長さが \(2\) の複体によって代表されることからわかる。
+
+\end{document}

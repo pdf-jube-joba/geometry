@@ -1,0 +1,48 @@
+\begin{Definition}[\(K\) version]
+\itemwhen
+  \Fix \(X\) : \(\text{Spin}^c\)-manifold of dimension \(t\) , \(\gamma\) : \(K(X)\) \\
+\itemdefi
+  \Define fundamental class \([X]\) : \(K_t(x)\) := \WIP \\
+  \Define number \(\langle \gamma , [X] \rangle\) : \(K(\mathbb{R}^t)\) :=
+  \begin{itemize}
+    \item[] \Take embedding of \(X\) to \(\mathbb{R}^{t+2l}\) 
+    \item[] \Let \(V\) be the normal bundle of \(X\) in \(\mathbb{R}^{t+2l}\)
+    \item[] \Let \(\text{Spin}^c\)-structure of \(V\) := induced by \(X\)
+    \item[] \Let \(h^X\) := embeddin \(B(V) \to \mathbb{R}^{t+2l}\) 
+    \item[] \Let \(h^X_*\) := \(K(V) \cong K(B(V)) \to K(\mathbb{R}^{t+2l})\) 
+    \item[] \Return image of \(\gamma\) under \(K(X) \overset{T_c}{\to} K(V) \to \overset{h^X_*}{\to} K(\mathbb{R}^{t+2l}) \overset{\beta_c^{-1}}{\to} K(\mathbb{R}^t)\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemwhen
+  \IfHold \(l = 4m-1\) \\
+  \Fix \(Y\) : submanifold of \(V\)
+\itemprop
+  \Then \(Y\) is canonically \(\text{Spin}\) manifold
+\itemdefi
+\Define fundamental class \([X]\) : \(K_t(x)\) := \WIP \\
+\Define number \(\langle \gamma , [X] \rangle\) : \(K(\mathbb{R}^t)\) :=
+  \begin{itemize}
+    \item[] \Take embedding of \(X\) to \(\mathbb{R}^{t+2l}\) 
+    \item[] \Let \(V\) be the normal bundle of \(X\) in \(\mathbb{R}^{t+2l}\)
+    \item[] \Let \(\text{Spin}^c\)-structure of \(V\) := induced by \(X\)
+    \item[] \Let \(h^X\) := embeddin \(B(V) \to \mathbb{R}^{t+2l}\) 
+    \item[] \Let \(h^X_*\) := \(K(V) \cong K(B(V)) \to K(\mathbb{R}^{t+2l})\) 
+    \item[] \Return image of \(\gamma\) under \(K(X) \overset{T_c}{\to} K(V) \to \overset{h^X_*}{\to} K(\mathbb{R}^{t+2l}) \overset{\beta_c^{-1}}{\to} K(\mathbb{R}^t)\)
+  \end{itemize}
+\itemprop
+  \Then \(h^Y_* = h^X_* j_*\)
+\end{Definition}
+
+\begin{Theorem}[Theorem 3]
+\itemprop
+  \For \(\psi\) : \(KO(X)\) \\
+  \Then \(\langle i^* \psi , [Y] \rangle_{KO} = r \beta_c^{-1} \langle c \psi , [X] \rangle_{K}\)
+\itemprop
+  \For \(\phi\) : stable exponential characteristic classi in real \(K\)-theory \\
+  \Then \(\langle \phi(TY) , [Y] \rangle_{KO} = r \beta_c^{-1} \langle c ( \phi(TX) / \phi(D)) , [X] \rangle_K\)
+\itemprop
+  \IfHold \(Y \equiv 2 (\text{mod} \, 8)\) \\
+  \Then \(\langle i^*\psi , [Y] \rangle_{KO}\) : \(KO(\mathbb{R}^{t-2}) \cong \mathbb{Z}/2\mathbb{Z}\) is the reduction of \(\langle \text{ph}(\psi) \text{exp}(e(D) / 2) \hat{A}(TX) , [X]\) : \(\mathbb{Z}\)
+\end{Theorem}

@@ -1,0 +1,160 @@
+\begin{Definition}[ベクトル束の複体]
+\itemdefi
+  \For \(X\) : locally compact Hausdorff space \\
+  \Define complex of vector bundles over \(X\) := pair of
+  \begin{itemize}
+    \itemenum \(E^0 , \ldots E^n\) : vector bundles
+    \itemenum \(\alpha^i\) : bundle map \(E^{i-1} \to E^{i}\)
+    \itemwith \(\alpha^{i+1} \circ \alpha^i = 0\)
+  \end{itemize}
+\itemdefi
+  \For \(\xi\) : complex of vector bundle over \(X\) \\
+  \Define support of \(E\) : subset of \(X\) := consists of element \(x\) such that the complex of vector space \(0 \to E^0_x \overset{\alpha^0}{\to} \cdots \overset{\alpha^{n-1}}{\to} E^n_x \to 0\) is not exact
+\itemdefi
+  \For \(\xi\) : complex of vector bundle over \(X\) \\
+  \Define \(\xi\) is acyclic := support of \(\xi\) is empty
+\itemdefi
+  \For \(E,F\) : complex of vector bundle over \(X\) \\
+  \Define \(E,F\) are homotopic := there exists complex \(G\) over \(X \times [0,1]\) with compact support such that \(\restr{G}{X \times \{0\}} \cong E\) and \(\restr{G}{X \times \{1\}} \cong F\) as bundle over \(X\).
+\itemdefi
+  \Define \(K(X)\) := homotopy class of compact support complexes over \(X\) / acyclic
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then support of complex is close
+\itemprop
+  \Then homotopic is equivalence relation on complexes over \(X\)
+\itemdefi
+  \For \(E,F\) : complexes of vector bundle \\
+  \Define \(E \oplus F\) : complex of vector bundle := \AIMAI{by natural definition}
+\itemprop
+  \Then \(\oplus\) induces map on \(K(X)\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(x\) : \(X\) において複体が exact だったとすると、 \(\text{dim} \, \text{Ker} \, \alpha_x = \text{dim} \, \text{Im} \, \alpha_x\) である。
+  ここで元々の複体が \(\alpha^2 = 0\) を満たしていたことから、 \(\text{dim} \, \text{Ker} \, \alpha_y \geq \text{dim} \, \text{Im} \, \alpha_y\) が任意の \(y\) で成り立つ。
+  \(\text{dim} \, \text{Im}\) は upper semi-continuous かつ \(\text{dim} \, \text{Ker}\) は lower semi-continuous なため、 \(x\) のある近傍 \(U\) が存在し \(y\) : \(U\) に対して \(\text{dim} \, \text{Ker} \, \alpha_x \geq \text{dim} \, \text{Ker} \, \alpha_y , \text{dim} \, \text{Im} \, \alpha_y \geq \text{dim} \, \text{Im} \, \alpha_x\) を満たす。
+  従って \(\text{dim} \, \text{Ker} \, \alpha_y = \text{dim} \, \text{Im} \, \alpha_y\) より \(U\) 上で exact となるからよい。
+\itemprof
+  反射律と対称律は明らかに成り立つ。
+  推移律はベクトル束の張り合わせ構成（ \(X = X_1 \cup X_2\) に対して \(X_i\) 上のベクトル束 \(E_i\) が \(X_1 \cap X_2\) 上同型となるとき、 \(X\) 上のベクトル束で \(X_i\) への制限が \(E_i\) と同型となるものの構成）を行えば確かに成り立つ。
+\itemprof
+  \(E_1 , E_2\) が homotopic のとき \(E_1 \oplus F , E_2 \oplus F\) が homotopic であることと　\(F_1 , F_2\) が homotopic のとき \(E \oplus F_1 , E \oplus F_2\) が homotopic であることを示せばよい。
+  前者の場合を示す（後者も同様にできる）。
+  \(G\) が \(E_1,E_2\) の homotopy を与える complex のとき、 \(G \oplus (E \times [0,1])\) が \(E_1 \oplus F , E_2 \oplus F\) の homotopy を与えている。
+\end{Proof}
+
+\begin{Definition}[複体と写像]
+\itemdefi
+  \For \(X,Y\) : space , \(f\) : continuous map \(Y \to X\) , \(E\) : complexes over \(X\) \\
+  \Define \(f^*E\) : complexes over \(Y\) := \AIMAI{by natural definition}
+\itemdefi
+  \For \(X,Y\) : space , \(f\) : proper continuous map \(Y \to X\) \\
+  \Define \(f^*\) : \(K(X) \to K(Y)\) := \AIMAI{by natural definition}
+\itemprof
+  well-defined 性を考える。
+  \(f\) が proper であることから、 compact support complex の pullback もまた compact support complex であることがわかる。
+  また、 \(E_1,E_2\) の homotopy を与える complex \(G\) に対して \(f^*G\) を考えると \(Y \times [0,1]\) 上の compact support な複体であり、これが \(f^* E_1 , f^* E_2\) の homotopy を与えている。
+\itemdefi
+  \For \(X\) : space , \(U\) : open subset of \(X\) \\
+  \Let \(i\) := inclusion of \(U \subset X\) \\
+  \Define \(i_*\) : \(K(U) \to K(X)\) := \AIMAI{by identification of \(K(U) \cong \tilde{K}(U^+)\) and using \(X^+ \to U^+\)}
+\end{Definition}
+
+\begin{Theorem}[\(K(X)\) の基本的な性質]
+\itemprop
+  \Then \(K(X)\) is Abel group with \(\oplus\)
+\itemdefi
+  \For \(X\) : pointed space \\
+  \Define \(\tilde{K}(X)\) := \(\text{Ker} \, (K(X) \to K(\text{pt}))\)
+\itemprop
+  \Then \(K(X) \cong \tilde{K}(X^+)\)
+\itemprop
+  \Then this definition coincidents with usual definition
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  別資料参照
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi\) : complexes over \(U\) , \(\hat{\xi}\) : complexes over \(X\) \\
+  \IfHold restriction of \(\hat{\xi}\) to \(U\) agrees \(\xi\) and support of \(\hat{E}\) is contained in \(U\) \\
+  \Then \(i_* [E] = [\hat{E}]\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\hat{\xi}\) として \(0 \to \epsilon^n \to E \to 0\) によって代表される元に対して成り立つことを示せばよい。
+  この場合の \(i_* [i^* \hat{\xi}]\) の構成は次のような順で行われる
+  \begin{align*}
+    0 \to \epsilon^n \to E \to 0 & &/ X \\
+    0 \to \epsilon^n \to \restr{E}{U} \to 0 & &/ U \\
+    0 \to \epsilon^n \to \widetilde{\restr{E}{U}} \to 0 & &/ U^+ \\
+    0 \to \epsilon^n \to r^* \widetilde{\restr{E}{U}} \to 0 & &/ X^+ \\
+    0 \to \epsilon^n \to \restr{r^* \widetilde{\restr{E}{U}}}{X} \to 0 & &/ X
+  \end{align*}
+  ただし、 \(\widetilde{\restr{E}{U}}\) は \(\restr{E}{U}\) の適当な拡張で \(r^* := X^+ \to U^+\) と書いた。
+  最初と最後の複体が同じ類に属することを示せばよいが、 \(\xi\) の support が \(U\) に含まれることから同型である。
+\end{Proof}
+
+\begin{Definition}[複体のテンソルと環構造]
+\itemdefi
+  \For \(E,F\) : complexes over \(X\) \\
+  \Define \(E \otimes F\) : complexes over \(X\) :=
+  \begin{itemize}
+    \itemenum \((E \otimes F)^i\) := \(\oplus_{i_1 + i_2 = i} E^{i_1} \otimes F^{i_2}\)
+    \itemenum \(\alpha^i\) := \(\sum_{i_1 + i_2 = i} \alpha_E^{i_1} \otimes 1 + (-1)^{i_1} 1 \otimes \alpha_F^{i_2}\)
+  \end{itemize}
+\itemdefi
+  \Define \(\otimes\) : \(K(X) \times K(X) \to K(X)\) := induced by \(\otimes\) on complexes
+\itemdefi
+  \Define ring structure on \(K(X)\) := defined by \(\oplus,\otimes\)
+\end{Definition}
+
+\begin{Proof}
+\itemprof
+  \(\alpha^{i+1} \circ \alpha^{i} = 0\) かどうかについて。 \\
+  これは \(x \otimes y\) : \(E^i \otimes F^j\) に対して \(\alpha^{i+1} \alpha^i (x \otimes y) = \alpha_E^{i+1} \alpha_E^{i} x \otimes y + (-1)^{i+1} \alpha_E^{i} x \otimes \alpha_F^{j} y + (-1)^{i} \alpha_E^i x \otimes \alpha_F^j y + (-1)^i x \otimes \alpha_F^{j+1} \alpha_F^{j} y = 0\) よりわかる。
+\itemprof
+  \(\otimes\) が \(K(X)\) 上に well-defined な写像を定めることについて。 \\
+  \(E\) か \(F\) のどちらかの support が compact のとき \(E \otimes F\) の support も compact であることを示せば十分。
+  これには \(x\) : \(X\) で \(\restr{E}{x} , \restr{F}{x}\) のどちらかが exact なら \(\restr{E \otimes F}{x}\) も exact であることを示せばよい。
+  \(x \otimes y\) : \(E^i \otimes F^j\) が \(\alpha^{i+j} (x \otimes y) = 0\) を満たすなら、 \(\alpha_E^i x \otimes y = 0\) かつ \(x \otimes \alpha_F^j y = 0\) である。
+  \(x = 0\) か \(y = 0\) の場合を除くと \(\alpha_E^i x = 0\) かつ \(\alpha_F^j y = 0\) とわかる。
+  \(\alpha_E x^\prime = x\) か \(\alpha_F y^\prime = y\) となるような元が取れる。
+  前者の場合は \(x^\prime \otimes y\) 、後者の場合は \(\pm x \otimes y^\prime\) を考えればこれの \(\alpha\) による行き先が \(x \otimes y\) である。
+\itemprof
+  環構造を定めることについて。 \\
+  和構造は \(\oplus\) とする。
+  ゼロ元は \(0\) 次元自明束とすると成り立つ。
+  単位元は底空間が compact のときには \(1\) 次元自明束により与えられる。
+\end{Proof}
+
+\begin{Theorem}[(1) の式]
+\itemprop
+  \For \(\xi\) : \(K(U)\) , \(\zeta\) : \(K(X)\) \\
+  \Then \(i_*(i^* \zeta \otimes_{\mathbb{C}} \xi) = \zeta \otimes_{\mathbb{C}} i_* \xi\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\xi\) を代表する元として \(U^+\) への拡張 \(\tilde{\xi}\) （であって support が一致するもの）が存在するものを考える。
+  このとき上式は次のような式に帰着する。
+  \[
+    i_* [i^* \zeta \otimes \restr{\tilde{\xi}}{U}] = [\zeta \otimes \restr{p^* \tilde{\xi}}{X}]
+  \]
+  ただし \(p := X^+ \to U^+\) である。
+  これに \(i_*[\restr{E}{U}] = E\) が \(E\) : cpt.supp.cpx over \(X\) で \(\text{supp} \, E \subset U\) を満たすものに対して成り立つことを用いると、確かに正しい。
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  complexification (\(c\)) : \(KO(X) \to K(X)\) := \([E] \mapsto [E \otimes_{\mathbb{R}} \mathbb{C}]\) \\
+  realification (\(r\)) : \(K(X) \to KO(X)\) := \([E] \mapsto [E]\)
+\end{Definition}

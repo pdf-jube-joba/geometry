@@ -1,0 +1,70 @@
+\begin{Definition}[スピン群とスピン表現]
+\itemdefi
+  \Define \(\text{Spin}(n)\) := subgroup pf the group of units in the Clifford algebra \(C^0_n\) \\
+  \Define \(\text{Spin}^c(n)\) := \(\{ g \otimes \lambda \in C^0_n \otimes \mathbb{C} \mid g \in \text{Spin}(n) , \lvert \lambda \rvert = 1\}\)
+\itemdefi
+  \Define \(\rho\) : \(\text{Spin}(n) \to \text{SO}(n)\) := adjoint representation
+\itemdefi
+\end{Definition}
+
+\begin{Definition}
+\itemwhen
+  \IfHold \(n = 8k\) \\
+\itemdefi
+  \(\Delta\) := \WIP \\
+  \(\Delta^{\pm}\) := \WIP
+\end{Definition}
+
+\begin{Definition}
+\itemwhen
+  \IfHold \(n = 2k\) \\
+\itemdefi
+  \(\Delta_c\) := \WIP \\
+  \(\Delta_C^{\pm}\) := \WIP
+\end{Definition}
+
+\begin{Definition}[スピン構造]
+\itemdefi
+  \For \(W \to X\) : oriented real vector bundle over compact space \\
+  \Define Spin structure on \(W\) := pair of
+  \begin{itemize}
+    \itemenum \(P\) : \(\text{Spin}(n)\)-bundle over \(X\)
+    \itemenum isomorphism of \(P \times_{\text{Spin}(n)} \mathbb{R}^n \cong W\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Theorem}[\(KO\)-theory での Thom 同型]
+\itemdefi
+  \For Spin structure on \(W \to X\) \\
+  \Define Spinor bundle \(S^{\pm}\) : algebra bundle over \(X\) := \WIP
+\itemdefi
+  \For \(q : W \to X\) : oriented Riemannian vector bundle with Spin structure \\
+  \Define multiplication \(q^* W \times q^* {S^+} \to q^*{S^-}\) := lift by Clifford muliptication \(\mathbb{R}^n \times \Delta^+ \to \Delta^-\) \\
+  \Define \(\omega\) : \(W \to q^* W\) := canonical section \\
+  \Define \(\sigma\) : \(q^* {S^+} \to q^* {S^-}\) := by the rule \(w \in W\) , \(\sigma\mid_w\) := multiplication by \(\omega(w)\)
+\itemprop
+  \Then \(0 \to q^* {S^+} \overset{\sigma}{\to} q^* {S^-} \to 0\) has support in \(X\)
+\itemdefi
+  \Define Thom class of \(W\) \(\mu(W)\) : \(KO(W)\) := defined by above complex \\
+  \Define Thom isomorphism \(T\) : \(KO(X) \to KO(W)\) := \(\xi \mapsto q^*\xi \otimes_{\mathbb{R}} \mu(W)\)
+\itemprop
+  \(T\) is isomorphism
+\end{Theorem}
+
+\begin{Theorem}[\(K\)-theory での Thom 同型]
+\itemdefi
+  \For \(\text{Spin}^c\) structure on \(W \to X\) \\
+  \Define complex spinor bundle \(S^{\pm}\) : algebra bundle over \(X\) := \WIP
+\itemdefi
+  \For \(q : W \to X\) : oriented Riemannian vector bundle with \(\text{Spin}^c\) structure \\
+  \Define multiplication \(q^* W \times q^* {S^+} \to q^*{S^-}\) := lift by Clifford muliptication \(\mathbb{R}^n \times \Delta^+ \to \Delta^-\) \\
+  \Define \(\omega\) : \(W \to q^* W\) := canonical section \\
+  \Define \(\sigma\) : \(q^* {S^+} \to q^* {S^-}\) := by the rule \(w \in W\) , \(\sigma\mid_w\) := multiplication by \(\omega(w)\)
+\itemprop
+  \Then \(0 \to q^* {S^+} \overset{\sigma}{\to} q^* {S^-} \to 0\) has support in \(X\)
+\itemdefi
+  \Define Thom class of \(W\) \(\mu(W)\) : \(KO(W)\) := defined by above complex \\
+  \Define Thom isomorphism \(T\) : \(KO(X) \to KO(W)\) := \(\xi \mapsto q^*\xi \otimes_{\mathbb{R}} \mu(W)\)
+\itemprop
+  \(T\) is isomorphism
+\end{Theorem}
