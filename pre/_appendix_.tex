@@ -1,0 +1,151 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../my-style.tex}
+
+\begin{document}
+\begin{Definition}[elementary / trivial complex]
+\itemenum \(E\) : complex over \(X\)
+\itemthen \THENLINE
+\itemwith \(E\) is elementary :=
+\begin{itemize}
+\itemwith \(E^i = 0\) except for two value \(i = n, n+1\) 
+\itemwith \(d\) : \(E^n \to E^{n+1}\) is isomorphism 
+\end{itemize}
+\itemwith \(E\) is trivial := elementary with trivial bundles
+\end{Definition}
+
+\begin{Definition}[equivalence between morphism]
+\itemenum \(f,g\) : morphism of two complex \(E \to F\)
+\itemthen \THENLINE
+\itemwith \(f,g\) is equivalent :=
+  \begin{itemize}
+    \itemenum \(h^i\) : \(E^i \to F^{i-1}\)
+    \itemwith \(g - f = dh + hd\)
+  \end{itemize}
+\end{Definition}
+
+\newcommand{\CpxCat}[1]{\text{Cpx}(#1)}
+\begin{Definition}[category of complex]
+\itemthen \THENLINE
+\itemenum \(\CpxCat{X}\) : Category :=
+  \begin{itemize}
+    \itemenum object := compact support complex of \(X\)
+    \itemenum morphism := equivalence classes of morphism of complex 
+  \end{itemize}
+\itemwith two complex is equivalent := isomorphic in this category 
+\end{Definition}
+
+\begin{Theorem}[acyclicity and equivalence]
+\itemthen \THENLINE
+\itemwith the following are equivalent
+\begin{itemize}
+  \itemwith complex is acyclic
+  \itemwith complex is equivalent to \(0\)
+\end{itemize}
+\end{Theorem}
+
+\newcommand{\CpxRelCat}[2]{\text{Cpx}(#1, #2)}
+\begin{Definition}[category of complex (relative ver)]
+\itemthen \THENLINE
+\itemenum \(\CpxRelCat{X}{A}\) : Category := full subcategory of 
+  \begin{itemize}
+  \itemenum object := compact support complex \(E\) such that \(\restr{E}{A}\) is equivalent to \(0\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}
+\itemenum \(E,F\) : object of \(\CpxRelCat{X}{A}\)
+\itemthen \THENLINE
+\itemenum \(E,F\) are homotopic :=
+  \begin{itemize}
+    \itemenum \(H\) : object of \(\CpxRelCat{X \times I}{A \times I}\)
+    \itemenum equivalence of \(E \to \restr{H}{X \times \{0\}}\) , \(F \to \restr{H}{X \times \{1\}}\)
+  \end{itemize}
+\end{Definition}
+
+\newcommand{\AltDefKth}[1]{\text{Q}(#1)}
+\newcommand{\AltDefRelKth}[2]{\text{Q}(#1, #2)}
+\begin{Definition}
+\itemthen \THENLINE
+\itemenum \(\AltDefRelKth{X}{A}\) : Abelian Group :=
+  \begin{itemize}
+    \itemenum base := homotopy class of object of \(\CpxRelCat{X}{A}\) 
+    \itemenum op := operation induced by \(\oplus\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Theorem}[A.I]
+\itemenum \((X,A)\) : compact pair
+\itemthen \THENLINE
+\itemwith \(K(X,A)\) is naturally isomorphic to \(\AltDefRelKth{X}{A}\)
+\end{Theorem}
+
+\newcommand{\ShiftCpx}[1]{\text{Shift}(#1)}
+\begin{Definition}
+\itemenum \(E\) : complex
+\itemthen \THENLINE
+\itemenum \(\ShiftCpx{E}\) : complex := shifted grading complex 
+  \begin{itemize}
+    \itemenum \(\ShiftCpx{E}^i\) := \(E^{i-1}\)
+  \end{itemize}
+\end{Definition}
+
+\newcommand{\MapconeCpx}[1]{\text{Cone}_f}
+\begin{Definition}
+\itemenum \(f\) : \(E \to F\)
+\itemthen \THENLINE
+\itemenum \(\MapconeCpx{f}\) : complex := total complex of \(E \to F\)
+\end{Definition}
+
+\begin{Theorem}
+\itemthen \THENLINE
+\itemwith following are equivalent
+\begin{itemize}
+  \itemwith \(\MapconeCpx{f}\) is acyclic
+  \itemwith \(f\) is equivalence
+\end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+\itemenum \(f,g\) : \(E \to F\) 
+\itemthen \THENLINE
+\itemwith \(\MapconeCpx{f}, \MapconeCpx{g}\) are homotopic
+\end{Theorem}
+
+\begin{Theorem}
+\itemenum \(E\) : \(\CpxRelCat{X_1}{X_1 \cap X_2}\)
+\itemthen \THENLINE
+\itemenum \(\tilde{E}\) : \(\CpxRelCat{X_1 \cup X_2}{X_2}\)
+\itemwith \(\restr{E}{X_1}\) is equivalent to \(E\)
+\itemwith \(\tilde{E}\) is unique up to equivalence
+\end{Theorem}
+
+\begin{Theorem}
+\itemenum \(X\) : compact , \(A\) : closed subspace of \(X\) , \(p\) : retract of \(X\) to \(A\)
+\itemthen \THENLINE
+\itemenum \(\alpha\) : \(\AltDefRelKth{X}{A} \to K(X)\) := \(E \to \sum_i (-1) E^i\)
+\itemwith \(0 \to \AltDefRelKth{X}{A} \overset{\alpha}{\to} K(X) \to K(A) \to 0\) is split exact 
+\end{Theorem}
+
+\begin{Theorem}
+\itemthen \THENLINE
+\itemwith \(\AltDefRelKth{X}{A}\) and \(L(X,A) / \sim\) are same
+\end{Theorem}
+
+\begin{Theorem}
+\itemenum \((X,A)\) : compact pair
+\itemthen \THENLINE
+\itemenum \(\AltDefRelKth{X}{A}\) , \(\AltDefKth{X-A}\) are naturally isomorphic
+\end{Theorem}
+
+\begin{Theorem}
+\itemenum \(X_1,X_2\) : compact space, \(E_i\) : complexes over \(X_i\)
+\itemenum \(\alpha\) : equivalence of \(\restr{E_1}{X_1 \cap X_2}\) to \(\restr{E_2}{X_1 \cap X_2}\)
+\itemthen \THENLINE
+\itemenum \(E\) : complex over \(X_1 \cup X_2\)
+\itemenum \(\beta_i\) : equivalence of \(\restr{E}{X_i}\) to \(E_i\)
+\itemwith \(\restr{\beta_2}{A} = \alpha \circ \restr{\beta_1}{A}\)
+\itemwith \(E\) is unique up to equivalence
+\end{Theorem}
+
+\end{document}

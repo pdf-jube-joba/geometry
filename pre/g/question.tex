@@ -1,0 +1,61 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../my-style.tex}
+
+\begin{document}
+\begin{When}
+\itemwhen
+  \Fix \(X\) : locally compact Hausdorff space
+\end{When}
+
+\(\tilde{K}(X^+) \to K(X)\) なる写像の well-defined 性を示すために必要なものは、次の命題であった。
+\begin{Theorem}[示したい命題]
+\itemenum \(\xi_0, \xi_1\) : cpt.supp.cpx over \(X^+\)
+\itemwith \([\xi_0] = [\xi_1]\)
+\itemwith \(\restr{\xi_0}{\infty} , \restr{\xi_1}{\infty}\) is acy
+\itemthen \THENLINE
+\itemwith \([\restr{\xi}{X}] = [\restr{\xi}{X}]\)
+\end{Theorem}
+
+これを \([\xi]\) を使わずに \(K(X)\) の定義にしたがって展開すると次のようになる。
+\begin{Theorem}[定義を展開した命題]
+\itemenum \(\xi_0, \xi_1\) : cpt.supp.cpx over \(X^+\)
+\itemenum \(\tilde{\xi_0}, \tilde{\xi_1}\) : acy.cpx over \(X^+\) , \(\tilde{H}\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\xi_i \oplus \tilde{\xi_i} \cong \restr{\tilde{H}}{X^+ \times \{i\}}\)
+\itemwith \(\restr{\xi_0}{\infty} , \restr{\xi_1}{\infty}\) is acy
+\itemthen \THENLINE
+\itemenum \(\eta_0, \eta_1\): acy.cpx over \(X\), \(H\) : cpt.supp.cpx over \(X \times I\)
+\itemwith \(\restr{\xi_i}{X} \oplus \eta_i \cong \restr{H}{X \times \{i\}}\)
+\end{Theorem}
+
+\(\tilde{\xi_i}\) は acy なので無視してよく、 \(\tilde{H}\) の情報だけをもとにしてよい。
+\begin{Theorem}[より整理した形の必要十分な命題]
+\itemenum \(\tilde{H}\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\restr{\tilde{H}}{\infty \times \{0\}} , \restr{\tilde{H}}{\infty \times \{1\}}\) is acy
+\itemthen \THENLINE
+\itemenum \(\eta_0, \eta_1\): acy.cpx over \(X\), \(H\) : cpt.supp.cpx over \(X \times I\)
+\itemwith \(\restr{\tilde{H}}{X \times \{i\}} \oplus \eta_i \cong \restr{H}{X \times \{i\}}\)
+\end{Theorem}
+
+これらは base space が異なる。
+base space が同じとなるようにより強い命題を考えた。
+\begin{Theorem}[おそらく成り立つと思われる十分命題]
+\itemenum \(\tilde{H}\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\restr{\tilde{H}}{\infty \times \{0\}} , \restr{\tilde{H}}{\infty \times \{1\}}\) is acy
+\itemthen \THENLINE
+\itemenum \(\eta_0, \eta_1\): acy.cpx over \(X^+\)
+\itemenum \(H\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\restr{H}{\infty \times I}\) is acy
+\itemwith \(\tilde{H} \oplus \eta_i \cong \restr{H}{X^+ \times \{i\}}\)
+\end{Theorem}
+
+\begin{Theorem}[成り立つかわからないが、一番簡単な形の十分命題]
+\itemenum \(\tilde{H}\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\restr{\tilde{H}}{\infty \times \{0\}} , \restr{\tilde{H}}{\infty \times \{1\}}\) is acy
+\itemthen \THENLINE
+\itemenum \(H\) : cpt.supp.cpx over \(X^+ \times I\)
+\itemwith \(\restr{H}{\infty \times I}\) is acy
+\itemwith \(\restr{\tilde{H}}{X^+ \times \{0\}} \cong \restr{H}{X^+ \times \{0\}}\) , \(\restr{\tilde{H}}{X^+ \times \{1\}} \cong \restr{H}{X^+ \times \{1\}}\)
+\end{Theorem}
+
+\end{document}

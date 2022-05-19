@@ -1,0 +1,94 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\section*{\(\tilde{K}(X^+) \cong K(X)\)}
+\(\tilde{K}(X^+) \to K(X)\) を次のように構成する。
+
+\begin{Definition}
+  \itemdefi \Define \(\tilde{K}(X^+) \to K(X)\) :=
+  \begin{indentblock}
+    \For \(x\) : \(\tilde{K}(X^+)\) \\
+    \Take \(\xi\) : \(x\) such that \(\xi_{\infty}\) is acyclic \\
+    \Return \([\restr{\xi}{X}]\)
+  \end{indentblock}
+\end{Definition}
+
+この写像の well-definedness を示す。
+
+\begin{Proof}[値域に対して well-defined に定まっていること]
+\itemprof
+  \(\restr{\xi}{X}\) が compact support であることを示せばよいが、 \(\restr{\xi}{\infty}\) が acyclic なので \(\xi\) の support が \(X\) に含まれることからよい。
+\end{Proof}
+
+\begin{Proof}[条件を満たす \(\xi\) の存在]
+  \itemprof
+  まず、 \(x\) : \(\tilde{K}(X^+)\) に対してこれを代表する \(X^+\) 上の複体 \(\xi\) を任意にとったとき、 \([\restr{\xi}{\infty}] = 0\) すなわち \(\restr{\xi}{\infty}\) に対して \(\xi^\prime\) : acyclic.cpx over \(\infty\) で \(\restr{\xi}{\infty} \oplus \xi^\prime\) が acyclic なものと homotopic であるという条件を満たしていることが \(\tilde{K}(X^+)\) の元であることからわかる。
+  \(\xi ^\prime\) を pull back により全体へ acyclic な複体として拡張する。
+  また、 \(\restr{\xi}{\infty} \oplus \xi^\prime\) と acyclic の homotopy は \(\infty\) 上の homotopy であるから自明化をすることにより、 \(\restr{\xi}{\infty} \oplus \xi^\prime = (\ldots \to E_{i-1} \overset{\alpha_i^t}{\to} E_i \to \ldots)\) のように表すことができる。
+  命題を整理すれば、
+  \begin{itemize}
+    \item \(\xi = (0 \to E_0 \overset{\alpha_1}{\to} E_1 \to \cdots)\) : cpt.supp.cpx. over \(X^+\)
+    \item \(\alpha_i^t\) : for \(t \in [0,1]\) , \(\restr{E_{i-1}}{\infty} \to \restr{E_{i}}{\infty}\)
+  \end{itemize}
+  のような状況で \(\tilde{\alpha_i}^t\) : for \(t \in [0,1]\) , \(E_{i-1} \to E_{i}\) であって、各 \(t \in [0,1]\) で \(\tilde{\alpha_i}^t\) が複体となり \(\alpha_i^1 = \alpha_i\) を満たす複体が存在するとき、 \(\tilde{\alpha_i}^1\) によって定義される複体が \(\xi\) と同値であり \(\infty\) への制限が acyclic となるものであるからよい。
+  次のようなものを構成する。
+  \begin{itemize}
+    \item[+] \(K\) : compact neighborhood of \(\infty\)
+    \item[+] \(\phi_i\) : trivialization of \(K\)
+    \item[+] \(\rho\) : \(X \to \mathbb{R}\) such that \(\rho(\infty) = 1\) and \(\text{supp} \, \rho \subset K\)
+    \item[+] \(0 \overset{\alpha_1^t}{\to} \restr{E_1}{K} \overset{\alpha_2^t}{\to} \restr{E_2}{K} \to \cdots\) : for \(t \in [0,1]\) , complex
+    \item \(0 \overset{\alpha_1^1}{\to} \restr{E_1}{K} \overset{\alpha_2^1}{\to} \restr{E_2}{K} \to \cdots\) is acyclic
+  \end{itemize}
+  もしこのようなものが構成できれば、 \(K^c\) 上は定数、 \(K\) 上は \(0 \overset{\alpha_1^{\rho(x)t}}{\to} \restr{E_1}{K} \overset{\alpha_2^{\rho(x)t}}{\to} \restr{E_2}{K} \to \cdots\) と定めることにより、 求める homotopy が得られる。
+  \(K , \phi_i , \rho\) を条件を満たすようにとるとき、 \(\restr{E_i}{K} \cong K \times \mathbb{K}^{n_i}\) のように表せば、 \(\tilde{\alpha_i}^t\) を \([0,\frac{1}{2}]\) 上では \((1-2t) \alpha_i\) とし、 \([\frac{1}{2},1]\) 上では \((2t-1) \alpha_i^t\) とすることで条件を満たすものが構成できる。 
+\end{Proof}
+
+\begin{Proof}[\(\xi\) のとり方によらないこと]
+\itemprof
+  \WIP \\
+  示すべきことは「 \(\xi_0 , \xi_1\) : cpt.supp.cpx / \(X^+\) が \(\restr{\xi_0}{\infty} , \restr{\xi_1}{\infty}\) が acyclic でありかつ \(\xi_0^\prime , \xi_1^\prime\) : acyclic.cpx / \(X^+\) と \(H\) : cpt.supp.cpx / \(X^+ \times I\) で \(\xi_i \oplus \xi_i^\prime \cong \restr{H}{X^+ \times \{i\}}\) が存在するならば、 \(\tilde{\xi_0} , \tilde{\xi_1}\) : acyclic.cpx / \(X\) と \(\tilde{H}\) : cpt.supp.cpx / \(X \times I\) で \(\restr{\xi_i}{X} \oplus \tilde{\xi_i} \cong \tilde{H}\) が存在する」ことである。
+  この homotopy をそのまま制限したものは cpt.supp とは限らないので homotopy 自体を取り替えるように命題を考える。
+  これには「 \(H\) : cpt.supp.cpx / \(X^+ \times I\) で \(\restr{H}{\infty \times \{0\}} , \restr{H}{\infty \times \{1\}}\) が acyclic ならば、 \(H^\prime\) : cpt.supp.cpx / \(X^+ \times I\) で \(\restr{H}{X^+ \times \{0\}} , \restr{H}{X^+ \times \{1\}}\) が acyclic なものと \(\tilde{H}\) : cpt.supp.cpx / \(X^+ \times I\) で \(\restr{H}{\infty \times I}\) が acyclic なものが存在して、 \(H \oplus H^\prime\) と \(\tilde{H}\) の"端点を固定した"homotopy が存在する」ことを示せばよい。
+  次の二つの補題に分けた。
+\end{Proof}
+
+\begin{Theorem}
+  \itemprop
+  \For \(H\) : cpt.supp.cpx over \(\infty \times I\) such that \(\restr{H}{\infty \times 0} , \restr{H}{\infty \times 1}\) is acyclic \\
+  \Then there exists \(H^\prime\) : cpt.supp.cpx over \(\infty \times I\) such that \(\restr{H^\prime}{\infty \times 0} , \restr{H^\prime}{\infty \times 1}\) is acyclic , \(H ^\prime\) : cpt.supp.cpx over \(\infty \times I \times I\) such that \(\restr{\tilde{H}}{\infty \times I \times 0} \cong H \oplus H^\prime\) and \(\restr{\tilde{H}}{}\)
+\itemprop
+  \For \(H\) : cpt.supp.cpx over \(\infty \times I \times I\) , \(H^\prime\) : cpt.supp.cpx over \(X^+ \times I\) \\
+  \Then there exists \(\tilde{H}\) : cpt.supp.cpx over \(X^+ \times I \times I\) such that \(\restr{\tilde{H}}{X^+ \times I \times 0} \cong H , \restr{\tilde{H}}{\infty \times I \times I} \cong H^\prime\)
+\end{Theorem}
+
+以上で定義された。
+
+これが単射であることを示す。
+この写像は明らかに準同型であるため、核を計算する形でよい。
+ゆえに次の命題を示せばよいとわかる。
+
+\begin{Theorem}
+\itemprop
+  \For \(H = (0 \to \epsilon^n \to E \to 0)\) : cpt.supp.cpx over \(X \times I\) \\
+  \IfHold there exists \(U\) : neighborhood of \(\infty\) \(\subset X^+\) such that \(\restr{H}{(U \backslash \infty) \times I}\) is acyclic \\
+  \Then \(H\) has extension to \(X^+ \times I\) whose support equals that of \(H\)
+\itemprop
+  \For \(\xi = (0 \to \epsilon^n \to E \to 0)\) : cpt.supp.cpx over \(X^+\) \\
+  \IfHold \(\restr{\xi}{\infty}\) is acyclic , \(\restr{\xi}{X}\) is homotopic to acyclic \\
+  \Then \(\xi\) is acyclic
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは張り合わせによる。
+  \(G = 0 \to \epsilon^n \to \epsilon^n \to 0\) なる \(U \times I\) 上の acyclic な複体を考えると \(G\) と \(H\) は \(U \backslash \infty \times I\) 上同型なのでこれを貼り合わせて求める拡張が得られる。
+\itemprof
+  前の命題を homotopy として適用できるように、 homotopy 自体をよい複体で代表してよいことと、 compact 集合 \(\text{supp} \, H \subset X \times I\) の \(X\) への射影が compact のため \(\infty\) と開集合で分離できることを考えると、確かに成り立つ。
+\end{Proof}
+
+これが全射であることを示す。
+\(K(X)\) の任意の元は \(0 \to \epsilon^n \to E \to 0\) の形で代表されるから、これを \(X^+\) へ拡張することができればよいが、これは確かに拡張できるためよい。
+以上より同型である。
+
+\end{document}

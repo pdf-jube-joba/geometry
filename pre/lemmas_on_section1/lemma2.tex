@@ -1,0 +1,74 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\section*{\(K(X)\) がアーベル群になること}
+\begin{Proof}
+\itemprof
+  逆元の存在のみが非自明なためそれを示す。
+  長さが \(n\) の複体　\(\xi = 0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} \cdots E_n \to 0\) に対して、 長さが \(n+1\) の複体 \(0 \to 0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} \cdots E_n \to 0\) を直和した複体に同型な次の複体
+  \[
+    \zeta = 0 \to 0 \oplus E_0 \overset{\beta^0}{\to} E_0 \oplus E_1 \overset{\beta^1}{\to} E_1 \oplus E_2 \cdots E_{n-1} \oplus E_n \overset{\beta^n}{\to} E_n \oplus 0 \to 0
+  \]
+  は、ある acyclic な複体に homotopic である。
+  ここで、 \(\beta^i\) は \(\alpha_0 = \alpha_{n+1} = 0\) とおいたとき
+  \(\beta^i = \begin{pmatrix}
+    \alpha_i & 0 \\
+    0 & \alpha_{i+1} 
+  \end{pmatrix}\) である。
+  そのような homotopy として \(\zeta\) の boundary map を \(t\) : \([0,1]\) に対して
+  \[
+    \beta^i_t = \begin{pmatrix}
+    (1-t) \alpha_i & (-1)^i t \\
+    0 & (1-t)\alpha_{i+1}
+    \end{pmatrix}
+  \]
+  として定義される parametrize された複体 \(\zeta_t\) を考えればよいことが次のようにしてわかる。
+\itemprof
+  複体になっていることを示す。
+  \[\begin{pmatrix}
+    (1-t) \alpha_{i+1} & (-1)^{i+1} t \\
+    0 & (1-t)\alpha_{i+2}
+  \end{pmatrix} \begin{pmatrix}
+    (1-t) \alpha_{i} & (-1)^{i} t \\
+    0 & (1-t)\alpha_{i+1}
+  \end{pmatrix} = \begin{pmatrix}
+    (1-t)^2 \alpha_{i+1} \alpha_{i} & 0 \\
+    0 & (1-t)^2 \alpha_{i+2} \alpha_{i+1}
+  \end{pmatrix} = 0\] よりよい。
+\itemprof
+  compact support であることを示す。
+  \(t=0\) の場合 support が \(\zeta\) と一致し、計算により元々の複体 \(\xi\) と一致することがわかる。
+  次に \(t>0\) の場合を考える。
+  このとき、任意の点で exact であることが次のようにしてわかる。
+  \(v = \begin{pmatrix}
+    v_{i} \\ v_{i+1}
+  \end{pmatrix}\) : \(E_{i} \oplus E_{i+1}\) に対して \(\beta^i v = 0\) と仮定する。
+  これは \((1-t) \alpha_{i} v_i + (-1)^i t v_{i+1} = 0 , (1-t) \alpha_{i+1} v_{i+1} = 0\) と同値である。
+  このとき \(v^\prime = \begin{pmatrix}
+    0 \\ (-1)^{i+1} \frac{1}{t} v_{i}
+  \end{pmatrix}\) : \(E_{i-1} \oplus E_{i}\) を考えると
+  \begin{align*}
+    \beta^{i-1} v^\prime
+    &= \begin{pmatrix}
+      (1-t) \alpha_{i-1} & (-1)^{i-1} t \\
+      0 & (1-t)\alpha_{i}
+    \end{pmatrix} \begin{pmatrix}
+      0 \\ \frac{1}{t} v_{i}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+      (-1)^{i-1} v_i \\ (1-t) \frac{1}{t} \alpha_{i} v_i
+    \end{pmatrix} = \begin{pmatrix}
+      (-1)^{i} v_i \\ (-1)^{i+1} v_{i+1} 
+    \end{pmatrix} = \pm \begin{pmatrix}
+      v_i \\ v_{i+1}
+    \end{pmatrix} = \pm v
+  \end{align*}
+  したがってこの homotopy を与えている複体 \(\zeta\) の support は \(\text{supp} \, \xi \times \{0\}\) であり compact support である。
+\itemprof
+  最後に、 \(\zeta_t\) が \(\zeta\) と acyclic な複体の間の homotopy を与えていることを示す。
+  \(\zeta = \zeta_0\) であるから前半はよい。
+  \(\zeta_1\) をみると \(\beta^i_1\) が直和成分への同型を与えているため \(\zeta_1\) は acyclic である。
+\end{Proof}
+
+\end{document}

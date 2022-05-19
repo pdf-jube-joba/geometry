@@ -1,0 +1,164 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\section*{代表元のとり方について}
+\begin{Theorem}
+\itemprop
+  \For \(\xi = (0 \to E_0 \overset{\alpha_1}{\to} E_1 \to 0)\) : compact support complex \\
+  \Then there exists \(\xi^\prime = (0 \to \epsilon^n \to E \to 0)\) : compact support complex such that \([\xi] = [\xi^\prime]\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\text{supp} \, \xi\) は compact なので \(s\) : \(E_0 \to \epsilon^n\) であって \(\text{supp} \,\xi\) 上単射となるものがとれる。
+  \(\alpha (x) = (\alpha_1(x) , s(x))\) : \(E_0 \to E_1 \oplus \epsilon^n\) は全体で単射となるから、
+  \(
+    \xi^\prime = (0 \to E_0 \overset{\alpha}{\to} E_1 \oplus \epsilon^n \overset{\beta}{\to} E \to 0)
+  \)
+  なる完全な複体を得る。
+  \(\beta(x,y) = \pi_1(x) + \pi_2(y)\) とおく。
+  このとき \(\alpha_1\) が同型となるような \(x \in X\) において \(\pi_2\) が同型となることが次のようにしてわかる。
+  完全性により次元を考えると \(\pi_2\) が単射であることを示せばよい。
+  \(x\) : \(\ker \pi_2\) をとると \(\beta(0,x) = 0\) より \(y\) : \(E_0\) が存在して \((\alpha_1(y) , s(y)) = (0,x)\) とかけるが \(\alpha_1\) の同型により \(y = 0\) とわかり \(x = 0\) と示せた。
+\itemthen
+  ここから \(K(X)\) の元として \(\xi\) は \(0 \to \epsilon^n \overset{- \pi_2}{\to} E \to 0\) に同値であることを示す。
+  \(\xi\) に acyclic な複体　\(0 \to \epsilon^n \overset{1}{\to} \epsilon^n \to 0\) と \(0 \to 0 \to E \overset{1}{\to} E \to 0\) を足せば次の複体となる。
+  \[\xi_0 = 0 \to E_0 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_1 & 0\\
+      0 & 1 \\
+      0 & 0
+    \end{pmatrix}
+  }{\to} E_1 \oplus \epsilon^n \oplus E \overset{
+    \begin{pmatrix}
+      0 & 0 & 1
+    \end{pmatrix}
+  }{\to} E \to 0\]
+  次の \(t\) : \([0,1]\) で parametrize された列 が compact support な複体であることを示せば、
+  \[0 \to E_0 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_1 & 0\\
+      t s & 1 - t \\
+      0 & - t \pi_2
+    \end{pmatrix}
+  }{\to} E_1 \oplus \epsilon^n \oplus E \overset{
+    \begin{pmatrix}
+      t^2 \pi_1 & t \pi_2 & 1 - t
+    \end{pmatrix}
+  }{\to} E \to 0\]
+  これを homotopy として \(\xi_0\) は \(0 \to \epsilon^n \overset{-\pi_2}{\to} E \to 0\) と \(\xi ^\prime\) の直和へ homotopic とわかる。
+  \(\xi^\prime\) が完全であるから、 \(K(X)\) の元として \(\xi\) は \(0 \to \epsilon^n \overset{-\pi_2}{\to} E \to 0\) に同値であることがわかる。
+  この複体の support を考えると \(\alpha_1\) が同型となる点では \(\pi_2\) も同型であるから support が compact である。
+\itemthen
+  複体となっていることを示す。
+  すなわち、写像の合成が \(0\) であることを示す。
+  \[
+    \begin{pmatrix}
+      t^2 \pi_1 & t \pi_2 & 1 - t
+    \end{pmatrix} \cdot \begin{pmatrix}
+      \alpha_1 & 0\\
+      t s & 1 - t \\
+      0 & - t \pi_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+      t^2 \pi_1 \alpha + t^2 \pi_2 s + 0 & 0 + (1-t) t \pi_2 - (1-t) t \pi_2
+    \end{pmatrix} = (0,0,0)
+  \]
+\itemthen
+  homotopy の support が compact であることを示す。
+  これには \((\text{supp} \, \xi)^c \times I\) 上で完全であることを示せばよい。
+  \(t=0\) では確かに完全であるからよいため、 \(t \not = 0\) とする。
+  このとき \(\alpha_1 , \pi_2\) は同型である。
+  \((x,y,z)\) : \(E_1 \oplus \epsilon^n \oplus E\) が \(t^2 \pi_1(x) + t \pi_2(y) + (1-t) z = 0\) を満たすとする。
+  \((u,v)\) : \(E_0 \oplus \epsilon^n\) であって \((x,y,z)\) にうつるものを探せばよい。
+  \(z = \pi_2(\tilde{z}) , x = \alpha_1(\tilde{x})\) をとる。
+  このとき \((u,v) = (\tilde{x} , - \frac{1}{t} \tilde{z})\) は \((\alpha_1(\tilde{x}) , t s(\tilde{x}) - (1-t) \frac{1}{t} \tilde{z} , \pi_2(\tilde{z})) = (x , y^\prime := t s(\tilde{x}) - (1-t) \frac{1}{t} \tilde{z} , z)\) にうつる。
+  \(\pi_2\) の同型性により、 \(t^2 \pi_1(x) + t \pi_2(y^\prime) + (1-t) z = 0\) なら \(y^\prime = y\) とわかり示される。
+  実際、 \(t \pi_2(y^\prime) = t^2 \pi_2 s(\tilde{x}) - (1-t) \pi_2(\tilde{z}) = - t^2 \pi_1 \alpha_1 (\tilde{x}) - (1-t) z\) よりよい。
+\end{Proof}
+
+
+\begin{Theorem}
+\itemprop
+  \For \(0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \to E_n \to 0\) : compact support complex \\
+  \For \(0 \to E_0 \overset{\alpha_1}{\to} E_1 \to E \to 0\) : acyclic complex \\
+  \Then there exists \(0 \to E \overset{\alpha}{\to} E_2 \overset{\alpha_3}{\to} E_3 \to \cdots \to E_n \to 0\) : compact support complex
+\itemprop
+  \For \(\xi = (0 \to E_0 \overset{\alpha_1}{\to} E_1 \overset{\alpha_2}{\to} E_2 \to \cdots \to E_n \to 0)\) , \(n \leq 3\) \\
+  \Then there exists \(\xi^\prime = (0 \to E^\prime_0 \overset{\alpha^\prime_1}{\to} E^\prime_1 \overset{\alpha^\prime_2}{\to} E^\prime_2 \to \cdots \to E^\prime_n \to 0)\) such that \([\xi] = [\xi^\prime]\) and \(\alpha^\prime_1\) is injective
+\itemprop
+  \For \(x\) : \(K(X)\) \\
+  \Then there exists \(\xi = (0 \to \epsilon^n \to E \to 0)\) : compact support complex such that \([\xi] = x\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは商空間と同様にして定義できるためよい。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  \(s\) : \(E_0 \to \epsilon^n\) であって \(\text{supp} \, \xi\) 上単射かつ support が compact となるものをとれば、以前の証明と同様に \(E_0 \to E_1 \oplus \epsilon^n\) が単射となる。
+  \(\rho\) : \(X \to \mathbb{R}\) であって compact set をのぞいて \(\rho = 1\) かつ \(s\) の support 上 \(0\) となるものをとる。
+  \(\xi\) は \(K(X)\) 上で acyclic な複体 \(0 \to 0 \to \epsilon^n \overset{1}{\to} \epsilon^n \to 0 \to 0 \cdots\) を直和したものに同型である。
+  後者の複体は \(\rho\) の定義を考えると \(0 \to 0 \to \epsilon^n \overset{\rho}{\to} \epsilon^n \to 0 \to 0 \cdots\) なる複体へ \((1 - t) + t \rho\) により homotopic である。
+  この homotopy は \(\rho\) がある compact set を除き \(1\) に等しいことから compact support である。
+  従って \(\xi\) は次の複体に同値である。
+  \[0 \to E_0 \overset{
+    \begin{pmatrix}
+      \alpha_1 \\
+      0
+    \end{pmatrix}
+  }{\to} E_1 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_2 & 0 \\
+      0 & \rho
+    \end{pmatrix}
+  }{\to} E_2 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_3 , 0
+    \end{pmatrix}
+  }{\to} E_3 \to \cdots\]
+  であるが、これは
+  \[0 \to E_0 \overset{
+    \begin{pmatrix}
+      \alpha_1 \\
+      s
+    \end{pmatrix}
+  }{\to} E_1 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_2 & 0 \\
+      0 & \rho
+    \end{pmatrix}
+  }{\to} E_2 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_3 , 0
+    \end{pmatrix}
+  }{\to} E_3 \to \cdots\]
+  へ
+  \[0 \to E_0 \overset{
+    \begin{pmatrix}
+      \alpha_1 \\
+      t s
+    \end{pmatrix}
+  }{\to} E_1 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_2 & 0 \\
+      0 & \rho
+    \end{pmatrix}
+  }{\to} E_2 \oplus \epsilon^n \overset{
+    \begin{pmatrix}
+      \alpha_3 , 0
+    \end{pmatrix}
+  }{\to} E_3 \to \cdots\]
+  により homotopic である。
+  support について考察すると、この homotopy は \(\rho = 1\) を満たす点では \(s = 0\) より完全であるからよい。
+\end{Proof}
+
+\begin{Proof}
+\itemprof
+  前三つの命題を一般の複体に順々に適用することで得られる。
+\end{Proof}
+
+\end{document}

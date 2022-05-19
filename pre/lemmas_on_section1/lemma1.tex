@@ -1,0 +1,41 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\section*{ホモトピーに関する補題}
+\paragraph*{概要}
+ホモトピーを考察するうえで使いやすい補題をまとめる。
+\(X\) 上の二つのベクトル束の複体 \(\xi_i = 0 \to E^i_0 \to \ldots \to E^i_n \to 0\) が homotopic であることは、 \(X \times I\) 上のベクトル束の複体 \(\xi\) であって \(r_t : X \to X \times I := x \mapsto (x , t)\) によって \(r_i^* \xi \cong \xi_i\) を満たすものが存在することとして定義されていた。
+ここでは二つの複体が \(E^1_j = E^2_j =: E_j\) を満たすさいに、 もし \(f_t^i : t \in [0,1] , E_i \to E_{i+1}\) であって \(t\) に対して連続なものが複体になればそこから homotopy が構成できることを示す。
+
+\begin{Definition}
+  \itemwhen
+  \Fix \(X\) : locally compact Hausdorff space
+  \itemdefi
+  \For \(E , F\) : vector bundle over \(X\) , \(f_t\) : \(t \in [0,1] . \text{bundle morphism} \, E \to F\) \\
+  \Define \(f_t\) is continuous on \(t\) := if \(t \mapsto f_t\) : \(I \to \text{Map}(E,F)\) is continuous
+\itemprop
+\Then this is equivalent to \((t , x) \mapsto f_t(x)\) : \(I \times E \to F\) is continuous
+\end{Definition}
+
+\begin{Theorem}
+  \itemwhen
+  \Fix \(X\) : locally compact Hausdorff space
+  \itemprop
+  \For \(E_i\) : vector bundle over \(X\) , \(f^i_t\) : continuous on \(t \in [0,1]\). \(E_i \to E_{i+1}\) \\
+  \IfHold for each \(t\) : \([0,1]\) , \(0 \to E_0 \overset{f^1_t}{\to} E_1 \overset{f^2_t}{\to} \cdots \overset{f^n_t}{\to} E_n \to 0\) is complex \\
+  \Let \(\tilde{f^i_t}\) : \(E^i \times I \to E^{i+1} \times I\) := \((x,t) \mapsto (f_t(x) , t)\) \\
+  \Then \(\xi = (0 \to E_0 \times I \overset{\tilde{f^1_t}}{\to} \to E_1 \times I \overset{\tilde{f^2_t}}{\to} \cdots \overset{\tilde{f^n_t}}{\to} E_n \times I \to 0)\) is complex
+  \itemprop
+  \IfHold \(\xi\) is compact support \\
+  \Then \(r_0^* \xi , r_1^* \xi\) is compact support and homotopic
+\end{Theorem}
+
+\begin{Proof}
+  \itemprof
+  二乗して消えていることが条件よりわかる。
+  \itemprof
+  \(\text{supp} \, \xi \cap X \times \{i\}\) が \(r_i^* \xi\) の support になるから成り立つ。
+\end{Proof}
+
+\end{document}
