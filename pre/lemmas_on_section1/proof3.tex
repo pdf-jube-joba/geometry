@@ -1,0 +1,230 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../../my-style.tex}
+
+\begin{document}
+\begin{Proof}[category of complex]
+\itemprof
+  morphism に対する \(\sim_{eq}\) が同値関係であることを示す。
+  \(f - f = d 0 + 0 d\) より \(f \sim_{eq} f\) であるから反射的。
+  \(f - g = d h + h d\) のとき \(g - f = d (-h) + (-h) d\) より対称的。
+  \(f - g = d h^1 + h^1 d , g - h = d h^2 + h^2 d\) のとき \(f - h = d (h^1 + h^2) + (h^1 + h^2) d\) より推移的。
+  よってよい。
+\itemprof
+  composition がうまく定まることを示す。
+  すなわち、 \(f_0 \sim_{eq} f_1\) : \(E \to F\) , \(g_0 \sim_{eq} g_1\) : \(F \to G\) のとき \(g_0 \circ f_0 \sim_{eq} g_1 \circ f_1\) を示す。
+  \(f_0 - f_1 = d h^1 + h^1 d , g_0 - g_1 = d h^2 + h^2 d\) とする。
+  \(g_0 \circ f_0 - g_1 \circ f_1 = g_0 \circ (f_0 - f_1) + (g_0 - g_1) \circ f_1 = g_0 \circ (d h^1 + h^1 d) + (d h^2 + h^2 d) \circ f_1 = d (g_0 h^1) + (g_0 h^1) d + d (h^2 f_1) + (h^2 f) d = d (g_0 h^1 + h^2 f_1) + (g_0 h^1 + h^2 f_1) d\) よりよい。
+\itemprof
+  category になるための射に関する公理を満たすかどうかについては \ADMIT
+\end{Proof}
+
+
+\begin{Proof}[acyclicity and equivalence]
+\itemprof
+  acyclic \(\to\) equivalent to \(0\) の方向を示す。
+  \(E = (0 \to E_0 \overset{d_1}{\to} E_1 \cdots)\) が acyclic とする。
+  以下を定義すればよい。
+  \begin{itemize}
+    \itemenum \(h_i\) : \(E_{i} \to E_{i-1}\)
+    \itemwith \(d h + h d = \text{id}\)
+  \end{itemize}
+  metric の存在から各 \(E_i\) を \(\text{Im} d_i \oplus (\text{Im} d_i)^{\bot}\) と分解するとき、 \(\restr{d_i}{(\text{Im} d_{i-1})^{\bot}}\) : \((\text{Im} d_{i-1})^{\bot} \to \text{Im} d_i\) は同型である。
+  \(h_i\) : \(E_i \to E_{i-1}\) を \(\restr{d_i}{(\text{Im} d_{i-1})^{\bot}}^{-1}\) と射影の合成とする。
+  このとき、 \(d h + h d\) を考えると、 \(\text{Im} d_i , (\text{Im} d_i)^{\bot}\) の両方で恒等写像になっているから良い。
+\itemprof
+  equivalent to \(0\) \(\to\) acyclic の方向を示す。
+  \(E = (0 \to E_0 \overset{d_1}{\to} E_1 \cdots)\) が equivalent to \(0\) のとき、 \(\phi\) : iso on \(E \to E\) と \(h^i\) : \(E_i \to E_{i-1}\) であって \(\phi = d h + h d\) がとれる。
+  このとき \(x \in \text{Ker} d_{i+1}\) ならば \(\phi_i x = (d h + h d) x = d_i h_i x\) より \(x = \phi_i^{-1} d_i h_i x = d_i \phi_{i-1}^{-1} d_i x\) のため \(x \in \text{Im} d_{i}\) である。
+  ゆえに acyclic である。
+\end{Proof}
+
+\begin{Proof}[equivalence に関する補題]
+\itemprof
+  \(E_0 \sim_{eq} E_1\) より \(f_0\) : \(E_0 \to E_1\) と \(f_1\) : \(E_1 \to E_0\) で \(f_0 f_1 \sim_{eq} \text{id} , f_1 f_0 \sim_{eq} \text{id}\) がとれる。
+  同様に \(g_0\) : \(F_0 \to F_1\) , \(g_1\) : \(F_1 \to F_0\) をとると、
+  \(f_0 \oplus g_0\) : \(E_0 \oplus F_0 \to E_1 \oplus F_1\) と \(f_1 \oplus g_1\) : \(E_1 \oplus F_1 \to E_0 \oplus F_0\) について、これらが equivalence を与える。
+  \WIP
+\itemprof
+  圏における同型関係なので同型による同値類が同値関係となるのは明らか。
+\end{Proof}
+
+\begin{Proof}[shift や mapping cone の特徴(1)]
+\itemprof
+  shift については supp が一致することは明らか。
+\itemprof
+  \(\text{Cone}_f\) の supp が \(E\) の supp と \(F\) の supp の和になることを示せばよい。
+  これには \(E,F\) 共に exact な点では \(\text{Cone}_f\) も exact であることを示せばよい。
+  すなわち、 ベクトル束の exact な複体 \(V = (0 \to V_0 \overset{d}{\to} V_1 \to \cdots) , W = (0 \to W_0 \overset{d}{\to} W_1 \to \cdots)\) の間の射 \(f\) に対して \(\text{Cone}_f\) が exact であることを示す。
+  \((x,y) \in V_{i+1} \oplus W_{i}\) が
+  \[\begin{pmatrix}
+    d & 0 \\
+    (-1)^{i+1} f & d
+  \end{pmatrix} \begin{pmatrix}
+    x \\ y
+  \end{pmatrix} = 0\] を満たすとき、 \((x^\prime , y^\prime) \in V_{i} \oplus W_{i-1}\) であって次を満たすものがとれればよい。
+  \[\begin{pmatrix}
+      d & 0 \\
+      (-1)^{i} f & d
+    \end{pmatrix} \begin{pmatrix}
+      x^\prime \\ y^\prime
+    \end{pmatrix} = \begin{pmatrix}
+      x \\ y
+    \end{pmatrix}
+  \]
+  実際、 \(d x = 0\) と \(V\) の完全性から \(x = d x^\prime\) がとれて、 \((-1)^{i+1} f x + d y = 0\) より \(d ((-1)^{i+1} f x^\prime + y) = 0\) であるから \((-1)^{i+1} f x^\prime + y = d y^\prime\) がとれるが、この \(x^\prime , y^\prime\) が条件を満たす。
+\end{Proof}
+\begin{Proof}[mapping cone の特徴(2)]
+\itemprof
+  \(f\) が　equivalence すなわち \(f\) : \(E^{*} \to F^{*}\) , \(g\) : \(F^{*} \to E^{*}\) , \(h^E\) : \(E^{*} \to E^{*-1}\) , \(h^F\) : \(F^{*} \to F^{*-1}\) であって \(g f - 1 = d h^E + h^E d\) , \(f g - 1 = d h^F + h^F d\) , \(f d = d f , g d = d g\) のような状況を考える。
+  \[
+    \begin{pmatrix}
+      d & 0 \\
+      (-1)^{i+1} f & d
+    \end{pmatrix} \begin{pmatrix}
+      x \\ y
+    \end{pmatrix} = 0
+  \]
+  を満たす \((x,y) \in E_{i+1} \oplus F_{i}\) に対して、次が成り立つことを示せばよい。
+  \[
+    \begin{pmatrix}
+      d & 0 \\
+      (-1)^{i} f & d
+    \end{pmatrix} \begin{pmatrix}
+      x^\prime := & - h^E x + (-1)^{i} g y \\ 
+      y^\prime := & - h^F y - (-1)^{i} \left(h^F f x^\prime - f h^E x^\prime \right)
+    \end{pmatrix} = \begin{pmatrix}
+      x \\ y
+    \end{pmatrix}
+  \]
+  \(d x^\prime = x\) は次のようにわかる。
+  \begin{align*}
+    & d x^\prime
+    = d (- h^E x + (-1)^{i} g y) \\
+    &= - (g f - 1 - h^E d) x + (-1)^{i} g (- (-1)^{i+1} f x) 
+    = - g f x + x + 0 + g f x = x
+  \end{align*}
+  \((-1)^{i} f x^\prime + d y^\prime = y\) は \(y - (-1)^{i} f x^\prime = d y^\prime\) と考えれば次のようにわかる。
+  \begin{align*}
+    & y - (-1)^{i} f x^\prime = y - (-1)^{i} f (- h^E x + (-1)^{i} g y) = (1 - f g) y + (-1)^{i} f h^E x \\
+    &= -(d h^F + h^F d) y + (-1)^{i} f h^E x
+    = - d h^F y - h^F (-(-1)^{i+1} f x) + (-1)^{i} f h^E x \\
+    &= d(- h^F y) - (-1)^{i} (h^F f x - f h^E x)
+  \end{align*}
+  \begin{align*}
+    & d (h^F f x^\prime - f h^E x^\prime)
+    = (f g - 1 - h^F d) f x^\prime - f (g f - 1 - h^E d) x^\prime \\
+    &= h^F f d x^\prime - f h^E d x^\prime = h^F f x - f h^E x
+  \end{align*}
+\itemprof
+  \(f_0 , f_1\) : \(E \to F\) に対して、 \(f_t\) : for \(t \in [0,1]\) , \(E \to F\) を \((1-t) f_0 + t f_1\) で定めたとき、各 \(t\) に対して \(\text{Cone}_{f_t}\) を与えればよい。
+  これが compact support であることについて考察すると、 \(\text{Cone}_f\) が \(E,F\) が完全なところでは完全であるから確かに成り立つ。
+\end{Proof}
+
+\begin{Proof}[二つの定義の同値性]
+\itemprof
+  \(E \sim_{D} F \Rightarrow E \sim_{Q} F\) を示す。 
+  \(E \sim_{D} F\) より \(E_0 , F_0\) : acyclic cpx over \(X\) と \(H\) : cpt.supp. cpx over \((X,A) \times I\) が存在して \(E \oplus E_0 \cong \restr{H}{\text{at} \, 0} , F \oplus F_0 \cong \restr{H}{\text{at} \, 1}\) が成り立っている。
+  このとき、 \(E \sim_{eq} E \oplus E_0 , F \sim_{eq} F \oplus F_0\) のため \(E \sim_{Q} F\)
+\itemprof
+  \(E \sim_{Q} F \Rightarrow E \sim_{D} F\) を示す。
+  これには \(E \sim_{eq} F \Rightarrow E \sim_{D} F\) を示せばよい。
+  \(f\) : \(F \to E\) を equivalent とする。
+  \(f_0 , f_1\) : \(E \oplus F \to E\) を次のように定める。
+  \[
+    f_0 := \begin{pmatrix}
+      1 & 0
+    \end{pmatrix} ,
+    f_1 := \begin{pmatrix}
+      0 & g
+    \end{pmatrix}
+  \] 
+  このとき \(E \oplus \text{Cone}_f \cong \text{Cone}_{f_0} \simeq \text{Cone}_{f_1} \cong \text{Cone}_{\text{id}} \oplus F\) であるが \(\text{Cone}_f , \text{Cone}_{\text{id}}\) は acyclic であるからよい。 Cone は実際どうなっているかというと
+  \[
+    \cdots \begin{matrix}
+      E_{i} \\
+      F_{i} \\
+      E_{i-1}
+    \end{matrix}
+    \overset{
+      \begin{pmatrix}
+        d & 0 & 0 \\
+        0 & d & 0 \\
+        (\text{id}) & (f) & d
+      \end{pmatrix}
+    }{\to}
+    \begin{matrix}
+      E_{i+1} \\
+      F_{i+1} \\
+      E_{i}
+    \end{matrix}
+    \cdots
+  \]
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(E\) : cpx equivalent to \(0\) , \(f\) : \(F \to E\) \\
+  \Then \(f \simeq 0\)
+\itemprop
+  \For \(E,F\) : cpx equivalent to \(0\) , \(h\) : \(E^{*} \to F^{*-1}\) \\
+  \Then \(d h + h d\) is equivalence
+\itemprop
+  gluing of equivalence is equivalence
+\end{Theorem}
+
+\begin{Proof}[A.2]
+\itemprof
+  \(F\) : acyclic cpx over \(X_1\) であって \(\restr{(E \oplus F)}{X_1 \cap X_2}\) が trivial complex の sum に同型となるものがとれれば、 trivial complex は \(X_2\) に拡張することができるので trivial complex over \(X_2\) と \(E \oplus F\) over \(X_1\) を同型で貼り合わせれば、得られる複体が条件を満たす。
+
+  \(X_1 , X_1 \cap X_2\) は compact である。
+  \(E\) に elementary な complex をいくつか直和して最初の \(1\) 項目を除き trivial になるようにとれる。
+  直和する elementary complexes を合わせて \(F^\prime\) とし、 \(E \oplus F^\prime\) を \(E^\prime\) とおくと、 \(F^\prime\) は acyclic complex over \(X_1\) であり、 \(\restr{E^\prime}{X_1 \cap X_2}\) は acyclic である。
+  ここで、 \(\sum_k (-1)^k {\restr{E^\prime}{X_1 \cap X_2}}_k\) は \(\tilde{K}(X_1 \cap X_2)\) 上 \(0\) であるが、 \({\restr{E^\prime}{X_1 \cap X_2}}_k\) は \(k = 1\) を除き自明であるから \(\restr{E^\prime_1}{X_1 \cap X_2}\) は stably trivial である。
+  
+  帰納的に、 \(\restr{E^\prime}{X_1 \cap X_2}\) が elementary complex の和で書けるとき各ベクトル束は stably trivial であることがわかり、 trivial complexes を足すことで \(\restr{E^\prime}{X_1 \cap X_2}\) を trivial にできる。
+  trivial complex は拡張することができるからよい。
+\itemprof
+  \(E^1 , E^2\) : cpx over \((X_1 \cup X_2 , X_2)\) が \(\restr{E^1}{X_1} \simeq^{X_1} \restr{E^2}{X_1}\) を満たすとき \(E^1 \simeq^{X_1 \cup X_2} E^2\) を満たすことを示す。
+  \(f\) : \(\restr{E^1}{X_1} \to \restr{E^2}{X_1}\) を equivalence とするとき、 \(\restr{E^2}{X_1 \cap X_2} \simeq^{\cdot} 0\) より \(\restr{f}{X_1 \cap X_2} \simeq 0\) である。
+  したがって、 \(h\) : \({\restr{E^1}{X_1 \cap X_2}}_{*} \to {\restr{E^2}{X_1 \cap X_2}}_{*-1}\) であって \(\restr{f}{X_1 \cap X_2} = d h + h d\) なるものが存在する。
+  この \(h\) を \(\tilde{h}\) : \({\restr{E^1}{X_2}}_{*} \to {\restr{E^2}{X_2}}_{*-1}\) に適当に拡張するとき、 \(f\) と \(d \tilde{h} + \tilde{h} d\) の張り合わせが \(E^1\) と \(E^2\) の equivalence を与える。
+\end{Proof}
+
+\begin{Proof}[A.3]
+\itemprof
+  \(\beta\) : \(K(X) \to Q(X,A)\) を \(E\) : vector bundle over \(X\) に対して \(\xi = 0 \to E \to p^*i^* E \to 0\) なる \((X,A)\) 上の複体を \(\restr{E}{A} , \restr{(p^*i^*E)}{A}\) の同型を適当に拡張して \([\xi]\) として定める。
+  これが well-defined なのは異なる \(\xi\) のとり方が upto homotopy で定まるからよい。
+  今、 \(p^* i^* + \alpha \beta = 1\) と \(\alpha \beta = 1\) を示せば、 split exact であることがわかる。
+
+  初めの方はベクトル束 \(E\) に対して \(p^* i^* E + \alpha \beta E = p^* i^* E + E - p^* i^* E = E\) よりよい。
+
+  二番目を示す。
+  \(E\) : cpx over \((X,A)\) をとる。
+  \(p^*i^* E\) は acyclic な複体であるから、 \(f\) : \(E \to p^*i^* E\) であって \(\restr{E}{A} \to \restr{(p^*i^*E)}{A}\) なる canonical な同型の適当な拡張、が存在する。
+  \(\alpha \beta E\) は \(\sum_{k} (-1)^{k} [0 \to E^k \overset{f}{\to} {p^*i^*E}^k \to 0]_{\sim_{Q}^{(X,A)}}\) に移る。
+  ここで \(\sim_{Q}^{(X,A)}\) で \((-1)^k\) を移すことでこれが次のような mapping cone を表していることがわかる。
+  \[
+    \begin{matrix}
+      0 & \to & E_0 & \overset{0}{\to} & E_1 & \overset{0}{\to} & \cdots \\
+      & & \downarrow f & & \downarrow f & & \cdots \\
+      0 & \to & p^*i^*E_0 & \overset{0}{\to} & p^*i^*E_1 & \overset{0}{\to} & \cdots \\
+    \end{matrix}
+  \]
+  これは \(f\) の mapping cone に homotopic である。
+  \[
+    \begin{matrix}
+      0 & \to & E_0 & \overset{d}{\to} & E_1 & \overset{d}{\to} & \cdots \\
+      & & \downarrow f & & \downarrow f & & \cdots \\
+      0 & \to & p^*i^*E_0 & \overset{d}{\to} & p^*i^*E_1 & \overset{d}{\to} & \cdots \\
+    \end{matrix}
+  \]
+  \(\txtcmd{Cone}{f} \simeq \txtcmd{Cone}{0}\) であるが、この右辺が \(E \oplus \txtcmd{Shift}{(p^*i^*E)}\) と \(E\) に acyclic なものを足していることから \(\sim_{Q} E\) よりよい。
+\end{Proof}
+
+\begin{Proof}[A.4]
+\itemprof
+
+\end{Proof}
+
+\end{document}

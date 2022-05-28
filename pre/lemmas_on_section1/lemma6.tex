@@ -1,0 +1,47 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\section*{\(\tilde{K}(X^+) \cong K(X)\)}
+ここでは普通の \(K\)-理論を \(K\) で書き、複体を用いた場合 \(D\) で書き、 Appendix にある定義を \(Q\) で書く。
+
+\begin{Theorem}
+\itemprop
+  \For \((X,A)\) : locally compact pair \\
+  \Then \(D(X,A) \cong L(X,A)\)
+\itemprop
+  \For \((X,A)\) : compact pair \\
+  \Then \(K(X,A) \cong Q(X,A)\) 
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  定義の同値性より。
+\itemprof
+  Proposition (A.1) より。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(X\) : locally compact space \\
+  \Then \(0 \to D(X^+, \infty) \overset{\alpha}{\to} D(X^+) \overset{i^*}{\to} D(\infty) \to 0\) is exact
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  Proposition (A.3) により \((X^+ , \infty)\) が compact pair であることから、 \(0 \to Q(X^+ , \infty) \to K(X^+) \to K(\infty) \to 0\) が完全である。
+  これと上の同型を合わせて考えればよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \(D(X^+, \infty) \overset{r^*}{\to} D(X^+ - \infty)\) is isomorphism
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  Proposition (A.4) により \((X^+ , \infty)\) が compact pair であることから、 \(Q(X,A) \to Q(X-A)\) が同型である。
+  これと上の同型を合わせて考えればよい。
+\end{Proof}
+
+\end{document}
