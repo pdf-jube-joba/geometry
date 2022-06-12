@@ -1,0 +1,91 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\newcommand{\Ktheory}[1]{K_{\mathbb{K}}(#1)}
+\newcommand{\KtheoryReduced}[1]{\tilde{K}_{\mathbb{K}}(#1)}
+\newcommand{\KtheoryRel}[2]{K_{\mathbb{K}}(#1, #2)}
+\newcommand{\Kcohomology}[3]{K_{\mathbb{K}}^{#1}(#2, #3)}
+\newcommand{\KcohomologyReduced}[2]{\tilde{K}_{\mathbb{K}}^{#1}(#2)}
+\newcommand{\KtheoryCpx}[1]{K_{\mathbb{K},cpt}(#1)}
+\newcommand{\KtheoryCpxRel}[2]{K_{\mathbb{K},cpt}(#1, #2)}
+
+\begin{document}
+
+\section{Thom 同型の同型性について}
+コンパクト空間の場合の \(K\)-理論に話を移し、 Bott 周期性との関連により示す。
+
+\((\mathbb{K} , \mathbb{G} , k , V) \leftarrow (\mathbb{R}, \text{Spin} , 8 , \mathbb{R}^8), (\mathbb{C}, \text{Spin}^c , 2 , \mathbb{R}^2)\) とする。
+ori.metrized.vec.bundle with \(\mathbb{G}\).st を \(\mathbb{G}\).st と書く。
+また通常のコンパクト空間に対してのみ定義された \(K\) 理論と区別する必要がある（何がどっちで成り立っているかわかりにくい）ため、複体で定義したものを \(\KtheoryCpx{X}\) と書く。
+pair of space で locally compact space と closed subset の空間対とする。
+
+\begin{Definition}[Thom 複体と Thom 写像の定義]
+\itemwhen
+  \Fix \(\xi = (q : W \to X)\) : \(\mathbb{G}\).st where \(X\) : compact
+\itemdefi
+  \Define \(\mu(\xi)\) : cpt.supp.cpx over \(W\) := \\
+  \(0 \to q^*S^+ \overset{\omega}{\to}q^*S^- \to 0\) \\
+  \Define Thom class : \(\KtheoryCpx{W}\) := represented by \(\mu(\xi)\) \\
+  \Define Thom homomorphism of \(\xi\) \ldots \(T_{\xi}\) : \(\KtheoryCpx{X} \to \KtheoryCpx{W}\) := \([x] \mapsto [q^*x \otimes \mu(\xi)]\)
+\end{Definition}
+
+%\begin{Theorem}
+%\itemprop
+%  \For \(W_1 \overset{q_1}{\to} X , W_2 \overset{q_2}{\to} X\) : \(\mathbb{G}\).st. , \(f\) : isomorphism of \(\mathbb{G}\).st. \(W_1 \to W_2\) \\
+%  \Then \(T_{W_1 \overset{q_1}{\to} X} = f^* \circ T_{W_2 \overset{q_2}{\to} X}\) : \(\KtheoryCpx{X} \to \KtheoryCpx{W_1}\)
+%\itemprop
+%  \For \(\xi = (W \overset{q}{\to} X)\) : \(\mathbb{G}\).st , \(f\) : proper map of \(Y \to X\) \\
+%  \Then \(\mu(f^* \xi) \cong f^* \mu(\xi)\) : cpt.supp.cpx over \(\text{Total}(f^* \xi)\)
+%\itemprop
+%  \For \(\xi_1 , \xi_2\) : \(\mathbb{G}\).st \\
+%  \Then \([\mu(\xi_1 \times \xi_2)] = [\text{Proj}^* \mu(\xi_1) \otimes \text{Proj}^* \mu(\xi_2)]\) : \(\KtheoryCpx{\text{Total}(\xi_1) \times \text{Total}(\xi_2)}\)
+%\end{Theorem}
+
+%\begin{Proof}
+%\itemprof
+%  Thom 複体が誘導されるものと可換であることからよい。
+%\itemprof
+%  Thom 複体が誘導されるものと可換であることからよい。
+%\itemprof
+%  \WIP
+%\end{Proof}
+
+\begin{Theorem}[Thom 写像を移し替える]
+%\itemprop
+%  \Let \(\phi\) : \(W \to D(W) - S(W)\) := \(v \mapsto v / (1 + \lVert v \rVert)\) \\
+%  \Then \(h\) : \(\KtheoryCpxRel{D(W)}{S(W)} \to \KtheoryCpx{W}\) := \([x] \mapsto [\phi^* (\restr{x}{D(W) - S(W)})]\) is isomorphism
+%\itemprop
+%  \Then \(h^{-1}T_{\xi} x = [q^* x] \cdot [\restr{\mu(W)}{(D(W), S(W))}]\)
+\itemdefi
+  \Let \(\beta\) : \(\KcohomologyReduced{*}{X} \to \KcohomologyReduced{*+k}{X}\) := by Bott periodicity \\
+  \Let \(\tilde{\mu}(\xi)\) : \(\KcohomologyReduced{n}{\text{Total}(\xi)}\) := defined by \(\mu(\xi) \in \KtheoryCpx{W} \cong \KtheoryReduced{\text{Total}(\xi)} \cong \KcohomologyReduced{n}{\text{Total}(\xi)}\)
+\itemprop
+  \Let \(\tilde{T}_{\xi}\) : \(\Kcohomology{0}{X}{\emptyset} \to \KcohomologyReduced{n}{\text{Total}(\xi)}\) := induced by \\
+  \(\KcohomologyReduced{0}{X} \cong \KtheoryCpx{X} \overset{T_{\xi}}{\to} \KtheoryCpx{\text{Total}(\xi)} \cong \KtheoryReduced{\text{Thom}(\xi)} \cong \KcohomologyReduced{n}{\text{Thom}(\xi)}\) \\
+  \Then \(\tilde{T}_{\xi} = x \mapsto x \cdot \tilde{\mu}(\xi)\)
+\itemprop
+  \Then \(\tilde{\mu}(\xi)\) is \(K_{\mathbb{K}}\)-orientation
+\end{Theorem}
+
+\begin{Proof}
+%\itemprof
+%  \(\KtheoryCpxRel{W^+}{\infty}\) との同型を経由すれば、コンパクト空間の対の間の写像であり通常の \(K\) 理論での同型からわかる。
+%\itemprof
+%  \(\psi\) : \(W \to W\) := \(v \mapsto v / (1 + \lVert w \rVert)\) として
+%  \(\psi^* \mu(W)\) と \(\mu(W)\) が同じ \(K(W)\) の元を定めていることを示せばよいことがわかる。
+%  \(f\) : \(q^*(S^+) \to \psi^* q^*(S^+)\) と \(g\) : \(q^*(S^-) \to \psi^* q^*(S^-)\) を \((w,v) \mapsto (w / (1 + \lVert w \rVert), v)\) と定値すると、ベクトル束の同型であり次の図式が可換になるからよい。
+%  \[\begin{matrix}
+%    0 & \to & q^*(S^+) & \to & q^*(S^-) & \to & 0 \\
+%     & & \downarrow f & & \downarrow g & & \\
+%    0 & \to & \psi^*q^*(S^+) & \to & \psi^*q^*(S^-) & \to & 0
+%  \end{matrix}\]
+%\itemprof
+%  これは積を持つ一般コホモロジーの一般論からわかる。
+\itemprof
+  これは定義による。
+\itemprof
+  \(i_x\) の定義（実際には \(\mathbb{R}^n \to \xi_x\) 分の定義の揺らぎがある）と Thom class の乗法性により、次の場合に帰着する。
+  \(0 \to \mathbb{R}^{k} \times S^{+} \to \mathbb{R}^{k} \times S^{-} \to 0\) なる \(\KtheoryCpx{\mathbb{R}^{k}} \cong \KcohomologyReduced{0}{S^k}\) の元は Bott 周期性 \(\beta\) : \(\KcohomologyReduced{0}{S^0} \to \KcohomologyReduced{-k}{S^0} \cong \KcohomologyReduced{0}{S^k}\) により \(1 \in \KcohomologyReduced{0}{S^0}\) の移った元であることを示す。
+\end{Proof}
+
+\end{document}

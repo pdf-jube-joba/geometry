@@ -1,0 +1,83 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+
+\section*{一般コホモロジーの向き付け}
+積のある一般コホモロジーにおいて orientation を定義し、 orientation が Thom 同型を導くことを示す。
+
+\begin{When}
+\itemwhen
+  \Fix \(E\) : cohomology theory with product \\
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \For \(\xi\) : vector bundle \\
+  \Let \(\text{Thom}(\xi)\) := Thom space of \(\xi\) \\
+  \Let \(n\) := \(\text{dim}(\xi)\) \\
+  \For \(i_{x}\) : for \(x\) : \(\text{Base}(\xi)\) , \(S^n \to \text{Thom}(\xi)\) s.t. induced by some inclusion \(\mathbb{R}^n \to \text{Total}(\restr{\xi}{x}) \to \text{Total}(\xi)\) \\
+  \Let \(\sigma\) : \(\tilde{E}^{0}(S^0) \to \tilde{E}^{n}(S^n)\) := suspension isomorphism \\
+  \Define \(E\)-orientation of \(\xi\) := \(\mu\) : \(\tilde{E}^{n}(\text{Thom}(\xi))\) s.t. \(\forall\) \(x\) : \(\text{Base}(\xi)\) , \({i_x}^* (\mu) = \sigma(1)\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi\) : vector bundle , \(\mu\) : \(E\)-orientation , \(f\) : \(X \to \text{Base}(\xi)\)  \\
+  \Let \(f_\dagger\) : \(\text{Thom}(f^* \xi) \to \text{Thom}(\xi)\) := induced by \((x,v) \mapsto v\) \\
+  \Then \(f_\dagger^* \mu\) is \(E\)-orientation of \(f^*\xi\)
+\itemprop
+  \For \(\xi_1 , \xi_2\) : vector bundle , \(\mu_i\) : \(E\)-orientation of \(\xi_i\) \\
+  \Let \(i\) : \(\text{Thom}(\xi_1 \times \xi_2) \to \text{Thom}(\xi_1) \wedge \text{Thom}(\xi_2)\) := induced by \((e_1,e_2) \mapsto e_1 \wedge e_2\) \\
+  \Then \(i^*(\mu_1 \times \mu_2)\) is \(E\)-orientation of \(\xi_1 \times \xi_2\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(f_\dagger\) が誘導されることを示す。
+  \(i\) := \((x,e) \in \text{Total}(f^* \xi) \to e \in \text{Total}(\xi)\) が proper であることを示せばよい。
+  \(K\) : compact subset in \(\text{Total}(\xi)\) をとる。
+  \(i^{-1}(K)\) が compact であることは、 \(f^{-1}(\pi(K)) \times K\) なる compact 集合に含まれているから良い。
+
+  \(f_{\dagger}^* \mu\) が \(E\)-orientation であることについては \(f^*\xi\) のファイバーを考えれば確かに成り立つ。
+\itemprof
+  \(i\) が誘導されることを示す。
+  \(E_i := \text{Total}(\xi_i)\) とする。
+  \(O\) : \(E_1^\infty \wedge E_2^\infty\) の基点の近傍、に対して、 \(i^{-1}(O^c)\) が compact であることを示せばよい。
+  またさらに、 \(E_1^\infty \times E_2^\infty\) の \(E_1^\infty \times \infty \cup \infty \times E_2^\infty\) を含む開集合 \(O\) について、 \(O \cap E_1 \times E_2\) の補集合が compact であることを示せばよい。
+  \(E_1^\infty , E_2^\infty\) の compact 性から tube lemma により \(O_i\) : \(E_i^\infty\) の中の \(\infty\) の近傍で \(O \supset E_1^\infty \times \O_2\cup O_1 \times E_2^\infty\) がとれて定義により \(O_1^c, O_2^c\) は compact のため \(O^c \subset O_1^c \times O_2^c\) と合わせて \(O^c\) が compact とわかる。
+
+  \(i_*(\mu_1 \times \mu_2)\) が \(E\)-orientation になることについては上と同様にファイバーごとに考えると \((x,y)\) : \(\text{Base}(\xi_1) \times \text{Base}(\xi_2)\) について \({i_x}^* i^*(\mu_1 \times \mu_2)\) が \(S^{n+m} \to S^n \wedge S^m\) のように与えられているためよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi\) : vector bundle where \(X\) : compact , \(\mu\) : \(E\)-orientation of \(\xi\) \\
+  \Then \(\tilde{E}^{*}(\text{Thom}(\xi))\) is a free \(E^{*}(\text{Base}(\xi))\)-module with generator \(\mu\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\xi\) が product bundle の場合に示す。
+  \(E\)-orientation は \(\tilde{E}^n(\text{Thom}(X \times \mathbb{R}^n))\) の元である。
+  \(\text{Thom}(X \times \mathbb{R}^n) \cong X^\infty \wedge S^n\) により、 \(x \in E^{*}(X) \cong \tilde{E}^{*}(X^+)\) に対して、 \(x \cdot \mu \in \tilde{E}^{*+n}(\text{Thom}(X \times \mathbb{R}^n))\) なる元と \(x \cdot \sigma(1) \in \tilde{E}^{*}(X^+ \wedge S^n)\) が対応すれば、 \(x \in \tilde{E}^{*}(X^+) \mapsto x \cdot 1 \in \tilde{E}^{*}(X^+)\) が明らかに同型であることと \(\sigma\) が同型であることからわかる。
+  この対応は \(\mu\) の定義により成り立つ（符号を入れ替えるように行う必要がある）。
+\itemprof
+  \(\xi\) が有限型のときに示す。
+  前に示した命題により \(X=X_1 \cap X_2\) として \(\restr{\mu}{X_1} , \restr{\mu}{X_2} , \restr{\mu}{X_1 \cap X_2}\) が制限束の \(E\)-orientation となるから、これらに対して成り立つときに \(X\) で成り立つことを示せば自明束の場合に帰着し示せる。
+  \[\begin{matrix}
+    E^{*}(X_1) \oplus E^{*}(X_2) & \to & E^{*+n}(\text{Thom}(\restr{\xi}{X_1})) \oplus E^{*+n}(\text{Thom}(\restr{\xi}{X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*}(X_1 \cap X_2) & \to & E^{*+n}(\text{Thom}(\restr{\xi}{X_1 \cap X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X) & \to & E^{*+1+n}(\text{Thom}(\xi)) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X_1) \oplus E^{*+1}(X_2) & \to & E^{*+1+n}(\text{Thom}(\restr{\xi}{X_1})) \oplus E^{*+1+n}(\text{Thom}(\restr{\xi}{X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X_1 \cap X_2) & \to & E^{*+1+n}(\text{Thom}(\restr{\xi}{X_1 \cap X_2})) \\
+    \downarrow & & \downarrow \\
+  \end{matrix}\]
+  より five-lemma を適用することでわかる。
+\end{Proof}
+
+\end{document}

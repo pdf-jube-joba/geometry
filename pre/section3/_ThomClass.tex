@@ -1,26 +1,29 @@
 \begin{Definition}[スピン群とスピン表現]
 \itemdefi
-  \Define \(\text{Spin}(n)\) := subgroup pf the group of units in the Clifford algebra \(C^0_n\) \\
-  \Define \(\text{Spin}^c(n)\) := \(\{ g \otimes \lambda \in C^0_n \otimes \mathbb{C} \mid g \in \text{Spin}(n) , \lvert \lambda \rvert = 1\}\)
+  \Define \(\text{Spin}(n)\) := subgroup of the group of units in \(\text{Cl}^0_n\) (the Clifford algebra) \\
+  \Define \(\text{Spin}^c(n)\) := \(\{ g \otimes \lambda \in \text{Cl}^0_n \otimes \mathbb{C} \mid g \in \text{Spin}(n) , \lvert \lambda \rvert = 1\}\)
 \itemdefi
-  \Define \(\rho\) : \(\text{Spin}(n) \to \text{SO}(n)\) := adjoint representation
-\itemdefi
+  \Define \(\rho\) : \(\text{Spin}(n) \to \text{SO}(n)\) := defined by adjoint representation
 \end{Definition}
 
 \begin{Definition}
 \itemwhen
-  \IfHold \(n = 8k\) \\
+  \IfHold \(n = 8k\)
 \itemdefi
-  \(\Delta\) := \WIP \\
-  \(\Delta^{\pm}\) := \WIP
+  \(\Delta\) := restriction of irreducible real representation \(\text{Cl}^0_n \to \text{Hom}(S,S)\) for some \(S\) \\
+  \(\Delta^{\pm}\) := \(\pm\) eigenspaces of the volume element \(e_1 \cdots e_n\)
+\itemprop
+  \(\Delta = \Delta^+ \oplus \Delta^-\) and \(\Delta^{\pm}\) is irreducible module
 \end{Definition}
 
 \begin{Definition}
 \itemwhen
-  \IfHold \(n = 2k\) \\
+  \IfHold \(n = 2k\)
 \itemdefi
-  \(\Delta_c\) := \WIP \\
-  \(\Delta_C^{\pm}\) := \WIP
+  \(\Delta_c\) := restriction of irreducible real representation \(\text{Cl}^0_n \otimes \mathbb{C} \to \text{Hom}(S,S)\) for some \(S\) \\
+  \(\Delta_c^{\pm}\) := \(\pm\) eigenspaces of the volume element \((-i)^k e_1 \cdots e_n\)
+\itemprop
+  \(\Delta_c = \Delta_c^+ \oplus \Delta_c^-\) and \(\Delta_c^{\pm}\) is irreducible module
 \end{Definition}
 
 \begin{Definition}[スピン構造]
@@ -35,8 +38,8 @@
 
 \begin{Theorem}[\(KO\)-theory での Thom 同型]
 \itemdefi
-  \For Spin structure on \(W \to X\) \\
-  \Define Spinor bundle \(S^{\pm}\) : algebra bundle over \(X\) := \WIP
+  \For Spin structure on oriented real vector bundle \(W \to X\) \\
+  \Define spinor bundle \(S^{\pm}\) : algebra bundle over \(X\) := \(P \times_{\text{Spin}(n)} \Delta^{\pm}\)
 \itemdefi
   \For \(q : W \to X\) : oriented Riemannian vector bundle with Spin structure \\
   \Define multiplication \(q^* W \times q^* {S^+} \to q^*{S^-}\) := lift by Clifford muliptication \(\mathbb{R}^n \times \Delta^+ \to \Delta^-\) \\
@@ -45,6 +48,7 @@
 \itemprop
   \Then \(0 \to q^* {S^+} \overset{\sigma}{\to} q^* {S^-} \to 0\) has support in \(X\)
 \itemdefi
+  \IfHold \(X\) is compact \\
   \Define Thom class of \(W\) \(\mu(W)\) : \(KO(W)\) := defined by above complex \\
   \Define Thom isomorphism \(T\) : \(KO(X) \to KO(W)\) := \(\xi \mapsto q^*\xi \otimes_{\mathbb{R}} \mu(W)\)
 \itemprop
@@ -54,17 +58,18 @@
 \begin{Theorem}[\(K\)-theory での Thom 同型]
 \itemdefi
   \For \(\text{Spin}^c\) structure on \(W \to X\) \\
-  \Define complex spinor bundle \(S^{\pm}\) : algebra bundle over \(X\) := \WIP
+  \Define complex spinor bundle \(S_c^{\pm}\) : algebra bundle over \(X\) := \(P \times_{\text{Spin}^c(n)} \Delta_c^{\pm}\)
 \itemdefi
   \For \(q : W \to X\) : oriented Riemannian vector bundle with \(\text{Spin}^c\) structure \\
-  \Define multiplication \(q^* W \times q^* {S^+} \to q^*{S^-}\) := lift by Clifford muliptication \(\mathbb{R}^n \times \Delta^+ \to \Delta^-\) \\
+  \Define multiplication \(q^* W \times q^* {S_c^+} \to q^*{S_c^-}\) := lift by Clifford muliptication \(\mathbb{C}^n \times \Delta_c^+ \to \Delta_c^-\) \\
   \Define \(\omega\) : \(W \to q^* W\) := canonical section \\
-  \Define \(\sigma\) : \(q^* {S^+} \to q^* {S^-}\) := by the rule \(w \in W\) , \(\sigma\mid_w\) := multiplication by \(\omega(w)\)
+  \Define \(\sigma\) : \(q^* {S_c^+} \to q^* {S_c^-}\) := by the rule \(w \in W\) , \(\sigma\mid_w\) := multiplication by \(\omega(w)\)
 \itemprop
   \Then \(0 \to q^* {S^+} \overset{\sigma}{\to} q^* {S^-} \to 0\) has support in \(X\)
 \itemdefi
-  \Define Thom class of \(W\) \(\mu(W)\) : \(KO(W)\) := defined by above complex \\
-  \Define Thom isomorphism \(T\) : \(KO(X) \to KO(W)\) := \(\xi \mapsto q^*\xi \otimes_{\mathbb{R}} \mu(W)\)
+  \For \(X\) is compact \\
+  \Define Thom class of \(W\) \(\mu(W)\) : \(K(W)\) := defined by above complex \\
+  \Define Thom isomorphism \(T_c\) : \(K(X) \to K(W)\) := \(\xi \mapsto q^*\xi \otimes_{\mathbb{R}} \mu(W)\)
 \itemprop
-  \(T\) is isomorphism
+  \(T_c\) is isomorphism
 \end{Theorem}

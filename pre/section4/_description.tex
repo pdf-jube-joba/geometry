@@ -1,29 +1,72 @@
 \begin{Theorem}
 \itemprop
   \For \(V\) : oriented vector bundle \\
-  \Then \(\text{Spin}^c\)-structure on \(V\) is equivalent to a \(\text{Spin}\)-structure on \(V \otimes \Lambda^{\text{dim}V} V\)
+  \Then \(\text{Spin}^c\)-structure on \(V\) is equivalent to a \(\text{Spin}\)-structure on \(V \oplus \text{Det}(V)\)
 \end{Theorem}
 
 \begin{Definition}
 \itemdefi
-  \Define \(\text{Spin}^c \to \text{SO}(n) \times \text{SO}(2) \subset \text{SO}(n+2)\) := \(g \otimes \lambda \mapsto (\rho(g) , \lambda^2)\)
+  \Define \(k\) : \(C_n \otimes \mathbb{C} \to C_{n+2}\) := \(C_n \otimes \mathbb{C} \cong C_n \otimes C_2^0 \to C_n \hat{\otimes} C_2 \cong C_{n+2}\)
 \itemdefi
-  \Define \(\text{Spin}^c(n) \subset \text{Spin}(n+2)\) := lifts by above map
-\itemdefi
-  \Define \(k\) := \(C_n \otimes \mathbb{C} \cong C_n \otimes C_2^0 \to C_n \hat{\otimes} C_2 \cong C_{n+2}\)
-\itemprop
-  \Then \(k(u \otimes (a + bi)) = u(a + b e_{n+1} e_{n+2})\) \\
-  \Then action of \(\text{Spin}^c\) on \(\mathbb{R}^{n} \times \mathbb{R}^2\) is \(k(g \otimes \lambda)(v,w) = (g v g^{-1} , \lambda^2 w)\)
+  \Define determinant : \(\text{Spin}^c(n) \to \text{SO}(2)\) := \(g \otimes \lambda \mapsto \lambda^2\)
 \end{Definition}
 
 \begin{Theorem}
 \itemprop
-  \(k(\Omega_c) = \Omega\)
+  \Then \(k(u \otimes (a + bi)) = u(a + b e_{n+1} e_{n+2})\)
+\itemprop
+  \Then action of \(\text{Spin}^c\) on \(\mathbb{R}^{n} \times \mathbb{R}^2\) is \(k(g \otimes \lambda)(v,w) = (g v g^{-1} , \lambda^2 w)\)
+\itemprop
+  \For \(g \otimes \lambda\) : \(\text{Spin}^c(n)\) \\
+  \Then \(k(g \otimes \lambda)\) \(\in\) \(\text{Spin}(n+2)\)
+\itemprop
+  \Then \(\rho \circ k = (g \otimes \lambda \mapsto (\rho(g), \lambda^2))\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(u \times a + bi \mapsto u \times a + b e_1 e_2 \mapsto u (a + b e_{n+1} e_{n+2})\)
+\itemprof
+  \(k(g \otimes 1)(v,w) = (g) \cdot (v,w) = (g v g^{-1}, w)\) と \(k(1 \otimes \lambda)(v,w) = (v , \lambda w \lambda^{-1})\) が成り立った。
+  \(w \in \mathbb{R}^2 \subset \mathbb{R}^{n+2}\) は \(e_{n+1} , e_{n+2}\) で貼られる空間にあるため \(e_{n+1} e_{n+2}\) と anti-commutative であり、 （ \(e_i (e_{n+1} e_{n+2}) = (e_{n+1} e_{n+2}) e_{i}\) が \(i=n+1,n+2\) で成り立つ） \(\lambda w \lambda^{-1} = \lambda w \bar{\lambda} = \lambda^2 w\) となる。
+\itemprof
+  \(g\) : \(\text{Spin}(n)\) より \(g \otimes \lambda \in C^0\) に入り、 \(k\) が計量を保つので \(\lVert g \otimes \lambda \rVert = \lVert g \rVert \lvert \lambda \rvert = \pm 1\)
+\itemprof
+  以上の命題から確かにそう表される。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen \(n = 8m - 2\)
+\itemprop
+  \Let \(\Delta\) : \(C_{8m}\)-module := canonical one \\
+  \Let \(\Delta\) : \(C_{8m-2} \otimes \mathbb{C}\)-module := \(C_{8m}\)-module \(\Delta\) via \(k\) \\
+  \Then \(\Delta\) is canonically a complex vector space
+\itemprop
+  \Then \(\Delta_c \cong \Delta\) as \(C_{8m-2} \otimes \mathbb{C}\)-module
+  \Then \(k(\Omega_c) = \Omega\)
+\itemprop
+  \Then splittings \(\Delta = \Delta^+ \oplus \Delta^-\) and \(\Delta_c = \Delta_c^+ \oplus \Delta_c^-\) agree as \(\text{Spin}^c(n)\)-module
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  これは確かに定義より成り立つ
+\itemprof
+  次元を考えることでただ一つ表現が存在するはずとわかるからよい。
+\itemprof
+  \(k(\Omega_c) = k(i e_1 \cdot e_n) = e_1 \cdot e_n (e_{n+1} e_{n+2}) = \Omega\) より
+\itemprof
+  \(\Omega_c\) や \(\Omega\) の \(\pm 1\) 固有空間として splitting が与えられていたため。
+\end{Proof}
+
+\begin{Theorem}
 \itemwhen
   \(n = 8 m - 2\)
+\itemdefi
+  \For \((p : V \to X)\) : \(\text{Spin}^c\) vector bundle , \(P_c\) := principal bundle of this\\
+  \Then \(\text{Det}(V) \cong P_c \times_{\text{Spin}^c} \mathbb{R}^2\)
 \itemprop
-  \For \((p : V \to X)\) : \(\text{Spin}^c\) vector bundle , \(P_c\) := principal bundle \\
-  \Define determinant bundle := \(P_c \times_{\text{Spin}^c} \mathbb{R}^2\) \\
+  \Then \(P_c \times_{\text{Spin}^c(n)} \text{Spin}(n+2)\) is a canonical Spin structure on \(V \oplus \text{Det}(V) \)
 \itemprop
   \Then \(r \mu_c(V)\) : \(KO(V)\) is presented by the complex \(0 \to p^* {S^+} \overset{\sigma}{\to} p^*{S^-} \to 0\) \\ where for \(v\) : \(V\) , \(\sigma_v\) := multiplication
 \end{Theorem}
