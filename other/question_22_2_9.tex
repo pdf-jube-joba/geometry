@@ -1,3 +1,9 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../my-style.tex}
+
+\begin{document}
+
 \begin{Theorem}
 \itemwhen
   \For \(P\) : \(\Psi DO_{K,m}\) , \(\phi\) : diffeo on open subset \(U \to \tilde{U}\) , \(K\) : compact subset \(\subset U\) \\
@@ -15,9 +21,9 @@
   \Define \(J\) := \(\text{det} \frac{\partial \psi}{\partial x}\) \\
   \Then
   \begin{align*}
-   [(\phi_* P)u](x) &= [P(u \circ \phi)] (\tilde{x}) \\
-   &= \int \int e^{i \langle \tilde{x} - \tilde{y} , \xi \rangle} p(\tilde{x} , \xi) u(\phi(\tilde{y})) d\tilde{y} d\xi \\
-   &= \int \int e^{i \langle x - y , \Psi^t(x,y) \xi \rangle} p(\psi(x) , \xi) u(y) J(y) dy d\xi \\
+    [(\phi_* P)u](x) &= [P(u \circ \phi)] (\tilde{x}) \\
+    &= \int \int e^{i \langle \tilde{x} - \tilde{y} , \xi \rangle} p(\tilde{x} , \xi) u(\phi(\tilde{y})) d\tilde{y} d\xi \\
+    &= \int \int e^{i \langle x - y , \Psi^t(x,y) \xi \rangle} p(\psi(x) , \xi) u(y) J(y) dy d\xi \\
   \end{align*}
   \Define \(\mathscr{S}\) := \(e^{i \langle x - y , \Psi^t(x,y) \xi \rangle} p(\psi(x) , \xi) u(y) J(y)\) \\
   \Then integral of \((1 - \chi) \mathscr{S}\) is infinitely smoothing by 3.6 \\
@@ -141,3 +147,5 @@ symbol \(p\) によって定義される作用素は
 であるから、 \(e^{- i \langle x-y , \xi \rangle} \phi(\xi) K(x,y) \chi(y)\) が Workhorse theorem の仮定を満たすことを示せばよい。
 support に関する条件も微分に関する条件も成り立つから確かに良い。
 ここにおける議論には \(U\) が convex であるという仮定は使われていないため、 infinitely smoothing pseudodifferential operator については pushout が infinitely smoothing pseudodifferential operator となることは convex 無しで示せる。
+
+\end{document}

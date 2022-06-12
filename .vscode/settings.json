@@ -1,5 +1,5 @@
 {
-  "latex-workshop.latex.outDir": "../out",
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
   "latex-workshop.latex.magic.args": [
     "-synctex=1",
     "-interaction=nonstopmode",
