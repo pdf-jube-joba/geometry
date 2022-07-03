@@ -15,19 +15,19 @@
 \newtheorem*{tWhen}{設定}
 
 \newenvironment{Mini}{
-  \begin{minipage}[t]{1\hsize}
-  \setlength{\parindent}{10pt}
+  %\begin{minipage}[t]{1\hsize}
+  %\setlength{\parindent}{10pt}
   \begin{itemize}
   \setlength{\labelsep}{10pt}
 }{
   \end{itemize}
-  \vspace{5pt}
-  \end{minipage}
+  %\vspace{5pt}
+  %\end{minipage}
 }
 
 \newenvironment{Definition}[1][\quad]{
   \begin{tDefinition}
-  #1 \\
+  #1 
   \begin{Mini}
 }{
   \end{Mini}
@@ -36,7 +36,7 @@
 
 \newenvironment{Theorem}[1][\quad]{
   \begin{tTheorem}
-  #1 \\
+  #1 
   \begin{Mini}
 }{
   \end{Mini}
@@ -45,16 +45,16 @@
 
 \newenvironment{Proof}[1][\quad]{
   \begin{tProof}
-  #1 \\
+  #1 
   \begin{Mini}
-      }{
+}{
   \end{Mini}
   \end{tProof}
 }
 
 \newenvironment{When}{
   \begin{tWhen}
-  \quad \\
+  \quad 
   \begin{Mini}
 }{
   \end{Mini}
@@ -65,6 +65,16 @@
   \begin{tRemark}
 }{
   \end{tRemark}
+}
+
+\newenvironment{TestPage}[1][\quad]{
+  \begin{tWhen}
+  #1
+  \begin{itemize}
+  \setlength{\labelsep}{10pt}
+}{
+  \end{itemize}
+  \end{tWhen}
 }
 
 %% マーク
@@ -93,7 +103,7 @@
 }
 
 %コマンド関連
-\newcommand{\place}{\_}
+\newcommand{\place}{\square}
 \newcommand{\restr}[2]{\left. {#1} \right| _{#2}}
 \newcommand{\txt}{\texttt}
 \newcommand{\txtcmd}[2]{\text{#1} \, {#2}}
@@ -115,5 +125,7 @@
 \newcommand{\SORRY}{\textcolor{red}{わかりませんでした}}
 \newcommand{\ADMIT}{\textcolor{blue}{認めます}}
 \newcommand{\AIMAI}[1]{\textit{#1}}
+
+\newcommand{\OWNITEM}{\textcolor{blue}{このアイテムは論文中にはないものです}}
 
 \newcommand{\THENLINE}{\noindent\rule{8cm}{0.4pt}}

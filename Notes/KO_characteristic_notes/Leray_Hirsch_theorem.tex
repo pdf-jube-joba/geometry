@@ -1,0 +1,76 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+\begin{When}
+\itemwhen \(H\) : multiplicative cohomology theory
+\end{When}
+
+\begin{Theorem}
+\itemwhen
+  \For \(B,E,F\) : space \\
+  \For \((p: E \to B)\) : fiber bundle with fiber \(F\) \\
+  \IfHold \(H^*(F)\) is finitely generated free module as \(H^*(\text{point})\)-module \\
+  \For \(\theta\) : \(H^*(\text{point})\)-module hom \(H^*(F) \to H^*(E)\) \\
+  \IfHold \(\forall\) \(x:B\), \({i_x}^* \circ \theta\) is isomorphism of \(H^*(\text{point})\) \\
+  \Let \(H^*(B)\)-module structure on \(H^*(E)\) := \(x \cdot y = p^*x \cup y\)
+\itemprop
+  \Then \(x \otimes y \in H^*(B) \otimes_{H^*(\text{point})} H^*(F) \mapsto p^* x \cup \theta(y) \in H^*(E)\) is isomorphism as \(H^*(B)\)-module
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(B,E,F\) : space \\
+  \For \((p: E \to B)\) : fiber bundle with fiber \(F\) \\
+  \For \(\{b_i\}_i\) : subset of \(H^*(E)\) \\
+  \IfHold \(\forall\) \(x:B\), \(\{{i_x}^* b_i\}_i\) is basis of \(H^*(\restr{E}{x})\) \\
+  \For \(x_0\) : \(X\) , \(\phi\) : homeo \(\restr{E}{x_0} \to F\) \\
+  \Let \(\tilde{\theta}\) : \(H^*(\restr{E}{x_0}) \to H^*(E)\) := induced by \({i_{x_0}}^* b_i \mapsto b_i\)
+\itemprop
+  \Then \(\theta \leftarrow \tilde{\theta} \phi^*\) satisfies above condition
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  fin gen free は isomorphism \(\phi^*\) を経由して basis が移るのでよい。
+  任意に \(x:B\) をとる。 \({i_x}^* \theta = {i_x}^* \tilde{\theta} \phi^*\) が isomorphism であるかどうかは \({i_x}^* \circ \tilde{\theta}\) が同型であればよい。
+  \(H^*(\restr{E}{x_0})\) の基底 \({i_{x_0}}^* b_i\) は \(\{i_{x}\}^* b_i\) にうつるからよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \For \(X\) : non empty space \\
+  \For \(u\) : \(H^0(X)\) \\
+  \IfHold \(\forall\) \(x:B\), \({i_x}^* u\) is generator of \(H^*(\{x\})\) as \(H^*(\text{point})\)-module
+\itemprop
+  \Then \(u\) is generator of \(H^*(X)\) as \(H^*(X)\)-module
+\end{Theorem}
+
+\begin{Proof}
+\itemprop
+  上の命題を適用することによりわかる。
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \For \(B,F\) : space \\
+  \IfHold \(H^*(F)\) is finitely generated free module as \(H^*(\text{point})\)-module \\
+  \For \(\theta\) : \(H^*(\text{point})\)-module hom \(H^*(F) \to H^*(B \times F)\) \\
+  \IfHold \(\forall\) \(x:B\), \({i_x}^* \circ \theta\) is isomorphism of \(H^*(\text{point})\) \\
+  \Let \(H^*(B)\)-module structure on \(H^*(B \times F)\) := \(x \cdot y = \txt{projection}^*x \cup y\)
+\itemprop
+  \Then \(x \otimes y \in H^*(B) \otimes_{H^*(\text{point})} H^*(F) \mapsto p^* x \cup \theta(y) \in H^*(B \times F)\) is isomorphism as \(H^*(B)\)-module
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(B,F\) : space \\
+  \IfHold \(H^*(F)\) is finitely generated free module as \(H^*(\text{point})\)-module \\
+  \For \(\theta\) : \(H^*(\text{point})\)-module hom \(H^*(F) \to H^*(B) \otimes H^*(F)\) \\
+  \Let \({i_x}^*\) : for \(x:B\), \(H^*(B) \to H^*(\text{point})\) := \((\place \in \text{point} \mapsto x \in B)^{*}\) \\
+  \IfHold \(\forall\) \(x:B\), \((x \otimes y \mapsto {i_x}^* x \cdot y) \circ \theta\) is isomorphism of \(H^*(\text{point})\)
+\itemprop
+  \Then \(x \otimes y \in H^*(B) \otimes_{H^*(\text{point})} H^*(F) \mapsto x \cdot \theta(y) \in H^*(B) \otimes H^*(F)\) is isomorphism as \(H^*(B)\)-module
+\end{Theorem}
+
+\end{document}

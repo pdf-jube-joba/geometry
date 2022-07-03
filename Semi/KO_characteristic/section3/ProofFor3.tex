@@ -1,5 +1,5 @@
 \documentclass[dvipdfmx]{jsarticle}
-\input{../../my-style.tex}
+\input{../../../my-style.tex}
 
 \newcommand{\Ktheory}[1]{K_{\mathbb{K}}(#1)}
 \newcommand{\KtheoryReduced}[1]{\tilde{K}_{\mathbb{K}}(#1)}
@@ -18,6 +18,11 @@
 ori.metrized.vec.bundle with \(\mathbb{G}\).st を \(\mathbb{G}\).st と書く。
 また通常のコンパクト空間に対してのみ定義された \(K\) 理論と区別する必要がある（何がどっちで成り立っているかわかりにくい）ため、複体で定義したものを \(\KtheoryCpx{X}\) と書く。
 pair of space で locally compact space と closed subset の空間対とする。
+次のことを仮定した場合に示す。
+\begin{itemize}
+  \itemwith \(\eta := [0 \to \mathbb{R}^{k} \times \Delta^+ \to \mathbb{R}^{k} \times \Delta^- \to 0]\) : \(\KtheoryCpx{\mathbb{R}^k} \cong \KtheoryReduced{S^k} = \KcohomologyReduced{-k}{S^0}\)
+  \itemwith \(\beta(x) = x \cdot \eta\) : \(\KcohomologyReduced{*}{X} \to \KcohomologyReduced{*-k}{X}\) := \(\beta\) is isomorphism
+\end{itemize}
 
 \begin{Definition}[Thom 複体と Thom 写像の定義]
 \itemwhen
@@ -57,7 +62,6 @@ pair of space で locally compact space と closed subset の空間対とする�
 %\itemprop
 %  \Then \(h^{-1}T_{\xi} x = [q^* x] \cdot [\restr{\mu(W)}{(D(W), S(W))}]\)
 \itemdefi
-  \Let \(\beta\) : \(\KcohomologyReduced{*}{X} \to \KcohomologyReduced{*+k}{X}\) := by Bott periodicity \\
   \Let \(\tilde{\mu}(\xi)\) : \(\KcohomologyReduced{n}{\text{Total}(\xi)}\) := defined by \(\mu(\xi) \in \KtheoryCpx{W} \cong \KtheoryReduced{\text{Total}(\xi)} \cong \KcohomologyReduced{n}{\text{Total}(\xi)}\)
 \itemprop
   \Let \(\tilde{T}_{\xi}\) : \(\Kcohomology{0}{X}{\emptyset} \to \KcohomologyReduced{n}{\text{Total}(\xi)}\) := induced by \\
@@ -65,6 +69,8 @@ pair of space で locally compact space と closed subset の空間対とする�
   \Then \(\tilde{T}_{\xi} = x \mapsto x \cdot \tilde{\mu}(\xi)\)
 \itemprop
   \Then \(\tilde{\mu}(\xi)\) is \(K_{\mathbb{K}}\)-orientation
+\itemprop
+  \Then \(\tilde{T}_{\xi}\) is isomorphism
 \end{Theorem}
 
 \begin{Proof}
@@ -84,8 +90,78 @@ pair of space で locally compact space と closed subset の空間対とする�
 \itemprof
   これは定義による。
 \itemprof
-  \(i_x\) の定義（実際には \(\mathbb{R}^n \to \xi_x\) 分の定義の揺らぎがある）と Thom class の乗法性により、次の場合に帰着する。
-  \(0 \to \mathbb{R}^{k} \times S^{+} \to \mathbb{R}^{k} \times S^{-} \to 0\) なる \(\KtheoryCpx{\mathbb{R}^{k}} \cong \KcohomologyReduced{0}{S^k}\) の元は Bott 周期性 \(\beta\) : \(\KcohomologyReduced{0}{S^0} \to \KcohomologyReduced{-k}{S^0} \cong \KcohomologyReduced{0}{S^k}\) により \(1 \in \KcohomologyReduced{0}{S^0}\) の移った元であることを示す。
+  まず状況を整理すると
+  \begin{itemize}
+    \item \(\xi = (q : W \to X)\) : vector bundle
+    \item \(n = ik = \text{dim}(\xi)\)
+    \item (\(P\): \(\text{Spin}(n)\)-bundle over \(X\), \(\phi\): \(P \times_{\text{Spin}(n)} \mathbb{R}^n \cong \xi\)) : Spin structure over \(\xi\)
+    \item \(x\) : \(X\)
+    \item \(i_x\) : \(\restr{\xi}{x} \to \xi\) := injection
+  \end{itemize}
+  という状況で
+  \({i_x}^*\mu(\xi)\) が \(\mathbb{R}^n \cong \restr{\xi}{x}\) のもとで \(1 \cdot \eta \cdot \eta \cdots \eta\) : \(\tilde{K}^{0 - ik}(\text{point}) \cong K_{\text{cpt}}(\mathbb{R}^{ik})\)
+  に等しいことを示せばよい。
+  \({i_x}^*\mu(\xi)\) は　\(0 \to \mathbb{R}^{ik} \times \Delta^+ \to \mathbb{R}^{ik} \times \Delta^- \to 0\) にあたることが次のようにしてわかる。
+  \begin{align*}
+    {i_x}^*[q^* (P \times_{\text{Spin}(n)} \Delta^+) &\to q^* (P \times_{\text{Spin}(n)} \Delta^-)] \\
+    [\restr{\xi}{x} \times_{\{x\}} ((P \times_{\text{Spin}(n)} \Delta^+)) &\to \restr{\xi}{x} \times_{\{x\}} ((P \times_{\text{Spin}(n)} \Delta^+))] \\
+    [(\restr{P}{x} \times_{\text{Spin}(n)} \mathbb{R}^n) \times (\restr{P}{x} \times_{\text{Spin}(n)} \Delta^+) &\to (\restr{P}{x} \times_{\text{Spin}(n)} \mathbb{R}^n) \times (\restr{P}{x} \times_{\text{Spin}(n)} \Delta^-)] \\
+    [\mathbb{R}^{ik} \times \Delta^+ &\to \mathbb{R}^{ik} \times \Delta^-]
+  \end{align*}
+  写像が対応するかどうかについては、 \(q^* W \times q^* S^+ \to q^*S^-\) の写像の定義による。
+  \(\mu(0 \to \mathbb{R}^{ik} \times \Delta^+ \to \mathbb{R}^{ik} \times \Delta^- \to 0)\) と \(\beta^i\) : \(\KtheoryReduced{S^0} \to \KtheoryReduced{S^{ik}}\) により \(\mu(\cdots) = \beta^i(1) \in \KtheoryReduced{S^0}\) であることを示せばよい。
+  これは
+  \[[\mathbb{R}^{ik} \times \Delta^+ \to \mathbb{R}^{ik} \times \Delta^-] = \hat{\otimes}^i [\mathbb{R}^{k} \times \Delta^+ \to \mathbb{R}^{k} \times \Delta^-]\] を示せば、 \(\mu(\cdots) = \mu(\cdots)^{i} = (1 \cdot \beta(1))^i = \eta^i = (1 \cdot \eta) \cdot \eta \cdots \eta = \beta(\cdots \beta(\beta(1)))\) よりよい。
+\itemthen
+  \([\mathbb{R}^{ik} \times \Delta^{+} \to \mathbb{R}^{ik} \times \Delta^-] \otimes [\mathbb{R}^{k} \times \Delta^+ \to \mathbb{R}^{k} \times \Delta^-] = [\mathbb{R}^{(i+1)k} \times \Delta^+ \to \mathbb{R}^{(i+1)k} \times \Delta^-]\) を示す。
+  状況を整理すると、
+  \begin{itemize}
+    \item \(\Delta\) := \(\mathbb{R}^{16}\)
+    \item identification of \(\text{Cl}_{8} \cong \text{End}(\Delta)\) := \AIMAI{by natural definition}
+    \item volume element \(\Omega\) : \(\text{Cl}_{8}\) := \(e_{1} \cdots e_{8k}\)
+    \item \(\Delta^{\pm}\) : subspace of \(\Delta\) := \(\pm 1\) eigenspace of \(\Omega \cdot \place\)
+  \end{itemize}
+  としたうえで \(\Delta_{8k}\) が次元のみ指定されていたため次のように定める。
+  \begin{itemize}
+    \item \(\Delta_{k}\) : vector space \(\text{dim}=2^{4k}\) := inductive definition by \(\Delta_{k+1}\) := \(\Delta_{k} \otimes \Delta\)
+    \item isomorphism of \(\text{Cl}_{n+8} \to \text{Cl}_{n} \otimes \text{Cl}_{8}\) := \(e_{i} \mapsto e_{i} \otimes \Omega (1 \leq i \leq 8k), 1 \otimes e_{i-8k} (8k+1 \leq i 8(k+1))\)
+    \item identification of \(\text{Cl}_{8k} \cong \text{End}(\Delta_{k})\) := inductive definition by \\
+    \(\text{Cl}_{8(k+1)} \cong \text{Cl}_{8k} \otimes \text{Cl}_{8} \cong \text{End}(\Delta_{k}) \otimes \text{End}(\Delta) \cong \text{End}(\Delta_{k} \otimes \Delta)\)
+    \item volume element \(\Omega_{k}\) : \(\text{Cl}_{8k}\) := \(e_{1} \cdots e_{8k}\)
+    \item \({\Delta_{k}}^{\pm}\) : subspace of \(\Delta_{k}\) := \(\pm 1\) eigenspace of \(\Omega \cdot \place\)
+  \end{itemize}
+  このとき \((\Delta_{k+1})^{+} = \Delta_{k}^{+} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{-} \otimes \Delta_{k}^{-}, (\Delta_{k+1})^{-} = \Delta_{k}^{-} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{+} \otimes \Delta_{k}^{-}\) であることが、 \(\text{Cl}_{n+8} \cong \text{Cl}_{n} \cong \text{Cl}_{8}\) のもとで \(\Omega_{k+1} \mapsto \Omega_{k} \otimes \Omega\) と対応しそれぞれ次元を考えることでわかる。
+  二つの複体を \((t,s) \in \mathbb{R}^{8k} \times \mathbb{R}^{8}\) のファイバー上で比較する。
+  前者は
+  \[
+    0 \to
+    \Delta_{k}^{+} \otimes \Delta_{k}^{+}
+    \overset{\begin{pmatrix} t \otimes 1 \\ 1 \otimes s \end{pmatrix}}{\to}
+    \Delta_{k}^{-} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{+} \otimes \Delta_{k}^{-}
+    \overset{\begin{pmatrix} -1 \otimes s, t \otimes 1 \end{pmatrix}}{\to}
+    \Delta_{k}^{-} \otimes \Delta_{k}^{-}
+    \to 0
+  \]
+  であり、後者は \((t,s) \in \mathbb{R}^{8k} \times \mathbb{R}^8\) が \(\text{Cl}_{8k} \otimes \text{Cl}_{8}\) において \(t \otimes \Omega + 1 \otimes s\) に対応することから、
+  \[
+    0 \to
+    \Delta_{k}^{+} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{-} \otimes \Delta_{k}^{-}
+    \overset{t \otimes \Omega + 1 \otimes s}{\to}
+    \Delta_{k}^{-} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{+} \otimes \Delta_{k}^{-}
+    \to 0
+  \]
+  となる。
+  今、 \(0 \to E \overset{f}{\to} F \overset{g}{\to} G \to 0 \simeq 0 \to E \oplus G \overset{(f,g^{\dagger})}{\to} F \to 0\) を認めれば、 \(\Delta^{+} \overset{t \cdot \place}{\to} \Delta^{-}\) の随伴が \(\langle t w_1 , w_2 \rangle = \langle w_1 , -t w_2 \rangle\) より \(t^{\dagger} = -t\) となることと合わせて、前者の複体が次と同値である。
+  \[
+    0 \to
+    \Delta_{k}^{+} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{-} \otimes \Delta_{k}^{-}
+    \overset{\begin{pmatrix} t \otimes 1 & 1 \otimes s \\ 1 \otimes s & - t \otimes 1 \end{pmatrix}}{\to}
+    \Delta_{k}^{-} \otimes \Delta_{k}^{+} \oplus \Delta_{k}^{+} \otimes \Delta_{k}^{-}
+    \to 0
+  \]
+  成分を見れば \(\Omega\) の作用から二つの複体は等しいとわかる。
+\itemprof
+  これは積を持つ一般コホモロジーの一般論からわかる。
 \end{Proof}
 
 \end{document}

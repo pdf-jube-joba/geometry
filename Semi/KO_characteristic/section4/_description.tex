@@ -1,9 +1,3 @@
-\begin{Theorem}
-\itemprop
-  \For \(V\) : oriented vector bundle \\
-  \Then \(\text{Spin}^c\)-structure on \(V\) is equivalent to a \(\text{Spin}\)-structure on \(V \oplus \text{Det}(V)\)
-\end{Theorem}
-
 \begin{Definition}
 \itemdefi
   \Define \(k\) : \(C_n \otimes \mathbb{C} \to C_{n+2}\) := \(C_n \otimes \mathbb{C} \cong C_n \otimes C_2^0 \to C_n \hat{\otimes} C_2 \cong C_{n+2}\)
@@ -42,7 +36,7 @@
   \Let \(\Delta\) : \(C_{8m-2} \otimes \mathbb{C}\)-module := \(C_{8m}\)-module \(\Delta\) via \(k\) \\
   \Then \(\Delta\) is canonically a complex vector space
 \itemprop
-  \Then \(\Delta_c \cong \Delta\) as \(C_{8m-2} \otimes \mathbb{C}\)-module
+  \Then \(\Delta_c \cong \Delta\) as \(C_{8m-2} \otimes \mathbb{C}\)-module \\
   \Then \(k(\Omega_c) = \Omega\)
 \itemprop
   \Then splittings \(\Delta = \Delta^+ \oplus \Delta^-\) and \(\Delta_c = \Delta_c^+ \oplus \Delta_c^-\) agree as \(\text{Spin}^c(n)\)-module
@@ -54,7 +48,7 @@
 \itemprof
   次元を考えることでただ一つ表現が存在するはずとわかるからよい。
 \itemprof
-  \(k(\Omega_c) = k(i e_1 \cdot e_n) = e_1 \cdot e_n (e_{n+1} e_{n+2}) = \Omega\) より
+  \(k(\Omega_c) = k(i e_1 \cdots e_n) = e_1 \cdots e_n (e_{n+1} e_{n+2}) = \Omega\) より
 \itemprof
   \(\Omega_c\) や \(\Omega\) の \(\pm 1\) 固有空間として splitting が与えられていたため。
 \end{Proof}
@@ -62,7 +56,7 @@
 \begin{Theorem}
 \itemwhen
   \(n = 8 m - 2\)
-\itemdefi
+\itemprop
   \For \((p : V \to X)\) : \(\text{Spin}^c\) vector bundle , \(P_c\) := principal bundle of this\\
   \Then \(\text{Det}(V) \cong P_c \times_{\text{Spin}^c} \mathbb{R}^2\)
 \itemprop

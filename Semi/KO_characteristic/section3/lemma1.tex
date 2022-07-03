@@ -1,0 +1,167 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../../my-style.tex}
+
+\begin{document}
+
+\section*{一般コホモロジーの向き付け}
+積のある一般コホモロジーにおいて orientation を定義し、 orientation が Thom 同型を導くことを示す。
+
+\begin{When}
+\itemwhen \Fix \(E\) : cohomology theory with product
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \For \(\xi\) : vector bundle \\
+  \Let \(n\) := \(\text{dim}(\xi)\) \\
+  \Let \(i_{x}\) : for \(x\) : \(\text{Base}(\xi)\) , \(\text{Thom}(\restr{\xi}{x}) \to \text{Thom}(\xi)\) s.t. induced by inclusion \(\text{Total}(\restr{\xi}{x}) \to \text{Total}(\xi)\) \\
+  \Let \(\sigma^n\) : \(\tilde{E}^{0}(S^0) \to \tilde{E}^{n}(S^n)\) := suspension isomorphism \\
+  \Define \(E\)-orientation of \(\xi\) := \(\mu\) : \(\tilde{E}^{n}(\text{Thom}(\xi))\) s.t. \\
+  \(\forall\) \(x\) : \(\text{Base}(\xi)\) , \(\exists\) \(\restr{\xi}{x} \cong \mathbb{R}^n\), \({i_x}^* (\mu) = \sigma^n(1)\)
+\end{Definition}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(\sigma_n\) : \(E^{n}(D^n, S^n)\) := \(1 \in \tilde{E}^{0}(S^0) \overset{\text{suspension}}{\mapsto} \tilde{E}^{n}(S^n) \overset{\text{isomorphism}}{\mapsto} E^{n}(D^n, S^n)\)
+\itemprop
+  \Let \(E\text{-orientation} \to \{\mu \in E^{n}(D(\xi), S(\xi)) \mid \forall x: B(\xi), \exists \xi_x \cong \mathbb{R}^n, {i_x}^* \mu = \sigma_n \}\) := \\
+  by \(\text{Thom}(\xi) \cong D(\xi)/S(\xi)\) \\
+  \Then this is isomorphim
+\itemprop
+  \Then \(\cdot \times \sigma_{n}\) : \(E^*(X, A) \to E^{*+n}((X, A) \times (D^n, S^n))\) is isomorphim
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+   これは \((D^{n}/ S^{n-1}) \cong S^{n}\) と \(\sigma_{n}\) の定義による。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Let \(\phi\) : \((D^{n}, S^{n-1}) \times (D^{1}, S^0) \to (D^{n+1}, S^{n})\) := \AIMAI{nice def with} \(\restr{\phi}{(D^{n}, S^{n-1}) \times (S^0, *)}\) : \((D^{n}, S^{n-1}) \times (S^0, *) \to (S^{n+1}, *)\) 
+\itemprop
+  \Then \(\phi^* \sigma_{n+1} = \sigma_{n} \times \sigma_{1}\)
+\itemprop
+  \Then \(\cdot \times \sigma_{n}\) : \(E^*(X, A) \to E^{*+n}((X, A) \times (D^n, S^n))\) is isomorphim
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  suspension \(\sigma\) : \(\tilde{E}^{n}(X) \to \tilde{E}^{n+1}(\Sigma X)\) は左のように定義されていたから、\(C S^n \cong D^{n+1}\) 等を用いて \(\sigma_{n+1}\) は右によって与えられていることがわかる。
+  \[\begin{matrix}
+    \tilde{E}^{n}(x) = E^{n}(X, *) &
+      \sigma_{n} \in E^{n}(D^{n}, S^{n-1}) \\
+    \text{conn.hom. of} \, (CX, X, *) \downarrow &
+      \downarrow \text{inv. of quot.} \\
+    E^{n+1}(CX, X) &
+      E^{n}(S^{n}, *) \\
+    \text{inv. of quot.} \downarrow &
+      \downarrow \text{conn.hom of} \, (D^{n+1}, S^{n}, *)  \\
+    E^{*+1}(CX/X, *) = \tilde{E}^{*+1}(\Sigma X) &
+      \sigma_{n+1} \in E^{n+1}(D^{n+1}, S^{n}) \\
+  \end{matrix}\]
+  今次の図を考える。
+  \[\begin{matrix}
+    (D^{n}, S^{n-1}) & \cong & (D^{n}, S^{n-1}) \times * \\
+    \downarrow \text{quot} & & \downarrow \text{incl} \\
+    (S^{n}, *) & \leftarrow \phi & (D^{n}, S^{n-1}) \times (S^{0}, *) \\
+    \downarrow \text{incl} & & \downarrow \text{incl} \\
+    (D^{n+1}, S^{n}) & \leftarrow \phi & (D^{n}, S^{n-1}) \times (D^{1}, S^{0})
+  \end{matrix}\]
+  この図が可換であることから次の図の左は可換であり、 \(\sigma_{n+1} = \sigma_{n} \times \sigma_{1}\) である。
+  \[\begin{matrix}
+    E^{n}(D^{n}, S^{n-1}) & \leftrightarrow & E^{n}((D^{n}, S^{n-1}) \times *) & \leftarrow & E^{n}(D^{n}, S^{n-1}) \otimes E^{0}(*) \\
+    \updownarrow & & \updownarrow \text{excision} & & \updownarrow 1 \otimes \text{excision} \\
+    E^{n}(S^{n}, *) & \rightarrow & E^{n}((D^{n}, S^{n-1}) \times (S^{0}, *)) & \leftarrow & E^{n}(D^{n}, S^{n-1}) \otimes E^{0}(S^0, *) \\
+    \downarrow & & \downarrow \text{conn.hom} & & \downarrow 1 \otimes \text{conn.hom} \\
+    E^{n+1}(D^{n+1}, S^{n}) & \to & E^{n+1}((D^{n}, S^{n-1}) \times (D^{1}, S^{0})) & \leftarrow &E^{n}(D^{n}, S^{n-1}) \otimes E^{1}(D^{1}, S^{0})
+  \end{matrix}\]
+\itemprof
+  \(\phi\) という同型を経由すれば \(\cdot \times \sigma_{1}\) が同型であることを示せばよい。
+  同様な次の図により全単射とわかる。
+  \[\begin{matrix}
+    & & E^{*}((X, A) \times *) & \leftarrow & E^{*}(X, A) \otimes E^{0}(*) \\
+    & & \text{excision} & & \updownarrow 1 \otimes \text{excision} \\
+    & & E^{*}((X, A) \times (S^{0}, *)) & \leftarrow & E^{*}(X, A) \otimes E^{0}(S^0, *) \\
+    & & \downarrow \text{conn.hom} & & \downarrow 1 \otimes \text{conn.hom} \\
+    E^{*}(X, A) & \to & E^{*+1}((X, A) \times (D^{1}, S^{0})) & \leftarrow & E^{*}(X, A) \otimes E^{1}(D^{1}, S^{0})
+  \end{matrix}\]
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi\) : vector bundle , \(\mu\) : \(E\)-orientation , \(f\) : \(X \to \text{Base}(\xi)\)  \\
+  \Let \(f_\dagger\) : \(\text{Thom}(f^* \xi) \to \text{Thom}(\xi)\) := induced by \((x,v) \mapsto v\) \\
+  \Then \(f_\dagger^* \mu\) is \(E\)-orientation of \(f^*\xi\)
+\itemprop
+  \For \(\xi_1 , \xi_2\) : vector bundle , \(\mu_i\) : \(E\)-orientation of \(\xi_i\) \\
+  \Let \(i\) : \(\text{Thom}(\xi_1 \times \xi_2) \to \text{Thom}(\xi_1) \wedge \text{Thom}(\xi_2)\) := induced by \((e_1,e_2) \mapsto e_1 \wedge e_2\) \\
+  \Then \(i^*(\mu_1 \times \mu_2)\) is \(E\)-orientation of \(\xi_1 \times \xi_2\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(f_\dagger\) が誘導されることを示す。
+  \(i\) := \((x,e) \in \text{Total}(f^* \xi) \to e \in \text{Total}(\xi)\) が proper であることを示せばよい。
+  \(K\) : compact subset in \(\text{Total}(\xi)\) をとる。
+  \(i^{-1}(K)\) が compact であることは、 \(f^{-1}(\pi(K)) \times K\) なる compact 集合に含まれているから良い。
+
+  \(f_{\dagger}^* \mu\) が \(E\)-orientation であることについては \(f^*\xi\) のファイバーを考えれば確かに成り立つ。
+\itemprof
+  \(i\) が誘導されることを示す。
+  \(E_i := \text{Total}(\xi_i)\) とする。
+  \(O\) : \(E_1^\infty \wedge E_2^\infty\) の基点の近傍、に対して、 \(i^{-1}(O^c)\) が compact であることを示せばよい。
+  またさらに、 \(E_1^\infty \times E_2^\infty\) の \(E_1^\infty \times \infty \cup \infty \times E_2^\infty\) を含む開集合 \(O\) について、 \(O \cap E_1 \times E_2\) の補集合が compact であることを示せばよい。
+  \(E_1^\infty , E_2^\infty\) の compact 性から tube lemma により \(O_i\) : \(E_i^\infty\) の中の \(\infty\) の近傍で \(O \supset E_1^\infty \times \O_2\cup O_1 \times E_2^\infty\) がとれて定義により \(O_1^c, O_2^c\) は compact のため \(O^c \subset O_1^c \times O_2^c\) と合わせて \(O^c\) が compact とわかる。
+
+  \(i_*(\mu_1 \times \mu_2)\) が \(E\)-orientation になることについては上と同様にファイバーごとに考えると \((x,y)\) : \(\text{Base}(\xi_1) \times \text{Base}(\xi_2)\) について \({i_x}^* i^*(\mu_1 \times \mu_2)\) が \(S^{n+m} \to S^n \wedge S^m\) のように与えられているためよい。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(E^{*}(\text{Base}(\xi))\)-module structure on \(\tilde{E}^{*}(\text{Thom}(\xi))\) := defined by followed diagram
+  \[\begin{matrix}
+    E^{*}(\text{Base}(\xi))) \otimes \tilde{E}^{*}(\text{Thom}(\xi)) & & \tilde{E}^{*}(\text{Thom}(\xi)) \cong E^{*}(D(\xi), S(\xi)) \\
+    \downarrow \cong & & \uparrow i^* \\
+    E^{*}(\text{Base}(\xi))) \otimes E^{*}(D(\xi), S(\xi)) & \overset{\text{enterior product}}{\to} & E^{*}(\text{Base}(\xi)) \times (D(\xi), S(\xi))) \\
+  \end{matrix}\]
+  where \(i\) : \((D(\xi), S(\xi)) \to X \times (D(\xi), S(\xi))\) := \(e \mapsto (\pi(e), e)\)
+\itemprop
+  \For \(\xi\) : vector bundle where \(X\) : compact , \(\mu\) : \(E\)-orientation of \(\xi\) \\
+  \Then \(\tilde{E}^{*}(\text{Thom}(\xi))\) is a free \(E^{*}(\text{Base}(\xi))\)-module with generator \(\mu\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\xi\) が product bundle の場合に示す。
+  \(E\)-orientation の対応により次のことを示せばよい。 \\
+  \For \(\mu\) : \(E^{n}(X \times (D^{n}, S^{n-1}))\) \\
+  \IfHold \(\forall\) \(x\) : \(X\), \(\exists\) \((D^{n}, S^{n-1}) \cong (D^{n}, S^{n-1})\), \(\restr{\mu}{x} = \sigma_{n}\) \\
+  \Then \(x \in E^{*}(X) \mapsto x \cdot \mu \in E^{*+n}(X \times (D^{n}, S^{n-1}))\) is isomorphic \\
+  \(E^{*}(X) \to E^{*+n}(X \times (D^{n}, S^{n-1}))\) の同型により \(t\) : \(E^0(X)\) により \(\mu = t \times \sigma_n\) と表す。
+  これにより、 \(x \cdot (t \times \sigma_{n}) = (x \cdot t) \times \sigma_{n}\) であるから \(x \in E^{*}(X) \mapsto x \cdot t \in E^{*}(X)\) が同型であることを示せばよい。
+  また、条件についても制限により次の命題に帰着する。 \\
+  \For \(t\) : \(E^0(X)\) \\
+  \IfHold \(\forall\) \(x\) : \(X\), \(\exists\) \((D^{n}, S^{n-1}) \cong (D^{n}, S^{n-1})\), \(\restr{t}{x} \cdot \sigma_{n} = \sigma_{n}\) \\
+  \Then \(x \in E^{*}(X) \mapsto x \cdot t \in E^{*}(X)\) \\
+  ここで条件を考えると、 \(E^{*}(D^{n}, S^{n-1})\) は \(E^{*}(pt)\) 加群として \(\sigma_{n}\) で生成される自由加群となるから、 \(\restr{t}{x}\) は \(E^{*}(pt)\) の生成元であるとわかる。
+  Leray-Hirsch の定理により、 \(X \to X\) なる一点をファイバーとするファイバー束に対して、 \(t\) : \(H^0(X)\) が各ファイバーごとに生成元を与えているから \(t\) は \(H^*(X)\) の生成元である。
+\itemprof
+  \(\xi\) が有限型のときに示す。
+  前に示した命題により \(X=X_1 \cap X_2\) として \(\restr{\mu}{X_1} , \restr{\mu}{X_2} , \restr{\mu}{X_1 \cap X_2}\) が制限束の \(E\)-orientation となるから、これらに対して成り立つときに \(X\) で成り立つことを示せば自明束の場合に帰着し示せる。
+  \[\begin{matrix}
+    E^{*}(X_1) \oplus E^{*}(X_2) & \to & E^{*+n}(\text{Thom}(\restr{\xi}{X_1})) \oplus E^{*+n}(\text{Thom}(\restr{\xi}{X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*}(X_1 \cap X_2) & \to & E^{*+n}(\text{Thom}(\restr{\xi}{X_1 \cap X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X) & \to & E^{*+1+n}(\text{Thom}(\xi)) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X_1) \oplus E^{*+1}(X_2) & \to & E^{*+1+n}(\text{Thom}(\restr{\xi}{X_1})) \oplus E^{*+1+n}(\text{Thom}(\restr{\xi}{X_2})) \\
+    \downarrow & & \downarrow \\
+    E^{*+1}(X_1 \cap X_2) & \to & E^{*+1+n}(\text{Thom}(\restr{\xi}{X_1 \cap X_2})) \\
+    \downarrow & & \downarrow \\
+  \end{matrix}\]
+  より five-lemma を適用することでわかる。
+\end{Proof}
+
+\end{document}

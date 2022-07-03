@@ -1,0 +1,72 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../my-style.tex}
+
+\begin{document}
+
+\begin{When}
+\itemwhen
+  \Fix \(X\) : Type
+\end{When}
+
+\begin{Definition}
+\itemdefi
+  \For \(A\) : Type \\
+  \Define \(B\) : Type := \AIMAI{natural definition}
+\itemdefi
+  \Define \(C\) : Type :=
+  \begin{indentblock}
+    \Let \(D\) : Type \\
+    \Take \(E\) : Type \\
+    \Return \(F\)
+  \end{indentblock}
+\itemdefi
+  \(a_{\place}\)
+\itemdefi
+  \(\restr{\xi}{x}\)
+\itemdefi
+  \(\txt{a}\)
+\itemdefi
+  \(\txtcmd{dim}{F}\)
+\itemdefi
+  \(\substedplace{H}\)
+\itemdefi
+  \Define \(G\) :=
+  \begin{itemize}
+    \itembase \(G\) : group
+    \itemenum \(f\) : \(G \to G\)
+    \itemwith \(f^2 = 1\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \IfHold \(P\) \\
+  \Then \(Q\)
+\itemnote
+  hello
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  first
+\itemthen
+  \WIP \\
+  \SORRY \\
+  \ADMIT \\
+\end{Proof}
+
+\begin{TestPage}[hello]
+\itemenum a
+\itemenum b
+\itemenum c
+\itemenum d
+\itemenum e
+\itemenum f
+\itemenum g
+\itemenum h
+\itemenum i
+\itemenum j
+\end{TestPage}
+
+\end{document}

@@ -3,11 +3,13 @@
   \For \((p : V \to X)\) : \(\text{Spin}^c\) bundle over closed manifold \\
   \Let \(D\) := determinant bundle of this \\
   \For \(s\) : section of its determinant bundle transverse to the zero section \\
-  \Let \(Y\) := \(s^{-1}(X)\) , \(U\) : tubular neightborhoood of \(Y\) in \(X\)
+  \Let \(Y\) := \(s^{-1}(X)\)
+  \For \(U\) : tubular neightborhoood of \(Y\) in \(X\) \\
 \itemprop
   \Then normal bundle of \(Y\) in \(X\) is canonically isomorphic to the bundle \(i^*D \to Y\) \\
+\itemprop
   \Define \(\tau\) := canonical section \\
-  \Then bundle \(D\mid_U \to U\) can be identified with the bundle \(\pi^*{i^* D} \to B(i^*D)\) with \(\tau , s\)
+  \Then bundle \(\restr{D}{U} \to U\) can be identified with the bundle \(\pi^*{i^* D} \to B(i^*D)\) with \(\tau , s\)
 \itemprop
   \Then \(V \mid_U \to U\) and \(\pi^* {i^* V} \to B(i^*D)\) can be identified \\
   \Then \(B(\pi^*{i^* V}) \to V \mid_U \to V\) is open emmbedding \\
@@ -20,3 +22,21 @@
 \itemprop
   \Then \(j_* \mu(i^* V \oplus i^* D) = r \mu_c(V)\)
 \end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \(\omega\) := canonical section of \(p^*(V \oplus D) \to V \oplus D\) とするとき、
+  \(\alpha\) : \(p^*(\restr{S^{+}}{U}) \to p^*(\restr{S^{-}}{U})\) := at \(v\), Clifford multiplication by \(\omega (v + s p(v))\) として
+  このとき \(\mu({i^*} V \oplus {i^*} D)\) が次の complex で表せることに注意する。
+  \[
+    0 \to {p^*} (\restr{S^{+}}{U}) \overset{\alpha}{\to} {p^*} (\restr{S^{-}}{U}) \to 0
+  \]
+  これにより section 1 での結果から \({j_*} \mu({i^*} V \oplus {i^*} D)\) は次の complex で表される。
+  \(\alpha\) : \({p^*} S^{+} \to {p^*} S^{-}\) := at \(v\), Clifford multiplication by \(\omega (v + s p (v))\) 
+  \[
+    0 \to {p^*} S^{+} \overset{\alpha}{\to} {p^*} S^{-} \to 0
+  \]
+  一方で \(r \mu_c (V)\) がどのように表されるかが Theorem 1 にあり、 \({p^*} S^{+} \to {p^*} S^{-}\) なる写像のみが上で述べた複体と異なる。
+  従って、二つの写像が homotopic であることを示せばよいが、
+  \(F_t\) := for \(t \in [0,1]\), at \(v \in {p^*} S^{+}\), Clifford multiplication by \(\omega (v + t s p(v))\) とすればこれが homotopy を与える。
+\end{Proof}

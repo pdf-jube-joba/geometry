@@ -1,0 +1,56 @@
+\documentclass[dvipdfmx]{jsarticle}
+%https://ivv5hpp.uni-muenster.de/u/jeber_02/skripten/bordism-skript.pdf
+\input{../../my-style.tex}
+
+\begin{document}
+
+\begin{Theorem}
+\itemwhen
+  \For \(A\) : ring , \(X\) : space \\
+  \For \(u\) : \(H^0(X;A)\) \\
+  \Let \(i_x\) : for \(x:X\), \(\text{point} \to X\) := \(\place \mapsto x \in X\) \\
+  \IfHold \(\forall\) \(x:X\), \({i_x}^* u\) is generator of \(H^*(\text{point})\)
+\itemprop
+  \Then \(u\) is generator of \(H^*(X)\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(A\) : ring , \(X\) : space
+\itemdefi
+  \Define \(\mathcal{H}_{X}\) : topological space over \(X\) := \(X \times H^*(\text{point}; A)\) with natural projection \\
+  \Define \(\psi\) : \(H^0(X;A) \to \Gamma(X;\mathcal{H}_{X})\) := \(u \mapsto (x \mapsto {i_x}^{*}u)\)
+\itemdefi
+  \Define \(\phi\) : \(\Gamma(X; \mathcal{H}_X) \to H^0(X;H^*(\text{point};A))\) :=
+  \begin{indentblock}
+    \For \(s\) : section \(X \to \mathcal{H}_X\) \\
+    \Let \(s^*\) : \(\text{Sing}^{0}(X) \to A\) := induced by \(t \in \Delta^0 \mapsto st\) \\
+    \Return \(s^*\)
+  \end{indentblock}
+\itemprop
+  \Then \(\phi \circ \psi\) is isomorhism \\
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(E\) : multiplicative cohomology theory \\
+  \For \(u\) : \(E^0(X,A)\) \\
+  \Let \(i_x\) : for \(x:X\), \(\text{point} \to X\) := \(\place \mapsto x \in X\) \\
+  \IfHold \(\forall\) \(x:X\), \({i_x}^* u\) is generator of \(E^{*}(\text{point})\)
+\itemprop
+  \Then \(u\) is generator of \(E^*(X)\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(\phi\) : \(E^{0}(X) \to H^0(X;E^{0}(\text{point}))\) :=
+  \begin{indentblock}
+    \For \(u\) : \(E^{0}(X)\) \\
+    \Let \(f\) : \(\text{Map}(X; E^0(\text{point}))\) := \(x \mapsto {i_x}^*u\) \\
+    \Let \(f^*\) : \(H^{0}(X; E^{0}(\text{point}))\) := induced by \(f\) \\
+    \Return \(f^*\)
+  \end{indentblock}
+\itemprop
+\end{Theorem}
+
+\end{document}

@@ -1,0 +1,401 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+
+\section*{The real category}
+
+\begin{Definition}
+\itemdefi
+  \Define a space with involution (real space structure) :=
+  \begin{itemize}
+    \itembase \(X\) : topological space
+    \itemenum involution \(\tau\) : \(X \to X\) s.t. \(\tau^2=1\)
+  \end{itemize}
+\itemdefi
+  \For \(X,Y\) : real space, \(f\) : \(X \to Y\) \\
+  \Define \(f\) is real := \AIMAI{\(f\) commutes with the involution} i.e.: \(f(\tau(x)) = \tau(f(x))\)
+\itemdefi
+  \For \(X\) : real space \\
+  \Define a real vector bundle over \(X\) :=
+  \begin{itemize}
+    \itembase \(E\) : \(\mathbb{C}\)-vector bundle over \(X\)
+    \itemenum real space structure on \(E\)
+    \itemwith projection is real
+    \itemwith \(v \in E_x \to \tau(v) \in E_{\tau(x)}\) is \AIMAI{anti-linear} i.e.: \(\tau(cv) = \bar{c} \tau(v)\) for \(c:\mathbb{C}, v:E\)
+  \end{itemize}
+\itemnote
+  (real vector bundle over real space) and (\(\mathbb{C}\)-vector bundle in the category of \(\mathbb{Z}_2\)) are different. In the definition of the latter, the map \(E_x \to E_{\tau (x)}\) is assumed to be complex-linear.
+\itemdefi
+  \For \(E \to X\) : \(\mathbb{R}\)-vector bundle in the category of \(\mathbb{Z}_2\)-spaces. \\
+  \Define real vector bundle structure on \(E\) over \(X\) :=
+  \begin{itemize}
+    \itembase \(\mathbb{C}\)- vector bundle structure on \(E \otimes \mathbb{C}\) over \(X\) := 
+    \itemenum real space structure := same as \(\mathbb{Z}_2\) action on \(E\)
+    \itemwith by hypothesis
+    \itemwith 
+  \end{itemize}
+  \Define \(\mathbb{C}\)-vector bundle structure in the \(\mathbb{Z}_2\) category on \(E\) over \(X\) := \\
+  let complex structure be extension of \(E_{x} \to E_{\tau (x)}\) anti-linearly 
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(X\) : real space \\
+  \Define real point of \(X\) : \(X\) := fixed point of \(\bar{\place}\) \\
+  \Define \(X_{\text{real}}\) : subset of \(X\) := set of fixed point
+\itemprop
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(x\) : real point of \(X\) \\
+  \Let \(V_{x}\) : subspace of \(E_{x}\) := \(+1\)-eigenspace of \(\tau_{x}\) \\
+  \Then \(E_{x} \cong V_{x} \otimes_{\mathbb{R}} \mathbb{C}\)
+\itemprop
+  \For \(X\) : real space with trivial involution \\
+  \Define \(\mathcal{E}(X)\) : category := category of real vector bundles over \(X\) as space \\
+  \Define \(\mathcal{F}(X)\) : category := category of real vector bundels over \(X\) as real space \\
+  \Let \(\mathcal{E}(X) \to \mathcal{F}(X)\) := \(E \mapsto E \otimes_{\mathbb{R}} \mathbb{C}\) \\
+  \Let \(\mathcal{F}(X) \to \mathcal{E}(X)\) := \(F \mapsto F_{\text{real}}\) \\
+  \Then these makes \(\mathcal{E}(X), \mathcal{F}(X)\) equivalent
+\itemdefi
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(s\) : \(\Gamma(E)\) \\
+  \Define \(\bar{s}\) : \(\Gamma(E)\) := \(x \mapsto \bar{s(\bar{x})}\) \\
+  \Define real structure on \(\Gamma(E)\) := \(s \mapsto \bar{s}\) \\
+  \Then \(\Gamma(E)_{\text{real}} \otimes_{\mathbb{R}} \mathbb{C} \cong \Gamma(E)\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(E,F\) : rl.vec.bnd over \(X\) \\
+  \Define morphism \(E \to F\) := \(\phi\) : homomorphism of complex vector bundle s.t. \(\phi(\bar{v}) = \bar{\phi(v)}\)
+\itemdefi
+  \For \(E,F\) : rl.vec.bnd over \(X\) \\
+  \Define \(E \otimes F\) : rl.vec.bnd over \(X\) := \AIMAI{natural real vector bundle structure on \(E \otimes_{\mathbb{C}} F\)} \\
+  \Define \(\text{Hom}(E,F)\) : rl.vec.bnd over \(X\) :=
+  \begin{itemize}
+    \itembase \(\text{Hom}(E,F)\)
+    \itemenum \(\phi \mapsto (e \mapsto \overline{\phi(\bar{e})})\)
+  \end{itemize}
+\itemprop
+  \For \(E,F\) : rl.vec.bnd over \(X\) \\
+  \Then \((E \to F) \cong \Gamma(\text{Hom}(E,F))\)
+\itemprop
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(Y\) : rl.sub.sp of \(X\), \(s\) : \(\Gamma(\restr{E}{Y})\) \\
+  \Then \(\exists\) \(\tilde{s}\) : \(\Gamma(E)\) s.t. extension of \(s\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \Define real algebraic vector bundle :=
+  \begin{itemize}
+    \itembase \((\pi : E \to X)\) : complex algebraic vector bundle
+    \itemenum scalar multiplication defined over \(\mathbb{R}\) : \(\mathbb{C} \times E \to E\)
+  \end{itemize}
+  \Define topological real algebraic vector bundle := take underlying topological spaces and involution
+\itemdefi
+  \Let \(\mathbb{CP}^{n}\) : real space := \AIMAI{usual definition} \\
+  \Let \(E\) : real bundle over \(\mathbb{CP}^{n}\) := \(\{(u,v) \in \mathbb{CP}^{n} \times \mathbb{C}^{n} \mid \sum_{i} u_{i} v_{i} = 0\}\) \\
+  \Define standard line bundle over \(\mathbb{CP}^{n}\) : real bundle over \(\mathbb{CP}^{n}\) := \\
+  \(H\) of exact vector bundle seqence \(0 \to E \to \mathbb{CP}^{n} \times \mathbb{C}^{n} \to H \to 0\)
+\itemdefi
+  \SORRY
+  another example のところはよくわからなかった（ affine ring の上の projective module が"どの" module を指した言葉なのかわからん）それとも各 projective module に対して real vector bundle が定まると言ってる？
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(X\) : real space \\
+  \Define \(KR(X)\) : Abelian group := Grothendieck group of the category of real vector bundles over \(X\)
+  \Define ring structure on \(KR(X)\) := by tensor product
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(KR(X_{\text{real}}) \cong KO(X_{\text{R}})\)
+\itemprop
+  \Let \(KR(X) \to KO(X_{\text{real}})\) := \(KR(X) \to KR(X_{\text{real}}) \to KO(X_{\text{real}})\) \\
+  \IfHold \(X = X_{\text{real}}\) \\
+  \Then \(KR(X) \cong KO(X)\)
+\itemprop
+  \Then \({\mathbb{CP}^{n}}_{\text{real}} \cong \mathbb{RP}^{n}\) \\
+  \Then image of standard line bundle under \(KR(\mathbb{CP}^{n}) \to KO(\mathbb{RP}^{n})\) is real Hopf bundle
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \Define \(c\) : \(KR(X) \to K(X)\) := ignore involution \\
+  \Define \(r\) : \(K(X) \to KR(X)\) := \(E \mapsto E \oplus \tau^{*} \bar{E}\)
+\itemprop
+  \IfHold \(X = X_{\text{real}}\) \\
+  \Then this coincidents complexification and realification under \(KR(X) \cong KO(X)\)
+\end{Definition}
+
+\section*{The periodicity theorem}
+
+\begin{Definition}
+\itemdefi
+  \For \(E \to X\) : rl.pair \\
+  \Define \(P(E)\) : real space := \AIMAI{projective bundle of \(E\) with natural involution} \\
+  \Define standard line-bundle over \(P(E)\) : real line-bundle := \AIMAI{by standard line-bundle of \(P(E)\) with natural involution}
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \OWNITEM \\
+  \For \(E \to X\) : rl.pair \\
+  \Define \(KR(X)\)-algebra structure on \(KR(P(E))\) := \WIP
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(X\) : real compact space, \(E\) : real line-bundle over \(X\) \\
+  \Let \(H\) : real line-bundle over \(P(L \oplus 1)\) := standard line bundle over \(P(L \oplus 1)\) \\
+  \Then \(KR(P(L \oplus 1))\) is generated by \(H\) subject to the single relation \(([H] - [L])([L][H] - 1) = 0\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\mathbb{R}\) : real space := base \(\mathbb{R}\) with trivial involution \\
+  \Define \(i\mathbb{R}\) : real space := base \(\mathbb{R}\) with involution \(x \mapsto -x\)
+\itemdefi
+  \Define \(\mathbb{R}^{p,q}\) : real space := \(\mathbb{R}^{p} \oplus i\mathbb{R}^{q}\) \\
+  \Define \(B^{p,q}\) : real space := unit ball in \(\mathbb{R}^{p,q}\) \\
+  \Define \(S^{p,q}\) : real space := unit sphere in \(\mathbb{R}^{p,q}\) \\
+\itemprop
+  \Then \(\mathbb{R}^{p,p} \cong \mathbb{C}\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(X\) : pointed real space \\
+  \Define \(\widetilde{KR}(X)\) : Abelian group := kernel of restriction to base point \\
+\itemdefi
+  \For \((X,Y)\) : real space pair \\
+  \Define \(KR(X,Y)\) : Abelian group := \(\widetilde{KR}(X/Y)\)
+\itemdefi
+  \Define \(KR^{p,q}(X,Y)\) : Abelian group := \(KR((X,Y) \times (B^{p,q}, S^{p,q}))\) \\
+  \Define \(KR^{-q}(X,Y)\) : Abelian group := \(KR^{0,q}(X,Y)\) \\
+  \Define \(KR^{p}(X,Y)\) : Abelian group := \(KR^{p,0}(X,Y)\)
+\itemdefi
+  \Define exterior product : \(KR^{p_1,q_1}(X_1,Y_1) \otimes KR^{p_2,q_2}(X_2,Y_2) \to KR^{p_1+p_2, q_1+q_2}((X_1,Y_1) \times (X_2,y_2))\) := \AIMAI{by natural way} \\
+  \Define internal product := \AIMAI{by natural way}
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\cdots \to KR^{p,1}(X) \to KR^{p,1}(Y) \to KR^{p,0}(X,Y) \to KR^{p,0}(X) \to KR^{p,0}(Y)\) is exact
+\itemprop
+  \Let \(b\) : \(KR^{1,1}(pt)\) := \([H] - 1\) \\
+  \Define \(\beta\) : \(KR^{p,q}(X,Y) \to KR^{p+1,q+1}(X,Y)\) \\
+  \Then \(\beta\) is isomorphism
+\itemprop
+  \Then \(KR^{p,q} \cong KR^{p-q}\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \For \(E \to X\) : rl.pair \\
+  \Let \(\lambda_E\) := exterior algebra of \(E\) \\
+  \Then \(KR(X) \to \widetilde{KR}(\text{Thom}(E))\) := \(x \mapsto \lambda_E x\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \Let \(i\) : \(\mathbb{R}^{0,1} \to \mathbb{R}^{1,1}\) := by inclusion of \(\mathbb{R} \subset \mathbb{C}\) \\
+  \Then \(i^*([H] - 1)\) is the reduced Hopf bundle
+\itemdefi
+  \Define \(\eta\) := \(i^*([H] - 1)\)
+\end{Theorem}
+
+\section*{Coefficient theories}
+
+\begin{Theorem}
+\itemprop
+  \For \(Y\) : real space \\
+  \Define \(KR\)-theory with coefficient theorem in \(Y\) : cohomology theory on the category of real spaces := \(X \mapsto KR(X \times Y)\)
+\itemprop
+  \Then \(KR\)-theory with coefficient in \(S^{p,0}\) has period \((2,4,8)\) if \(p = 1,2,4\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \Let \(\mathbb{R}^{p} \cong \mathbb{R}, \mathbb{C}, \mathbb{H}\) \\
+  \Let \(\mu_{p}\) : \(X \times S^{p,0} \times \mathbb{R}^{0,p} \to X \times S^{p,0} \times \mathbb{R}^{p,0}\) := \((x,s,u) \mapsto (x,s,su)\) \\
+  \Then \(\mu_{p}^{*}\) is isomorphism \\
+  \Let isomorphism \(KR^{p,q}(X \times S^{p,0}) \to KR^{0,p+q}(X \times S^{p,0})\) := using suspension and above isomorphism \\
+  \Let isomorphism \(KR(X \times S^{p,0}) \to KR^{-2p}(X \times S^{p,0})\) := using \(\beta\) and above isomorphism
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Let \(\pi\) : \(S^{p,0} \to \text{pt}\) := projection \\
+  \Let \(\chi\) : \(KR^{p-q}(X) \to KR^{-q}(X)\) := product with \((-\eta)^{p}\) where \(\eta\) is the reduced real Hopf bundle \\
+  \Then \(\cdots \to KR^{p-q}(X) \overset{\chi}{\to} KR^{-q}(X) \overset{\pi^*}{\to} KR^{-q}(X \times S^{p,0}) \to \cdots \) is exact
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  \(p=1\) の場合の考察
+\itemprop
+  \(KR(X \times S^{1,0}) \cong K(X)\)
+\itemprop
+  \(K(X) \cong K^{-2}(X)\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  \(p=2\) の場合の考察
+\itemprop
+  (isomorphism classes of real bundles over \(X \times S^{2,0}\)) and (homotopy classes of self-conjugate bundles over \(X\)) are correspond bijectively compatible with tensor products
+\itemprop
+  \(KSC(X) \cong KR(X \times S^{2,0})\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemnote
+  \(p=4\) の場合の考察
+\itemprop
+  \Then \(\eta ^3 = 0\)
+\itemprop
+  \For \(p \geq 3\) \\
+  \Then \(0 \to KR^{-q}(X) \overset{\pi^*}{\to} KR^{-q}(X \times S^{p,0}) \to \overset{\delta}{\to} KR^{p+1-q}(X) \to 0\) is exact
+\itemprop
+  \Let \(\lambda\) : \(A_8\) := generator \\
+  \Let \(\alpha\) : \(A_8 \to KR^{-8}(\text{pt})\) := Atiyah-Bott-Shapiro construction \\
+  \Let \(1\) : \(KR^{-8}(S^{4,0})\) := identity \\
+  \Then \(\mu_4^*(b^4 \cdot 1) = \alpha(\lambda) \cdot 1\)
+\itemprop
+  \Then multiplication by \(\alpha(\lambda)\) : \(KR(X) \to KR^{-8}(X)\) is isomorphism
+\end{Theorem}
+
+\section*{Relation with Clifford algebras}
+
+\begin{Definition}
+\itemdefi
+  \Define quadratic form on \(\mathbb{R}^{p,q}\) := by \(- (\sum y_i^2 + \sum x_i^2)\) \\
+  \Define involutory automorphism of \(\text{Cliff}(\mathbb{R}^{p,q})\) := induced by \((y,x) \mapsto (-y, x)\) \\
+\itemdefi
+  \Define real \(\mathbb{Z}_2\)-graded \(\text{Cliff}(\mathbb{R}^{p,q})\)-module :=
+  \begin{itemize}
+    \itembase \(M\) : complex \(\mathbb{Z}_2\)-graded \(\text{Cliff}(\mathbb{R}^{p,q})\)-module
+    \itemenum real structure on \(M\)
+    \itemwith \(\tau(M^i) \subset M^i\)
+    \itemwith \(\tau(am) = \tau(a) \tau(m)\)
+  \end{itemize}
+\itemdefi
+  \Define \(M(p,q)\) : Abelian group := Grothendieck group of real \(\mathbb{Z}_2\)-graded modules \\
+  \Define \(A(p,q)\) : Abelian group := cokernel of restriction map \(M(p,q+1) \to M(p,q)\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(M\) : real \(\mathbb{Z}_2\)-graded \(\text{Cliff}(\mathbb{R}^{p,q})\)-module \\
+  \Let \(\sigma\) : \(S^{p,q} \times M^0 \to S^{p,q} \times M^1\) := \((s,m) \mapsto (s, sm)\) \\
+  \Define \(h\) : \(M(p,q) \to KR^{p,q}(\text{point})\) := \(M \mapsto (M^0, M^1, \sigma)\) \\
+  \Define \(\alpha\) : \(A(p,q) \to KR^{p,q}(\text{point})\) := induced by \(h\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \Let \(1\) : \(\Lambda^{0} \mathbb{C}\) , \(e\) : \(\Lambda^{1} \mathbb{C}\) := standard generator \\
+  \Define \(\text{Cliff}(\mathbb{R}^{1,1})\)-module structure on \(\Lambda^* \mathbb{C}^1\) := induced by \(z \cdot 1 = ze , z \cdot e = - \bar{z} 1\) \\
+  \Define \(\lambda_1\) : \(A(1,1)\) := defined by this module
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\alpha(\lambda_1) = b\) \\
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \Let \(M\) : \(\text{Cliff}(\mathbb{R}^{4,4})\) := \(\lambda_1 ^4\) \\
+  \Let \(\omega\) : \(\text{Cliff}(\mathbb{R}^{4,4})\) := \(e_1 \cdot e_2 \cdot e_3 \cdot e_4\)
+\itemprop
+  \Then \(\omega^2 = 1\), \(\tau(\omega) = \omega\), \(\omega z = \tau(z) \omega\) for \(z\) : \(\mathbb{C}^4 = \mathbb{R}^{4,4}\)
+\itemdefi
+  \Define \(\tau\) : involution on \(M\) := \(m \mapsto -\omega \bar{m}\) \\
+  \Define \(N\) : (new) real graded \(\text{Cliff}(\mathbb{R}^{0,8})\)-module structure := \(M\) with this involution
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(N\) is a irreducible \(C_8\)-module
+\itemprop
+  \Then \(N = \lambda\) \(A_8\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\mu_4^*(M) = N\)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\xi\) : \(\mathbb{H} \to \text{Cliff}^{0}(\mathbb{R}^{4,0})\) := induced by \(1 , i , j , k \mapsto \frac{1 + \omega}{2}, \frac{1 + \omega}{2} e_1 e_2, \frac{1 + \omega}{2} e_1 e_3, \frac{1 + \omega}{2} e_1 e_4\) \\
+  \Define \(\eta\) : \(S(\mathbb{H}) \to \text{Spin}(4)\) := \(s \mapsto \xi(s) + \frac{1}{2}(1 - \omega)\)
+\itemdefi
+  \Define \(\mu\) : \(S^{4,0} \times \mathbb{R}^8 \times N \to S^{4,0} \times \mathbb{C}^4 \times M\) := \((s,(x,y),n) \mapsto (s, x+isy, \eta(s)n)\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\mu\) is real map \\
+  \Then \(\mu\) is compatible with module structures
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \For \(M\) : real \(C(\mathbb{R}^{p,q})\)-module \\
+  \Define \([\place , \place] \place\) : action of \(\mathbb{R}^{p,q}\) on \(M\) := \([x,y]m = xm + iym\)
+  \Let involution on \(M_{\text{real}}\) := by this action \\
+  \Then \(M_{\text{real}}\) is real module in the usual sense for the \(\text{Cliff}(\mathbb{R}^{p+q}, \sum_{j=1}^p {y_j}^2 - \sum_{i=1}^{q} {x_i}^2)\)
+\itemprop
+  \Then \(M(p,q)\) and Grothendieck group of real graded \(C_{p,q}\)-modules.
+\end{Theorem}
+
+\section*{Relation with the index}
+
+\begin{Definition}
+\itemdefi
+  \For \(\phi\) : function \\
+  \Define \(\hat{\phi}\) : function := Fourier transform of \(\phi\)
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\hat(\tau{\phi})(x) = \tau(\hat{\phi}(-x))\) \\
+  \Then \(\sigma(\tau (P))(x, \xi) = \tau(\sigma (P)(x, -\xi))\) 
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(X\) : smooth manifold with smooth involution, \(E,F\) : real smooth vector bundles over \(X\)
+  \Define real structure on \(\Gamma(E)\) := \AIMAI{by natural definition} \\
+  \For \(P\) : linear operator \(\Gamma(E) \to \Gamma(F)\) \\
+  \Define \(\bar{P}\) : \(\Gamma(E) \to \Gamma(F)\) := \(\phi \mapsto \tau (P(\tau(\phi)))\)
+\itemprop
+  \Then \(\sigma (\bar{P})(x, \xi) = \tau (\sigma (P) (\bar{x}, - \tau^*(\xi)))\)
+\itemdefi
+  \Define \(P\) is real operator := \(P = \bar{P}\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \IfHold \(X\) is trivial \\
+  \Then \(P\) is a differential operator with real coefficients with respect to local bases of \(E,F\)
+\itemprop
+  \Let \(\pi\) : \(S(T^*X) \to X\) := projection \\
+  \Let involution on \(S(T^*X)\) := \((x, \xi) \mapsto (\bar{x}, - \tau^*(\xi))\) \\
+  \IfHold \(X\) is trivial \\
+  \Then involution of \(S(T^*X)\) is the anti-podal map on each fiber
+\itemprop
+  \Then \((\pi^* E, \pi^* F, \sigma (P))\) represents an element \(KR(B(X), S(X))\)
+\itemprop
+  \Then index of \(P\) is in \(KR(\text{point})\)
+\end{Theorem}
+
+\end{document}
