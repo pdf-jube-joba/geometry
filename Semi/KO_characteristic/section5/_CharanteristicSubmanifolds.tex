@@ -1,27 +1,109 @@
-\begin{Definition}
+\begin{Theorem}
 \itemwhen
   \For \((p : V \to X)\) : \(\text{Spin}^c\) bundle over closed manifold \\
-  \Let \(D\) := determinant bundle of this \\
-  \For \(s\) : section of its determinant bundle transverse to the zero section \\
-  \Let \(Y\) := \(s^{-1}(X)\)
-  \For \(U\) : tubular neightborhoood of \(Y\) in \(X\) \\
+  \Let \(D\) : vector bundle over \(X\) := determinant bundle of this \\
+  \For \(s\) : section of \(D\) transverse to \(X\) \\
+  \Let \(Y\) : sub manifold of \(X\) := \(s^{-1}(X)\) \\
+  \Let \(i\) : \(Y \to X\) := inclusion
 \itemprop
-  \Then normal bundle of \(Y\) in \(X\) is canonically isomorphic to the bundle \(i^*D \to Y\) \\
-\itemprop
-  \Define \(\tau\) := canonical section \\
-  \Then bundle \(\restr{D}{U} \to U\) can be identified with the bundle \(\pi^*{i^* D} \to B(i^*D)\) with \(\tau , s\)
-\itemprop
-  \Then \(V \mid_U \to U\) and \(\pi^* {i^* V} \to B(i^*D)\) can be identified \\
-  \Then \(B(\pi^*{i^* V}) \to V \mid_U \to V\) is open emmbedding \\
-  \Then \(i^*V \oplus i^* D \overset{\pi_2}{\to} i^* D\) and \(\pi^*{i^*V} \to i~* D\) can be identified \\
-\itemdefi
-  \Define \(j\) : \(B(i^*V \oplus i^* D) \to V\) := resulting open embedding
-\end{Definition}
+  \Then normal bundle of \(Y\) in \(X\) is canonically isomorphic to the bundle \(\restr{D}{Y} \to Y\)
+\itemwhen
+  \Fix \(U\) : tubular neighborhood of \(Y\) in \(X\), identification of \(U\) and \(B(\restr{D}{Y})\)
+\end{Theorem}
+  
+\begin{Proof}
+\itemprof
+  \ADMIT
+\end{Proof}
 
 \begin{Theorem}
+\itemwhen
+  \Let \(\tilde{\pi}\) : \(\restr{D}{Y} \to Y\) := restriction
+\itemprop
+  \Define \(\tau\) : \(\Gamma(B(\restr{D}{Y}); B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y})\) := \AIMAI{canonical section} \\
+  \Then bundle \(\restr{D}{U} \to U\) can be identified with the bundle \(B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y} \to B(\restr{D}{Y})\) \\
+  \Then this identification coincidents with \(\restr{s}{U} , \tau\)
+\itemprop
+  \Then \(\restr{V}{U} \to U\) and \(B(\restr{D}{Y}) \times_{\tilde{\pi}}\restr{V}{Y} \to B(\restr{D}{Y})\) can be identified
+\itemprop
+  \Then \(\restr{V}{Y} \oplus \restr{D}{Y} \overset{\pi_2}{\to} \restr{D}{Y}\) and \(\restr{D}{Y} \times_{\tilde{\pi}} \restr{V}{Y} \to \restr{D}{Y}\) can be identified
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  \ADMIT
+\itemprof
+  \ADMIT
+\itemprof
+  これは確かに成り立つ。
+\end{Proof}
+
+\begin{Theorem}
+\itemdefi
+  \Define \(j\) : \(B(\restr{V}{Y} \oplus \restr{D}{Y}) \to V\) := resulting open embedding
 \itemprop
   \Then \(j_* \mu(i^* V \oplus i^* D) = r \mu_c(V)\)
 \end{Theorem}
+
+\begin{Proof}
+\itemprof
+  状況としては、
+  \begin{itemize}
+    \item \(S^{\pm}\) : vector bundle over \(X\) := defined by spin structure on \(V \oplus D\)
+    \item \(\Delta\) : \(\Gamma((V \oplus D);q^*(V \oplus D) = (V \oplus D) \times_{X} (V \oplus D))\) := \(v \mapsto (v, v)\)
+    \item \(m\) : \(q^*(V \oplus D) \times_{V \oplus D} q^*(S^{+}) \to q^*(S^{-}) = ((V \oplus D) \times_{X} (V \oplus D)) \times_{V \oplus D} ((V \oplus D) \times_{X} S^{+})\) := multiplication
+    \item 
+    \[\begin{matrix}
+      \restr{D}{U} &\to& U \\
+      \downarrow \phi_{D} & & \downarrow \phi \\
+      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y} &\to& B(\restr{D}{Y})
+    \end{matrix}\]
+    \item 
+    \[\begin{matrix}
+      \restr{V}{U} &\to& U \\
+      \downarrow \phi_{V} & & \downarrow \phi \\
+      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{V}{Y} &\to& B(\restr{D}{Y})
+    \end{matrix}\]
+    \item 
+    \[\begin{matrix}
+      \restr{S^{\pm}}{U} &\to& U \\
+      \downarrow \phi_{S^{\pm}} & & \downarrow \phi \\
+      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{S^{\pm}}{Y} &\to& B(\restr{D}{Y})
+    \end{matrix}\]
+    \item 
+    \[\begin{matrix}
+      \restr{V}{Y} \oplus \restr{D}{Y} &\overset{\pi_2}{\to}& \restr{D}{Y} \\
+      \downarrow h & & | \\
+      \restr{D}{Y} \times_{\tilde{\pi}} \restr{V}{Y} &\to& \restr{D}{Y}
+    \end{matrix}\]
+  \end{itemize}
+  となっていた。
+  \(\restr{V}{Y} \oplus \restr{D}{Y}\) に対応する構成によるベクトル束が \(\restr{S^{+}}{Y}\) となることから、
+  \begin{align*}
+    (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{+}}{Y} &\to (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{-}}{Y} 
+    & \text{over} \, \restr{V}{Y} \oplus \restr{D}{Y} \\
+    (v_1 , v_3) & \mapsto (v_1, m(\Delta(v_1), v_3))
+  \end{align*}
+  のようになっていた。
+  これが \(\restr{V}{U}\) 上の複体となるように次のように移す。
+  対応するベクトル束とその写像を書いた。
+  \begin{itemize}
+    \item \((\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{\pm}}{Y} \to (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{-}}{Y}\) : over \(\restr{V}{Y} \oplus \restr{D}{Y}\) \\
+    \((v_1, v_3) \mapsto (v_1, m(\Delta(v_1), v_3))\)
+    \item \((\restr{D}{Y} \times_{Y} \restr{V}{Y}) \times_{Y} \restr{S^{\pm}}{Y}\) : over \(\restr{D}{Y} \times_{Y} \restr{V}{Y}\) \\
+    \((v_1, v_3) \mapsto (v_1, m(\Delta(h^{-1} v_1), v_3))\)
+    \item \((B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}) \times_{Y} \restr{S^{\pm}}{Y}\) : over \(B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}\) \\
+    \((v_1, v_3) \mapsto (v_1, m(\Delta(h^{-1} v_1), v_3))\)
+    \item \((B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}) \times_{B(\restr{D}{Y})} (B(\restr{D}{Y}) \times_{Y} \restr{S^{\pm}}{Y})\) \\
+    \((v_1, (v_2, v_3)) \mapsto (v_1, (v_2, m(\Delta(h^{-1} v_1), v_3)))\) ただし \(v_2 = \text{proj}\,v_1\) \\
+    \((v_1, v_3) \mapsto (v_1, (\text{proj}_1 v_3, m(\Delta(h^{-1} v_1, \text{proj}_2 v_3))))\)
+    \item \(\restr{V}{U} \times_{U} \restr{S^{\pm}}{U}\) \\
+    \((v_1, v_3) \mapsto (v_1, {\phi_{S^{-}}}^{-1} (\text{proj}_1 \phi_{S^{+}} v_3, m(\Delta(h^{-1} \phi_{V} v_1), \text{proj}_2 \phi_{S^{+}} v_3)))\)
+  \end{itemize}
+  ここで最後の関数について、次を示す。
+  \((v_1, v_3) \in \restr{V}{U} \times_{U} \restr{S}{U}\) のとき
+  \[{\phi_{S^{-}}}^{-1} (\text{proj}_1 v_3, m(\Delta(h^{-1} \phi_{V} v_1), \text{proj}_2 \phi_{S^{+}} v_3)) = m(\Delta(v_1, sp(v_1)), v_3)\]
+\end{Proof}
 
 \begin{Proof}
 \itemprof

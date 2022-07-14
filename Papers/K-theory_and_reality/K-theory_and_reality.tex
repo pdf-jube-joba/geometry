@@ -5,18 +5,26 @@
 
 \section*{The real category}
 
-\begin{Definition}
+\begin{Definition}[real space]
 \itemdefi
   \Define a space with involution (real space structure) :=
   \begin{itemize}
     \itembase \(X\) : topological space
     \itemenum involution \(\tau\) : \(X \to X\) s.t. \(\tau^2=1\)
   \end{itemize}
+\end{Definition}
+
+\begin{Definition}[real map (map between real spaces)]
+\itemwhen
+  \For \(X,Y\) : real space, \(f\) : \(X \to Y\)
 \itemdefi
-  \For \(X,Y\) : real space, \(f\) : \(X \to Y\) \\
   \Define \(f\) is real := \AIMAI{\(f\) commutes with the involution} i.e.: \(f(\tau(x)) = \tau(f(x))\)
+\end{Definition}
+
+\begin{Definition}[real vector bundle]
+\itemwhen
+  \For \(X\) : real space
 \itemdefi
-  \For \(X\) : real space \\
   \Define a real vector bundle over \(X\) :=
   \begin{itemize}
     \itembase \(E\) : \(\mathbb{C}\)-vector bundle over \(X\)
@@ -26,61 +34,101 @@
   \end{itemize}
 \itemnote
   (real vector bundle over real space) and (\(\mathbb{C}\)-vector bundle in the category of \(\mathbb{Z}_2\)) are different. In the definition of the latter, the map \(E_x \to E_{\tau (x)}\) is assumed to be complex-linear.
+\end{Definition}
+
+\begin{Definition}[two different structure on complexification of \(\mathbb{R}\)-vector bundle in \(\mathbb{Z}_2\)-category]
+\itemwhen
+  \For \(E \to X\) : \(\mathbb{R}\)-vector bundle in the category of \(\mathbb{Z}_2\)-spaces.
 \itemdefi
-  \For \(E \to X\) : \(\mathbb{R}\)-vector bundle in the category of \(\mathbb{Z}_2\)-spaces. \\
-  \Define real vector bundle structure on \(E\) over \(X\) :=
+  \Define real vector bundle structure on \(E \otimes_{\mathbb{R}} \mathbb{C}\) over \(X\) :=
   \begin{itemize}
-    \itembase \(\mathbb{C}\)- vector bundle structure on \(E \otimes \mathbb{C}\) over \(X\) := 
-    \itemenum real space structure := same as \(\mathbb{Z}_2\) action on \(E\)
-    \itemwith by hypothesis
-    \itemwith 
+    \itembase \(\mathbb{C}\)-vector bundle structure on \(E \otimes \mathbb{C}\) over \(X\) := 
+    \itemenum real space structure := linear extension of \(E_{x} \to E_{\tau(x)}\)
   \end{itemize}
-  \Define \(\mathbb{C}\)-vector bundle structure in the \(\mathbb{Z}_2\) category on \(E\) over \(X\) := \\
-  let complex structure be extension of \(E_{x} \to E_{\tau (x)}\) anti-linearly 
+  \Define \(\mathbb{C}\)-vector bundle structure in the \(\mathbb{Z}_2\) category on \(E\) over \(X\) :=
+  \begin{itemize}
+    \itembase \(\mathbb{C}\)-vector bundle structure on \(E \otimes \mathbb{C}\) over \(X\)
+    \itemenum real space structure := anti-linear extension of \(E_{x} \to E_{\tau(x)}\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Definition}[real point]
+\itemwhen
+  \For \(X\) : real space , \(x\) : \(X\)
+\itemdefi
+  \Define \(x\) is real point of \(X\) := \(x\) is fixed point of \(\tau\) \\
+  \Define \(X_{\text{real}}\) : subset of \(X\) := set of fixed point
 \end{Definition}
 
 \begin{Definition}
+\itemwhen
+  \For \(X\) : real space, \(Y\) : subset of \(X\)
 \itemdefi
-  \For \(X\) : real space \\
-  \Define real point of \(X\) : \(X\) := fixed point of \(\bar{\place}\) \\
-  \Define \(X_{\text{real}}\) : subset of \(X\) := set of fixed point
+  \Define \(Y\) is real subspace := \(\tau(Y) = Y\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(x\) : real point of \(X\)
 \itemprop
-  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(x\) : real point of \(X\) \\
-  \Let \(V_{x}\) : subspace of \(E_{x}\) := \(+1\)-eigenspace of \(\tau_{x}\) \\
+  \Let \(V_{x}\) : subspace of \(E_{x}\) := \(+1\)-eigenspace of anti-linear map \(\tau_{x}\) \\
   \Then \(E_{x} \cong V_{x} \otimes_{\mathbb{R}} \mathbb{C}\)
-\itemprop
-  \For \(X\) : real space with trivial involution \\
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(X\) : real space with trivial involution 
+\itemdefi
   \Define \(\mathcal{E}(X)\) : category := category of real vector bundles over \(X\) as space \\
   \Define \(\mathcal{F}(X)\) : category := category of real vector bundels over \(X\) as real space \\
   \Let \(\mathcal{E}(X) \to \mathcal{F}(X)\) := \(E \mapsto E \otimes_{\mathbb{R}} \mathbb{C}\) \\
-  \Let \(\mathcal{F}(X) \to \mathcal{E}(X)\) := \(F \mapsto F_{\text{real}}\) \\
+  \Let \(\mathcal{F}(X) \to \mathcal{E}(X)\) := \(F \mapsto F_{\text{real}}\)
+\itemprop
   \Then these makes \(\mathcal{E}(X), \mathcal{F}(X)\) equivalent
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(s\) : \(\Gamma(E)\)
 \itemdefi
-  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(s\) : \(\Gamma(E)\) \\
-  \Define \(\bar{s}\) : \(\Gamma(E)\) := \(x \mapsto \bar{s(\bar{x})}\) \\
-  \Define real structure on \(\Gamma(E)\) := \(s \mapsto \bar{s}\) \\
+  \Define \(\tau(s)\) : \(\Gamma(E)\) := \(x \mapsto \tau(s(\tau(x)))\) \\
+  \Define real structure on \(\Gamma(E)\) := \(s \mapsto \tau(s)\) \\
   \Then \(\Gamma(E)_{\text{real}} \otimes_{\mathbb{R}} \mathbb{C} \cong \Gamma(E)\)
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \For \(E,F\) : rl.vec.bnd over \(X\)
+\itemdefi
+  \Define morphism \(E \to F\) := \(\phi\) : homomorphism of complex vector bundle s.t. \(\phi(\tau(v)) = \tau(\phi(v))\)
 \end{Definition}
 
 \begin{Definition}
+\itemwhen
+  \For \(E,F\) : rl.vec.bnd over \(X\)
 \itemdefi
-  \For \(E,F\) : rl.vec.bnd over \(X\) \\
-  \Define morphism \(E \to F\) := \(\phi\) : homomorphism of complex vector bundle s.t. \(\phi(\bar{v}) = \bar{\phi(v)}\)
-\itemdefi
-  \For \(E,F\) : rl.vec.bnd over \(X\) \\
   \Define \(E \otimes F\) : rl.vec.bnd over \(X\) := \AIMAI{natural real vector bundle structure on \(E \otimes_{\mathbb{C}} F\)} \\
   \Define \(\text{Hom}(E,F)\) : rl.vec.bnd over \(X\) :=
   \begin{itemize}
     \itembase \(\text{Hom}(E,F)\)
-    \itemenum \(\phi \mapsto (e \mapsto \overline{\phi(\bar{e})})\)
+    \itemenum \(\phi \mapsto e \mapsto \tau(\phi(\tau(e)))\)
   \end{itemize}
-\itemprop
-  \For \(E,F\) : rl.vec.bnd over \(X\) \\
-  \Then \((E \to F) \cong \Gamma(\text{Hom}(E,F))\)
-\itemprop
-  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(Y\) : rl.sub.sp of \(X\), \(s\) : \(\Gamma(\restr{E}{Y})\) \\
-  \Then \(\exists\) \(\tilde{s}\) : \(\Gamma(E)\) s.t. extension of \(s\)
 \end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \For \(E,F\) : rl.vec.bnd over \(X\)
+\itemprop
+  \Then \((E \to F) \cong \Gamma(\text{Hom}(E,F))\)
+\end{Theorem}
+
+
+\begin{Theorem}
+\itemwhen
+  \For \(E \to X\) : rl.vec.bnd over rl.sp, \(Y\) : rl.sub.sp of \(X\), \(s\) : \(\Gamma(\restr{E}{Y})\)
+\itemprop
+  \Then \(\exists\) \(\tilde{s}\) : \(\Gamma(E)\) s.t. extension of \(s\)
+\end{Theorem}
 
 \begin{Definition}
 \itemdefi
@@ -101,15 +149,17 @@
 \end{Definition}
 
 \begin{Definition}
-\itemdefi
-  \For \(X\) : real space \\
-  \Define \(KR(X)\) : Abelian group := Grothendieck group of the category of real vector bundles over \(X\)
+\itemwhen
+  \For \(X\) : real space
+\itemprop
+  \Define \(KR(X)\) : Abelian group := \\
+  Grothendieck group of the category of real vector bundles over \(X\) \\
   \Define ring structure on \(KR(X)\) := by tensor product
 \end{Definition}
 
 \begin{Theorem}
 \itemprop
-  \Then \(KR(X_{\text{real}}) \cong KO(X_{\text{R}})\)
+  \Then \(KR(X_{\text{real}}) \cong KO(X_{\text{real}})\)
 \itemprop
   \Let \(KR(X) \to KO(X_{\text{real}})\) := \(KR(X) \to KR(X_{\text{real}}) \to KO(X_{\text{real}})\) \\
   \IfHold \(X = X_{\text{real}}\) \\
@@ -139,21 +189,34 @@
 
 \begin{Definition}
 \itemdefi
-  \OWNITEM \\
   \For \(E \to X\) : rl.pair \\
-  \Define \(KR(X)\)-algebra structure on \(KR(P(E))\) := \WIP
+  \Define \(KR(X)\)-algebra structure on \(KR(P(E))\) := \AIMAI{よくある形}
 \end{Definition}
 
 \begin{Theorem}
 \itemprop
-  \For \(X\) : real compact space, \(E\) : real line-bundle over \(X\) \\
+  \For \(X\) : real compact space, \(L\) : real line-bundle over \(X\) \\
   \Let \(H\) : real line-bundle over \(P(L \oplus 1)\) := standard line bundle over \(P(L \oplus 1)\) \\
-  \Then \(KR(P(L \oplus 1))\) is generated by \(H\) subject to the single relation \(([H] - [L])([L][H] - 1) = 0\)
+  \Then \(KR(P(L \oplus 1))\) is generated by \(H\) subject to the single relation \(([H] - [1])([L][H] - 1) = 0\)
 \end{Theorem}
 
 \begin{Proof}
 \itemprof
-  \ADMIT
+  関係式が成り立つことを示す。
+  \(L\) 上の metric で involution に対して invariant なものをとる。
+  \(S\) := unit circle bundle of \(L\) with respect to metric は real space になる。
+  \(z\) : section of \(\pi*L\) := defined by the inclusion \(S \to L\) とすると、 \(z, z^k\) もまた real section である。
+  したがって、複素束としての同型 \(H^k \cong (1, z^{-k}, L^{-k})\) は real bundle としての同型でもある。
+\itemthen
+  \(f\) : real section of \(\text{Hom}(\pi^*{E^0}, \pi^*{E^\infty})\) に対してその Fourier coefficients \(a_{k}\) を計算すると \(\text{Hom}(L^{k} \otimes E^0, E^\infty)\) の元であることがわかる。
+  \begin{align*}
+    \tau(a_k)(x) = \tau(a_k (\tau(x)))
+    &= - \frac{1}{2 \pi i} \tau(\int_{S_{\tau(x)}} f_{\tau(x)} z_{\tau(x)}^{-k - 1} d {z_{\tau(x)}}) \\
+    &= \frac{1}{2 \pi i} \int_{S_{x}} \tau(f)_{\tau(x)}(\tau(z_{\tau(x)}))^{-k-1} d {\tau(z_{\tau(x)})} \\
+    &= \frac{1}{2 \pi i} \int_{S_{x}} f_{x} {z_{x}}^{-k-1} d z_{x} = a_{k}(x)
+  \end{align*}
+  特に、 \(X\) の real point \(x\) では \(f_{x}\) が real であることは \(f_{x}(e^{-i\theta}) = \tau(f_{x}(e^{i \theta}))\) を満たすということで Fourier coefficients が係数になる。
+  こういった形で、複素の場合に示した同様の証明における構成が全て real になることがわかるためよい。
 \end{Proof}
 
 \begin{Definition}
@@ -162,8 +225,8 @@
   \Define \(i\mathbb{R}\) : real space := base \(\mathbb{R}\) with involution \(x \mapsto -x\)
 \itemdefi
   \Define \(\mathbb{R}^{p,q}\) : real space := \(\mathbb{R}^{p} \oplus i\mathbb{R}^{q}\) \\
-  \Define \(B^{p,q}\) : real space := unit ball in \(\mathbb{R}^{p,q}\) \\
-  \Define \(S^{p,q}\) : real space := unit sphere in \(\mathbb{R}^{p,q}\) \\
+  \Define \(B^{p,q}\) : real subspace of \(\mathbb{R}^{p,q}\) := unit ball in \(\mathbb{R}^{p,q}\) \\
+  \Define \(S^{p,q}\) : real subspace of \(B^{p,q}\) := unit sphere in \(\mathbb{R}^{p,q}\) \\
 \itemprop
   \Then \(\mathbb{R}^{p,p} \cong \mathbb{C}\)
 \end{Definition}

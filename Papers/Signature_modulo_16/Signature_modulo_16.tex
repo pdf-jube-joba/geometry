@@ -1,0 +1,32 @@
+\documentclass[dvipdfmx]{jsarticle}
+\input{../../my-style.tex}
+
+\begin{document}
+
+\begin{When}
+\itemwhen
+  多様体は \(C^\infty\) とする
+\itemwhen
+  \(Y \subset X\) が部分多様体と言うときは \(\partial X \cap Y = \partial Y\) とし、 \(Y\) は \(\partial X\) に transversal とする
+\end{When}
+
+\begin{Definition}
+\itemwhen
+  \For \(f\) : \(Z \to X\) smooth s.t. \(f^{-1}(\partial X) = \partial Z\)
+\itemdefi
+  \Define \(f\) が \(Y\) に transversal :=
+  \begin{itemize}
+    \itemwith \(\forall\) (\(y\) : \(Y \cap f(Z)\)), (\(z\) : \(Z\) s.t. \(f(z) = y\)), \(df_z(T_z (Z)) + T_y(Y) = T_y(X)\)
+    \itemwith \(\forall\) (\(z\) : \(\partial Z\)), \(d f_z(T_z Z) + T_y(\partial X) = T_y(X)\)
+  \end{itemize}
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \For \(f\) : \(Z \to X\), \(Y\) : sub manifold \(X\) \\
+  \Let \(V\) : submanifold of \(Z\) := \(f^{-1}(Y)\) 
+\itemprop
+  \Then normal bundle of \(V\) in \(Z\) と normal bundle of \(Y\) in \(X\) について、 \(df\) が対応するように移す
+\end{Theorem}
+
+\end{document}
