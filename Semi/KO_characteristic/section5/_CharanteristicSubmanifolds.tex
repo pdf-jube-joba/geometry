@@ -1,30 +1,76 @@
 \begin{Theorem}
 \itemwhen
-  \For \((p : V \to X)\) : \(\text{Spin}^c\) bundle over closed manifold \\
-  \Let \(D\) : vector bundle over \(X\) := determinant bundle of this \\
-  \For \(s\) : section of \(D\) transverse to \(X\) \\
+  \For \(\xi = (p : V \to X)\) : \(\text{Spin}^c\) bundle over closed manifold \\
+  \Let \(\eta = (\pi : D \to X)\) : vector bundle over \(X\) := determinant bundle of \(\xi\) \\
+  \For \(s\) : section of \(\eta\) transverse to \(X\) \\
   \Let \(Y\) : sub manifold of \(X\) := \(s^{-1}(X)\) \\
   \Let \(i\) : \(Y \to X\) := inclusion
 \itemprop
-  \Then normal bundle of \(Y\) in \(X\) is canonically isomorphic to the bundle \(\restr{D}{Y} \to Y\)
-\itemwhen
-  \Fix \(U\) : tubular neighborhood of \(Y\) in \(X\), identification of \(U\) and \(B(\restr{D}{Y})\)
+  \Then normal bundle of \(Y\) in \(X\) is canonically isomorphic to the bundle \(\restr{\eta}{Y}\)
 \end{Theorem}
   
 \begin{Proof}
 \itemprof
-  \ADMIT
+  以下の構成において、 \(\xi \leftarrow \zeta, \ldots\) とおけばよい。
+\end{Proof}
+
+\begin{Definition}
+\itemwhen
+  \For \(\xi = (p : E \to M)\), \(s\) : \(\Gamma(\xi)\) s.t. transverse to \(0\) \\
+  \Let \(Y\) := \(s^{-1}(0)\) \\
+  \Let \(\Phi\) : isomorphism \(\tau(M/E) \to \xi\) := \AIMAI{canonical} 
+\itemdefi
+  \Define \(J\) : isomorphism \(\tau(Y/M) \to \restr{\xi}{Y}\) := at \(x \in Y\),
+  \begin{indentblock}
+    \For \(v\) : \(\tau_{x}(Y/M)\) \\
+    \Return \(\Phi \restr{(s_* v)}{\tau(M/E)}\) 
+  \end{indentblock}
+\end{Definition}
+
+\begin{Proof}
+\itemprof
+  Well-defined 性について
+  \(s\) が smooth であることから局所的にはグラフとして書けて、 \(v\) : \(\tau(Y/M) \subset T_x M\) は \(s_*\) により \(T_x E\) の元として確かに定義される。
+  \(T_x E = T_x M \oplus \tau(M/E)\) のため直和分解して確かにつじつまはあっている。
+\itemprof
+  isomorphism であること
+  次元を考えると単射であることを示せばよい。
+  \(\Phi\) の同型性と \(s_*\) の単射性を加味すると、 \(v\) : \(T_x S\) が \(\restr{v}{\tau(M/E)} = 0\) を満たすならば \(v = 0\) であることを示せばよい。
+  \(S\) が横断的だから確かに成り立つ。
 \end{Proof}
 
 \begin{Theorem}
 \itemwhen
-  \Let \(\tilde{\pi}\) : \(\restr{D}{Y} \to Y\) := restriction
+  \For same assumptions as before \\
+  \Let \(r\) : \(U \to Y\) := canonical retraction \\
+  \Let \(R_0\) : \(B(\restr{\xi}{U}) \to B(\tau(Y/M))\) := induced by \(J^{-1} \circ p\) \\
+  \Let \(\pi\) := projection of \(\tau(Y/M)\)
 \itemprop
-  \Define \(\tau\) : \(\Gamma(B(\restr{D}{Y}); B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y})\) := \AIMAI{canonical section} \\
-  \Then bundle \(\restr{D}{U} \to U\) can be identified with the bundle \(B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y} \to B(\restr{D}{Y})\) \\
+  \Then \((R_0, r)\) is \(((D(\restr{\xi}{U})) \to U) \to (D(\tau(Y/M)) \to Y)\) \\
+  \Then \(R_0 \circ s\) is diffeomorphism \(U \to D(\tau(Y/M))\)
+\itemwhen
+  \Let \(q = R_0 \circ s\) \\
+  \Let \(Q\) : \(E(\restr{\xi}{U}) \to E((\restr{\pi}{D(\tau(Y/M))})^* \tau(Y/M))\) := \(y \mapsto (R_0 s p y, R_0 y)\)
+\itemprop
+  \Then \((Q, q)\) is \(\restr{\xi}{U} \to (\restr{\pi}{D(\tau(Y/M))})^* \tau(Y/M)\) \\
+  \Then \((Q, q)\) is isomorphism
+\itemprop
+  \Then under isomorphism of \((Q, q)\), \(\restr{s}{U}\) : \(\Gamma(\restr{\xi}{U})\) correspond to \(x \mapsto (x, x)\) : \(\Gamma((\restr{\pi}{D(\tau(Y/M))})^* \tau(Y/M))\)
+\end{Theorem}
+
+\begin{Proof}
+\itemprof
+  
+\end{Proof}
+
+\begin{Theorem}
+\itemprop
+  \Let \(\gamma = (q : V \oplus D \to X)\) : vec with spin st over \(X\) := \(\xi \oplus \eta\) with natural st \\
+  \Define \(\tau\) : \(\Gamma(q^* \gamma)\) := \AIMAI{canonical section} \\
+  \Then \(\restr{\eta}{U}\) can be identified with \((\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\eta}{Y}\) \\
   \Then this identification coincidents with \(\restr{s}{U} , \tau\)
 \itemprop
-  \Then \(\restr{V}{U} \to U\) and \(B(\restr{D}{Y}) \times_{\tilde{\pi}}\restr{V}{Y} \to B(\restr{D}{Y})\) can be identified
+  \Then \(\restr{\xi}{U}\) can be identified with \((\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\xi}{Y}\) 
 \itemprop
   \Then \(\restr{V}{Y} \oplus \restr{D}{Y} \overset{\pi_2}{\to} \restr{D}{Y}\) and \(\restr{D}{Y} \times_{\tilde{\pi}} \restr{V}{Y} \to \restr{D}{Y}\) can be identified
 \end{Theorem}
@@ -38,6 +84,12 @@
   これは確かに成り立つ。
 \end{Proof}
 
+\begin{Theorem}[補題]
+\itemprop
+  \For \(\xi = (p : V \to X)\) : vector bundle, \(s\) : \(\Gamma(V)\) \\
+  \Then \((x, t) \in X \times \mathbb{K} \mapsto t * s(x) \in V\) is vec.bnd.hom of \(1 \to \xi\)
+\end{Theorem}
+
 \begin{Theorem}
 \itemdefi
   \Define \(j\) : \(B(\restr{V}{Y} \oplus \restr{D}{Y}) \to V\) := resulting open embedding
@@ -47,78 +99,96 @@
 
 \begin{Proof}
 \itemprof
-  状況としては、
+  状況としては
   \begin{itemize}
-    \item \(S^{\pm}\) : vector bundle over \(X\) := defined by spin structure on \(V \oplus D\)
-    \item \(\Delta\) : \(\Gamma((V \oplus D);q^*(V \oplus D) = (V \oplus D) \times_{X} (V \oplus D))\) := \(v \mapsto (v, v)\)
-    \item \(m\) : \(q^*(V \oplus D) \times_{V \oplus D} q^*(S^{+}) \to q^*(S^{-}) = ((V \oplus D) \times_{X} (V \oplus D)) \times_{V \oplus D} ((V \oplus D) \times_{X} S^{+})\) := multiplication
-    \item 
-    \[\begin{matrix}
-      \restr{D}{U} &\to& U \\
-      \downarrow \phi_{D} & & \downarrow \phi \\
-      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{D}{Y} &\to& B(\restr{D}{Y})
-    \end{matrix}\]
-    \item 
-    \[\begin{matrix}
-      \restr{V}{U} &\to& U \\
-      \downarrow \phi_{V} & & \downarrow \phi \\
-      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{V}{Y} &\to& B(\restr{D}{Y})
-    \end{matrix}\]
-    \item 
-    \[\begin{matrix}
-      \restr{S^{\pm}}{U} &\to& U \\
-      \downarrow \phi_{S^{\pm}} & & \downarrow \phi \\
-      B(\restr{D}{Y}) \times_{\tilde{\pi}} \restr{S^{\pm}}{Y} &\to& B(\restr{D}{Y})
-    \end{matrix}\]
-    \item 
-    \[\begin{matrix}
-      \restr{V}{Y} \oplus \restr{D}{Y} &\overset{\pi_2}{\to}& \restr{D}{Y} \\
-      \downarrow h & & | \\
-      \restr{D}{Y} \times_{\tilde{\pi}} \restr{V}{Y} &\to& \restr{D}{Y}
-    \end{matrix}\]
+    \itemenum \(\xi = (p : V \to X)\) : \(\text{Spin}^c\)-bundle
+    \itemenum \(\eta = (\pi : D \to X)\) : vector bundle over \(X\) := determinant bundle of \(\xi\)
+    \itemenum \(\gamma = (q : V \oplus D \to X)\) : \(\text{Spin}\)-bundle
+    \itemenum \(\omega^{\pm} = (r : S^{\pm} \to X)\) : vector bundle over \(X\) := spinor bundle of \(\eta\)
+    \itemenum \(s\) : \(\Gamma(\eta)\)
+    \itemenum \(\tau\) : \((\restr{\pi}{B(\restr{\eta}{Y})})^*\eta\) := canonical one
+    \itemenum \(\delta\) : \(\Gamma(q^* \gamma)\) := canonical one
+    \itemenum \(m\) : \(\gamma \otimes \omega^{+} \to \omega^{-}\) := multiplication
+    \itemenum \(\phi\) : homeo \(U \to B(\restr{\eta}{U})\)
+    \itemenum \((\phi_{\eta}, \phi)\) : \(\restr{\eta}{U} \cong (\restr{\pi}{B(\restr{\eta}{Y})})^* (\restr{\eta}{Y})\)
+    \itemenum \((\phi_{\xi}, \phi)\) : \(\restr{\xi}{U} \cong (\restr{\pi}{B(\restr{\eta}{Y})})^* (\restr{\xi}{Y})\)
+    \itemenum \((\phi_{\omega^{\pm}}, \phi)\) : \(\restr{\omega^{\pm}}{U} \cong (\restr{\pi}{B(\restr{\eta}{Y})})^* (\restr{\omega^{\pm}}{Y})\)
+    \itemenum \(h\) : \(V \oplus D \to p^*\eta\) := \AIMAI{by natural definition}
   \end{itemize}
-  となっていた。
-  \(\restr{V}{Y} \oplus \restr{D}{Y}\) に対応する構成によるベクトル束が \(\restr{S^{+}}{Y}\) となることから、
+  ここで \(\mu(\restr{\gamma}{Y}) \in KO(\restr{V}{Y} \oplus \restr{D}{Y})\) がどのような複体で表されたかを考えると、
+  \[
+    (\restr{q}{Y})^*(\restr{\omega^{+}}{Y}) \overset{\alpha}{\to} (\restr{q}{Y})^*(\restr{\omega^{-}}{Y})
+  \]
+  ここで \(\alpha\) は
   \begin{align*}
-    (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{+}}{Y} &\to (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{-}}{Y} 
-    & \text{over} \, \restr{V}{Y} \oplus \restr{D}{Y} \\
-    (v_1 , v_3) & \mapsto (v_1, m(\Delta(v_1), v_3))
+    (\restr{q}{Y})^*(\restr{\omega^{+}}{Y}) \\
+    \downarrow \cong \\
+    1 \otimes (\restr{q}{Y})^*(\restr{\omega^{+}}{Y}) \\
+    \downarrow \restr{\tau}{Y} \otimes 1 \\
+    (\restr{q}{Y})^*(\restr{\gamma}{Y}) \otimes (\restr{q}{Y})^*(\restr{\omega^{+}}{Y}) \\
+    \downarrow \cong \\
+    (\restr{q}{Y})^*(\restr{\gamma}{Y} \otimes \restr{\omega^{+}}{Y}) \\
+    \downarrow {\restr{q}{Y}}^* m \\
+    (\restr{q}{Y})^*(\restr{\omega^{-}}{Y})
   \end{align*}
-  のようになっていた。
-  これが \(\restr{V}{U}\) 上の複体となるように次のように移す。
-  対応するベクトル束とその写像を書いた。
-  \begin{itemize}
-    \item \((\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{\pm}}{Y} \to (\restr{V}{Y} \oplus \restr{D}{Y}) \times_{Y} \restr{S^{-}}{Y}\) : over \(\restr{V}{Y} \oplus \restr{D}{Y}\) \\
-    \((v_1, v_3) \mapsto (v_1, m(\Delta(v_1), v_3))\)
-    \item \((\restr{D}{Y} \times_{Y} \restr{V}{Y}) \times_{Y} \restr{S^{\pm}}{Y}\) : over \(\restr{D}{Y} \times_{Y} \restr{V}{Y}\) \\
-    \((v_1, v_3) \mapsto (v_1, m(\Delta(h^{-1} v_1), v_3))\)
-    \item \((B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}) \times_{Y} \restr{S^{\pm}}{Y}\) : over \(B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}\) \\
-    \((v_1, v_3) \mapsto (v_1, m(\Delta(h^{-1} v_1), v_3))\)
-    \item \((B(\restr{D}{Y}) \times_{Y} \restr{V}{Y}) \times_{B(\restr{D}{Y})} (B(\restr{D}{Y}) \times_{Y} \restr{S^{\pm}}{Y})\) \\
-    \((v_1, (v_2, v_3)) \mapsto (v_1, (v_2, m(\Delta(h^{-1} v_1), v_3)))\) ただし \(v_2 = \text{proj}\,v_1\) \\
-    \((v_1, v_3) \mapsto (v_1, (\text{proj}_1 v_3, m(\Delta(h^{-1} v_1, \text{proj}_2 v_3))))\)
-    \item \(\restr{V}{U} \times_{U} \restr{S^{\pm}}{U}\) \\
-    \((v_1, v_3) \mapsto (v_1, {\phi_{S^{-}}}^{-1} (\text{proj}_1 \phi_{S^{+}} v_3, m(\Delta(h^{-1} \phi_{V} v_1), \text{proj}_2 \phi_{S^{+}} v_3)))\)
-  \end{itemize}
-  ここで最後の関数について、次を示す。
-  \((v_1, v_3) \in \restr{V}{U} \times_{U} \restr{S}{U}\) のとき
-  \[{\phi_{S^{-}}}^{-1} (\text{proj}_1 v_3, m(\Delta(h^{-1} \phi_{V} v_1), \text{proj}_2 \phi_{S^{+}} v_3)) = m(\Delta(v_1, sp(v_1)), v_3)\]
-\end{Proof}
-
-\begin{Proof}
-\itemprof
-  \(\omega\) := canonical section of \(p^*(V \oplus D) \to V \oplus D\) とするとき、
-  \(\alpha\) : \(p^*(\restr{S^{+}}{U}) \to p^*(\restr{S^{-}}{U})\) := at \(v\), Clifford multiplication by \(\omega (v + s p(v))\) として
-  このとき \(\mu({i^*} V \oplus {i^*} D)\) が次の complex で表せることに注意する。
+  と表された。これを \(\restr{V}{U} \overset{\phi_{\xi}}{\to} B(\restr{\eta}{Y}) \times_{Y} \restr{V}{Y} \overset{h}{\to} \restr{V}{Y} \oplus \restr{D}{Y}\) と引き戻したものを考えたとき、次の \(\restr{V}{U}\) 上の複体と同型であることを示す。。
   \[
-    0 \to {p^*} (\restr{S^{+}}{U}) \overset{\alpha}{\to} {p^*} (\restr{S^{-}}{U}) \to 0
+    (\restr{p}{U})^*(\restr{\omega^{+}}{U}) \overset{\beta}{\to} (\restr{p}{U})^*(\restr{\omega^{-}}{U})
   \]
-  これにより section 1 での結果から \({j_*} \mu({i^*} V \oplus {i^*} D)\) は次の complex で表される。
-  \(\alpha\) : \({p^*} S^{+} \to {p^*} S^{-}\) := at \(v\), Clifford multiplication by \(\omega (v + s p (v))\) 
+  ここで \(\beta\) は \(sp := v \in \restr{V}{U} \to (v, (v, spv)) \in \restr{V}{U} \times_{U} (\restr{V}{U} \times_{U} \restr{D}{U})\) なる \(\Gamma((\restr{p}{U})^*(\restr{\gamma}{U}))\) の元を \(1 \to (\restr{p}{U})^*(\restr{\gamma}{U})\) と考えたとき、
+  \begin{align*}
+    (\restr{p}{U})^* (\restr{\omega^{+}}{U}) \\
+    \downarrow \cong \\
+    1 \otimes (\restr{p}{U})^* (\restr{\omega^{+}}{U}) \\
+    \downarrow sp \otimes 1 \\
+    (\restr{p}{U})^* (\restr{\gamma}{U}) \otimes (\restr{p}{U})^* (\restr{\omega^{+}}{U}) \\
+    \downarrow \cong \\
+    (\restr{p}{U})^* (\restr{\gamma}{U} \otimes \restr{\omega^{+}}{U}) \\
+    \downarrow (\restr{p}{U})^* m \\
+    (\restr{p}{U})^* (\restr{\omega^{-}}{U})
+  \end{align*}
+  と表される。
+\itemthen
+  可換な図式として次のものがある
+  \[\begin{matrix}
+    \restr{V}{U} & \overset{\phi_{\xi}}{\to} & B(\restr{\eta}{Y}) \times_{Y} \restr{V}{Y} & \overset{h}{\to} & \restr{V}{Y} \oplus \restr{D}{Y} & \overset{\text{proj}_2}{\to} & \restr{D}{Y} \\
+    \downarrow p & & \downarrow \text{proj}_1 & & \downarrow \restr{q}{Y} & & \downarrow \restr{\pi}{Y} \\
+    U & \overset{\phi}{\to} & B(\restr{\eta}{Y}) & \overset{\restr{\pi}{B(\restr{\eta}{Y})}}{\to} & Y & = & Y
+  \end{matrix}\]
+  まず、 \(\xi, \eta, \gamma, \omega^{\pm}\) のいずれもベクトル束としての同型 \((\restr{\pi}{B(\restr{\eta}{Y})})^* ({\restr{\place}{Y}}) \cong \restr{\place}{U}\) から得られる \(U\) 上のベクトル束の同型 \(\phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* ({\restr{\place}{Y}}) \cong \restr{\place}{U}\) があることに注意すると、 \((h \phi_{\xi})^* (\restr{q}{Y})^* {\restr{\place}{Y}} \cong p^* \phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\place}{Y} \cong p^* \restr{\place}{U}\) によりベクトル束の複体のうち対応するベクトル束の同型はこれにより得られる。
+  次にこの引き戻しと同型により写像が対応するかどうかについて議論すると、 natural に得られる同型の部分と \(\place ^* m\) のように書かれている部分が対応しあっているので、切断同士が対応するかどうかについて議論すればよい。
+  すなわち、
   \[
-    0 \to {p^*} S^{+} \overset{\alpha}{\to} {p^*} S^{-} \to 0
+    \restr{\tau}{Y} \in \Gamma((\restr{q}{Y})^* \restr{\gamma}{Y}) := v \in \restr{V}{Y} \oplus \restr{D}{Y} \mapsto (v,v) \in \restr{V}{Y} \oplus \restr{D}{Y} \times_{Y} \restr{V}{Y} \oplus \restr{D}{Y}
   \]
-  一方で \(r \mu_c (V)\) がどのように表されるかが Theorem 1 にあり、 \({p^*} S^{+} \to {p^*} S^{-}\) なる写像のみが上で述べた複体と異なる。
-  従って、二つの写像が homotopic であることを示せばよいが、
-  \(F_t\) := for \(t \in [0,1]\), at \(v \in {p^*} S^{+}\), Clifford multiplication by \(\omega (v + t s p(v))\) とすればこれが homotopy を与える。
+  を \((h \phi_{\xi})^*\) で引き戻し、 \((h \phi_{\xi})^* (\restr{q}{Y})^* {\restr{\gamma}{Y}} \cong p^* \phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\gamma}{Y} \cong p^* \restr{\gamma}{U}\) なる同型で \(\Gamma(p^* \restr{\gamma}{U})\) の元として考えたとき、
+  \[
+    v \in \restr{V}{U} \to (v, spv) \in \restr{V}{U} \times_{U} \restr{D}{U}
+  \]
+  になることを示す。
+  \begin{align*}
+    &\restr{\tau}{Y} : \Gamma((\restr{q}{Y})^* \restr{\gamma}{Y}) \\
+    &= v \in v \in \restr{V}{Y} \oplus \restr{D}{Y} \mapsto (v,v) \in \restr{V}{Y} \oplus \restr{D}{Y} \times_{Y} \restr{V}{Y} \oplus \restr{D}{Y} \\
+    &(h \phi_{\xi})^* \restr{\tau}{Y} : \Gamma((h \phi_{\xi})^* (\restr{q}{Y})^* \restr{\gamma}{Y}) \\
+    &= v \in \restr{V}{U} \mapsto (v, \restr{\tau}{Y} (h \phi_{\xi} v)) \in \restr{V}{U} \times_{\restr{V}{Y} \oplus \restr{D}{Y}} (\restr{V}{Y} \oplus \restr{D}{Y} \times_{Y} \restr{V}{Y} \oplus \restr{D}{Y}) \\
+    &\place : \Gamma((\restr{q}{Y} h \phi_{\xi})^* \restr{\gamma}{Y}) \\
+    &= v \in \restr{V}{U} \mapsto (v, h \phi_{\xi} v) \in \restr{V}{U} \times_{Y} \restr{V}{Y} \oplus \restr{D}{Y} \\
+    &\place : \Gamma(p^* (\phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\gamma}{Y})) \\
+    &= v \in \restr{V}{U} \mapsto (v, p v, \phi p v, h \phi_{\xi} v) \in \restr{V}{U} \times_{U} U \times_{B(\restr{\eta}{Y})} B(\restr{\eta}{Y}) \times_{Y} (\restr{V}{Y} \oplus \restr{D}{Y}) \\
+    &\place : \Gamma(p^* \left( (\phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\xi}{Y}) \oplus (\phi^* (\restr{\pi}{B(\restr{\eta}{Y})})^* \restr{\eta}{Y}) \right)) \\
+    &\text{as in} \, \restr{V}{U} \times_{U} \left(U \times_{B(\restr{\eta}{Y})} B(\restr{\eta}{Y}) \times_{Y} \restr{V}{Y}\right) \oplus \left(U \times_{B(\restr{\eta}{Y})} B(\restr{\eta}{Y}) \times_{Y} \restr{D}{Y} \right) \\
+    &= v \in \restr{V}{U} \mapsto (v, (p v, \phi p v, \text{proj}_1 h \phi_{\xi} v), (v, (p v, \phi p v, \text{proj}_2 h \phi_{\xi} v))) \\
+    &= v \in \restr{V}{U} \mapsto (v, (p v, \phi_{\xi} v), (p v = \pi s p v, \restr{\tau}{Y} \phi p v = \phi_{\eta} s p v)) \\
+    &\place : \Gamma(p^* (\restr{\xi}{U} \oplus \restr{\eta}{Y})) \\
+    &\text{as in} \, \restr{V}{U} \times_{U} (\restr{V}{U} \oplus \restr{D}{U}) \\
+    &= v \in \restr{V}{U} \mapsto (v, (v, sp v)) \\
+  \end{align*}
+  示された。
+\itemthen
+  こうして得られた \(\restr{V}{U}\) 上の複体 \((\restr{p}{U})^* (\restr{\omega^{+}}{U}) \overset{\beta}{\to} (\restr{p}{U})^* (\restr{\omega^{-}}{U})\) は \(v \in \restr{V}{U}\) では \((v, sp(v)) \in \restr{V}{U} \oplus \restr{D}{U}\) による multiplication として \(\restr{S^{+}}{pv} \to \restr{S^{-}}{pv}\) のように定義された。
+  与えられた複体の support を考えると、 \(Y\) の外側では \(s \not = 0\) より \(Y\) に含まれるから compact である。
+  この複体が \(\restr{V}{U} \to V\) という open embeding によって pushout されたとき、複体自体が自明に compact support な複体への拡張を持つことから、定理 1 より \(j_* \mu(\restr{\gamma}{Y}) = [p^* \omega^{+} \to p^* \omega^{-}]\) として書ける。
+  \(r \mu_c(V)\) の記述を以前に行ったためこれと比較を行うと、 \(q^* \omega^{+} \to q^* \omega^{-}\) としては \(v \in V\) 上で \(\omega(v,0), \omega((v,sp(v)))\) のどちらで multiplication を行うかの違いがある。
+  これらは \(\omega(v, t* spv)\) で homotopic であるからよい。
+  したがって示された。
 \end{Proof}

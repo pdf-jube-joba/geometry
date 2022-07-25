@@ -3,6 +3,8 @@
 
 \begin{document}
 
+\section*{Convension について}
+
 \begin{When}
 \itemwhen
   多様体は \(C^\infty\) とする
@@ -27,6 +29,260 @@
   \Let \(V\) : submanifold of \(Z\) := \(f^{-1}(Y)\) 
 \itemprop
   \Then normal bundle of \(V\) in \(Z\) と normal bundle of \(Y\) in \(X\) について、 \(df\) が対応するように移す
+\end{Theorem}
+
+\section*{spin 構造}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\text{Spin}(n)\) group : Lie group := \AIMAI{いい感じに}
+\itemprop
+  \Then \(\text{Spin}(n)\) has universal double covering \(p\) : \(\text{Spin}(n) \to \text{SO}(n)\)
+\itemprop
+  \Then homotopy fiber of \(p_*\) is \(K(\mathbb{Z}_2, 1)\)
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \For \(\xi\) : \(\text{SO}(n)\)-fiber bundle \\
+  \Define Spin structure on \(\xi\) := reduction of structure group of \(\xi\) to \(\text{Spin}(n)\)
+\itemdefi
+  \Define equivalence of \(\text{Spin}(n)\)-structure := homotopy of reduction group
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi = (p : \place \to \place)\) : \(\text{SO}(n)\)-fiber bundle \\
+  \Let \(f\) : \(B \to \text{SO}(n)\) := classifying map of \(\xi\) \\
+  \Then equivalence classes of Spin structure on \(\xi\) correspond bijectively to the vertical homotopy classes of \(g\) : \(B \to B\text{Spin}(n)\) s.t. \(p_* \circ g = f\) 
+\itemprop
+  \Then \(\exists\) spin structure \(\Leftrightarrow\) \(w_2(\xi) = 0\) \\
+  \Then if there exists spin structure, equivalence class of spin structure has bijection with \(H^1(B; \mathbb{Z}_2)\)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \Define \(\text{Spin}^c\) := \AIMAI{いい感じ}
+\itemprop
+  \Then \(\text{SO}(n) \times \text{SO}(2) \subset \text{SO}(n+2) \cap \text{Spin}(n+2) \to \text{SO}(n+2) \cong \text{Spin}^c(n)\)
+\itemdefi
+  \Define \(q\) : \(\text{Spin}^c(n) \to \text{SO}(n)\) := composition of \(\text{Spin}^c(n) \to \text{SO}(n) \times \text{SO}(2) \to \text{SO}(n)\) \\
+  \Define \(d\) : \(\text{Spin}^c(n) \to \text{SO}(n)\) := composition of \(\text{Spin}^c(n) \to \text{SO}(n) \times \text{SO}(2) \to \text{SO}(2)\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \For \(\xi\) : \(\text{Spin}^c(n)\) structure \\
+  \Let \(\text{det}(\xi)\) : \(\text{SO}(2)\) fiber bundle := associate to \(d\)
+\itemprop
+  \Then \(e(\text{det})(\xi) \equiv w_2(\xi)\) modulo \(2\)
+\itemprop
+  \For \(\xi\) : \(\text{SO}(n)\) structure \\
+  \For \(x\) : \(H^2(B;\mathbb{Z})\) s.t. \(x \equiv w_2(\xi)\) modulo \(2\) \\
+  \Then there exists at least one \(\text{Spin}^c\)-structure on \(\xi\) s.t. \(e(\text{det} \xi) = x\)
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \Let \(d\) : \(\text{SO}(2) \to \text{SO}(4)\) := diagonal map \\
+  \Then \(d\) represents \(0\) in \(\pi_2(\text{SO}(4))\) \\
+  \Define unique homomorphism \(\text{SO}(2) \to \text{Spin}^c(2)\) := defined by this \\
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  \For \(\xi\) : \(\text{SO}(2)\)-fiber bundle \\
+  \Then there exists canonical \(\text{Spin}^c\)-structure on \(\xi\) s.t. \(\text{det} \xi = \xi\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \Then there exists unique homomorphism \(\phi\) : \(\text{Spin}^c(n) \times \text{Spin}^c(m) \to \text{Spin}^c(n+m)\) s.t. 
+  \begin{itemize}
+    \itemwith compatible with standard homomorphism \(\text{SO}(n) \times \text{SO}(m) \to \text{SO}(n+m)\) with \(q\)
+    \itemwith compatible with multiplication \(\text{SO}(2) \times \text{SO}(2) \to \text{SO}(2)\) with \(d\)
+    \itemwith \(\phi\) allows to equip the Whitney sum of \(\xi_1, \xi_2\) : \(\text{Spin}^c\)-fiber with \(\text{det} (\xi_1 \oplus \xi_2) \cong \text{det} \xi_1 \otimes_{\mathbb{C}} \text{det} \xi_2\)
+  \end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \Then \(1 \to \text{Spin}(n) \to \text{Spin}^c(n) \to \text{SO}(2) \to 1\) is exact
+\itemprop
+  \Then for each non-zero section of \(\text{det} \xi\) determines a \(\text{Spin}\)-structure on \(\xi\) compatible by \(i\) with the given \(\text{Spin}^c\)-structure
+\end{Theorem}
+
+\begin{Definition}
+\itemdefi
+  \For \(M\) : oriented manifold \\
+  \Define \(M\) is Spin-manifold := stable tangent bundle of \(M\) has a \(\text{Spin}\)-structure
+\end{Definition}
+
+\begin{Theorem}
+\itemprop
+  Cobordism class \(\Omega^{\text{Spin}}\) and \(\Omega^{\text{Spin}^c}\) corresponding to the structures
+\itemprop
+  Equivalent class of \(\text{Spin}\)-structure defines a same element in \(\Omega^{\text{Spin}}\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(M\) : \(\text{Spin}^c\)-manifold
+\itemprop
+  \Then \(\text{det} (\xi \oplus \theta^N) \cong \text{det} \xi \otimes \text{det} \theta^N \cong \text{det} \xi\) \\
+  \Then \(\tau M\) is well-defined
+\end{Theorem}
+
+\begin{Theorem}
+\itemprop
+  \Then \(\Omega^{\text{Spin}}\) can also be defined from manifold with a \(\text{Spin}\)-structure on the stable normal bundle
+\itemprop
+  \Then from \(\tau M \oplus \mu M\) has trivial \(\text{Spin}^c\)-bundle \(\text{det}(\tau M) \cong \bar{\text{det}(\mu M)}\)
+\end{Theorem}
+
+\section*{Sub manifold の Characteristics}
+
+\begin{Theorem}
+\itemwhen
+  \For \(\xi = (p : E \to W)\) : vector bundle \\
+  \IfHold \(E\) is a smooth manifold s.t. \(\partial E\) coincident with \(p^{-1}(\partial W)\) \\
+  \For \(s\) : \(\partial W \to \partial E\) s.t. as a section of \(\restr{\xi}{\partial W}\), transverse to \(0\)
+\itemprop
+  \Then \(\exists\) \(\tilde{s}\) : section of \(\xi\) s.t. \(\tilde{s}\) is extension of \(s\) and transverse to \(0\)
+\end{Theorem}
+
+\begin{Definition}
+\itemwhen
+  \For \(\xi = (p : E \to M)\) : vector bundle \\
+  \For \(s\) : section of \(\xi\) s.t. transverse to \(0\) in section of \(\xi\) \\
+  \Let \(V\) : submanifold := \(s^{-1}(0)\) \\
+  \Let \(\zeta\) := normal bundle of \(V\) in \(M\) \\
+  \Let \(j\) : \(V \to M\) := canonical injection
+\itemnote
+  \Then normal bundle of \(M\) in \(E\) is canonically identifies with \(\xi\)
+\itemdefi
+  \Define \(J\) : isomorphism \(\zeta \to j^* \xi\) := \AIMAI{by this}
+\end{Definition}
+
+\begin{Definition}
+\itemdefi
+  \Define characteristic sub-manifold of \((M,\xi)\) := \((V,J)\) defined by \(s\)
+\end{Definition}
+
+\begin{Theorem}
+\itemwhen
+  \For \(M\) : \(\text{Spin}^c\)-manifold, \(\xi\) : \(\text{Spin}^c\)-fiber \\
+  \For \((V,J)\) : characteristic sub-manifold of \((M,\xi)\)
+\itemprop
+  \Then \(j^* \tau M = \tau V \oplus \zeta = \tau V \oplus j^* \xi\) \\
+  \Then \(\tau V\) has \(\text{Spin}^c\)-structure and \(V\) is \(\text{Spin}^c\)-manifold
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen 
+  \For \(K\) : \(\text{det} \tau M \cong \text{det} \xi\)
+\itemprop
+  \Then \(\text{det} \tau V \otimes j^* \text{det} \xi \cong j^* \text{det} \tau M \cong j^* \text{det} \xi\) \\
+  \Then \(\text{det} \tau V\) is trivial with above isomorphism \\
+  \Then \(\tau V\) has \(\text{Spin}\)-structure on \(V\)
+\itemprop
+  \Then this spin structure is uniquely defined by \(\text{Spin}^c\)-structure on \(M\) and \(K\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(M\) : close manifold, \(\omega_i = (p_i : E_i \to M)\) : vector bundle \\
+  \Let \(\xi\) := \(\omega_1 \oplus \omega_2\) \\
+  \For \(s_1\) : section of \(\omega_1\) s.t. transverse to \(0\) \\
+\itemprop
+  \Then \(\exists\) \(s_2\) : section of \(\omega_2\) s.t.
+  \begin{itemize}
+    \itemenum \(s_2\) is transverse to \(0\)
+    \itemenum \(s = s_1 \times s_2\) is transverse to \(0\)
+    \itemenum characteristic submanifold corresponding to \(s_1, s_2\) intersect transversaly
+  \end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For under assumptions of lemma \(2\) \\
+  \Let \(V,V_1,V_2\) := characteristic submanifold of \((M, \omega), (M, \omega_1), (M, \omega_2)\) \\
+  \Let \(j_1,j_2,j\) := canonical injection, \(\zeta_1,\zeta_2, \zeta\) := normal bundle, \(J_1,J_2,J\) := isomorphism, \(s_1,s_2,s\) := sections
+\itemprop
+  \Then \(V\) coincident to image by \(\restr{s_2}{V_1}\) of \(0\)-section of \(j_1^* \omega_2\) \\
+  \Then \(V\) can be considered as a characteristic submanifold of \((V_1,\xi_1)\) where \(\xi_1 = j_1^*\omega_2\) and same as \(\place_2\) \\
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \Let \(i_a\) : \(V \to V_a\) := canonical injection, \(\beta_a\) := normal bundle, \(I_a\) : \(\beta_a \to i_a^*\xi_a\) := corresponding isomorphism \\
+\itemwhen
+  \Then \(\zeta \cong \beta_1 \oplus \beta_2, \beta_2 \cong i_1^* \zeta_1, \beta_1 \cong i_2^* \zeta_2\) \\
+
+\end{Theorem}
+
+\section{Appendix 1}
+
+\begin{Theorem}
+\itemwhen
+  \For \(W\) : compact manifold, \(\Xi = (p, E)\) : vector bundle over \(W\), \(s_1\) : section of \(\Xi\) \\
+  \Let \(X\) : space := \(F\) : \(W \to E\) with \(C^\infty\)-topology s.t. coincident with \(s_1\) in the neighborhood of \(\partial W\) \\
+  \Let \(\Gamma\) : subspace of \(X\) := consists of section of \(\Xi\)
+  \Let \(G\) : group := diffeomorphism which is identity in some neighborhood of \(W\) \\
+  \Let action of \(G\) to \(X\) := \(g \cdot F = F \circ g\)
+  \For \(\Omega\) : dense subset of \(X\)
+  \IfHold \(\Omega\) is \(G\)-invariant
+\itemprop
+  \Then \(\Gamma \cap G \not = \emptyset\)
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(M = \partial W, \xi = \restr{\Xi}{M}\) \\
+  \For \(U\) : color neiborhood of \(M\) in \(W\) \\
+  \Let \(\pi\) : \(U \to M\) := projection \\
+  \Let \(R\) : diffeomorphism \(E(\pi^* \xi) \to p^{-1}(U)\) := \AIMAI{いい感じに} \\
+\itemprop
+  \Let fiber bundle structure on \((p : E(\pi^*(\xi) \to U))\) := 
+  \begin{itemize}
+    \itemenum \(E(\pi^*\xi) \cong E(\xi) \times [0,1]\) by \(C^\infty\)-homotopy of \(\pi\)
+    \itemenum \(p\) is projection \(p_0 \times \text{id}\) where \(p_0\) : \(E(\xi) \to M\) := projection 
+  \end{itemize}
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(\lambda\) : smooth \([0,1] \to [0,1]\) s.t. \(\lambda(t) = 1\) at \(t \in [0, 1/3]\) and \(\lambda(t) = 0\) at \(t \in [2/3, 1]\) \\
+  \Let \(s_1\) : section of \(W \to E\) :=
+  \begin{itemize}
+    \itemenum \(0\) at \(w \in W - U\)
+    \itemenum \(R(\lambda(t) s(m), t)\) at \(w = (m,t)\) as \(U = M \times [0,1]\)
+  \end{itemize}
+\itemprop
+  \Then \(s_1\) is smooth section of \(\Xi\) coincident with \(s\) on \(\partial W\) and transverse to \(0\) in neiborhood of \(\partial W\) \\
+\end{Theorem}
+
+\begin{Theorem}
+\itemwhen
+  \For \(M\) : close manifold, \(V\) : close submanifold of \(M\), \(\xi = (p : E \to M)\) : vector bundle \\
+\itemprop
+  \Then \(s\) : section of \(\xi\) s.t. transverse to \(0\) at \(V\)
+\end{Theorem}
+
+\begin{Proof}
+\itemwhen
+  \Let \(F(\xi)\) : space := smooth \(M \to E\) with \(C^\infty\)-topology \\
+  \For \(\Omega_1, \Omega_2\) : subspace of \(F(\xi)\) s.t. consists of transverse to \(0\) in \(V \subset E\) \\
+  \Then \(\Omega_1, \Omega_2, \Omega_1 \cap \Omega_2\) is dense in \(F(\xi)\) \\
+  \Then \(\Omega\) is \(\text{Diff}(M)\)-invariant \\
+  by this
+\end{Proof}
+
+\begin{Theorem}
+\itemwhen
+  \For under assumptions in lemma \(2\) 
+  \Let \(M_1\) : subset of \(E_1\) = \(s_1(M)\), \(\delta_1\) := \(p_1^* \omega_2\), and same for \(\place_2 \)
+
 \end{Theorem}
 
 \end{document}
